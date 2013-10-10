@@ -1,0 +1,12 @@
+{% extends "EarlsLeaseBundle::layout.html.twig" %}
+
+{% block title "Symfony - Activities" %}
+
+{% block content_header '' %}
+
+{% block content %}
+    <h1 class="title">Available activities</h1>
+    <ul id="demo-list">
+        <li><a href="{{ path('_activities_storeinfo', {'name': 'World'}) }}">Store Information</a></li>
+    </ul>
+{% endblock %}

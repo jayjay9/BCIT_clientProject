@@ -1,0 +1,4 @@
+earls_lease:
+    resource: "@EarlsLeaseBundle/Resources/config/routing.yml"
+    prefix:   /
+

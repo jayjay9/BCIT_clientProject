@@ -1,0 +1,10 @@
+earls_lease_homepage:
+    pattern:  /
+    defaults: { _controller: EarlsLeaseBundle:Default:index }
+
+_activities:
+    resource: "@EarlsLeaseBundle/Controller/ActivitiesController.php"
+    type:     annotation
+    prefix:   /Activities
+
+

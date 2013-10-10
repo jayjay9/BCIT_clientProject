@@ -2,10 +2,17 @@
 <html>
 <head>
     {% block head %}
-        <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
-        <link rel="stylesheet" href="{{ asset('bundles/acmedemo/css/demo.css') }}" />
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+        <!-- CSS -->
+        <link href="{{ asset('bundles/earlslease/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/earlslease/css/bootstrap-responsive.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('bundles/earlslease/css/normalize.css') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/earlslease/css/style.css') }}">
+        
+        <!-- Scripts -->
+        <script src="{{ asset('bundles/earlslease/js/jquery-1.9.0.min.js') }}"></script>
+        <script src="{{ asset('bundles/earlslease/js/modernizr-2.6.1.min.js') }}"></script>
+        <script src="{{ asset('bundles/earlslease/js/main.js') }}"></script>
+
         <title>{% block title 'Earls Lease Bundle' %}</title>
     {% endblock %}
 </head>
@@ -20,36 +27,31 @@
         
         <div class="wrapmenu">
           
-          <div id="logo"><a href="#"><span><img src="img/EarlsLogo.png" alt="" /></span></a></div>
+          <div id="logo"><a href="#"><span><img src="{{ asset('bundles/earlslease/images/EarlsLogo.png') }}" alt="" /></span></a></div>
           
           <div id="category">Activities</div>
           
           <ul class="menu">
-            <li><a href="#"><span>Store Information</span></a></li>
-            <li><a href="#"><span>Manage Areas</span></a></li>
+            <li><a href="{{ path('_storeinformation') }}"><span>Store Information</span></a></li>
+            <li><a href="{{ path('_manageArea') }}"><span>Manage Areas</span></a></li>
           </ul>
           
           <div id="category">Manage Tables</div>
           
           <ul class="menu">
-            <li><a href="#"><span>Building Types</a></span></li>
-            <li><a href="#"><span>Director</a></span></li>
-            <li><a href="#"><span>Jurisdiction Area</a></span></li>
-            <li><a href="#"><span>Landlord</a></span></li>
-            <li><a href="#"><span>Property Manager</a></span></li>
-            <li><a href="#"><span>Registered / Record</a></span></li>
-            <li><a href="#"><span>Share Type</a></span></li>
-            <li><a href="#"><span>Store Classes</a></span></li>
+            <li><a href="{{ path('_building_types') }}"><span>Building Types</a></span></li>
+            <li><a href="{{ path('_jurisdiction_area') }}"><span>Jurisdiction Area</a></span></li>
+            <li><a href="{{ path('_landlord') }}"><span>Landlord</a></span></li>
+            <li><a href="{{ path('_property_manager') }}"><span>Property Manager</a></span></li>
+            <li><a href="{{ path('_store_classes') }}"><span>Store Classes</a></span></li>
           </ul>
           
           <div id="category">Reports</div>
           
           <ul class="menu">
-            <li><a href="#"><span>Lease Summary</a></span></li>
-            <li><a href="#"><span>Leases By Expiry</a></span></li>
-            <li><a href="#"><span>License By Expiry</a></span></li>
-            <li><a href="#"><span>Summary by Share</a></span></li>
-            <li><a href="#"><span>Summary by Company</a></span></li>
+            <li><a href="{{ path('_summary') }}"><span>Lease Summary</a></span></li>
+            <li><a href="{{ path('_leases_byExpiry') }}"><span>Leases By Expiry</a></span></li>
+            <li><a href="{{ path('_license_byExpiry') }}"><span>License By Expiry</a></span></li>
           </ul>
           
           <!-- Footer / start -->
@@ -79,22 +81,14 @@
                 <div class="block">
                     {% block content %}
 
-                        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-                        <script>window.jQuery || document.write('<script src="{{ asset('js/jquery.js') }}"><\/script>')</script>
-                        <script src="{{ asset('js/bootstrap.js') }}"></script>
+                        
                     {% endblock %}
                 </div>   
             </section>
             <!-- Content / end -->
         </div>
-
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{ asset('js/jquery.js') }}"><\/script>')</script>
+    <script src="{{ asset('bundles/earlslease/js/bootstrap.js') }}"></script>
 </body>
 </html>
-
-<a href="{{ path('_activities_storeinfo', {'name': 'World'}) }}">Store Information</a>
-
-
-
-
-
-

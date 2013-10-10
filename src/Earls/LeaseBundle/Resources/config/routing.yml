@@ -2,9 +2,56 @@ earls_lease_homepage:
     pattern:  /
     defaults: { _controller: EarlsLeaseBundle:Default:index }
 
-_activities:
-    resource: "@EarlsLeaseBundle/Controller/ActivitiesController.php"
+_storeinformation:
+    resource: "@EarlsLeaseBundle/Controller/StoreInformationController.php"
     type:     annotation
-    prefix:   /Activities
+    prefix:   /StoreInformation
+
+_manageArea:
+    resource:   "@EarlsLeaseBundle/Controller/ManageAreaController.php"
+    type:       annotation
+    prefix:     /ManageArea
 
 
+
+_building_types:
+    resource:   "@EarlsLeaseBundle/Controller/BuildingTypesController.php"
+    type:       annotation
+    prefix:     /BuildingTypes
+
+_jurisdiction_area:
+    resource:   "@EarlsLeaseBundle/Controller/JurisdictionAreaController.php"
+    type:       annotation
+    prefix:     /JurisdictionArea
+
+_landlord:
+    resource:   "@EarlsLeaseBundle/Controller/LandlordController.php"
+    type:       annotation
+    prefix:     /Landlord
+
+_property_manager:
+    resource:   "@EarlsLeaseBundle/Controller/PropertyManagerController.php"
+    type:        annotation
+    prefix:     /PropertyManager
+
+_store_classes:
+    resource:   "@EarlsLeaseBundle/Controller/StoreClassesController.php"
+    type:       annotation
+    prefix:     /StoreClasses
+
+
+
+_summary:
+    resource:   "@EarlsLeaseBundle/Controller/SummaryController.php"
+    type:       annotation
+    prefix:     /Summary
+
+_leases_byExpiry:
+    resource:   "@EarlsLeaseBundle/Controller/LeasesByExpiryController.php"
+    type:       annotation
+    prefix:     /LeasesByExpiry
+
+_license_byExpiry:
+    resource:   "@EarlsLeaseBundle/Controller/LicenseByExpiryController.php"
+    type:       annotation
+    prefix:     /LicenseByExpiry

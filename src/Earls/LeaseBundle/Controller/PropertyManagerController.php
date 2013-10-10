@@ -10,10 +10,10 @@ use Acme\DemoBundle\Form\ContactType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-class ActivitiesController extends Controller
+class PropertyManagerController extends Controller
 {
     /**
-     * @Route("/", name="_activities")
+     * @Route("/", name="_property_manager")
      * @Template()
      */
     public function indexAction()
@@ -21,23 +21,6 @@ class ActivitiesController extends Controller
         return array();
     }
 
-    /**
-     * @Route("/storeinfo/{name}", name="_activities_storeinformation")
-     * @Template()
-     */
-    public function storeinfoAction($name)
-    {
-        return array('name' => $name);
-    }
-
-    /**
-     * @Route("/manageareas/{name}", name="_activities_manageArea")
-     * @Template()
-     */
-    public function manageareasAction($name)
-    {
-        return array('name' => $name);
-    }
 }
 
 ?>

@@ -1,12 +1,12 @@
 {% extends "EarlsLeaseBundle::layout.html.twig" %}
 {% block body %}
-	{% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION')%}
+{% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION')%}
 <p>This is BuildinTypes.php  --->  index.html.twig</p>
-<a href="http://www.google.com">google</a>
-                <span class="border-l">
-                    <span class="border-r">
-                        <span class="btn-bg">Store info</span>
-                    </span>
-                </span>
-            </a>
+<span class="border-l">
+	<span class="border-r">
+		<span class="btn-bg">Store info</span>
+	</span>
+</span>
+</a>
+<input type="text" id="city" value="{{ province }}" >
 {% endblock %}

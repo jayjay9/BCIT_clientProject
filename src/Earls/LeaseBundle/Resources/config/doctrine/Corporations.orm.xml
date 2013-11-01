@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Earls\LeaseBundle\Entity\Corporations" table="corporations">
+    <id name="corporateid" type="smallint" column="corporateID">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="corporatename" type="string" column="corporateName" length="45" nullable="true"/>
+    <field name="filenumber" type="integer" column="fileNumber" nullable="true"/>
+    <field name="respsolicitor" type="string" column="respSolicitor" length="255" nullable="true"/>
+    <field name="usage" type="string" column="usage" length="255" nullable="true"/>
+    <field name="fiscalyearend" type="string" column="fiscalYearEnd" length="255" nullable="true"/>
+    <field name="registrationnumber" type="string" column="registrationNumber" length="255" nullable="true"/>
+    <field name="registrationdate" type="date" column="registrationDate" nullable="true"/>
+    <field name="seal" type="boolean" column="seal" nullable="true"/>
+    <field name="locationseal" type="string" column="locationSeal" length="255" nullable="true"/>
+    <field name="capitalstructrue" type="string" column="capitalStructrue" length="255" nullable="true"/>
+    <field name="namechanges" type="string" column="nameChanges" length="255" nullable="true"/>
+    <field name="corpstatus" type="boolean" column="corpStatus" nullable="true"/>
+    <field name="dissolutiondate" type="date" column="dissolutionDate" nullable="true"/>
+    <many-to-one field="registeredofficeid" target-entity="Registeredoffices">
+      <join-columns>
+        <join-column name="registeredOfficeID" referenced-column-name="registeredOfficeID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="recordsofficeid" target-entity="Recordsoffices">
+      <join-columns>
+        <join-column name="recordsOfficeID" referenced-column-name="recordOfficeID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="provincestateid" target-entity="Provincestate">
+      <join-columns>
+        <join-column name="provinceStateID" referenced-column-name="provinceStateID"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Earls\LeaseBundle\Entity\Leases" table="leases">
+    <id name="leaseid" type="smallint" column="leaseID">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="leasetype" type="string" column="leaseType" length="255" nullable="true"/>
+    <field name="leasedate" type="date" column="leaseDate" nullable="true"/>
+    <field name="term" type="string" column="term" length="45" nullable="true"/>
+    <field name="commencementdate" type="date" column="commencementDate" nullable="true"/>
+    <field name="expirydate" type="date" column="expiryDate" nullable="true"/>
+    <field name="optiontime" type="string" column="optionTime" length="45" nullable="true"/>
+    <field name="areamain" type="float" column="areaMain" nullable="true"/>
+    <field name="areamezzanine" type="float" column="areaMezzanine" nullable="true"/>
+    <field name="areapatio" type="float" column="areaPatio" nullable="true"/>
+    <field name="areaother" type="float" column="areaOther" nullable="true"/>
+    <field name="surveyeddescription" type="string" column="surveyedDescription" length="255" nullable="true"/>
+    <field name="renewalterms" type="string" column="renewalTerms" length="255" nullable="true"/>
+    <field name="renewaloptiondate" type="date" column="renewalOptionDate" nullable="true"/>
+    <field name="exclusiveuse" type="string" column="exclusiveUse" length="45" nullable="true"/>
+    <field name="tiallowance" type="string" column="tiAllowance" length="255" nullable="true"/>
+    <field name="radiusclause" type="string" column="radiusClause" length="255" nullable="true"/>
+    <field name="indemnifier" type="string" column="indemnifier" length="255" nullable="true"/>
+    <field name="indemnityperiod" type="string" column="indemnityPeriod" length="255" nullable="true"/>
+    <field name="indemnityexpiry" type="datetime" column="indemnityExpiry" nullable="true"/>
+    <field name="otherdescription" type="string" column="otherDescription" length="255" nullable="true"/>
+    <field name="renewalcomments" type="string" column="renewalComments" length="255" nullable="true"/>
+    <field name="timestamp" type="datetime" column="timeStamp" nullable="true"/>
+    <field name="areaupperfloor" type="float" column="areaUpperFloor" nullable="true"/>
+    <field name="showinlease" type="boolean" column="showInLease" nullable="true"/>
+    <many-to-one field="leasereportinfoid" target-entity="Leasereportsinfo">
+      <join-columns>
+        <join-column name="leaseReportInfoID" referenced-column-name="leaseReportInfoID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="restaurantid" target-entity="Restaurants">
+      <join-columns>
+        <join-column name="restaurantID" referenced-column-name="restaurantID"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

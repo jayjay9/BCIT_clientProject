@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Earls\LeaseBundle\Entity\Jurisdictions" table="jurisdictions">
+    <id name="jurisdictionsid" type="smallint" column="jurisdictionsID">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="registereddate" type="date" column="registeredDate" nullable="true"/>
+    <field name="registrationnumber" type="string" column="registrationNumber" length="255" nullable="true"/>
+    <many-to-one field="provincestateid" target-entity="Provincestate">
+      <join-columns>
+        <join-column name="provinceStateID" referenced-column-name="provinceStateID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="corporateid" target-entity="Corporations">
+      <join-columns>
+        <join-column name="corporateID" referenced-column-name="corporateID"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

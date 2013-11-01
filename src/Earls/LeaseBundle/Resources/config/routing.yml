@@ -19,6 +19,7 @@ _building_types:
     type:       annotation
     prefix:     /BuildingTypes
 
+
 _jurisdiction_area:
     resource:   "@EarlsLeaseBundle/Controller/JurisdictionAreaController.php"
     type:       annotation

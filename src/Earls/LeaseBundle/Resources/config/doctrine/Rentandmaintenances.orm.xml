@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Earls\LeaseBundle\Entity\Rentandmaintenances" table="rentAndMaintenances">
+    <id name="rentandmaintenanceid" type="smallint" column="rentAndMaintenanceID">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <many-to-one field="hvacrepair" target-entity="Owners">
+      <join-columns>
+        <join-column name="hvacRepair" referenced-column-name="ownerID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="roofreplace" target-entity="Owners">
+      <join-columns>
+        <join-column name="roofReplace" referenced-column-name="ownerID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="roofrepair" target-entity="Owners">
+      <join-columns>
+        <join-column name="roofRepair" referenced-column-name="ownerID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="restaurantid" target-entity="Restaurants">
+      <join-columns>
+        <join-column name="restaurantID" referenced-column-name="restaurantID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="hvacreplace" target-entity="Owners">
+      <join-columns>
+        <join-column name="hvacReplace" referenced-column-name="ownerID"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

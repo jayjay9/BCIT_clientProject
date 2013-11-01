@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Earls\LeaseBundle\Entity\Leasecriticaltasks" table="leaseCriticalTasks">
+    <id name="leasecriticaltaskid" type="smallint" column="leaseCriticalTaskID">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="ctdate" type="date" column="ctDate" nullable="true"/>
+    <field name="ctclause" type="float" column="ctClause" nullable="true"/>
+    <field name="ctdescription" type="string" column="ctDescription" length="255" nullable="true"/>
+    <many-to-one field="leaseid" target-entity="Leases">
+      <join-columns>
+        <join-column name="leaseID" referenced-column-name="leaseID"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

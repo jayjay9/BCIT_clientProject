@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Earls\LeaseBundle\Entity\Utilities" table="utilities">
+    <id name="utilityid" type="smallint" column="utilityID">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="ismetered" type="boolean" column="isMetered" nullable="true"/>
+    <field name="iscam" type="boolean" column="isCAM" nullable="true"/>
+    <many-to-one field="utilitytypeid" target-entity="Utilitytypes">
+      <join-columns>
+        <join-column name="utilityTypeID" referenced-column-name="utilityTypeID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="billingby" target-entity="Billingowners">
+      <join-columns>
+        <join-column name="billingBy" referenced-column-name="billingOwnerID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="restaurantid" target-entity="Restaurants">
+      <join-columns>
+        <join-column name="restaurantID" referenced-column-name="restaurantID"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

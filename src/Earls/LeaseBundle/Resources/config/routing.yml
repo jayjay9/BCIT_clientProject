@@ -6,6 +6,8 @@ _storeinformation:
     resource: "@EarlsLeaseBundle/Controller/StoreInformationController.php"
     type:     annotation
     prefix:   /StoreInformation
+    requirements:
+         _method:  GET
 
 _manageArea:
     resource:   "@EarlsLeaseBundle/Controller/ManageAreaController.php"

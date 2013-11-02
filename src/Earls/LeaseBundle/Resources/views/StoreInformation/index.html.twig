@@ -2,12 +2,18 @@
 {% block body %}
 	{% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION')%}
 <p>This is Storeinformation.php  --->  index.html.twig</p>
-<a href="http://www.google.com">google</a>
 
-                <span class="border-l">
-                    <span class="border-r">
-                        <span class="btn-bg">Store info</span>
-                    </span>
-                </span>
-            </a>
+    <h1>Store Information</h1>
+
+
+
+    <form action="{{ path('_storeinformation') }}" method="post" {{ form_enctype(form) }} class="blogger">
+        {{ form_errors(form) }}
+
+        {{ form_row(form.name) }}
+
+        {{ form_rest(form) }}
+
+        <input type="submit" value="Submit" />
+    </form>
 {% endblock %}

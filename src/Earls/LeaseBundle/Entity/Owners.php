@@ -10,14 +10,16 @@ use Doctrine\ORM\Mapping as ORM;
 class Owners
 {
     /**
+     * @var integer
+     */
+    private $ownerid;
+
+    /**
      * @var string
      */
     private $ownertype;
 
-    /**
-     * @var integer
-     */
-    private $ownerid;
+
 
 
     /**

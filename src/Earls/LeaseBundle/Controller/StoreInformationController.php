@@ -10,6 +10,9 @@ use Acme\DemoBundle\Form\ContactType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
+// these import the form
+use Earls\LeaseBundle\Form\StoreInformation;
+
 class StoreInformationController extends Controller
 {
     /**
@@ -18,8 +21,33 @@ class StoreInformationController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        //return array();
+
+        $newInfo = new StoreInformation();
+    	$form = $this->createForm(new StoreInformation(), $newInfo);
+
+    	$request = $this->getRequest();
+    	if($request->getMethod() == 'POST'){
+    		$form->bindRequest($request);
+
+    		if($form->isValid()){
+
+    			return $this->redirect($this->generateUrl('_storeinformation'));
+    		}
+    	}
+
+    	return $this->render('EarlsLeaseBundle:StoreInformation:index.html.twig', 
+    		array(
+    			'form'=> $form->createView()
+    			)
+    		);
     }
+
+	
+/*    public function storeInfoAction()
+    {
+    	
+    }*/
 
 
 }

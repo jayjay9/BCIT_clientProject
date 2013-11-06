@@ -1,0 +1,87 @@
+<?php 
+
+// src/Earls/UserBundle/Entity/User.php
+
+namespace Earls\UserBundle\Entity;
+
+use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="fos_user")
+ */
+class User extends BaseUser
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @var text $getloginID
+     * @ORM\Column(name="login_id", type="string", length=40, nullable=false)
+     */
+    protected $loginID;
+
+    /**
+     * @var text $getPassword
+     * @ORM\Column(name="password", type="string", length=40, nullable=false)
+     */
+    protected $password;
+
+	/**
+     * Get id
+     *
+     * @return integer
+     */
+     public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set loginID
+     *
+     * @param string $loginID
+     */
+    public function setloginID($loginID)
+    {
+        $this->loginID = $loginID;
+    }
+
+    /**
+     * Get loginID
+     *
+     * @return string
+     */
+    public function getloginID()
+    {
+        return $this->loginID;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string
+     */
+    public function getpassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     */
+    public function setpassword($password)
+    {
+        $this->password = $password;
+    }
+
+
+
+}

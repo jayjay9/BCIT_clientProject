@@ -21,16 +21,16 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @var text $getloginID
+     * @var text $getusername
      * @ORM\Column(name="login_id", type="string", length=40, nullable=false)
      */
-    protected $loginID;
+    # protected $username;
 
     /**
-     * @var text $getPassword
+     * @var text $getpassword
      * @ORM\Column(name="password", type="string", length=40, nullable=false)
      */
-    protected $password;
+    # protected $password;
 
 	/**
      * Get id
@@ -43,23 +43,23 @@ class User extends BaseUser
     }
 
     /**
-     * Set loginID
+     * Set username
      *
-     * @param string $loginID
+     * @param string $username
      */
-    public function setloginID($loginID)
+    public function setUsername($username)
     {
-        $this->loginID = $loginID;
+        $this->username = $username;
     }
 
     /**
-     * Get loginID
+     * Get username
      *
      * @return string
      */
-    public function getloginID()
+    public function getUsername()
     {
-        return $this->loginID;
+        return $this->username;
     }
 
     /**
@@ -67,7 +67,7 @@ class User extends BaseUser
      *
      * @return string
      */
-    public function getpassword()
+    public function getPassword()
     {
         return $this->password;
     }
@@ -77,7 +77,7 @@ class User extends BaseUser
      *
      * @param string $password
      */
-    public function setpassword($password)
+    public function setPassword($password)
     {
         $this->password = $password;
     }
@@ -85,3 +85,4 @@ class User extends BaseUser
 
 
 }
+?>

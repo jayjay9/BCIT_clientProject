@@ -6,18 +6,28 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Utilitytypes
+ *
+ * @ORM\Table(name="utilitytypes")
+ * @ORM\Entity
  */
 class Utilitytypes
 {
     /**
      * @var string
+     *
+     * @ORM\Column(name="utilityType", type="string", length=45, nullable=true)
      */
     private $utilitytype;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="utilityTypeID", type="smallint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $utilitytypeid;
+
 
 
     /**

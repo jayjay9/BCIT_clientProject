@@ -5,6 +5,7 @@
       <generator strategy="IDENTITY"/>
     </id>
     <field name="entrybar" type="float" column="entrybar" nullable="true"/>
+    <field name="bar" type="integer" column="bar" nullable="false"/>
     <field name="lounge" type="float" column="lounge" nullable="true"/>
     <field name="dining" type="float" column="dining" nullable="true"/>
     <field name="washrooms" type="float" column="washrooms" nullable="true"/>

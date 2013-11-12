@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="Earls\LeaseBundle\Entity\Constructiontypes" table="constructionTypes">
+  <entity name="Earls\LeaseBundle\Entity\Constructiontypes" table="constructiontypes">
     <id name="constructionid" type="smallint" column="constructionID">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="code" type="smallint" column="code" nullable="true"/>
+    <field name="code" type="string" column="code" length="6" nullable="true"/>
     <field name="constructiontype" type="string" column="constructionType" length="45" nullable="true"/>
   </entity>
 </doctrine-mapping>

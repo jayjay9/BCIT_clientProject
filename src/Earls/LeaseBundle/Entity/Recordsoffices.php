@@ -6,38 +6,59 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Recordsoffices
+ *
+ * @ORM\Table(name="recordsoffices")
+ * @ORM\Entity
  */
 class Recordsoffices
 {
     /**
      * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=255, nullable=true)
      */
     private $address;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="city", type="smallint", nullable=true)
+     */
+    private $city;
+
+    /**
      * @var string
+     *
+     * @ORM\Column(name="provinceStateID", type="string", length=4, nullable=true)
+     */
+    private $provincestateid;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="postalZip", type="string", length=45, nullable=true)
      */
     private $postalzip;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="recordOfficeID", type="smallint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $recordofficeid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Offices
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Offices")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="officeID", referencedColumnName="officeID")
+     * })
      */
     private $officeid;
 
-    /**
-     * @var \Earls\LeaseBundle\Entity\Provincestate
-     */
-    private $provincestateid;
-
-    /**
-     * @var \Earls\LeaseBundle\Entity\Northamericancities
-     */
-    private $city;
 
 
     /**
@@ -61,6 +82,52 @@ class Recordsoffices
     public function getAddress()
     {
         return $this->address;
+    }
+
+    /**
+     * Set city
+     *
+     * @param integer $city
+     * @return Recordsoffices
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+    
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return integer 
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Set provincestateid
+     *
+     * @param string $provincestateid
+     * @return Recordsoffices
+     */
+    public function setProvincestateid($provincestateid)
+    {
+        $this->provincestateid = $provincestateid;
+    
+        return $this;
+    }
+
+    /**
+     * Get provincestateid
+     *
+     * @return string 
+     */
+    public function getProvincestateid()
+    {
+        return $this->provincestateid;
     }
 
     /**
@@ -117,51 +184,5 @@ class Recordsoffices
     public function getOfficeid()
     {
         return $this->officeid;
-    }
-
-    /**
-     * Set provincestateid
-     *
-     * @param \Earls\LeaseBundle\Entity\Provincestate $provincestateid
-     * @return Recordsoffices
-     */
-    public function setProvincestateid(\Earls\LeaseBundle\Entity\Provincestate $provincestateid = null)
-    {
-        $this->provincestateid = $provincestateid;
-    
-        return $this;
-    }
-
-    /**
-     * Get provincestateid
-     *
-     * @return \Earls\LeaseBundle\Entity\Provincestate 
-     */
-    public function getProvincestateid()
-    {
-        return $this->provincestateid;
-    }
-
-    /**
-     * Set city
-     *
-     * @param \Earls\LeaseBundle\Entity\Northamericancities $city
-     * @return Recordsoffices
-     */
-    public function setCity(\Earls\LeaseBundle\Entity\Northamericancities $city = null)
-    {
-        $this->city = $city;
-    
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return \Earls\LeaseBundle\Entity\Northamericancities 
-     */
-    public function getCity()
-    {
-        return $this->city;
     }
 }

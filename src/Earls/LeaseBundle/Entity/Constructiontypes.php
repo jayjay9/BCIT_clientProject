@@ -6,29 +6,41 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Constructiontypes
+ *
+ * @ORM\Table(name="constructiontypes")
+ * @ORM\Entity
  */
 class Constructiontypes
 {
     /**
-     * @var integer
+     * @var string
+     *
+     * @ORM\Column(name="code", type="string", length=6, nullable=true)
      */
     private $code;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="constructionType", type="string", length=45, nullable=true)
      */
     private $constructiontype;
 
     /**
      * @var integer
+     *
+     * @ORM\Column(name="constructionID", type="smallint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $constructionid;
+
 
 
     /**
      * Set code
      *
-     * @param integer $code
+     * @param string $code
      * @return Constructiontypes
      */
     public function setCode($code)
@@ -41,7 +53,7 @@ class Constructiontypes
     /**
      * Get code
      *
-     * @return integer 
+     * @return string 
      */
     public function getCode()
     {

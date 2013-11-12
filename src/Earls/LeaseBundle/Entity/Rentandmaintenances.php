@@ -6,38 +6,71 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Rentandmaintenances
+ *
+ * @ORM\Table(name="rentandmaintenances")
+ * @ORM\Entity
  */
 class Rentandmaintenances
 {
     /**
      * @var integer
+     *
+     * @ORM\Column(name="rentAndMaintenanceID", type="smallint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $rentandmaintenanceid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Owners
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Owners")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="hvacRepair", referencedColumnName="ownerID")
+     * })
      */
     private $hvacrepair;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Owners
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Owners")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="roofReplace", referencedColumnName="ownerID")
+     * })
      */
     private $roofreplace;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Owners
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Owners")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="roofRepair", referencedColumnName="ownerID")
+     * })
      */
     private $roofrepair;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Restaurants
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID")
+     * })
      */
     private $restaurantid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Owners
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Owners")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="hvacReplace", referencedColumnName="ownerID")
+     * })
      */
     private $hvacreplace;
+
 
 
     /**

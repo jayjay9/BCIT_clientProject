@@ -7,13 +7,21 @@
 
 
 
-    <form action="{{ path('_storeinformation') }}" method="post" {{ form_enctype(form) }} class="blogger">
-        {{ form_errors(form) }}
+    {# <form action="{{ path('_storeinformation') }}" method="post" {{ form_enctype(storeFinderForm) }} class="storeFinder">
+        {{ form_errors(storeFinderForm) }}
 
-        {{ form_row(form.name) }}
+        {{ form_row(storeFinderForm.City) }}
 
-        {{ form_rest(form) }}
 
-        <input type="submit" value="Submit" />
-    </form>
+
+        {{ form_rest(storeFinderForm) }}
+
+        <input type="submit" value="Go" />
+    </form> #}
+
+    {{ form(storeFinderForm) }}
+
+
+    {{ form(storeInfoForm) }}
+
 {% endblock %}

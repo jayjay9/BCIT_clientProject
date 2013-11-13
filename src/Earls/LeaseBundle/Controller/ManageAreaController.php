@@ -2,7 +2,13 @@
 
 namespace Earls\LeaseBundle\Controller;
 
+use Earls\LeaseBundle\Entity\Areas;
+use Earls\LeaseBundle\Entity\Areatypes;
+use Earls\LeaseBundle\Entity\Restaurants;
+use Earls\LeaseBundle\Form\Type\DropDownList;
+use Earls\LeaseBundle\Form\Type\ManageArea;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Earls\LeaseBundle\Form\Model\DropDownModel;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Acme\DemoBundle\Form\ContactType;
@@ -21,36 +27,80 @@ class ManageAreaController extends Controller
      * @Route("/", name="_manageArea")
      * @Template()
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
-    	//return array();
-    	// create a task and give it some dummy data for this example
-        $owner = new Owners();
-        //$task->setTask('Write a blog post');
-        //$task->setDueDate(new \DateTime('tomorrow'));
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'SELECT p
+            FROM EarlsLeaseBundle:Restaurants p');
 
-        $form = $this->createFormBuilder($owner)
-            //->add('ownerid', 'text')
-            ->add('ownertype', 'text')
-            ->add('save', 'submit')
-            ->getForm();
+        $data = $query->getResult();
+        $restaurantid = $data[0]->getRestaurantid();
 
-        $form->handleRequest($request);
+        print_r($restaurantid);
 
-         if($form->isValid()){
-
-         	print_r($owner);
-         	$em = $this->getDoctrine()->getManager();
-    		$em->persist($owner);
-    		$em->flush();
-         }
-
-        return $this->render('EarlsLeaseBundle:ManageArea:index.html.twig', array(
-            'form' => $form->createView(),
-        ));
+        return $this->redirect($this->generateUrl('_manageArea_get_id', array('id'=> $restaurantid)));
     }
 
+    /**
+     * @Route("/get/{id}", name="_manageArea_get_id")
+     * @Template()
+     */
 
+    public function getAction($id){
+
+        $area1 = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Areas')
+            ->findOneBy(array('restaurantid' => $id, 'areatypeid' => '1'));
+
+        $area2 = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Areas')
+            ->findOneBy(array('restaurantid' => $id, 'areatypeid' => '2'));
+
+        $area3 = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Areas')
+            ->findOneBy(array('restaurantid' => $id, 'areatypeid' => '3'));
+
+        $selectedRestaurant = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Restaurants')
+            ->find($id);
+
+        $model = new DropDownModel();
+
+        $model->setArea1($area1);
+        $model->setArea2($area2);
+        $model->setArea3($area3);
+        $model->setStorefileNumber($selectedRestaurant);
+
+        $form = $this->createForm(new DropDownList(), $model);
+
+        $request = $this->getRequest();
+        $form->handleRequest($request);
+
+        if($form->isValid()){
+            if ($form->get('go')->isClicked()) {
+                $data = $form->getData()->getStorefileNumber()->getRestaurantid();
+                return $this->redirect($this->generateUrl('_manageArea_get_id', array('id'=> $data)));
+            }elseif($form->get('update')->isClicked()){
+                $request = $this->getRequest();
+                if ($request->isMethod('POST')) {
+                    if ($form->isValid())
+                    {
+                        //print_r($request);
+                        $em = $this->getDoctrine()->getEntityManager();
+                        $em->flush();          // entity is already persisted and managed by doctrine.
+
+                        // return success response
+                    }
+                }
+
+                return $this->redirect($this->generateUrl('_manageArea_get_id', array('id'=> $id)));
+            }
+        }
+
+        return $this->render('EarlsLeaseBundle:ManageArea:index.html.twig', array('form' => $form->createView()));
+
+    }
 }
 
 ?>

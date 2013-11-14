@@ -40,7 +40,6 @@ _store_classes:
     prefix:     /StoreClasses
 
 
-
 _summary:
     resource:   "@EarlsLeaseBundle/Controller/SummaryController.php"
     type:       annotation

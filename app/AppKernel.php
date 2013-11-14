@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Bc\Bundle\BootstrapBundle\BcBootstrapBundle(),
             new Earls\LeaseBundle\EarlsLeaseBundle(),
+            
 			new FOS\UserBundle\FOSUserBundle(),
             new Earls\UserBundle\UserBundle(),
         );

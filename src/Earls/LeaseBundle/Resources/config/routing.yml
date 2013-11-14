@@ -13,6 +13,11 @@ _manageArea:
     prefix:     /ManageArea
 
 
+_manage_tables:
+    resource:   "@EarlsLeaseBundle/Controller/ManageTablesController.php"
+    type:       annotation
+    prefix:     /ManageTables
+
 _building_types:
     resource:   "@EarlsLeaseBundle/Controller/BuildingTypesController.php"
     type:       annotation

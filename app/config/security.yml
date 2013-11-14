@@ -19,30 +19,16 @@ security:
                 csrf_provider: form.csrf_provider
             logout: true
             anonymous: true
-            #login_path: /login
-            # use_forward: false
-
-           # pattern: ^/
-           # form_login:
-           #     provider: fos_userbundle
-           #     csrf_provider: form.csrf_provider
-           # logout: true
-           # anonymous: true
            
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         
-        - { path: ^/StoreInformation, role: ROLE_USER}
-        - { path: ^/StoreInformation, role: ROLE_USER}
-        - { path: ^/StoreInformation, role: ROLE_USER}
+        - { path: ^/Summary, role: ROLE_USER}
+        - { path: ^/LeasesByExpiry, role: ROLE_USER}
+        - { path: ^/LicenseByExpiry, role: ROLE_USER}
         
+        - { path: ^/StoreInformation, role: ROLE_ADMIN}
         - { path: ^/ManageArea, role: ROLE_ADMIN}
-        - { path: ^/BuildingTypes, role: ROLE_ADMIN}
-        - { path: ^/JurisdictionArea, role: ROLE_ADMIN}
-        - { path: ^/Landlord, role: ROLE_ADMIN}
-        - { path: ^/PropertyManager, role: ROLE_ADMIN}
-        - { path: ^/StoreClasses, role: ROLE_ADMIN}
-        #- { path: ^/*, role: ROLE_USER }
-        # requires_channel: https 
+        - { path: ^/ManageTables, role: ROLE_ADMIN}

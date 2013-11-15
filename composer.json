@@ -21,8 +21,13 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "braincrafted/bootstrap-bundle": "dev-master",
         "twitter/bootstrap": "2.3.*",
+<<<<<<< HEAD
         "symfony/form": "2.3.*",
         "symfony/validator": "2.3.*"
+=======
+        "friendsofsymfony/user-bundle": "~2.0@dev"
+        
+>>>>>>> 284ab07ab9197540271c92b454772e1d9ce76ce7
     },
     "scripts": {
         "post-install-cmd": [

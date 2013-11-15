@@ -23,8 +23,9 @@
             {{ form_errors(storeFinderForm) }}
             <div class="form-group">
                 {{ form_row(storeFinderForm.restaurant, {'label': 'Restaurant Nick Name',
-                'label_attr': {'class': 'control-label'},
-                'attr': {'class': 'form-control'} }) }}
+                    'label_attr': {'class': 'control-label'},
+                    'attr': {'class': 'form-control'}
+                })  }}
             </div>
             {{ form_widget(storeFinderForm.Go, {'attr': {'class': 'btn btn-default'} }) }}
 
@@ -37,9 +38,27 @@
     {{ form_start(storeInfoForm, {'attr': {'role': 'form', 'class': 'form-horizontal'} }) }}
         {{ form_errors(storeInfoForm) }}
         <div class="form-group">
-        {{ form_row(storeInfoForm.restaurantInfo.storefilenumber, {'attr': {'class': 'foo'} }) }}
+            <label class="col-sm-2 control-label">Store File No.</label>
+            <div class="col-sm-10">
+            {{ form_widget(storeInfoForm.restaurantInfo.storefilenumber, {
+                'attr': {'class': 'form-control'}
+            })  }}
+                </div>
+        </div>
+        <div class="form-group">
+            {{ form_row(storeInfoForm.restaurantInfo.storenickname, {'label': 'Store Nick Name',
+                'label_attr': {'class': 'control-label'},
+                'attr': {'class': 'form-control'}
+            })  }}
+        </div>
+        <div class="form-group">
+            {{ form_row(storeInfoForm.restaurantInfo.landlordid, {'label': 'Landlord',
+            'label_attr': {'class': 'control-label'},
+            'attr': {'class': 'form-control'}
+            })  }}
+        </div>
         {{ form_row(storeInfoForm.restaurantInfo.tenant) }}
-        {{ form_row(storeInfoForm.restaurantInfo.storenickname) }}
+
         {{ form_row(storeInfoForm.restaurantInfo.address) }}
         {{ form_row(storeInfoForm.restaurantInfo.postalzip) }}
         {{ form_row(storeInfoForm.restaurantInfo.openingdate) }}

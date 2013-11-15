@@ -15,31 +15,12 @@
 
     <div id="left-menu">
         <div class="search">
-          <form>
-            <input value="" placeholder="Search..." />
-          </form>
+
         </div>
         
         <div class="wrapmenu">
           
           <div id="logo"><a href="#"><span><img src="{{ asset('bundles/earlslease/images/EarlsLogo.png') }}" alt="" /></span></a></div>
-          
-          <div id="category">Activities</div>
-          
-          <ul class="menu">
-            <li><a href="{{ path('_storeinformation') }}"><span>Store Information</span></a></li>
-            <li><a href="{{ path('_manageArea') }}"><span>Manage Areas</span></a></li>
-          </ul>
-          
-          <div id="category">Manage Tables</div>
-          
-          <ul class="menu">
-            <li><a href="{{ path('_building_types') }}"><span>Building Types</a></span></li>
-            <li><a href="{{ path('_jurisdiction_area') }}"><span>Jurisdiction Area</a></span></li>
-            <li><a href="{{ path('_landlord') }}"><span>Landlord</a></span></li>
-            <li><a href="{{ path('_property_manager') }}"><span>Property Manager</a></span></li>
-            <li><a href="{{ path('_store_classes') }}"><span>Store Classes</a></span></li>
-          </ul>
           
           <div id="category">Reports</div>
           
@@ -48,10 +29,18 @@
             <li><a href="{{ path('_leases_byExpiry') }}"><span>Leases By Expiry</a></span></li>
             <li><a href="{{ path('_license_byExpiry') }}"><span>License By Expiry</a></span></li>
           </ul>
+
+          <div id="category">Administration</div>
+          
+          <ul class="menu">
+            <li><a href="{{ path('_storeinformation') }}"><span>Store Information</span></a></li>
+            <li><a href="{{ path('_manageArea') }}"><span>Manage Areas</span></a></li>
+            <li><a href="{{ path('_manage_tables') }}"><span>Manage Tables</span></a></li>
+          </ul>
           
           <!-- Footer / start -->
           <footer>
-          Earls Lease and Corporate Web Application
+          Earls Lease Web Application
           </footer>
           <!-- Footer / end -->
         </div>
@@ -62,9 +51,10 @@
             <header>
               
                 <a href="#" id="menu" class="ico fl">menu</a>
+                
                 <div id="userAccount">
-                    Welcome User!  
-                      <button class="btn btn-danger btn-small" type="button">Logout</button>
+                    Welcome User! &nbsp
+                      <button class="btn btn-danger btn-small" type="button" onClick="javascript:window.location.href='/BCIT_clientProject/web/app_dev.php/logout'" >Logout</button>
                 </div>
               
             </header>

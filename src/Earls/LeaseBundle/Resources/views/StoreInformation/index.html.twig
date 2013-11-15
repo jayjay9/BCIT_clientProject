@@ -12,16 +12,52 @@
 
         {{ form_row(storeFinderForm.City) }}
 
-
-
         {{ form_rest(storeFinderForm) }}
 
         <input type="submit" value="Go" />
     </form> #}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            {{ form_start(storeFinderForm, {'attr': {'role': 'form', 'class': 'form-inline'} }) }}
 
-    {{ form(storeFinderForm) }}
+            {{ form_errors(storeFinderForm) }}
+            <div class="form-group">
+                {{ form_row(storeFinderForm.restaurant, {'label': 'Restaurant Nick Name',
+                'label_attr': {'class': 'control-label'},
+                'attr': {'class': 'form-control'} }) }}
+            </div>
+            {{ form_widget(storeFinderForm.Go, {'attr': {'class': 'btn btn-default'} }) }}
+
+            {{ form_end(storeFinderForm) }}
+        </div>
+    </div>
 
 
-    {{ form(storeInfoForm) }}
+
+    {{ form_start(storeInfoForm, {'attr': {'role': 'form', 'class': 'form-horizontal'} }) }}
+        {{ form_errors(storeInfoForm) }}
+        <div class="form-group">
+        {{ form_row(storeInfoForm.restaurantInfo.storefilenumber, {'attr': {'class': 'foo'} }) }}
+        {{ form_row(storeInfoForm.restaurantInfo.tenant) }}
+        {{ form_row(storeInfoForm.restaurantInfo.storenickname) }}
+        {{ form_row(storeInfoForm.restaurantInfo.address) }}
+        {{ form_row(storeInfoForm.restaurantInfo.postalzip) }}
+        {{ form_row(storeInfoForm.restaurantInfo.openingdate) }}
+        {{ form_row(storeInfoForm.restaurantInfo.legaldescription) }}
+        {{ form_row(storeInfoForm.restaurantInfo.diningroomseating) }}
+        {{ form_row(storeInfoForm.restaurantInfo.loungeseating) }}
+        {{ form_row(storeInfoForm.restaurantInfo.patioseating) }}
+        {{ form_row(storeInfoForm.restaurantInfo.diningroomtable) }}
+        {{ form_row(storeInfoForm.restaurantInfo.loungetable) }}
+        {{ form_row(storeInfoForm.restaurantInfo.patiotable) }}
+        {{ form_row(storeInfoForm.restaurantInfo.departmentnumber) }}
+        {{ form_row(storeInfoForm.restaurantInfo.restaurantstate) }}
+        {{ form_row(storeInfoForm.restaurantInfo.closedate) }}
+        {{ form_row(storeInfoForm.restaurantInfo.royaltyfee) }}
+        {{ form_row(storeInfoForm.restaurantInfo.yearbuilt) }}
+        {{ form_row(storeInfoForm.restaurantInfo.comments) }}
+        {{ form_row(storeInfoForm.Update) }}
+    {{ form_end(storeInfoForm) }}
+
 
 {% endblock %}

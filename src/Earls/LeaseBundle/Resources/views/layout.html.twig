@@ -4,14 +4,9 @@
     {% block head %}
         <!-- CSS -->
         <link href="{{ asset('bundles/earlslease/css/bootstrap.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('bundles/earlslease/css/bootstrap-responsive.css') }}" rel="stylesheet">
+
         <link rel="stylesheet" href="{{ asset('bundles/earlslease/css/normalize.css') }}">
         <link rel="stylesheet" href="{{ asset('bundles/earlslease/css/style.css') }}">
-        
-        <!-- Scripts -->
-        <script src="{{ asset('bundles/earlslease/js/jquery-1.9.0.min.js') }}"></script>
-        <script src="{{ asset('bundles/earlslease/js/modernizr-2.6.1.min.js') }}"></script>
-        <script src="{{ asset('bundles/earlslease/js/main.js') }}"></script>
 
         <title>{% block title 'Earls Lease Bundle' %}</title>
     {% endblock %}
@@ -87,6 +82,10 @@
             </section>
             <!-- Content / end -->
         </div>
+    <!-- Scripts -->
+    <script src="{{ asset('bundles/earlslease/js/jquery-1.9.0.min.js') }}"></script>
+    <script src="{{ asset('bundles/earlslease/js/modernizr-2.6.1.min.js') }}"></script>
+    <script src="{{ asset('bundles/earlslease/js/main.js') }}"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="{{ asset('js/jquery.js') }}"><\/script>')</script>
     <script src="{{ asset('bundles/earlslease/js/bootstrap.js') }}"></script>

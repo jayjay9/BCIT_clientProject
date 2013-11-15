@@ -17,34 +17,31 @@ class RestaurantsType extends AbstractType
     {
         $builder
 
-            ->add('storefilenumber')
-            ->add('tenant')
-            ->add('storenickname')
+            ->add('storefilenumber', 'text')
+            ->add('tenant', 'text')
+            ->add('storenickname', 'text')
             ->add('address', 'textarea')
-            ->add('postalzip')
+            ->add('postalzip', 'text')
             ->add('openingdate')
-            ->add('legaldescription')
-            ->add('diningroomseating')
-            ->add('loungeseating')
-            ->add('patioseating')
-            ->add('diningroomtable')
-            ->add('loungetable')
-            ->add('patiotable')
-            ->add('departmentnumber')
+            ->add('legaldescription', 'text')
+            ->add('diningroomseating', 'text')
+            ->add('loungeseating', 'text')
+            ->add('patioseating', 'text')
+            ->add('diningroomtable', 'text')
+            ->add('loungetable', 'text')
+            ->add('patiotable', 'text')
+            ->add('departmentnumber', 'text')
             ->add('restaurantstate')
             ->add('closedate')
-            ->add('royaltyfee')
-            ->add('yearbuilt')
-            ->add('comments')
+            ->add('royaltyfee', 'text')
+            ->add('yearbuilt', 'text')
+            ->add('comments', 'textarea')
             ->add('rentandmaintenanceid')
             ->add('regionid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Regions',
                 'property' => 'region'
             ))
-            /*->add('riskid', 'entity', array(
-                'class' => 'EarlsLeaseBundle:Riskinfo',
-                'property' => 'riskid'
-            )))*/
+            ->add('riskid', new RiskinfoType())
             ->add('storeclassid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Storeclasses',
                 'property' => 'storeclass'

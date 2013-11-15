@@ -31,19 +31,12 @@ class StoreInformationController extends Controller
      */
     public function indexAction()
     {
-        //return array();
-
-        //$restaurantFinder = new RestaurantFinder();
-//        $form = $this->createForm(new RestaurantFinderType(), $restaurantFinder, array(
-//            'action' => $this->generateUrl('_storeinformation')
-//        ));
 
         $em = $this->getDoctrine()->getManager();
         $query = $em->createQuery('SELECT c FROM EarlsLeaseBundle:Restaurants c');
 
         $data = $query->getResult();
         $restaurantID = $data[0]->getRestaurantid();
-
 
         return $this->redirect($this->generateUrl('_storeinformation_display', array('id' => $restaurantID)));
 
@@ -59,36 +52,17 @@ class StoreInformationController extends Controller
         $restaurantObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Restaurants')
             ->find($id);
-        //print_r($restaurantObj);
-
-
-        /*$landlordTableObj = $restaurantObj->getLandlordid();
-
-        $landlordID = $landlordTableObj->getLandlordid();
-
-
-        $landlordObj = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Landlords')
-            ->find($landlordID);*/
-
-        //print_r($landlordTableObj);
-
-        $request = $this->getRequest();
-
         $selectedRestaurant = new RestaurantFinder();
         $selectedRestaurant->setRestaurant($restaurantObj);
         $formRequested = $this->createForm(new RestaurantFinderType(), $selectedRestaurant);
 
+        $request = $this->getRequest();
         $formRequested->handleRequest($request);
 
 
         if ($formRequested->isValid()) {
-
             $restaurantObjRequested = $formRequested->getData()->getRestaurant();
-
             $restaurantID = $restaurantObjRequested->getRestaurantid();
-
-            //print_r($restaurantObjRequested->getRestaurantid());
 
             return $this->redirect($this->generateUrl('_storeinformation_display', array('id' => $restaurantID)));
         }
@@ -127,38 +101,28 @@ class StoreInformationController extends Controller
         $form = $this->createForm(new StoreInformationType(), $storeInfoObj);
 
 
-        //$form->handleRequest($request);
-
-
-        //$restaurant->setAddress('ALfredo');
-
         if ($request->isMethod('POST')) {
             $form->submit($request);
 
             if ($form->isValid()) {
-                //$storeinfo = $form->getData();
-                //print_r($storeinfo->getRestaurantinfo());
-                //$restaurant = new Restaurants();
-                // $restaurant = $storeinfo->getRestaurantinfo();
-                //print_r($restaurant);
-                //$restaurant->setAddress($storeinfo->getRestaurantinfo()->getAddress());
-                //$storeInfoObj->setRestaurantinfo($restaurant);
 
-                //$em->persist($restaurant);
                 $em->flush();
-
                 return $this->redirect($this->generateUrl('_storeinformation_display', array('id' => $id)));
+
             }else{
+
                 print_r('is not Valid');
                 print_r($form->getErrorsAsString());
+
             }
         }else{
+
             print_r($request->getMethod());
+
         }
 
 
-        return $this->render(
-            'EarlsLeaseBundle:StoreInformation:index.html.twig',
+        return $this->render('EarlsLeaseBundle:StoreInformation:index.html.twig',
             array('form' => $form->createView())
         );
 

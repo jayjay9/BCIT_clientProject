@@ -5,6 +5,13 @@ body {
   height: 100%;
 }
 
+body {
+  background: #d0d4d8;
+  color: #5b5b5b;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
 body.open-menu {
   overflow: hidden;
 }

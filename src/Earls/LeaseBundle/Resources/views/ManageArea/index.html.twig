@@ -1,6 +1,105 @@
 {% extends "EarlsLeaseBundle::layout.html.twig" %}
 {% block body %}
 	{% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION')%}
-<p>This is ManageArea.php  --->  index.html.twig</p>
-{{ form(form) }}
-{% endblock %}
+    {{ form_start(form) }}
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <h1>Manage Areas</h1>
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label">Find Store Number:</label>
+                    <div class="controls">
+                        {{form_widget(form.storefilenumber) }}
+                    </div>
+                </div>
+                {{ form_row(form.go) }}
+            </form>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span4">
+            <div class="widget">
+                <div class="widget-head">
+                    <h3>Square Footage</h3>
+                </div>
+                <div class="widget-body">
+                    <div class="control-group">
+                        <label class="control-label">Entry:</label>
+                        <div class="controls">
+                            {{ form_widget(form.area1.entrybar) }}
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Bar:</label>
+                        <div class="controls">
+                            {{ form_widget(form.area1.bar) }}
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Lounge:</label>
+                        <div class="controls">
+                            {{ form_widget(form.area1.lounge) }}
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Dining:</label>
+                        <div class="controls">
+                            {{ form_widget(form.area1.dining) }}
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Washrooms:</label>
+                        <div class="controls">
+                            {{ form_widget(form.area1.washrooms) }}
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">BOH:</label>
+                        <div class="controls">
+                            {{ form_widget(form.area1.boh) }}
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Patio:</label>
+                        <div class="controls">
+                            {{ form_widget(form.area1.patio) }}
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Total:</label>
+                        <div class="controls">
+                            {{ form_widget(form.area1.totalarea) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="span4">
+            <div class="widget">
+                <div class="widget-head">
+                    <h3>Tables</h3>
+                </div>
+                <div class="widget-body">
+                    {{ form_row(form.area2) }}
+                </div>
+            </div>
+        </div>
+        <div class="span4">
+            <div class="widget">
+                <div class="widget-head">
+                    <h3>Seats</h3>
+                </div>
+                <div class="widget-body">
+                    {{ form_row(form.area3) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ form_row(form.update) }}
+
+    <div>
+    </div>
+    {{ form_end(form) }}
+    {% endblock %}

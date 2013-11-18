@@ -148,7 +148,7 @@ class Leases
     /**
      * @var string
      *
-     * @ORM\Column(name="otherDescription", type="string", length=255, nullable=true)
+     * @ORM\Column(name="otherDescription", type="string", length=955, nullable=true)
      */
     private $otherdescription;
 
@@ -160,9 +160,9 @@ class Leases
     private $renewalcomments;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="timeStamp", type="datetime", nullable=true)
+     * @ORM\Column(name="timeStamp", type="string", length=45, nullable=true)
      */
     private $timestamp;
 
@@ -190,16 +190,6 @@ class Leases
     private $leaseid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Leasereportsinfo
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Leasereportsinfo")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="leaseReportInfoID", referencedColumnName="leaseReportInfoID")
-     * })
-     */
-    private $leasereportinfoid;
-
-    /**
      * @var \Earls\LeaseBundle\Entity\Restaurants
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
@@ -208,6 +198,16 @@ class Leases
      * })
      */
     private $restaurantid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Leasereportsinfo
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Leasereportsinfo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="leaseReportInfoID", referencedColumnName="leaseReportInfoID")
+     * })
+     */
+    private $leasereportinfoid;
 
 
 
@@ -697,7 +697,7 @@ class Leases
     /**
      * Set timestamp
      *
-     * @param \DateTime $timestamp
+     * @param string $timestamp
      * @return Leases
      */
     public function setTimestamp($timestamp)
@@ -710,7 +710,7 @@ class Leases
     /**
      * Get timestamp
      *
-     * @return \DateTime 
+     * @return string 
      */
     public function getTimestamp()
     {
@@ -774,29 +774,6 @@ class Leases
     }
 
     /**
-     * Set leasereportinfoid
-     *
-     * @param \Earls\LeaseBundle\Entity\Leasereportsinfo $leasereportinfoid
-     * @return Leases
-     */
-    public function setLeasereportinfoid(\Earls\LeaseBundle\Entity\Leasereportsinfo $leasereportinfoid = null)
-    {
-        $this->leasereportinfoid = $leasereportinfoid;
-    
-        return $this;
-    }
-
-    /**
-     * Get leasereportinfoid
-     *
-     * @return \Earls\LeaseBundle\Entity\Leasereportsinfo 
-     */
-    public function getLeasereportinfoid()
-    {
-        return $this->leasereportinfoid;
-    }
-
-    /**
      * Set restaurantid
      *
      * @param \Earls\LeaseBundle\Entity\Restaurants $restaurantid
@@ -817,5 +794,28 @@ class Leases
     public function getRestaurantid()
     {
         return $this->restaurantid;
+    }
+
+    /**
+     * Set leasereportinfoid
+     *
+     * @param \Earls\LeaseBundle\Entity\Leasereportsinfo $leasereportinfoid
+     * @return Leases
+     */
+    public function setLeasereportinfoid(\Earls\LeaseBundle\Entity\Leasereportsinfo $leasereportinfoid = null)
+    {
+        $this->leasereportinfoid = $leasereportinfoid;
+    
+        return $this;
+    }
+
+    /**
+     * Get leasereportinfoid
+     *
+     * @return \Earls\LeaseBundle\Entity\Leasereportsinfo 
+     */
+    public function getLeasereportinfoid()
+    {
+        return $this->leasereportinfoid;
     }
 }

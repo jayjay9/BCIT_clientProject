@@ -6,14 +6,14 @@
     </id>
     <field name="registereddate" type="date" column="registeredDate" nullable="true"/>
     <field name="registrationnumber" type="string" column="registrationNumber" length="255" nullable="true"/>
-    <many-to-one field="provincestateid" target-entity="Provincestate">
-      <join-columns>
-        <join-column name="provinceStateID" referenced-column-name="provinceStateID"/>
-      </join-columns>
-    </many-to-one>
     <many-to-one field="corporateid" target-entity="Corporations">
       <join-columns>
         <join-column name="corporateID" referenced-column-name="corporateID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="provincestateid" target-entity="Provincestate">
+      <join-columns>
+        <join-column name="provinceStateID" referenced-column-name="provinceStateID"/>
       </join-columns>
     </many-to-one>
   </entity>

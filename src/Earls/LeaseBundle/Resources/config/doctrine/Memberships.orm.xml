@@ -5,6 +5,11 @@
       <generator strategy="IDENTITY"/>
     </id>
     <field name="numberofshares" type="integer" column="numberOfShares" nullable="true"/>
+    <many-to-one field="directorid" target-entity="Directors">
+      <join-columns>
+        <join-column name="directorID" referenced-column-name="directorID"/>
+      </join-columns>
+    </many-to-one>
     <many-to-one field="sharetypeid" target-entity="Sharetypes">
       <join-columns>
         <join-column name="shareTypeID" referenced-column-name="shareTypeID"/>
@@ -13,11 +18,6 @@
     <many-to-one field="corporateid" target-entity="Corporations">
       <join-columns>
         <join-column name="corporateID" referenced-column-name="corporateID"/>
-      </join-columns>
-    </many-to-one>
-    <many-to-one field="directorid" target-entity="Directors">
-      <join-columns>
-        <join-column name="directorID" referenced-column-name="directorID"/>
       </join-columns>
     </many-to-one>
   </entity>

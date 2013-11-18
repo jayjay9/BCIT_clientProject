@@ -36,16 +36,6 @@ class Jurisdictions
     private $jurisdictionsid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Provincestate
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
-     * })
-     */
-    private $provincestateid;
-
-    /**
      * @var \Earls\LeaseBundle\Entity\Corporations
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Corporations")
@@ -54,6 +44,16 @@ class Jurisdictions
      * })
      */
     private $corporateid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Provincestate
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
+     * })
+     */
+    private $provincestateid;
 
 
 
@@ -114,29 +114,6 @@ class Jurisdictions
     }
 
     /**
-     * Set provincestateid
-     *
-     * @param \Earls\LeaseBundle\Entity\Provincestate $provincestateid
-     * @return Jurisdictions
-     */
-    public function setProvincestateid(\Earls\LeaseBundle\Entity\Provincestate $provincestateid = null)
-    {
-        $this->provincestateid = $provincestateid;
-    
-        return $this;
-    }
-
-    /**
-     * Get provincestateid
-     *
-     * @return \Earls\LeaseBundle\Entity\Provincestate 
-     */
-    public function getProvincestateid()
-    {
-        return $this->provincestateid;
-    }
-
-    /**
      * Set corporateid
      *
      * @param \Earls\LeaseBundle\Entity\Corporations $corporateid
@@ -157,5 +134,28 @@ class Jurisdictions
     public function getCorporateid()
     {
         return $this->corporateid;
+    }
+
+    /**
+     * Set provincestateid
+     *
+     * @param \Earls\LeaseBundle\Entity\Provincestate $provincestateid
+     * @return Jurisdictions
+     */
+    public function setProvincestateid(\Earls\LeaseBundle\Entity\Provincestate $provincestateid = null)
+    {
+        $this->provincestateid = $provincestateid;
+    
+        return $this;
+    }
+
+    /**
+     * Get provincestateid
+     *
+     * @return \Earls\LeaseBundle\Entity\Provincestate 
+     */
+    public function getProvincestateid()
+    {
+        return $this->provincestateid;
     }
 }

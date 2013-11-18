@@ -23,19 +23,19 @@
     <field name="indemnifier" type="string" column="indemnifier" length="255" nullable="true"/>
     <field name="indemnityperiod" type="string" column="indemnityPeriod" length="255" nullable="true"/>
     <field name="indemnityexpiry" type="datetime" column="indemnityExpiry" nullable="true"/>
-    <field name="otherdescription" type="string" column="otherDescription" length="255" nullable="true"/>
+    <field name="otherdescription" type="string" column="otherDescription" length="955" nullable="true"/>
     <field name="renewalcomments" type="string" column="renewalComments" length="255" nullable="true"/>
-    <field name="timestamp" type="datetime" column="timeStamp" nullable="true"/>
+    <field name="timestamp" type="string" column="timeStamp" length="45" nullable="true"/>
     <field name="areaupperfloor" type="float" column="areaUpperFloor" nullable="true"/>
     <field name="showinlease" type="boolean" column="showInLease" nullable="true"/>
-    <many-to-one field="leasereportinfoid" target-entity="Leasereportsinfo">
-      <join-columns>
-        <join-column name="leaseReportInfoID" referenced-column-name="leaseReportInfoID"/>
-      </join-columns>
-    </many-to-one>
     <many-to-one field="restaurantid" target-entity="Restaurants">
       <join-columns>
         <join-column name="restaurantID" referenced-column-name="restaurantID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="leasereportinfoid" target-entity="Leasereportsinfo">
+      <join-columns>
+        <join-column name="leaseReportInfoID" referenced-column-name="leaseReportInfoID"/>
       </join-columns>
     </many-to-one>
   </entity>

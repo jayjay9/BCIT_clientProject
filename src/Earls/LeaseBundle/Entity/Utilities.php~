@@ -31,19 +31,19 @@ class Utilities
      *
      * @ORM\Column(name="utilityID", type="smallint")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $utilityid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Utilitytypes
+     * @var \Earls\LeaseBundle\Entity\Restaurants
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Utilitytypes")
+     * @ORM\OneToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="utilityTypeID", referencedColumnName="utilityTypeID")
+     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID", unique=true)
      * })
      */
-    private $utilitytypeid;
+    private $restaurantid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Billingowners
@@ -56,14 +56,14 @@ class Utilities
     private $billingby;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Restaurants
+     * @var \Earls\LeaseBundle\Entity\Utilitytypes
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Utilitytypes")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID")
+     *   @ORM\JoinColumn(name="utilityTypeID", referencedColumnName="utilityTypeID")
      * })
      */
-    private $restaurantid;
+    private $utilitytypeid;
 
 
 }

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Riskinfo
  *
- * @ORM\Table(name="riskinfo")
+ * @ORM\Table(name="riskInfo")
  * @ORM\Entity
  */
 class Riskinfo
@@ -31,9 +31,19 @@ class Riskinfo
      *
      * @ORM\Column(name="riskID", type="smallint")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $riskid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Restaurants
+     *
+     * @ORM\OneToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID", unique=true)
+     * })
+     */
+    private $restaurantid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Constructiontypes
@@ -54,16 +64,6 @@ class Riskinfo
      * })
      */
     private $insuredby;
-
-    /**
-     * @var \Earls\LeaseBundle\Entity\Restaurants
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID")
-     * })
-     */
-    private $restaurantid;
 
 
 
@@ -114,6 +114,19 @@ class Riskinfo
     }
 
     /**
+     * Set riskid
+     *
+     * @param integer $riskid
+     * @return Riskinfo
+     */
+    public function setRiskid($riskid)
+    {
+        $this->riskid = $riskid;
+    
+        return $this;
+    }
+
+    /**
      * Get riskid
      *
      * @return integer 
@@ -121,6 +134,29 @@ class Riskinfo
     public function getRiskid()
     {
         return $this->riskid;
+    }
+
+    /**
+     * Set restaurantid
+     *
+     * @param \Earls\LeaseBundle\Entity\Restaurants $restaurantid
+     * @return Riskinfo
+     */
+    public function setRestaurantid(\Earls\LeaseBundle\Entity\Restaurants $restaurantid = null)
+    {
+        $this->restaurantid = $restaurantid;
+    
+        return $this;
+    }
+
+    /**
+     * Get restaurantid
+     *
+     * @return \Earls\LeaseBundle\Entity\Restaurants 
+     */
+    public function getRestaurantid()
+    {
+        return $this->restaurantid;
     }
 
     /**
@@ -167,28 +203,5 @@ class Riskinfo
     public function getInsuredby()
     {
         return $this->insuredby;
-    }
-
-    /**
-     * Set restaurantid
-     *
-     * @param \Earls\LeaseBundle\Entity\Restaurants $restaurantid
-     * @return Riskinfo
-     */
-    public function setRestaurantid(\Earls\LeaseBundle\Entity\Restaurants $restaurantid = null)
-    {
-        $this->restaurantid = $restaurantid;
-    
-        return $this;
-    }
-
-    /**
-     * Get restaurantid
-     *
-     * @return \Earls\LeaseBundle\Entity\Restaurants 
-     */
-    public function getRestaurantid()
-    {
-        return $this->restaurantid;
     }
 }

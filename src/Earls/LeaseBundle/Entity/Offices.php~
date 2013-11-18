@@ -43,16 +43,6 @@ class Offices
     private $officeid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Provincestate
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
-     * })
-     */
-    private $provincestateid;
-
-    /**
      * @var \Earls\LeaseBundle\Entity\Northamericancities
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Northamericancities")
@@ -61,6 +51,16 @@ class Offices
      * })
      */
     private $city;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Provincestate
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
+     * })
+     */
+    private $provincestateid;
 
 
 }

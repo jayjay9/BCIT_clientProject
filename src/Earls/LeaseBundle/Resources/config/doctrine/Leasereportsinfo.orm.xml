@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="Earls\LeaseBundle\Entity\Leasereportsinfo" table="leasereportsinfo">
-    <id name="leasereportinfoid" type="smallint" column="leaseReportInfoID">
-      <generator strategy="IDENTITY"/>
-    </id>
+  <entity name="Earls\LeaseBundle\Entity\Leasereportsinfo" table="leaseReportsInfo">
+    <id name="leasereportinfoid" type="smallint" column="leaseReportInfoID"/>
     <field name="iscertifiedsales" type="boolean" column="isCertifiedSales" nullable="true"/>
     <field name="duedate" type="date" column="dueDate" nullable="true"/>
     <field name="isaudit" type="boolean" column="isAudit" nullable="true"/>
     <field name="iscertified" type="boolean" column="isCertified" nullable="true"/>
+    <one-to-one field="leaseid" target-entity="Leases">
+      <join-columns>
+        <join-column name="leaseID" referenced-column-name="leaseID"/>
+      </join-columns>
+    </one-to-one>
     <many-to-one field="reporttypeid" target-entity="Reportperiodtypes">
       <join-columns>
         <join-column name="reportTypeID" referenced-column-name="reportTypeID"/>
-      </join-columns>
-    </many-to-one>
-    <many-to-one field="leaseid" target-entity="Leases">
-      <join-columns>
-        <join-column name="leaseID" referenced-column-name="leaseID"/>
       </join-columns>
     </many-to-one>
   </entity>

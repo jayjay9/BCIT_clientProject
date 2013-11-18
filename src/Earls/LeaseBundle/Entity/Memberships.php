@@ -29,6 +29,16 @@ class Memberships
     private $membershipid;
 
     /**
+     * @var \Earls\LeaseBundle\Entity\Directors
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Directors")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="directorID", referencedColumnName="directorID")
+     * })
+     */
+    private $directorid;
+
+    /**
      * @var \Earls\LeaseBundle\Entity\Sharetypes
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Sharetypes")
@@ -47,16 +57,6 @@ class Memberships
      * })
      */
     private $corporateid;
-
-    /**
-     * @var \Earls\LeaseBundle\Entity\Directors
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Directors")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="directorID", referencedColumnName="directorID")
-     * })
-     */
-    private $directorid;
 
 
 
@@ -91,6 +91,29 @@ class Memberships
     public function getMembershipid()
     {
         return $this->membershipid;
+    }
+
+    /**
+     * Set directorid
+     *
+     * @param \Earls\LeaseBundle\Entity\Directors $directorid
+     * @return Memberships
+     */
+    public function setDirectorid(\Earls\LeaseBundle\Entity\Directors $directorid = null)
+    {
+        $this->directorid = $directorid;
+    
+        return $this;
+    }
+
+    /**
+     * Get directorid
+     *
+     * @return \Earls\LeaseBundle\Entity\Directors 
+     */
+    public function getDirectorid()
+    {
+        return $this->directorid;
     }
 
     /**
@@ -137,28 +160,5 @@ class Memberships
     public function getCorporateid()
     {
         return $this->corporateid;
-    }
-
-    /**
-     * Set directorid
-     *
-     * @param \Earls\LeaseBundle\Entity\Directors $directorid
-     * @return Memberships
-     */
-    public function setDirectorid(\Earls\LeaseBundle\Entity\Directors $directorid = null)
-    {
-        $this->directorid = $directorid;
-    
-        return $this;
-    }
-
-    /**
-     * Get directorid
-     *
-     * @return \Earls\LeaseBundle\Entity\Directors 
-     */
-    public function getDirectorid()
-    {
-        return $this->directorid;
     }
 }

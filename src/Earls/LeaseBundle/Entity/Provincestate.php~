@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Provincestate
  *
- * @ORM\Table(name="provincestate")
+ * @ORM\Table(name="provinceState")
  * @ORM\Entity
  */
 class Provincestate

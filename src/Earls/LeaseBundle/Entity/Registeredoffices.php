@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Registeredoffices
  *
- * @ORM\Table(name="registeredoffices")
+ * @ORM\Table(name="registeredOffices")
  * @ORM\Entity
  */
 class Registeredoffices
@@ -43,16 +43,6 @@ class Registeredoffices
     private $registeredofficeid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Provincestate
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
-     * })
-     */
-    private $provincestateid;
-
-    /**
      * @var \Earls\LeaseBundle\Entity\Offices
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Offices")
@@ -61,6 +51,16 @@ class Registeredoffices
      * })
      */
     private $officeid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Provincestate
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
+     * })
+     */
+    private $provincestateid;
 
 
 
@@ -144,29 +144,6 @@ class Registeredoffices
     }
 
     /**
-     * Set provincestateid
-     *
-     * @param \Earls\LeaseBundle\Entity\Provincestate $provincestateid
-     * @return Registeredoffices
-     */
-    public function setProvincestateid(\Earls\LeaseBundle\Entity\Provincestate $provincestateid = null)
-    {
-        $this->provincestateid = $provincestateid;
-    
-        return $this;
-    }
-
-    /**
-     * Get provincestateid
-     *
-     * @return \Earls\LeaseBundle\Entity\Provincestate 
-     */
-    public function getProvincestateid()
-    {
-        return $this->provincestateid;
-    }
-
-    /**
      * Set officeid
      *
      * @param \Earls\LeaseBundle\Entity\Offices $officeid
@@ -187,5 +164,28 @@ class Registeredoffices
     public function getOfficeid()
     {
         return $this->officeid;
+    }
+
+    /**
+     * Set provincestateid
+     *
+     * @param \Earls\LeaseBundle\Entity\Provincestate $provincestateid
+     * @return Registeredoffices
+     */
+    public function setProvincestateid(\Earls\LeaseBundle\Entity\Provincestate $provincestateid = null)
+    {
+        $this->provincestateid = $provincestateid;
+    
+        return $this;
+    }
+
+    /**
+     * Get provincestateid
+     *
+     * @return \Earls\LeaseBundle\Entity\Provincestate 
+     */
+    public function getProvincestateid()
+    {
+        return $this->provincestateid;
     }
 }

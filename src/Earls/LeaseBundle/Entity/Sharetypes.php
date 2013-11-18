@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Sharetypes
  *
- * @ORM\Table(name="sharetypes")
+ * @ORM\Table(name="shareTypes")
  * @ORM\Entity
  */
 class Sharetypes

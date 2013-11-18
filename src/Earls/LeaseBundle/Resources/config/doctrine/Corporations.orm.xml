@@ -17,9 +17,9 @@
     <field name="namechanges" type="string" column="nameChanges" length="255" nullable="true"/>
     <field name="corpstatus" type="boolean" column="corpStatus" nullable="true"/>
     <field name="dissolutiondate" type="date" column="dissolutionDate" nullable="true"/>
-    <many-to-one field="registeredofficeid" target-entity="Registeredoffices">
+    <many-to-one field="provincestateid" target-entity="Provincestate">
       <join-columns>
-        <join-column name="registeredOfficeID" referenced-column-name="registeredOfficeID"/>
+        <join-column name="provinceStateID" referenced-column-name="provinceStateID"/>
       </join-columns>
     </many-to-one>
     <many-to-one field="recordsofficeid" target-entity="Recordsoffices">
@@ -27,9 +27,9 @@
         <join-column name="recordsOfficeID" referenced-column-name="recordOfficeID"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="provincestateid" target-entity="Provincestate">
+    <many-to-one field="registeredofficeid" target-entity="Registeredoffices">
       <join-columns>
-        <join-column name="provinceStateID" referenced-column-name="provinceStateID"/>
+        <join-column name="registeredOfficeID" referenced-column-name="registeredOfficeID"/>
       </join-columns>
     </many-to-one>
   </entity>

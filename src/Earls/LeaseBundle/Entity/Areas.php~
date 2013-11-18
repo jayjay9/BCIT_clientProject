@@ -13,58 +13,58 @@ use Doctrine\ORM\Mapping as ORM;
 class Areas
 {
     /**
-     * @var float
+     * @var integer
      *
-     * @ORM\Column(name="entrybar", type="float", nullable=true)
+     * @ORM\Column(name="entry", type="integer", nullable=true)
      */
-    private $entrybar;
+    private $entry;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="bar", type="integer", nullable=false)
+     * @ORM\Column(name="bar", type="integer", nullable=true)
      */
     private $bar;
 
     /**
-     * @var float
+     * @var integer
      *
-     * @ORM\Column(name="lounge", type="float", nullable=true)
+     * @ORM\Column(name="lounge", type="integer", nullable=true)
      */
     private $lounge;
 
     /**
-     * @var float
+     * @var integer
      *
-     * @ORM\Column(name="dining", type="float", nullable=true)
+     * @ORM\Column(name="dining", type="integer", nullable=true)
      */
     private $dining;
 
     /**
-     * @var float
+     * @var integer
      *
-     * @ORM\Column(name="washrooms", type="float", nullable=true)
+     * @ORM\Column(name="washrooms", type="integer", nullable=true)
      */
     private $washrooms;
 
     /**
-     * @var float
+     * @var integer
      *
-     * @ORM\Column(name="boh", type="float", nullable=true)
+     * @ORM\Column(name="both", type="integer", nullable=true)
      */
-    private $boh;
+    private $both;
 
     /**
-     * @var float
+     * @var integer
      *
-     * @ORM\Column(name="patio", type="float", nullable=true)
+     * @ORM\Column(name="patio", type="integer", nullable=true)
      */
     private $patio;
 
     /**
-     * @var float
+     * @var integer
      *
-     * @ORM\Column(name="totalarea", type="float", nullable=true)
+     * @ORM\Column(name="totalarea", type="integer", nullable=true)
      */
     private $totalarea;
 

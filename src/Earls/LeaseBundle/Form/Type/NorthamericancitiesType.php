@@ -1,12 +1,12 @@
 <?php
 
-namespace Earls\LeaseBundle\Form;
+namespace Earls\LeaseBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ProvincestateType extends AbstractType
+class NorthamericancitiesType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -15,7 +15,7 @@ class ProvincestateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('description', 'entity', array('class' => 'EarlsLeaseBundle:Provincestate', 'property' => 'description'))
+            ->add('city')
         ;
     }
     
@@ -25,7 +25,7 @@ class ProvincestateType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Earls\LeaseBundle\Entity\Provincestate'
+            'data_class' => 'Earls\LeaseBundle\Entity\Northamericancities'
         ));
     }
 
@@ -34,6 +34,6 @@ class ProvincestateType extends AbstractType
      */
     public function getName()
     {
-        return 'earls_leasebundle_provincestate';
+        return 'earls_leasebundle_northamericancities';
     }
 }

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Areatypes
  *
- * @ORM\Table(name="areatypes")
+ * @ORM\Table(name="areaTypes")
  * @ORM\Entity
  */
 class Areatypes

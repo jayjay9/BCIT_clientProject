@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class RiskinfoType extends AbstractType
+class ProvincestateType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -15,17 +15,7 @@ class RiskinfoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('rentabatement', 'text')
-            ->add('exteriormaintenance', 'text')
-            ->add('constructionid', 'entity', array(
-                'class' => 'EarlsLeaseBundle:Constructiontypes',
-                'property' => 'constructiontype'
-            ))
-            ->add('insuredby', 'entity', array(
-                'class' => 'EarlsLeaseBundle:Owners',
-                'property' => 'ownertype'
-            ))
-            //->add('restaurantid')
+            ->add('description', 'entity', array('class' => 'EarlsLeaseBundle:Provincestate', 'property' => 'description'))
         ;
     }
     
@@ -35,7 +25,7 @@ class RiskinfoType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Earls\LeaseBundle\Entity\Riskinfo'
+            'data_class' => 'Earls\LeaseBundle\Entity\Provincestate'
         ));
     }
 
@@ -44,6 +34,6 @@ class RiskinfoType extends AbstractType
      */
     public function getName()
     {
-        return 'earls_leasebundle_riskinfo';
+        return 'earls_leasebundle_provincestate';
     }
 }

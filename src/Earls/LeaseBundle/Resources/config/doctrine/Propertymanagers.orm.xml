@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="Earls\LeaseBundle\Entity\Propertymanagers" table="propertymanagers">
+  <entity name="Earls\LeaseBundle\Entity\Propertymanagers" table="propertyManagers">
     <id name="propertymanagerid" type="smallint" column="propertyManagerID">
       <generator strategy="IDENTITY"/>
     </id>
@@ -10,14 +10,14 @@
     <field name="attention" type="string" column="attention" length="45" nullable="true"/>
     <field name="phone" type="string" column="phone" length="45" nullable="true"/>
     <field name="fax" type="string" column="fax" length="45" nullable="true"/>
-    <many-to-one field="provincestateid" target-entity="Provincestate">
-      <join-columns>
-        <join-column name="provinceStateID" referenced-column-name="provinceStateID"/>
-      </join-columns>
-    </many-to-one>
     <many-to-one field="city" target-entity="Northamericancities">
       <join-columns>
         <join-column name="city" referenced-column-name="northAmericanCityID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="provincestateid" target-entity="Provincestate">
+      <join-columns>
+        <join-column name="provinceStateID" referenced-column-name="provinceStateID"/>
       </join-columns>
     </many-to-one>
   </entity>

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Propertymanagers
  *
- * @ORM\Table(name="propertymanagers")
+ * @ORM\Table(name="propertyManagers")
  * @ORM\Entity
  */
 class Propertymanagers
@@ -64,16 +64,6 @@ class Propertymanagers
     private $propertymanagerid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Provincestate
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
-     * })
-     */
-    private $provincestateid;
-
-    /**
      * @var \Earls\LeaseBundle\Entity\Northamericancities
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Northamericancities")
@@ -82,6 +72,16 @@ class Propertymanagers
      * })
      */
     private $city;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Provincestate
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
+     * })
+     */
+    private $provincestateid;
 
 
 }

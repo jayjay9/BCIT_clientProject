@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Reportperiodtypes
  *
- * @ORM\Table(name="reportperiodtypes")
+ * @ORM\Table(name="reportPeriodTypes")
  * @ORM\Entity
  */
 class Reportperiodtypes

@@ -4,14 +4,14 @@
     <id name="areaid" type="smallint" column="areaID">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="entrybar" type="float" column="entrybar" nullable="true"/>
-    <field name="bar" type="integer" column="bar" nullable="false"/>
-    <field name="lounge" type="float" column="lounge" nullable="true"/>
-    <field name="dining" type="float" column="dining" nullable="true"/>
-    <field name="washrooms" type="float" column="washrooms" nullable="true"/>
-    <field name="boh" type="float" column="boh" nullable="true"/>
-    <field name="patio" type="float" column="patio" nullable="true"/>
-    <field name="totalarea" type="float" column="totalarea" nullable="true"/>
+    <field name="entry" type="integer" column="entry" nullable="true"/>
+    <field name="bar" type="integer" column="bar" nullable="true"/>
+    <field name="lounge" type="integer" column="lounge" nullable="true"/>
+    <field name="dining" type="integer" column="dining" nullable="true"/>
+    <field name="washrooms" type="integer" column="washrooms" nullable="true"/>
+    <field name="both" type="integer" column="both" nullable="true"/>
+    <field name="patio" type="integer" column="patio" nullable="true"/>
+    <field name="totalarea" type="integer" column="totalarea" nullable="true"/>
     <many-to-one field="restaurantid" target-entity="Restaurants">
       <join-columns>
         <join-column name="restaurantID" referenced-column-name="restaurantID"/>

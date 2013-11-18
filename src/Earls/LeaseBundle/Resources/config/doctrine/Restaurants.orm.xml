@@ -10,7 +10,7 @@
     <field name="address" type="string" column="address" length="45" nullable="true"/>
     <field name="postalzip" type="string" column="postalZip" length="45" nullable="true"/>
     <field name="openingdate" type="string" column="openingDate" length="45" nullable="true"/>
-    <field name="legaldescription" type="string" column="legaldescription" length="45" nullable="true"/>
+    <field name="legaldescription" type="string" column="legaldescription" length="300" nullable="true"/>
     <field name="diningroomseating" type="integer" column="diningRoomSeating" nullable="true"/>
     <field name="loungeseating" type="integer" column="loungeSeating" nullable="true"/>
     <field name="patioseating" type="integer" column="patioSeating" nullable="true"/>
@@ -21,21 +21,18 @@
     <field name="restaurantstate" type="boolean" column="restaurantState" nullable="true"/>
     <field name="closedate" type="date" column="closeDate" nullable="true"/>
     <field name="royaltyfee" type="string" column="royaltyFee" length="45" nullable="true"/>
-    <field name="yearbuilt" type="date" column="yearBuilt" nullable="true"/>
+    <field name="advertisingfee" type="string" column="advertisingFee" length="45" nullable="true"/>
+    <field name="regionalmngtfee" type="string" column="regionalMngtFee" length="45" nullable="true"/>
+    <field name="yearbuilt" type="string" column="yearBuilt" length="4" nullable="true"/>
     <field name="comments" type="string" column="comments" length="255" nullable="true"/>
-    <many-to-one field="rentandmaintenanceid" target-entity="Rentandmaintenances">
+    <many-to-one field="liquorlicenseid" target-entity="Liquorlicenses">
       <join-columns>
-        <join-column name="rentAndMaintenanceID" referenced-column-name="rentAndMaintenanceID"/>
+        <join-column name="liquorLicenseID" referenced-column-name="liquorLicenseID"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="regionid" target-entity="Regions">
+    <many-to-one field="provincestateid" target-entity="Provincestate">
       <join-columns>
-        <join-column name="regionID" referenced-column-name="regionID"/>
-      </join-columns>
-    </many-to-one>
-    <many-to-one field="riskid" target-entity="Riskinfo">
-      <join-columns>
-        <join-column name="riskID" referenced-column-name="riskID"/>
+        <join-column name="provinceStateID" referenced-column-name="provinceStateID"/>
       </join-columns>
     </many-to-one>
     <many-to-one field="storeclassid" target-entity="Storeclasses">
@@ -43,29 +40,9 @@
         <join-column name="storeClassID" referenced-column-name="storeClassID"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="utilityid" target-entity="Utilities">
-      <join-columns>
-        <join-column name="utilityID" referenced-column-name="utilityID"/>
-      </join-columns>
-    </many-to-one>
-    <many-to-one field="propertymanagerid" target-entity="Propertymanagers">
-      <join-columns>
-        <join-column name="propertyManagerID" referenced-column-name="propertyManagerID"/>
-      </join-columns>
-    </many-to-one>
-    <many-to-one field="liquorlicenseid" target-entity="Liquorlicenses">
-      <join-columns>
-        <join-column name="liquorLicenseID" referenced-column-name="liquorLicenseID"/>
-      </join-columns>
-    </many-to-one>
     <many-to-one field="city" target-entity="Northamericancities">
       <join-columns>
         <join-column name="city" referenced-column-name="northAmericanCityID"/>
-      </join-columns>
-    </many-to-one>
-    <many-to-one field="corporateid" target-entity="Corporations">
-      <join-columns>
-        <join-column name="corporateID" referenced-column-name="corporateID"/>
       </join-columns>
     </many-to-one>
     <many-to-one field="buildingtype" target-entity="Buildingtypes">
@@ -73,9 +50,29 @@
         <join-column name="buildingType" referenced-column-name="buildingTypeID"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="landlordid" target-entity="Landlords">
+    <many-to-one field="corporateid" target-entity="Corporations">
       <join-columns>
-        <join-column name="landlordID" referenced-column-name="landlordID"/>
+        <join-column name="corporateID" referenced-column-name="corporateID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="utilityid" target-entity="Utilities">
+      <join-columns>
+        <join-column name="utilityID" referenced-column-name="utilityID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="regionid" target-entity="Regions">
+      <join-columns>
+        <join-column name="regionID" referenced-column-name="regionID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="propertymanagerid" target-entity="Propertymanagers">
+      <join-columns>
+        <join-column name="propertymanagerID" referenced-column-name="propertyManagerID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="riskid" target-entity="Riskinfo">
+      <join-columns>
+        <join-column name="riskID" referenced-column-name="riskID"/>
       </join-columns>
     </many-to-one>
     <many-to-one field="licenseid" target-entity="Licenses">
@@ -83,9 +80,14 @@
         <join-column name="licenseID" referenced-column-name="licenseID"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="provincestateid" target-entity="Provincestate">
+    <many-to-one field="rentandmaintenanceid" target-entity="Rentandmaintenances">
       <join-columns>
-        <join-column name="provinceStateID" referenced-column-name="provinceStateID"/>
+        <join-column name="rentAndMaintenanceID" referenced-column-name="rentAndMaintenanceID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="landlordid" target-entity="Landlords">
+      <join-columns>
+        <join-column name="landlordID" referenced-column-name="landlordID"/>
       </join-columns>
     </many-to-one>
   </entity>

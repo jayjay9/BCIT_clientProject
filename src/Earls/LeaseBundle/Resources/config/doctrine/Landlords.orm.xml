@@ -10,14 +10,14 @@
     <field name="attention" type="string" column="attention" length="255" nullable="true"/>
     <field name="phone" type="string" column="phone" length="45" nullable="true"/>
     <field name="fax" type="string" column="fax" length="45" nullable="true"/>
-    <many-to-one field="provincestateid" target-entity="Provincestate">
-      <join-columns>
-        <join-column name="provinceStateID" referenced-column-name="provinceStateID"/>
-      </join-columns>
-    </many-to-one>
     <many-to-one field="city" target-entity="Northamericancities">
       <join-columns>
         <join-column name="city" referenced-column-name="northAmericanCityID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="provincestateid" target-entity="Provincestate">
+      <join-columns>
+        <join-column name="provinceStateID" referenced-column-name="provinceStateID"/>
       </join-columns>
     </many-to-one>
   </entity>

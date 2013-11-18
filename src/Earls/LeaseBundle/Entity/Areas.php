@@ -13,58 +13,58 @@ use Doctrine\ORM\Mapping as ORM;
 class Areas
 {
     /**
-     * @var float
+     * @var integer
      *
-     * @ORM\Column(name="entrybar", type="float", nullable=true)
+     * @ORM\Column(name="entry", type="integer", nullable=true)
      */
-    private $entrybar;
+    private $entry;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="bar", type="integer", nullable=false)
+     * @ORM\Column(name="bar", type="integer", nullable=true)
      */
     private $bar;
 
     /**
-     * @var float
+     * @var integer
      *
-     * @ORM\Column(name="lounge", type="float", nullable=true)
+     * @ORM\Column(name="lounge", type="integer", nullable=true)
      */
     private $lounge;
 
     /**
-     * @var float
+     * @var integer
      *
-     * @ORM\Column(name="dining", type="float", nullable=true)
+     * @ORM\Column(name="dining", type="integer", nullable=true)
      */
     private $dining;
 
     /**
-     * @var float
+     * @var integer
      *
-     * @ORM\Column(name="washrooms", type="float", nullable=true)
+     * @ORM\Column(name="washrooms", type="integer", nullable=true)
      */
     private $washrooms;
 
     /**
-     * @var float
+     * @var integer
      *
-     * @ORM\Column(name="boh", type="float", nullable=true)
+     * @ORM\Column(name="both", type="integer", nullable=true)
      */
-    private $boh;
+    private $both;
 
     /**
-     * @var float
+     * @var integer
      *
-     * @ORM\Column(name="patio", type="float", nullable=true)
+     * @ORM\Column(name="patio", type="integer", nullable=true)
      */
     private $patio;
 
     /**
-     * @var float
+     * @var integer
      *
-     * @ORM\Column(name="totalarea", type="float", nullable=true)
+     * @ORM\Column(name="totalarea", type="integer", nullable=true)
      */
     private $totalarea;
 
@@ -100,26 +100,26 @@ class Areas
 
 
     /**
-     * Set entrybar
+     * Set entry
      *
-     * @param float $entrybar
+     * @param integer $entry
      * @return Areas
      */
-    public function setEntrybar($entrybar)
+    public function setEntry($entry)
     {
-        $this->entrybar = $entrybar;
+        $this->entry = $entry;
     
         return $this;
     }
 
     /**
-     * Get entrybar
+     * Get entry
      *
-     * @return float 
+     * @return integer 
      */
-    public function getEntrybar()
+    public function getEntry()
     {
-        return $this->entrybar;
+        return $this->entry;
     }
 
     /**
@@ -148,7 +148,7 @@ class Areas
     /**
      * Set lounge
      *
-     * @param float $lounge
+     * @param integer $lounge
      * @return Areas
      */
     public function setLounge($lounge)
@@ -161,7 +161,7 @@ class Areas
     /**
      * Get lounge
      *
-     * @return float 
+     * @return integer 
      */
     public function getLounge()
     {
@@ -171,7 +171,7 @@ class Areas
     /**
      * Set dining
      *
-     * @param float $dining
+     * @param integer $dining
      * @return Areas
      */
     public function setDining($dining)
@@ -184,7 +184,7 @@ class Areas
     /**
      * Get dining
      *
-     * @return float 
+     * @return integer 
      */
     public function getDining()
     {
@@ -194,7 +194,7 @@ class Areas
     /**
      * Set washrooms
      *
-     * @param float $washrooms
+     * @param integer $washrooms
      * @return Areas
      */
     public function setWashrooms($washrooms)
@@ -207,7 +207,7 @@ class Areas
     /**
      * Get washrooms
      *
-     * @return float 
+     * @return integer 
      */
     public function getWashrooms()
     {
@@ -215,32 +215,32 @@ class Areas
     }
 
     /**
-     * Set boh
+     * Set both
      *
-     * @param float $boh
+     * @param integer $both
      * @return Areas
      */
-    public function setBoh($boh)
+    public function setBoth($both)
     {
-        $this->boh = $boh;
+        $this->both = $both;
     
         return $this;
     }
 
     /**
-     * Get boh
+     * Get both
      *
-     * @return float 
+     * @return integer 
      */
-    public function getBoh()
+    public function getBoth()
     {
-        return $this->boh;
+        return $this->both;
     }
 
     /**
      * Set patio
      *
-     * @param float $patio
+     * @param integer $patio
      * @return Areas
      */
     public function setPatio($patio)
@@ -253,7 +253,7 @@ class Areas
     /**
      * Get patio
      *
-     * @return float 
+     * @return integer 
      */
     public function getPatio()
     {
@@ -263,7 +263,7 @@ class Areas
     /**
      * Set totalarea
      *
-     * @param float $totalarea
+     * @param integer $totalarea
      * @return Areas
      */
     public function setTotalarea($totalarea)
@@ -276,7 +276,7 @@ class Areas
     /**
      * Get totalarea
      *
-     * @return float 
+     * @return integer 
      */
     public function getTotalarea()
     {

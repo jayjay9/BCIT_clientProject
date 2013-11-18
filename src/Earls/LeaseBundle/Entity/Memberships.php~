@@ -29,6 +29,16 @@ class Memberships
     private $membershipid;
 
     /**
+     * @var \Earls\LeaseBundle\Entity\Directors
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Directors")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="directorID", referencedColumnName="directorID")
+     * })
+     */
+    private $directorid;
+
+    /**
      * @var \Earls\LeaseBundle\Entity\Sharetypes
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Sharetypes")
@@ -47,16 +57,6 @@ class Memberships
      * })
      */
     private $corporateid;
-
-    /**
-     * @var \Earls\LeaseBundle\Entity\Directors
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Directors")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="directorID", referencedColumnName="directorID")
-     * })
-     */
-    private $directorid;
 
 
 }

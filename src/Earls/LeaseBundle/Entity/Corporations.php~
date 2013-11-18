@@ -113,14 +113,14 @@ class Corporations
     private $corporateid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Registeredoffices
+     * @var \Earls\LeaseBundle\Entity\Provincestate
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Registeredoffices")
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="registeredOfficeID", referencedColumnName="registeredOfficeID")
+     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
      * })
      */
-    private $registeredofficeid;
+    private $provincestateid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Recordsoffices
@@ -133,14 +133,14 @@ class Corporations
     private $recordsofficeid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Provincestate
+     * @var \Earls\LeaseBundle\Entity\Registeredoffices
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Registeredoffices")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
+     *   @ORM\JoinColumn(name="registeredOfficeID", referencedColumnName="registeredOfficeID")
      * })
      */
-    private $provincestateid;
+    private $registeredofficeid;
 
 
 }

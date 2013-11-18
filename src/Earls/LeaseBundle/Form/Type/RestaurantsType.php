@@ -34,9 +34,11 @@ class RestaurantsType extends AbstractType
             ->add('restaurantstate')
             ->add('closedate')
             ->add('royaltyfee', 'text')
+            ->add('advertisingfee', 'text')
+            ->add('regionalmngtfee', 'text')
             ->add('yearbuilt', 'text')
             ->add('comments', 'textarea')
-            ->add('rentandmaintenanceid')
+            //->add('rentandmaintenanceid')
             ->add('regionid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Regions',
                 'property' => 'region'

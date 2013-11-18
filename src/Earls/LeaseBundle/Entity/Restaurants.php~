@@ -57,7 +57,7 @@ class Restaurants
     /**
      * @var string
      *
-     * @ORM\Column(name="legaldescription", type="string", length=45, nullable=true)
+     * @ORM\Column(name="legaldescription", type="string", length=300, nullable=true)
      */
     private $legaldescription;
 
@@ -132,9 +132,23 @@ class Restaurants
     private $royaltyfee;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="yearBuilt", type="date", nullable=true)
+     * @ORM\Column(name="advertisingFee", type="string", length=45, nullable=true)
+     */
+    private $advertisingfee;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="regionalMngtFee", type="string", length=45, nullable=true)
+     */
+    private $regionalmngtfee;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="yearBuilt", type="string", length=4, nullable=true)
      */
     private $yearbuilt;
 
@@ -155,34 +169,24 @@ class Restaurants
     private $restaurantid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Rentandmaintenances
+     * @var \Earls\LeaseBundle\Entity\Liquorlicenses
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Rentandmaintenances")
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Liquorlicenses")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="rentAndMaintenanceID", referencedColumnName="rentAndMaintenanceID")
+     *   @ORM\JoinColumn(name="liquorLicenseID", referencedColumnName="liquorLicenseID")
      * })
      */
-    private $rentandmaintenanceid;
+    private $liquorlicenseid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Regions
+     * @var \Earls\LeaseBundle\Entity\Provincestate
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Regions")
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="regionID", referencedColumnName="regionID")
+     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
      * })
      */
-    private $regionid;
-
-    /**
-     * @var \Earls\LeaseBundle\Entity\Riskinfo
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Riskinfo")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="riskID", referencedColumnName="riskID")
-     * })
-     */
-    private $riskid;
+    private $provincestateid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Storeclasses
@@ -195,36 +199,6 @@ class Restaurants
     private $storeclassid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Utilities
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Utilities")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="utilityID", referencedColumnName="utilityID")
-     * })
-     */
-    private $utilityid;
-
-    /**
-     * @var \Earls\LeaseBundle\Entity\Propertymanagers
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Propertymanagers")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="propertyManagerID", referencedColumnName="propertyManagerID")
-     * })
-     */
-    private $propertymanagerid;
-
-    /**
-     * @var \Earls\LeaseBundle\Entity\Liquorlicenses
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Liquorlicenses")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="liquorLicenseID", referencedColumnName="liquorLicenseID")
-     * })
-     */
-    private $liquorlicenseid;
-
-    /**
      * @var \Earls\LeaseBundle\Entity\Northamericancities
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Northamericancities")
@@ -233,16 +207,6 @@ class Restaurants
      * })
      */
     private $city;
-
-    /**
-     * @var \Earls\LeaseBundle\Entity\Corporations
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Corporations")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="corporateID", referencedColumnName="corporateID")
-     * })
-     */
-    private $corporateid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Buildingtypes
@@ -255,14 +219,54 @@ class Restaurants
     private $buildingtype;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Landlords
+     * @var \Earls\LeaseBundle\Entity\Corporations
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Landlords")
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Corporations")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="landlordID", referencedColumnName="landlordID")
+     *   @ORM\JoinColumn(name="corporateID", referencedColumnName="corporateID")
      * })
      */
-    private $landlordid;
+    private $corporateid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Utilities
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Utilities")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="utilityID", referencedColumnName="utilityID")
+     * })
+     */
+    private $utilityid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Regions
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Regions")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="regionID", referencedColumnName="regionID")
+     * })
+     */
+    private $regionid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Propertymanagers
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Propertymanagers")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="propertymanagerID", referencedColumnName="propertyManagerID")
+     * })
+     */
+    private $propertymanagerid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Riskinfo
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Riskinfo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="riskID", referencedColumnName="riskID")
+     * })
+     */
+    private $riskid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Licenses
@@ -275,14 +279,24 @@ class Restaurants
     private $licenseid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Provincestate
+     * @var \Earls\LeaseBundle\Entity\Rentandmaintenances
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Rentandmaintenances")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
+     *   @ORM\JoinColumn(name="rentAndMaintenanceID", referencedColumnName="rentAndMaintenanceID")
      * })
      */
-    private $provincestateid;
+    private $rentandmaintenanceid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Landlords
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Landlords")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="landlordID", referencedColumnName="landlordID")
+     * })
+     */
+    private $landlordid;
 
 
 }

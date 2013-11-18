@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Leasereportsinfo
  *
- * @ORM\Table(name="leasereportsinfo")
+ * @ORM\Table(name="leaseReportsInfo")
  * @ORM\Entity
  */
 class Leasereportsinfo
@@ -45,9 +45,19 @@ class Leasereportsinfo
      *
      * @ORM\Column(name="leaseReportInfoID", type="smallint")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $leasereportinfoid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Leases
+     *
+     * @ORM\OneToOne(targetEntity="Earls\LeaseBundle\Entity\Leases")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="leaseID", referencedColumnName="leaseID", unique=true)
+     * })
+     */
+    private $leaseid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Reportperiodtypes
@@ -58,16 +68,6 @@ class Leasereportsinfo
      * })
      */
     private $reporttypeid;
-
-    /**
-     * @var \Earls\LeaseBundle\Entity\Leases
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Leases")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="leaseID", referencedColumnName="leaseID")
-     * })
-     */
-    private $leaseid;
 
 
 }

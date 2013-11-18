@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Riskinfo
  *
- * @ORM\Table(name="riskinfo")
+ * @ORM\Table(name="riskInfo")
  * @ORM\Entity
  */
 class Riskinfo
@@ -31,9 +31,19 @@ class Riskinfo
      *
      * @ORM\Column(name="riskID", type="smallint")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $riskid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Restaurants
+     *
+     * @ORM\OneToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID", unique=true)
+     * })
+     */
+    private $restaurantid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Constructiontypes
@@ -54,16 +64,6 @@ class Riskinfo
      * })
      */
     private $insuredby;
-
-    /**
-     * @var \Earls\LeaseBundle\Entity\Restaurants
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID")
-     * })
-     */
-    private $restaurantid;
 
 
 }

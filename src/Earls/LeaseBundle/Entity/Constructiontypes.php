@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Constructiontypes
  *
- * @ORM\Table(name="constructiontypes")
+ * @ORM\Table(name="constructionTypes")
  * @ORM\Entity
  */
 class Constructiontypes
@@ -15,7 +15,7 @@ class Constructiontypes
     /**
      * @var string
      *
-     * @ORM\Column(name="code", type="string", length=6, nullable=true)
+     * @ORM\Column(name="code", type="string", length=10, nullable=true)
      */
     private $code;
 

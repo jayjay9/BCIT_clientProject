@@ -31,19 +31,19 @@ class Utilities
      *
      * @ORM\Column(name="utilityID", type="smallint")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $utilityid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Utilitytypes
+     * @var \Earls\LeaseBundle\Entity\Restaurants
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Utilitytypes")
+     * @ORM\OneToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="utilityTypeID", referencedColumnName="utilityTypeID")
+     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID", unique=true)
      * })
      */
-    private $utilitytypeid;
+    private $restaurantid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Billingowners
@@ -56,14 +56,14 @@ class Utilities
     private $billingby;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Restaurants
+     * @var \Earls\LeaseBundle\Entity\Utilitytypes
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Utilitytypes")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID")
+     *   @ORM\JoinColumn(name="utilityTypeID", referencedColumnName="utilityTypeID")
      * })
      */
-    private $restaurantid;
+    private $utilitytypeid;
 
 
 
@@ -114,6 +114,19 @@ class Utilities
     }
 
     /**
+     * Set utilityid
+     *
+     * @param integer $utilityid
+     * @return Utilities
+     */
+    public function setUtilityid($utilityid)
+    {
+        $this->utilityid = $utilityid;
+    
+        return $this;
+    }
+
+    /**
      * Get utilityid
      *
      * @return integer 
@@ -124,26 +137,26 @@ class Utilities
     }
 
     /**
-     * Set utilitytypeid
+     * Set restaurantid
      *
-     * @param \Earls\LeaseBundle\Entity\Utilitytypes $utilitytypeid
+     * @param \Earls\LeaseBundle\Entity\Restaurants $restaurantid
      * @return Utilities
      */
-    public function setUtilitytypeid(\Earls\LeaseBundle\Entity\Utilitytypes $utilitytypeid = null)
+    public function setRestaurantid(\Earls\LeaseBundle\Entity\Restaurants $restaurantid = null)
     {
-        $this->utilitytypeid = $utilitytypeid;
+        $this->restaurantid = $restaurantid;
     
         return $this;
     }
 
     /**
-     * Get utilitytypeid
+     * Get restaurantid
      *
-     * @return \Earls\LeaseBundle\Entity\Utilitytypes 
+     * @return \Earls\LeaseBundle\Entity\Restaurants 
      */
-    public function getUtilitytypeid()
+    public function getRestaurantid()
     {
-        return $this->utilitytypeid;
+        return $this->restaurantid;
     }
 
     /**
@@ -170,25 +183,25 @@ class Utilities
     }
 
     /**
-     * Set restaurantid
+     * Set utilitytypeid
      *
-     * @param \Earls\LeaseBundle\Entity\Restaurants $restaurantid
+     * @param \Earls\LeaseBundle\Entity\Utilitytypes $utilitytypeid
      * @return Utilities
      */
-    public function setRestaurantid(\Earls\LeaseBundle\Entity\Restaurants $restaurantid = null)
+    public function setUtilitytypeid(\Earls\LeaseBundle\Entity\Utilitytypes $utilitytypeid = null)
     {
-        $this->restaurantid = $restaurantid;
+        $this->utilitytypeid = $utilitytypeid;
     
         return $this;
     }
 
     /**
-     * Get restaurantid
+     * Get utilitytypeid
      *
-     * @return \Earls\LeaseBundle\Entity\Restaurants 
+     * @return \Earls\LeaseBundle\Entity\Utilitytypes 
      */
-    public function getRestaurantid()
+    public function getUtilitytypeid()
     {
-        return $this->restaurantid;
+        return $this->utilitytypeid;
     }
 }

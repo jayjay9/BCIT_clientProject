@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Rentandmaintenances
  *
- * @ORM\Table(name="rentandmaintenances")
+ * @ORM\Table(name="rentAndMaintenances")
  * @ORM\Entity
  */
 class Rentandmaintenances
@@ -17,19 +17,19 @@ class Rentandmaintenances
      *
      * @ORM\Column(name="rentAndMaintenanceID", type="smallint")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $rentandmaintenanceid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Owners
+     * @var \Earls\LeaseBundle\Entity\Restaurants
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Owners")
+     * @ORM\OneToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="hvacRepair", referencedColumnName="ownerID")
+     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID", unique=true)
      * })
      */
-    private $hvacrepair;
+    private $restaurantid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Owners
@@ -52,16 +52,6 @@ class Rentandmaintenances
     private $roofrepair;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Restaurants
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID")
-     * })
-     */
-    private $restaurantid;
-
-    /**
      * @var \Earls\LeaseBundle\Entity\Owners
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Owners")
@@ -71,7 +61,30 @@ class Rentandmaintenances
      */
     private $hvacreplace;
 
+    /**
+     * @var \Earls\LeaseBundle\Entity\Owners
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Owners")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="hvacRepair", referencedColumnName="ownerID")
+     * })
+     */
+    private $hvacrepair;
 
+
+
+    /**
+     * Set rentandmaintenanceid
+     *
+     * @param integer $rentandmaintenanceid
+     * @return Rentandmaintenances
+     */
+    public function setRentandmaintenanceid($rentandmaintenanceid)
+    {
+        $this->rentandmaintenanceid = $rentandmaintenanceid;
+    
+        return $this;
+    }
 
     /**
      * Get rentandmaintenanceid
@@ -84,26 +97,26 @@ class Rentandmaintenances
     }
 
     /**
-     * Set hvacrepair
+     * Set restaurantid
      *
-     * @param \Earls\LeaseBundle\Entity\Owners $hvacrepair
+     * @param \Earls\LeaseBundle\Entity\Restaurants $restaurantid
      * @return Rentandmaintenances
      */
-    public function setHvacrepair(\Earls\LeaseBundle\Entity\Owners $hvacrepair = null)
+    public function setRestaurantid(\Earls\LeaseBundle\Entity\Restaurants $restaurantid = null)
     {
-        $this->hvacrepair = $hvacrepair;
+        $this->restaurantid = $restaurantid;
     
         return $this;
     }
 
     /**
-     * Get hvacrepair
+     * Get restaurantid
      *
-     * @return \Earls\LeaseBundle\Entity\Owners 
+     * @return \Earls\LeaseBundle\Entity\Restaurants 
      */
-    public function getHvacrepair()
+    public function getRestaurantid()
     {
-        return $this->hvacrepair;
+        return $this->restaurantid;
     }
 
     /**
@@ -153,29 +166,6 @@ class Rentandmaintenances
     }
 
     /**
-     * Set restaurantid
-     *
-     * @param \Earls\LeaseBundle\Entity\Restaurants $restaurantid
-     * @return Rentandmaintenances
-     */
-    public function setRestaurantid(\Earls\LeaseBundle\Entity\Restaurants $restaurantid = null)
-    {
-        $this->restaurantid = $restaurantid;
-    
-        return $this;
-    }
-
-    /**
-     * Get restaurantid
-     *
-     * @return \Earls\LeaseBundle\Entity\Restaurants 
-     */
-    public function getRestaurantid()
-    {
-        return $this->restaurantid;
-    }
-
-    /**
      * Set hvacreplace
      *
      * @param \Earls\LeaseBundle\Entity\Owners $hvacreplace
@@ -196,5 +186,28 @@ class Rentandmaintenances
     public function getHvacreplace()
     {
         return $this->hvacreplace;
+    }
+
+    /**
+     * Set hvacrepair
+     *
+     * @param \Earls\LeaseBundle\Entity\Owners $hvacrepair
+     * @return Rentandmaintenances
+     */
+    public function setHvacrepair(\Earls\LeaseBundle\Entity\Owners $hvacrepair = null)
+    {
+        $this->hvacrepair = $hvacrepair;
+    
+        return $this;
+    }
+
+    /**
+     * Get hvacrepair
+     *
+     * @return \Earls\LeaseBundle\Entity\Owners 
+     */
+    public function getHvacrepair()
+    {
+        return $this->hvacrepair;
     }
 }

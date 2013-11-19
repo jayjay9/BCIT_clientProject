@@ -9,7 +9,7 @@
     <field name="lounge" type="integer" column="lounge" nullable="true"/>
     <field name="dining" type="integer" column="dining" nullable="true"/>
     <field name="washrooms" type="integer" column="washrooms" nullable="true"/>
-    <field name="both" type="integer" column="both" nullable="true"/>
+    <field name="boh" type="integer" column="boh" nullable="true"/>
     <field name="patio" type="integer" column="patio" nullable="true"/>
     <field name="totalarea" type="integer" column="totalarea" nullable="true"/>
     <many-to-one field="restaurantid" target-entity="Restaurants">

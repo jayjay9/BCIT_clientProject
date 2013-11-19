@@ -19,7 +19,12 @@ class StoreInformationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('restaurantInfo', new RestaurantsType())
-                ->add('Update', 'submit')
+            ->add('liquorlicense', new LiquorlicensesType())
+            ->add('riskinfo', new RiskinfoType())
+            ->add('rentandmaintenance', new RentandmaintenancesType())
+            ->add('utilities', new UtilitiesType())
+
+            ->add('Update', 'submit')
                 ->getForm()
         ;
     }

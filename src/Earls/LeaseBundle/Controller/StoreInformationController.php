@@ -2,11 +2,15 @@
 
 namespace Earls\LeaseBundle\Controller;
 
-
-use Earls\LeaseBundle\Entity\Restaurants;
 use Earls\LeaseBundle\Form\Model\StoreInformationModel;
 use Earls\LeaseBundle\Form\Type\StoreInformationType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+// these import the form
+use Earls\LeaseBundle\Form\Type\RestaurantFinderType;
+use Earls\LeaseBundle\Form\Model\RestaurantFinder;
+
+use Earls\LeaseBundle\Entity\Restaurants;
 use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -14,9 +18,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-// these import the form
-use Earls\LeaseBundle\Form\Type\RestaurantFinderType;
-use Earls\LeaseBundle\Form\Model\RestaurantFinder;
 
 // these import the Store Information form
 use Earls\LeaseBundle\Form\Type\LandlordSectionType;
@@ -52,6 +53,33 @@ class StoreInformationController extends Controller
         $restaurantObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Restaurants')
             ->find($id);
+
+
+        $liquorlicenseid = $restaurantObj->getLiquorlicenseid()->getLiquorlicenseid();
+        print_r($liquorlicenseid);
+        $liquorlicensesObj = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Liquorlicenses')
+            ->find($liquorlicenseid);
+
+        $riskinfoObj = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Riskinfo')
+            ->findOneBy(array(
+                'restaurantid' => $id
+            ));
+
+        $rentandmaintenancesObj = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Rentandmaintenances')
+            ->findOneBy(array(
+                'restaurantid' => $id
+            ));
+
+        $utilitiesObj = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Utilities')
+            ->findOneBy(array(
+                'restaurantid' => $id
+            ));
+
+
         $selectedRestaurant = new RestaurantFinder();
         $selectedRestaurant->setRestaurant($restaurantObj);
         $formRequested = $this->createForm(new RestaurantFinderType(), $selectedRestaurant);
@@ -69,7 +97,18 @@ class StoreInformationController extends Controller
 
         /** Store Information Form */
         $storeinformationnmodel = new StoreInformationModel();
+
+        if (isset($restaurantObj) )
         $storeinformationnmodel->setRestaurantinfo($restaurantObj);
+        if(isset($liquorlicensesObj))
+        $storeinformationnmodel->setLiquorlicense($liquorlicensesObj);
+        if(isset($riskinfoObj))
+        $storeinformationnmodel->setRiskinfo($riskinfoObj);
+        if(isset($rentandmaintenancesObj))
+        $storeinformationnmodel->setRentandmaintenance($rentandmaintenancesObj);
+        if(isset($utilitiesObj))
+        $storeinformationnmodel->setUtilities($utilitiesObj);
+
         $storeInfoForm = $this->createForm(new StoreInformationType(), $storeinformationnmodel, array(
             'action' => $this->generateUrl('_storeinformation_update', array('id' => $id))
         ));
@@ -97,6 +136,31 @@ class StoreInformationController extends Controller
         $storeInfoObj = new StoreInformationModel();
         $restaurant = $em->getRepository('EarlsLeaseBundle:Restaurants')->find($id);
         $storeInfoObj->setRestaurantinfo($restaurant);
+
+
+        $liquorlicenseid = $restaurant->getLiquorlicenseid()->getLiquorlicenseid();
+        $liquorlicense = $em->getRepository('EarlsLeaseBundle:Liquorlicenses')->find($liquorlicenseid);
+        if(isset($liquorlicense))
+        $storeInfoObj->setLiquorlicense($liquorlicense);
+
+        $riskinfo = $em->getRepository('EarlsLeaseBundle:Riskinfo')->findOneBy(array(
+            'restaurantid' => $id
+        ));
+        if(isset($riskinfo))
+        $storeInfoObj->setRiskinfo($riskinfo);
+
+        $rentandmaintenance = $em->getRepository('EarlsLeaseBundle:Rentandmaintenances')->findOneBy(array(
+            'restaurantid' => $id
+        ));
+        if(isset($rentandmaintenance))
+        $storeInfoObj->setRentandmaintenance($rentandmaintenance);
+
+        $utilities = $em->getRepository('EarlsLeaseBundle:Utilities')->findOneBy(array(
+            'restaurantid' => $id
+        ));
+        if(isset($utilities))
+        $storeInfoObj->setUtilities($utilities);
+
 
         $form = $this->createForm(new StoreInformationType(), $storeInfoObj);
 

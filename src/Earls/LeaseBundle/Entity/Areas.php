@@ -50,9 +50,9 @@ class Areas
     /**
      * @var integer
      *
-     * @ORM\Column(name="both", type="integer", nullable=true)
+     * @ORM\Column(name="boh", type="integer", nullable=true)
      */
-    private $both;
+    private $boh;
 
     /**
      * @var integer
@@ -215,26 +215,26 @@ class Areas
     }
 
     /**
-     * Set both
+     * Set boh
      *
-     * @param integer $both
+     * @param integer $boh
      * @return Areas
      */
-    public function setBoth($both)
+    public function setBoh($boh)
     {
-        $this->both = $both;
+        $this->boh = $boh;
     
         return $this;
     }
 
     /**
-     * Get both
+     * Get boh
      *
      * @return integer 
      */
-    public function getBoth()
+    public function getBoh()
     {
-        return $this->both;
+        return $this->boh;
     }
 
     /**

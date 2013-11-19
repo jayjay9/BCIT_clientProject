@@ -208,6 +208,26 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-sm-3 control-label">Advertising Fee</label>
+                                <div class="col-sm-9">
+
+                                    {{ form_widget(storeInfoForm.restaurantInfo.advertisingfee, {
+                                    'attr': {'class': 'form-control', 'form':'storeinfo'}
+                                    }) }}
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Regional Management Fee</label>
+                                <div class="col-sm-9">
+
+                                    {{ form_widget(storeInfoForm.restaurantInfo.regionalmngtfee, {
+                                    'attr': {'class': 'form-control', 'form':'storeinfo'}
+                                    }) }}
+
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-sm-3 control-label">Comments</label>
                                 <div class="col-sm-9">
 
@@ -284,7 +304,7 @@
                                 <label class="col-sm-3 control-label">Liquor License</label>
                                 <div class="col-sm-9">
 
-                                    {{ form_widget(storeInfoForm.restaurantInfo.departmentnumber, {
+                                    {{ form_widget(storeInfoForm.liquorlicense.liquorlicense, {
                                     'attr': {'class': 'form-control', 'form':'storeinfo'}
                                     }) }}
 
@@ -294,7 +314,7 @@
                                 <label class="col-sm-3 control-label">Business License</label>
                                 <div class="col-sm-9">
 
-                                    {{ form_widget(storeInfoForm.restaurantInfo.buildingtype, {
+                                    {{ form_widget(storeInfoForm.liquorlicense.businesslicense, {
                                     'attr': {'class': 'form-control', 'form':'storeinfo'}
                                     }) }}
 
@@ -428,59 +448,160 @@
                         <div class="box-title">
                             <h4>Risk</h4>
                         </div>
-                        <div class="box-body form-inline">
-                            <div class="form-group">
-                                <div class="col-sm-9">
+                        <div class="box-body">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Construction Type</th>
+                                    <th>Building Insured By</th>
+                                    <th>Rent Abatement</th>
+                                    <th>Exterior Maintenance</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
 
-                                    {{ form_row(storeInfoForm.restaurantInfo.riskid.constructionid, {
-                                        'label': 'Construction Type',
+                                        {{ form_widget(storeInfoForm.riskinfo.constructionid, {
                                         'attr': {'class': 'form-control',
-                                                'form': 'storeinfo'
+                                        'form': 'storeinfo'
                                         }
-                                    }) }}
+                                        }) }}
 
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-9">
+                                    </td>
+                                    <td>
 
-                                    {{ form_row(storeInfoForm.restaurantInfo.riskid.insuredby, {
-                                        'label': 'Building Insured By',
+                                        {{ form_widget(storeInfoForm.riskinfo.insuredby, {
                                         'attr': {'class': 'form-control',
-                                                'form': 'storeinfo'
+                                        'form': 'storeinfo'
                                         }
-                                    }) }}
+                                        }) }}
 
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-9">
+                                    </td>
+                                    <td>
 
-                                    {{ form_row(storeInfoForm.restaurantInfo.riskid.rentabatement, {
-                                    'label': 'Rent Abatement',
-                                    'attr': {'class': 'form-control',
-                                    'form': 'storeinfo'
-                                    }
-                                    }) }}
+                                        {{ form_widget(storeInfoForm.riskinfo.rentabatement, {
+                                        'attr': {'class': 'form-control',
+                                        'form': 'storeinfo'
+                                        }
+                                        }) }}
 
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-9">
+                                    </td>
+                                    <td>
 
-                                    {{ form_row(storeInfoForm.restaurantInfo.riskid.exteriormaintenance, {
-                                    'label': 'Exterior Maintenance',
-                                    'attr': {'class': 'form-control',
-                                    'form': 'storeinfo'
-                                    }
-                                    }) }}
+                                        {{ form_widget(storeInfoForm.riskinfo.exteriormaintenance, {
+                                        'attr': {'class': 'form-control',
+                                        'form': 'storeinfo'
+                                        }
+                                        }) }}
 
-                                </div>
-                            </div>
+                                    </td>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box border inverse">
+                        <div class="box-title">
+                            <h4>Rent and Maintenance</h4>
+                        </div>
+                        <div class="box-body">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>HVAC Repair</th>
+                                    <th>HVAC Replace</th>
+                                    <th>Roof Repare</th>
+                                    <th>Roof Replace</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+
+                                        {{ form_widget(storeInfoForm.rentandmaintenance.hvacrepair, {
+                                        'attr': {'class': 'form-control',
+                                        'form': 'storeinfo'
+                                        }
+                                        }) }}
+
+                                    </td>
+                                    <td>
+
+                                        {{ form_widget(storeInfoForm.rentandmaintenance.hvacreplace, {
+                                        'attr': {'class': 'form-control',
+                                        'form': 'storeinfo'
+                                        }
+                                        }) }}
+
+                                    </td>
+                                    <td>
+
+                                        {{ form_widget(storeInfoForm.rentandmaintenance.roofrepair, {
+                                        'attr': {'class': 'form-control',
+                                        'form': 'storeinfo'
+                                        }
+                                        }) }}
+
+                                    </td>
+                                    <td>
+
+                                        {{ form_widget(storeInfoForm.rentandmaintenance.roofreplace, {
+                                        'attr': {'class': 'form-control',
+                                        'form': 'storeinfo'
+                                        }
+                                        }) }}
+
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <!-- *********  this area is for Utilities table data ********** -->
+                    <div class="box border red">
+                        <div class="box-title">
+                            <h4>Utilities</h4>
+                        </div>
+                        <div class="box-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Utility Type</th>
+                                        <th>Billed By</th>
+                                        <th>Is Metered?</th>
+                                        <th>Is CAM?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>{{ form_widget(storeInfoForm.utilities.utilitytype, {
+                                        'attr': {'class': 'form-control',
+                                        'form': 'storeinfo'
+                                        }
+                                        }) }}</td>
+                                    <td>{{ form_widget(storeInfoForm.utilities.billingby, {
+                                        'attr': {'class': 'form-control',
+                                        'form': 'storeinfo'
+                                        }
+                                        }) }}</td>
+                                    <td>{{ form_widget(storeInfoForm.utilities.ismetered, {
+                                        'attr': {'class': 'form-control',
+                                        'form': 'storeinfo'
+                                        }
+                                        }) }}</td>
+                                    <td>{{ form_widget(storeInfoForm.utilities.iscam, {
+                                        'attr': {'class': 'form-control',
+                                        'form': 'storeinfo'
+                                        }
+                                        }) }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="separator"></div>
             <div class="row">

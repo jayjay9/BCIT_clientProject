@@ -2,105 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a7a6150-0dcb-41f1-a63f-812e63589da4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/R.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/LandlordsType.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/LandlordsType.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/NorthamericancitiesType.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/NorthamericancitiesType.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/ProvincestateType.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/ProvincestateType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/images/EarlsLogo.png" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/images/EarlsLogo.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/images/icons.png" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/images/icons.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Areas.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Areas.orm.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Areas.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Areas.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Areatypes.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Areatypes.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Areatypes.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Areatypes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Billingowners.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Billingowners.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Billingowners.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Billingowners.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Buildingtypes.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Buildingtypes.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Buildingtypes.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Buildingtypes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Constructiontypes.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Constructiontypes.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Constructiontypes.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Constructiontypes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Corporatedirectors.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Corporatedirectors.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Corporatedirectors.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Corporatedirectors.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Corporations.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Corporations.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Corporations.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Corporations.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Jurisdictions.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Jurisdictions.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Jurisdictions.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Jurisdictions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Landlords.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Landlords.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Landlords.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Landlords.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Leasecriticaltasks.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Leasecriticaltasks.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Leasecriticaltasks.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Leasecriticaltasks.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Leasereportsinfo.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Leasereportsinfo.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Leasereportsinfo.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Leasereportsinfo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Leases.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Leases.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Leases.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Leases.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Liquorlicenses.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Liquorlicenses.orm.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Liquorlicenses.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Liquorlicenses.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Memberships.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Memberships.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Memberships.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Memberships.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Northamericancities.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Northamericancities.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Northamericancities.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Northamericancities.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Offices.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Offices.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Offices.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Offices.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Propertymanagers.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Propertymanagers.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Propertymanagers.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Propertymanagers.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Provincestate.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Provincestate.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Provincestate.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Provincestate.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Recordsoffices.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Recordsoffices.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Recordsoffices.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Recordsoffices.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Registeredoffices.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Registeredoffices.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Registeredoffices.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Registeredoffices.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Rentandmaintenances.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Rentandmaintenances.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Rentandmaintenances.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Rentandmaintenances.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Reportperiodtypes.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Reportperiodtypes.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Reportperiodtypes.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Reportperiodtypes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Restaurants.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Restaurants.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Restaurants.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Restaurants.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RestaurantsType.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RestaurantsType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Riskinfo.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Riskinfo.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Riskinfo.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Riskinfo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RiskinfoType.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RiskinfoType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Sharetypes.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Sharetypes.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Sharetypes.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Sharetypes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Storeclasses.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Storeclasses.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Storeclasses.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Storeclasses.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Utilities.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Utilities.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Utilities.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Utilities.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Utilitytypes.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Utilitytypes.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Utilitytypes.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Utilitytypes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/css/bootstrap-theme.css" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/css/bootstrap-theme.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/css/bootstrap-theme.min.css" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/css/bootstrap-theme.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/css/bootstrap.css" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/css/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/js/bootstrap.js" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/js/bootstrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/css/bootstrap.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/js/bootstrap.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/css/cloud-admin.css" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/css/cloud-admin.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/css/default.css" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/css/default.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Activities/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Activities/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/BuildingTypes/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/BuildingTypes/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Default/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/JurisdictionArea/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/JurisdictionArea/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Landlord/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Landlord/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LeasesByExpiry/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LeasesByExpiry/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LicenseByExpiry/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LicenseByExpiry/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageArea/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageArea/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/PropertyManager/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/PropertyManager/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreClasses/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreClasses/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Model/StoreInformationModel.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Model/StoreInformationModel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/StoreInformationType.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/StoreInformationType.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Summary/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Summary/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/doc/index.rst" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/doc/index.rst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/js/jquery-1.9.0.min.js" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/js/jquery-1.9.0.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/layout.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/layout.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/js/main.js" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Activities/manageareas.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Activities/manageareas.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/translations/messages.fr.xlf" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/translations/messages.fr.xlf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/js/modernizr-2.6.1.min.js" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/js/modernizr-2.6.1.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/css/normalize.css" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/css/normalize.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/css/responsive.css" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/css/responsive.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/routing.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/services.yml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/services.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Activities/storeinfo.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Activities/storeinfo.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/css/style.css" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EarlsLeaseWebApp.iws" />
@@ -124,34 +33,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LandlordsType.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/LandlordsType.php">
+      <file leaf-file-name="StoreInformationType.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/StoreInformationType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="37" selection-start="44" selection-end="44" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="780">
-              <folding>
-                <element signature="e#47#87#0" expanded="true" />
-              </folding>
+            <state line="24" column="28" selection-start="682" selection-end="682" vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="525">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RiskinfoType.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RiskinfoType.php">
+      <file leaf-file-name="StoreInformationModel.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Model/StoreInformationModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="201" selection-end="201" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="825">
+            <state line="31" column="24" selection-start="647" selection-end="647" vertical-scroll-proportion="-16.25" vertical-offset="0" max-vertical-offset="1305">
               <folding>
-                <element signature="e#47#87#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RestaurantsType.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RestaurantsType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="14" selection-start="1321" selection-end="1321" vertical-scroll-proportion="-20.625" vertical-offset="105" max-vertical-offset="1605">
-              <folding>
-                <element signature="e#47#87#0" expanded="true" />
+                <element signature="e#135#179#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -160,16 +56,61 @@
       <file leaf-file-name="index.html.twig" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="468" column="52" selection-start="21447" selection-end="21447" vertical-scroll-proportion="0.8120301" vertical-offset="6048" max-vertical-offset="7515">
+            <state line="456" column="42" selection-start="20935" selection-end="20935" vertical-scroll-proportion="0.31132075" vertical-offset="6675" max-vertical-offset="9330">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Restaurants.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Restaurants.php">
+      <file leaf-file-name="Liquorlicenses.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Liquorlicenses.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="50.0" vertical-offset="1200" max-vertical-offset="16485">
+            <state line="215" column="7" selection-start="4170" selection-end="4170" vertical-scroll-proportion="-134.375" vertical-offset="0" max-vertical-offset="4335">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utilitytypes.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Utilitytypes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="20" selection-start="312" selection-end="322" vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="1050">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utilities.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Utilities.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="3180">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UtilitiesType.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/UtilitiesType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="19" selection-start="488" selection-end="494" vertical-scroll-proportion="-8.75" vertical-offset="30" max-vertical-offset="810">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LiquorlicensesType.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/LiquorlicensesType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="32" selection-start="506" selection-end="506" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="750">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StoreInformationController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="41" selection-start="389" selection-end="389" vertical-scroll-proportion="39.938774" vertical-offset="2137" max-vertical-offset="3045">
               <folding />
             </state>
           </provider>
@@ -193,31 +134,31 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/.src/Earls/LeaseBundle/Entity/Provincestate.php" />
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/LandlordsType.php" />
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/LandlordSectionType.php" />
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Model/StoreInformationModel.php" />
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RestaurantFinderType.php" />
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Restaurants.php" />
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/StoreInformationType.php" />
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php" />
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/layout.html.twig" />
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RiskinfoType.php" />
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/NorthamericancitiesType.php" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/ProvincestateType.php" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/LandlordsType.php" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Areas.php" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Areas.orm.xml" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/LiquorlicensesType.php" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/LiquorlicensesType.php" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Liquorlicenses.php" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/RentandmaintenancesType.php" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RentandmaintenancesType.php" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Model/StoreInformationModel.php" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RestaurantsType.php" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/UtilitiesType.php" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/StoreInformationType.php" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/UtilitiesType.php" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/index.html.twig" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="lamppPHP" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-713" />
-    <option name="y" value="-1386" />
-    <option name="width" value="1338" />
-    <option name="height" value="1357" />
+    <option name="x" value="5" />
+    <option name="y" value="22" />
+    <option name="width" value="1141" />
+    <option name="height" value="713" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -582,6 +523,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Earls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LeaseBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -593,12 +560,12 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="editor.preferences.appearance" />
+    <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -648,7 +615,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-713" y="-1386" width="1338" height="1357" extended-state="0" />
+    <frame x="5" y="22" width="1141" height="713" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -662,7 +629,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24963072" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25710014" sideWeight="0.6712159" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21647677" sideWeight="0.6712159" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -687,119 +654,120 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/StoreFinder.php">
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Riskinfo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.09090909" vertical-offset="66" max-vertical-offset="954" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="42" selection-start="2810" selection-end="2810" vertical-scroll-proportion="0.0" vertical-offset="1440" max-vertical-offset="2502" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RestaurantFinderType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="23" selection-start="293" selection-end="304" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="558" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/bootstrap.php.cache">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.603139" vertical-offset="2322" max-vertical-offset="53370" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/StoreInformationType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="31" selection-start="432" selection-end="446" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="555">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="6.8333335" vertical-offset="164" max-vertical-offset="3180">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/layout.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RentandmaintenancesType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="84" selection-start="525" selection-end="525" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="1485">
+        <state line="33" column="41" selection-start="1154" selection-end="1154" vertical-scroll-proportion="-19.375" vertical-offset="0" max-vertical-offset="900">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Model/StoreInformationModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="5" selection-start="416" selection-end="435" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="795">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Leasereportsinfo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.23553719" vertical-offset="285" max-vertical-offset="3585">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/LandlordsType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="37" selection-start="44" selection-end="44" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="780">
-          <folding>
-            <element signature="e#47#87#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Rentandmaintenances.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3270">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="3.125" vertical-offset="75" max-vertical-offset="3270">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/ProvincestateType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="37" selection-start="44" selection-end="44" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="675">
-          <folding>
-            <element signature="e#47#87#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/NorthamericancitiesType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="37" selection-start="44" selection-end="44" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="675">
-          <folding>
-            <element signature="e#47#87#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RiskinfoType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="201" selection-end="201" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="825">
-          <folding>
-            <element signature="e#47#87#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Restaurants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="50.0" vertical-offset="1200" max-vertical-offset="16485">
+        <state line="21" column="44" selection-start="609" selection-end="695" vertical-scroll-proportion="0.17045455" vertical-offset="0" max-vertical-offset="1672">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RestaurantsType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="14" selection-start="1321" selection-end="1321" vertical-scroll-proportion="-20.625" vertical-offset="105" max-vertical-offset="1605">
+        <state line="40" column="20" selection-start="1327" selection-end="1343" vertical-scroll-proportion="-25.0" vertical-offset="0" max-vertical-offset="1620">
           <folding>
-            <element signature="e#47#87#0" expanded="true" />
+            <element signature="e#47#87#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Model/StoreInformationModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="24" selection-start="647" selection-end="647" vertical-scroll-proportion="-16.25" vertical-offset="0" max-vertical-offset="1305">
+          <folding>
+            <element signature="e#135#179#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/StoreInformationType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="28" selection-start="682" selection-end="682" vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="525">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/LiquorlicensesType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="32" selection-start="506" selection-end="506" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="750">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Liquorlicenses.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="215" column="7" selection-start="4170" selection-end="4170" vertical-scroll-proportion="-134.375" vertical-offset="0" max-vertical-offset="4335">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Utilities.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3180">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Billingowners.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1673">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Utilitytypes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="20" selection-start="312" selection-end="322" vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="1050">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/ManageAreaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.001980198" vertical-offset="1" max-vertical-offset="1665">
+          <folding>
+            <element signature="e#48#83#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="41" selection-start="389" selection-end="389" vertical-scroll-proportion="39.938774" vertical-offset="2137" max-vertical-offset="3045">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/UtilitiesType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="19" selection-start="488" selection-end="494" vertical-scroll-proportion="-8.75" vertical-offset="30" max-vertical-offset="810">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="468" column="52" selection-start="21447" selection-end="21447" vertical-scroll-proportion="0.8120301" vertical-offset="6048" max-vertical-offset="7515">
+        <state line="456" column="42" selection-start="20935" selection-end="20935" vertical-scroll-proportion="0.31132075" vertical-offset="6675" max-vertical-offset="9330">
           <folding />
         </state>
       </provider>

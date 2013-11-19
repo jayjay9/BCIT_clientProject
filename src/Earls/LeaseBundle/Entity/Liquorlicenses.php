@@ -97,14 +97,14 @@ class Liquorlicenses
     public function setAddress($address)
     {
         $this->address = $address;
-    
+
         return $this;
     }
 
     /**
      * Get address
      *
-     * @return string 
+     * @return string
      */
     public function getAddress()
     {
@@ -120,14 +120,14 @@ class Liquorlicenses
     public function setPostalzip($postalzip)
     {
         $this->postalzip = $postalzip;
-    
+
         return $this;
     }
 
     /**
      * Get postalzip
      *
-     * @return string 
+     * @return string
      */
     public function getPostalzip()
     {
@@ -222,14 +222,14 @@ class Liquorlicenses
     public function setCity(\Earls\LeaseBundle\Entity\Northamericancities $city = null)
     {
         $this->city = $city;
-    
+
         return $this;
     }
 
     /**
      * Get city
      *
-     * @return \Earls\LeaseBundle\Entity\Northamericancities 
+     * @return \Earls\LeaseBundle\Entity\Northamericancities
      */
     public function getCity()
     {
@@ -245,14 +245,14 @@ class Liquorlicenses
     public function setProvincestateid(\Earls\LeaseBundle\Entity\Provincestate $provincestateid = null)
     {
         $this->provincestateid = $provincestateid;
-    
+
         return $this;
     }
 
     /**
      * Get provincestateid
      *
-     * @return \Earls\LeaseBundle\Entity\Provincestate 
+     * @return \Earls\LeaseBundle\Entity\Provincestate
      */
     public function getProvincestateid()
     {
@@ -268,14 +268,14 @@ class Liquorlicenses
     public function setCorporateid(\Earls\LeaseBundle\Entity\Corporations $corporateid = null)
     {
         $this->corporateid = $corporateid;
-    
+
         return $this;
     }
 
     /**
      * Get corporateid
      *
-     * @return \Earls\LeaseBundle\Entity\Corporations 
+     * @return \Earls\LeaseBundle\Entity\Corporations
      */
     public function getCorporateid()
     {

@@ -8,8 +8,11 @@
 
 namespace Earls\LeaseBundle\Form\Model;
 
+use Earls\LeaseBundle\Entity\Liquorlicenses;
+use Earls\LeaseBundle\Entity\Rentandmaintenances;
 use Earls\LeaseBundle\Entity\Restaurants;
-use Proxies\__CG__\Earls\LeaseBundle\Entity\Landlords;
+use Earls\LeaseBundle\Entity\Riskinfo;
+use Earls\LeaseBundle\Entity\Utilities;
 use Symfony\Component\Validator\Constraints as Assert;
 
 //use Earls\LeaseBundle\Form\Model\LandlordSectionModel;
@@ -20,7 +23,13 @@ class StoreInformationModel {
 
     protected $restaurantinfo;
 
+    protected $liquorlicense;
+
     protected $riskinfo;
+
+    protected $rentandmaintenance;
+
+    protected $utilities;
 
 
 
@@ -34,7 +43,17 @@ class StoreInformationModel {
         return $this->restaurantinfo;
     }
 
-    public function setRiskinfo(Buildingtypes $riskinfo)
+    public function setLiquorlicense(Liquorlicenses $liquorlicense)
+    {
+        $this->liquorlicense = $liquorlicense;
+    }
+
+    public function getLiquorlicense()
+    {
+        return $this->liquorlicense;
+    }
+
+    public function setRiskinfo(Riskinfo $riskinfo)
     {
         $this->riskinfo = $riskinfo;
     }
@@ -42,6 +61,26 @@ class StoreInformationModel {
     public function getRiskinfo()
     {
         return $this->riskinfo;
+    }
+
+    public function setRentandmaintenance(Rentandmaintenances $rentandmaintenance)
+    {
+        $this->rentandmaintenance = $rentandmaintenance;
+    }
+
+    public function getRentandmaintenance()
+    {
+        return $this->rentandmaintenance;
+    }
+
+    public function setUtilities(Utilities $utilities)
+    {
+        $this->utilities = $utilities;
+    }
+
+    public function getUtilities()
+    {
+        return $this->utilities;
     }
 
 

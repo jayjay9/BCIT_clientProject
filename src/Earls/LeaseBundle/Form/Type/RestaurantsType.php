@@ -38,12 +38,13 @@ class RestaurantsType extends AbstractType
             ->add('regionalmngtfee', 'text')
             ->add('yearbuilt', 'text')
             ->add('comments', 'textarea')
-            //->add('rentandmaintenanceid')
-            ->add('regionid', 'entity', array(
+//            ->add('liquorlicenseid', new LiquorlicensesType())
+//            ->add('rentandmaintenanceid', new RentandmaintenancesType())
+            /*->add('regionid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Regions',
                 'property' => 'region'
-            ))
-            ->add('riskid', new RiskinfoType())
+            ))*/
+//            ->add('riskid', new RiskinfoType())
             ->add('storeclassid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Storeclasses',
                 'property' => 'storeclass'
@@ -53,7 +54,7 @@ class RestaurantsType extends AbstractType
                 'class' => 'EarlsLeaseBundle:Propertymanagers',
                 'property' => 'propertymanagername'
             ))
-//            ->add('liquorlicenseid')
+
             ->add('city', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Northamericancities',
                 'property' => 'city'

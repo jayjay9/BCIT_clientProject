@@ -17,7 +17,7 @@ class UtilitiesType extends AbstractType
         $builder
             ->add('ismetered')
             ->add('iscam')
-            ->add('utilitytype', 'entity', array(
+            ->add('utilitytypeid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Utilitytypes',
                 'property' => 'utilitytype'
             ))

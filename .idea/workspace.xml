@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a7a6150-0dcb-41f1-a63f-812e63589da4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Areas.orm.xml" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Areas.orm.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Areas.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Areas.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Liquorlicenses.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Liquorlicenses.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RestaurantsType.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RestaurantsType.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Model/StoreInformationModel.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Model/StoreInformationModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/StoreInformationType.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/StoreInformationType.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EarlsLeaseWebApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,10 +46,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="456" column="42" selection-start="20935" selection-end="20935" vertical-scroll-proportion="0.31132075" vertical-offset="6675" max-vertical-offset="9330">
+            <state line="609" column="40" selection-start="28098" selection-end="28098" vertical-scroll-proportion="-13.958333" vertical-offset="8800" max-vertical-offset="9375">
               <folding />
             </state>
           </provider>
@@ -107,11 +100,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StoreInformationController.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="StoreInformationController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="41" selection-start="389" selection-end="389" vertical-scroll-proportion="39.938774" vertical-offset="2137" max-vertical-offset="3045">
-              <folding />
+            <state line="57" column="86" selection-start="1691" selection-end="1691" vertical-scroll-proportion="0.16831683" vertical-offset="770" max-vertical-offset="3030">
+              <folding>
+                <element signature="e#48#103#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -147,9 +142,9 @@
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RestaurantsType.php" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/UtilitiesType.php" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/StoreInformationType.php" />
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/UtilitiesType.php" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php" />
       </list>
     </option>
   </component>
@@ -751,13 +746,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="41" selection-start="389" selection-end="389" vertical-scroll-proportion="39.938774" vertical-offset="2137" max-vertical-offset="3045">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/UtilitiesType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="19" selection-start="488" selection-end="494" vertical-scroll-proportion="-8.75" vertical-offset="30" max-vertical-offset="810">
@@ -767,8 +755,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="456" column="42" selection-start="20935" selection-end="20935" vertical-scroll-proportion="0.31132075" vertical-offset="6675" max-vertical-offset="9330">
+        <state line="609" column="40" selection-start="28098" selection-end="28098" vertical-scroll-proportion="-13.958333" vertical-offset="8800" max-vertical-offset="9375">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="86" selection-start="1691" selection-end="1691" vertical-scroll-proportion="0.16831683" vertical-offset="770" max-vertical-offset="3030">
+          <folding>
+            <element signature="e#48#103#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

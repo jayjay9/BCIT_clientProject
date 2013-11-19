@@ -56,7 +56,6 @@ class StoreInformationController extends Controller
 
 
         $liquorlicenseid = $restaurantObj->getLiquorlicenseid()->getLiquorlicenseid();
-        print_r($liquorlicenseid);
         $liquorlicensesObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Liquorlicenses')
             ->find($liquorlicenseid);

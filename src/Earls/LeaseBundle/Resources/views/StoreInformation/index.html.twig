@@ -605,7 +605,10 @@
             </div>
             <div class="separator"></div>
             <div class="row">
-                {{ form_row(storeInfoForm.Update) }}
+                {{ form_row(storeInfoForm.Update, {
+                    'attr': {'class': 'btn btn-primary',
+                    'form': 'storeinfo'}
+                }) }}
             </div>
         </div>
     </div>

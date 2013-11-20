@@ -17,19 +17,9 @@ class Rentandmaintenances
      *
      * @ORM\Column(name="rentAndMaintenanceID", type="smallint")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $rentandmaintenanceid;
-
-    /**
-     * @var \Earls\LeaseBundle\Entity\Restaurants
-     *
-     * @ORM\OneToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID", unique=true)
-     * })
-     */
-    private $restaurantid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Owners
@@ -71,20 +61,17 @@ class Rentandmaintenances
      */
     private $hvacrepair;
 
-
-
     /**
-     * Set rentandmaintenanceid
+     * @var \Earls\LeaseBundle\Entity\Restaurants
      *
-     * @param integer $rentandmaintenanceid
-     * @return Rentandmaintenances
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID")
+     * })
      */
-    public function setRentandmaintenanceid($rentandmaintenanceid)
-    {
-        $this->rentandmaintenanceid = $rentandmaintenanceid;
-    
-        return $this;
-    }
+    private $restaurantid;
+
+
 
     /**
      * Get rentandmaintenanceid
@@ -94,29 +81,6 @@ class Rentandmaintenances
     public function getRentandmaintenanceid()
     {
         return $this->rentandmaintenanceid;
-    }
-
-    /**
-     * Set restaurantid
-     *
-     * @param \Earls\LeaseBundle\Entity\Restaurants $restaurantid
-     * @return Rentandmaintenances
-     */
-    public function setRestaurantid(\Earls\LeaseBundle\Entity\Restaurants $restaurantid = null)
-    {
-        $this->restaurantid = $restaurantid;
-    
-        return $this;
-    }
-
-    /**
-     * Get restaurantid
-     *
-     * @return \Earls\LeaseBundle\Entity\Restaurants 
-     */
-    public function getRestaurantid()
-    {
-        return $this->restaurantid;
     }
 
     /**
@@ -209,5 +173,28 @@ class Rentandmaintenances
     public function getHvacrepair()
     {
         return $this->hvacrepair;
+    }
+
+    /**
+     * Set restaurantid
+     *
+     * @param \Earls\LeaseBundle\Entity\Restaurants $restaurantid
+     * @return Rentandmaintenances
+     */
+    public function setRestaurantid(\Earls\LeaseBundle\Entity\Restaurants $restaurantid = null)
+    {
+        $this->restaurantid = $restaurantid;
+    
+        return $this;
+    }
+
+    /**
+     * Get restaurantid
+     *
+     * @return \Earls\LeaseBundle\Entity\Restaurants 
+     */
+    public function getRestaurantid()
+    {
+        return $this->restaurantid;
     }
 }

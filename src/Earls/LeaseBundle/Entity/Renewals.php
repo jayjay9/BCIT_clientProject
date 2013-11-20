@@ -20,9 +20,9 @@ class Renewals
     private $term;
 
     /**
-     * @var string
+     * @var boolean
      *
-     * @ORM\Column(name="exercised", type="string", length=45, nullable=true)
+     * @ORM\Column(name="exercised", type="boolean", nullable=true)
      */
     private $exercised;
 
@@ -80,7 +80,7 @@ class Renewals
     /**
      * Set exercised
      *
-     * @param string $exercised
+     * @param boolean $exercised
      * @return Renewals
      */
     public function setExercised($exercised)
@@ -93,7 +93,7 @@ class Renewals
     /**
      * Get exercised
      *
-     * @return string 
+     * @return boolean 
      */
     public function getExercised()
     {

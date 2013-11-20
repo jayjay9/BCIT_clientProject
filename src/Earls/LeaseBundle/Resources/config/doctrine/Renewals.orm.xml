@@ -5,7 +5,7 @@
       <generator strategy="IDENTITY"/>
     </id>
     <field name="term" type="string" column="term" length="45" nullable="true"/>
-    <field name="exercised" type="string" column="exercised" length="45" nullable="true"/>
+    <field name="exercised" type="boolean" column="exercised" nullable="true"/>
     <field name="showinleasereport" type="boolean" column="showInLeaseReport" nullable="true"/>
     <many-to-one field="leaseid" target-entity="Leases">
       <join-columns>

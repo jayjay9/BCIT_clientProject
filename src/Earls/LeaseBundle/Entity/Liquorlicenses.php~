@@ -15,20 +15,6 @@ class Liquorlicenses
     /**
      * @var string
      *
-     * @ORM\Column(name="address", type="string", length=45, nullable=true)
-     */
-    private $address;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="postalZip", type="string", length=45, nullable=true)
-     */
-    private $postalzip;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="businessLicense", type="string", length=45, nullable=true)
      */
     private $businesslicense;
@@ -52,39 +38,134 @@ class Liquorlicenses
      *
      * @ORM\Column(name="liquorLicenseID", type="smallint")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $liquorlicenseid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Northamericancities
+     * @var \Earls\LeaseBundle\Entity\Restaurants
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Northamericancities")
+     * @ORM\OneToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="city", referencedColumnName="northAmericanCityID")
+     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID", unique=true)
      * })
      */
-    private $city;
+    private $restaurantid;
+
+
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Provincestate
+     * Set businesslicense
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
-     * })
+     * @param string $businesslicense
+     * @return Liquorlicenses
      */
-    private $provincestateid;
+    public function setBusinesslicense($businesslicense)
+    {
+        $this->businesslicense = $businesslicense;
+    
+        return $this;
+    }
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Corporations
+     * Get businesslicense
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Corporations")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="corporateID", referencedColumnName="corporateID")
-     * })
+     * @return string 
      */
-    private $corporateid;
+    public function getBusinesslicense()
+    {
+        return $this->businesslicense;
+    }
 
+    /**
+     * Set liquorlicense
+     *
+     * @param string $liquorlicense
+     * @return Liquorlicenses
+     */
+    public function setLiquorlicense($liquorlicense)
+    {
+        $this->liquorlicense = $liquorlicense;
+    
+        return $this;
+    }
 
+    /**
+     * Get liquorlicense
+     *
+     * @return string 
+     */
+    public function getLiquorlicense()
+    {
+        return $this->liquorlicense;
+    }
+
+    /**
+     * Set licensedate
+     *
+     * @param \DateTime $licensedate
+     * @return Liquorlicenses
+     */
+    public function setLicensedate($licensedate)
+    {
+        $this->licensedate = $licensedate;
+    
+        return $this;
+    }
+
+    /**
+     * Get licensedate
+     *
+     * @return \DateTime 
+     */
+    public function getLicensedate()
+    {
+        return $this->licensedate;
+    }
+
+    /**
+     * Set liquorlicenseid
+     *
+     * @param integer $liquorlicenseid
+     * @return Liquorlicenses
+     */
+    public function setLiquorlicenseid($liquorlicenseid)
+    {
+        $this->liquorlicenseid = $liquorlicenseid;
+    
+        return $this;
+    }
+
+    /**
+     * Get liquorlicenseid
+     *
+     * @return integer 
+     */
+    public function getLiquorlicenseid()
+    {
+        return $this->liquorlicenseid;
+    }
+
+    /**
+     * Set restaurantid
+     *
+     * @param \Earls\LeaseBundle\Entity\Restaurants $restaurantid
+     * @return Liquorlicenses
+     */
+    public function setRestaurantid(\Earls\LeaseBundle\Entity\Restaurants $restaurantid = null)
+    {
+        $this->restaurantid = $restaurantid;
+    
+        return $this;
+    }
+
+    /**
+     * Get restaurantid
+     *
+     * @return \Earls\LeaseBundle\Entity\Restaurants 
+     */
+    public function getRestaurantid()
+    {
+        return $this->restaurantid;
+    }
 }

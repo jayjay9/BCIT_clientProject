@@ -2,6 +2,11 @@
 
 namespace Earls\LeaseBundle\Controller;
 
+use Doctrine\Tests\Common\Annotations\Null;
+use Earls\LeaseBundle\Entity\Liquorlicenses;
+use Earls\LeaseBundle\Entity\Rentandmaintenances;
+use Earls\LeaseBundle\Entity\Riskinfo;
+use Earls\LeaseBundle\Entity\Utilities;
 use Earls\LeaseBundle\Form\Model\StoreInformationModel;
 use Earls\LeaseBundle\Form\Type\StoreInformationType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -55,28 +60,43 @@ class StoreInformationController extends Controller
             ->find($id);
 
 
-        $liquorlicenseid = $restaurantObj->getLiquorlicenseid()->getLiquorlicenseid();
-        $liquorlicensesObj = $this->getDoctrine()
+        $liquorlicenseidObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Liquorlicenses')
-            ->find($liquorlicenseid);
+            ->findOneBy(array(
+                'restaurantid' => $id
+            ));
+        if(empty($liquorlicenseidObj)) {
+            $liquorlicensesObj = new Liquorlicenses();
+            $this->addLiquorLicenseEntry($liquorlicensesObj, $restaurantObj);
+        }
+
 
         $riskinfoObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Riskinfo')
             ->findOneBy(array(
                 'restaurantid' => $id
             ));
+        if(empty($riskinfoObj)){
+            $this->addRiskInfoEntry(new Riskinfo(), $restaurantObj);
+        }
 
         $rentandmaintenancesObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Rentandmaintenances')
             ->findOneBy(array(
                 'restaurantid' => $id
             ));
+        if(empty($rentandmaintenancesObj)){
+            $this->addRentAndMaintenanceEntry(new Rentandmaintenances(), $restaurantObj);
+        }
 
         $utilitiesObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Utilities')
             ->findOneBy(array(
                 'restaurantid' => $id
             ));
+        if(empty($utilitiesObj)){
+            $this->addUtilitiesEntry(new Utilities(), $restaurantObj);
+        }
 
 
         $selectedRestaurant = new RestaurantFinder();
@@ -137,10 +157,12 @@ class StoreInformationController extends Controller
         $storeInfoObj->setRestaurantinfo($restaurant);
 
 
-        $liquorlicenseid = $restaurant->getLiquorlicenseid()->getLiquorlicenseid();
-        $liquorlicense = $em->getRepository('EarlsLeaseBundle:Liquorlicenses')->find($liquorlicenseid);
-        if(isset($liquorlicense))
-        $storeInfoObj->setLiquorlicense($liquorlicense);
+        $liquorlicenseidObj = $em->getRepository('EarlsLeaseBundle:Liquorlicenses')->findOneBy(array(
+            'restaurantid' => $id
+        ));
+        if(isset($liquorlicenseidObj)){
+             $storeInfoObj->setLiquorlicense($liquorlicenseidObj);
+        }
 
         $riskinfo = $em->getRepository('EarlsLeaseBundle:Riskinfo')->findOneBy(array(
             'restaurantid' => $id
@@ -191,6 +213,48 @@ class StoreInformationController extends Controller
 
     }
 
+    private function addLiquorLicenseEntry(Liquorlicenses $liquorlicense, Restaurants $id){
+        $liquorlicense->setRestaurantid($id);
+        $liquorlicense->setBusinesslicense(Null);
+        $liquorlicense->setLiquorlicense(Null);
+        $liquorlicense->setLicensedate('0000-00-00');
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($liquorlicense);
+        $em->flush();
+
+        return 1;
+    }
+
+    private function addRiskInfoEntry(Riskinfo $riskinfo, Restaurants $id){
+        $riskinfo->setRestaurantid($id);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($riskinfo);
+        $em->flush();
+
+        return 1;
+    }
+
+    private function addRentAndMaintenanceEntry(Rentandmaintenances $rentandmaintenance, Restaurants $id){
+        $rentandmaintenance->setRestaurantid($id);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($rentandmaintenance);
+        $em->flush();
+
+        return 1;
+    }
+
+    private function addUtilitiesEntry(Utilities $utilities, Restaurants $id){
+        $utilities->setRestaurantid($id);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($utilities);
+        $em->flush();
+
+        return 1;
+    }
 
 }
 

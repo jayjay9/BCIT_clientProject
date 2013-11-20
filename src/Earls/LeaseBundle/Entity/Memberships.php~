@@ -59,4 +59,106 @@ class Memberships
     private $corporateid;
 
 
+
+    /**
+     * Set numberofshares
+     *
+     * @param integer $numberofshares
+     * @return Memberships
+     */
+    public function setNumberofshares($numberofshares)
+    {
+        $this->numberofshares = $numberofshares;
+    
+        return $this;
+    }
+
+    /**
+     * Get numberofshares
+     *
+     * @return integer 
+     */
+    public function getNumberofshares()
+    {
+        return $this->numberofshares;
+    }
+
+    /**
+     * Get membershipid
+     *
+     * @return integer 
+     */
+    public function getMembershipid()
+    {
+        return $this->membershipid;
+    }
+
+    /**
+     * Set directorid
+     *
+     * @param \Earls\LeaseBundle\Entity\Directors $directorid
+     * @return Memberships
+     */
+    public function setDirectorid(\Earls\LeaseBundle\Entity\Directors $directorid = null)
+    {
+        $this->directorid = $directorid;
+    
+        return $this;
+    }
+
+    /**
+     * Get directorid
+     *
+     * @return \Earls\LeaseBundle\Entity\Directors 
+     */
+    public function getDirectorid()
+    {
+        return $this->directorid;
+    }
+
+    /**
+     * Set sharetypeid
+     *
+     * @param \Earls\LeaseBundle\Entity\Sharetypes $sharetypeid
+     * @return Memberships
+     */
+    public function setSharetypeid(\Earls\LeaseBundle\Entity\Sharetypes $sharetypeid = null)
+    {
+        $this->sharetypeid = $sharetypeid;
+    
+        return $this;
+    }
+
+    /**
+     * Get sharetypeid
+     *
+     * @return \Earls\LeaseBundle\Entity\Sharetypes 
+     */
+    public function getSharetypeid()
+    {
+        return $this->sharetypeid;
+    }
+
+    /**
+     * Set corporateid
+     *
+     * @param \Earls\LeaseBundle\Entity\Corporations $corporateid
+     * @return Memberships
+     */
+    public function setCorporateid(\Earls\LeaseBundle\Entity\Corporations $corporateid = null)
+    {
+        $this->corporateid = $corporateid;
+    
+        return $this;
+    }
+
+    /**
+     * Get corporateid
+     *
+     * @return \Earls\LeaseBundle\Entity\Corporations 
+     */
+    public function getCorporateid()
+    {
+        return $this->corporateid;
+    }
 }

@@ -45,19 +45,9 @@ class Leasereportsinfo
      *
      * @ORM\Column(name="leaseReportInfoID", type="smallint")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $leasereportinfoid;
-
-    /**
-     * @var \Earls\LeaseBundle\Entity\Leases
-     *
-     * @ORM\OneToOne(targetEntity="Earls\LeaseBundle\Entity\Leases")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="leaseID", referencedColumnName="leaseID", unique=true)
-     * })
-     */
-    private $leaseid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Reportperiodtypes
@@ -68,6 +58,16 @@ class Leasereportsinfo
      * })
      */
     private $reporttypeid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Leases
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Leases")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="leaseID", referencedColumnName="leaseID")
+     * })
+     */
+    private $leaseid;
 
 
 
@@ -164,19 +164,6 @@ class Leasereportsinfo
     }
 
     /**
-     * Set leasereportinfoid
-     *
-     * @param integer $leasereportinfoid
-     * @return Leasereportsinfo
-     */
-    public function setLeasereportinfoid($leasereportinfoid)
-    {
-        $this->leasereportinfoid = $leasereportinfoid;
-    
-        return $this;
-    }
-
-    /**
      * Get leasereportinfoid
      *
      * @return integer 
@@ -184,29 +171,6 @@ class Leasereportsinfo
     public function getLeasereportinfoid()
     {
         return $this->leasereportinfoid;
-    }
-
-    /**
-     * Set leaseid
-     *
-     * @param \Earls\LeaseBundle\Entity\Leases $leaseid
-     * @return Leasereportsinfo
-     */
-    public function setLeaseid(\Earls\LeaseBundle\Entity\Leases $leaseid = null)
-    {
-        $this->leaseid = $leaseid;
-    
-        return $this;
-    }
-
-    /**
-     * Get leaseid
-     *
-     * @return \Earls\LeaseBundle\Entity\Leases 
-     */
-    public function getLeaseid()
-    {
-        return $this->leaseid;
     }
 
     /**
@@ -230,5 +194,28 @@ class Leasereportsinfo
     public function getReporttypeid()
     {
         return $this->reporttypeid;
+    }
+
+    /**
+     * Set leaseid
+     *
+     * @param \Earls\LeaseBundle\Entity\Leases $leaseid
+     * @return Leasereportsinfo
+     */
+    public function setLeaseid(\Earls\LeaseBundle\Entity\Leases $leaseid = null)
+    {
+        $this->leaseid = $leaseid;
+    
+        return $this;
+    }
+
+    /**
+     * Get leaseid
+     *
+     * @return \Earls\LeaseBundle\Entity\Leases 
+     */
+    public function getLeaseid()
+    {
+        return $this->leaseid;
     }
 }

@@ -22,7 +22,7 @@
     <field name="radiusclause" type="string" column="radiusClause" length="255" nullable="true"/>
     <field name="indemnifier" type="string" column="indemnifier" length="255" nullable="true"/>
     <field name="indemnityperiod" type="string" column="indemnityPeriod" length="255" nullable="true"/>
-    <field name="indemnityexpiry" type="datetime" column="indemnityExpiry" nullable="true"/>
+    <field name="indemnityexpiry" type="string" column="indemnityExpiry" length="255" nullable="true"/>
     <field name="otherdescription" type="string" column="otherDescription" length="955" nullable="true"/>
     <field name="renewalcomments" type="string" column="renewalComments" length="255" nullable="true"/>
     <field name="timestamp" type="string" column="timeStamp" length="45" nullable="true"/>

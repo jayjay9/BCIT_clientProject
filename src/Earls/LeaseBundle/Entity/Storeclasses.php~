@@ -29,4 +29,37 @@ class Storeclasses
     private $storeclassid;
 
 
+
+    /**
+     * Set storeclass
+     *
+     * @param string $storeclass
+     * @return Storeclasses
+     */
+    public function setStoreclass($storeclass)
+    {
+        $this->storeclass = $storeclass;
+    
+        return $this;
+    }
+
+    /**
+     * Get storeclass
+     *
+     * @return string 
+     */
+    public function getStoreclass()
+    {
+        return $this->storeclass;
+    }
+
+    /**
+     * Get storeclassid
+     *
+     * @return integer 
+     */
+    public function getStoreclassid()
+    {
+        return $this->storeclassid;
+    }
 }

@@ -139,9 +139,9 @@ class Leases
     private $indemnityperiod;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="indemnityExpiry", type="datetime", nullable=true)
+     * @ORM\Column(name="indemnityExpiry", type="string", length=255, nullable=true)
      */
     private $indemnityexpiry;
 
@@ -628,7 +628,7 @@ class Leases
     /**
      * Set indemnityexpiry
      *
-     * @param \DateTime $indemnityexpiry
+     * @param string $indemnityexpiry
      * @return Leases
      */
     public function setIndemnityexpiry($indemnityexpiry)
@@ -641,7 +641,7 @@ class Leases
     /**
      * Get indemnityexpiry
      *
-     * @return \DateTime 
+     * @return string 
      */
     public function getIndemnityexpiry()
     {

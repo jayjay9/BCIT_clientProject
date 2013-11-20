@@ -29,4 +29,37 @@ class Provincestate
     private $provincestateid;
 
 
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Provincestate
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Get provincestateid
+     *
+     * @return string 
+     */
+    public function getProvincestateid()
+    {
+        return $this->provincestateid;
+    }
 }

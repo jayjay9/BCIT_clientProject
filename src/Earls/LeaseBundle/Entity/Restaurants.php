@@ -169,84 +169,24 @@ class Restaurants
     private $restaurantid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Liquorlicenses
+     * @var \Earls\LeaseBundle\Entity\Licenses
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Liquorlicenses")
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Licenses")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="liquorLicenseID", referencedColumnName="liquorLicenseID")
+     *   @ORM\JoinColumn(name="licenseID", referencedColumnName="licenseID")
      * })
      */
-    private $liquorlicenseid;
+    private $licenseid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Provincestate
+     * @var \Earls\LeaseBundle\Entity\Landlords
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Landlords")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
+     *   @ORM\JoinColumn(name="landlordID", referencedColumnName="landlordID")
      * })
      */
-    private $provincestateid;
-
-    /**
-     * @var \Earls\LeaseBundle\Entity\Storeclasses
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Storeclasses")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="storeClassID", referencedColumnName="storeClassID")
-     * })
-     */
-    private $storeclassid;
-
-    /**
-     * @var \Earls\LeaseBundle\Entity\Northamericancities
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Northamericancities")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="city", referencedColumnName="northAmericanCityID")
-     * })
-     */
-    private $city;
-
-    /**
-     * @var \Earls\LeaseBundle\Entity\Buildingtypes
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Buildingtypes")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="buildingType", referencedColumnName="buildingTypeID")
-     * })
-     */
-    private $buildingtype;
-
-    /**
-     * @var \Earls\LeaseBundle\Entity\Corporations
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Corporations")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="corporateID", referencedColumnName="corporateID")
-     * })
-     */
-    private $corporateid;
-
-    /**
-     * @var \Earls\LeaseBundle\Entity\Utilities
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Utilities")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="utilityID", referencedColumnName="utilityID")
-     * })
-     */
-    private $utilityid;
-
-    /**
-     * @var \Earls\LeaseBundle\Entity\Regions
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Regions")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="regionID", referencedColumnName="regionID")
-     * })
-     */
-    private $regionid;
+    private $landlordid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Propertymanagers
@@ -259,6 +199,86 @@ class Restaurants
     private $propertymanagerid;
 
     /**
+     * @var \Earls\LeaseBundle\Entity\Regions
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Regions")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="regionID", referencedColumnName="regionID")
+     * })
+     */
+    private $regionid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Storeclasses
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Storeclasses")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="storeClassID", referencedColumnName="storeClassID")
+     * })
+     */
+    private $storeclassid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Corporations
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Corporations")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="corporateID", referencedColumnName="corporateID")
+     * })
+     */
+    private $corporateid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Buildingtypes
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Buildingtypes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="buildingType", referencedColumnName="buildingTypeID")
+     * })
+     */
+    private $buildingtype;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Provincestate
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
+     * })
+     */
+    private $provincestateid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Northamericancities
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Northamericancities")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="city", referencedColumnName="northAmericanCityID")
+     * })
+     */
+    private $city;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Liquorlicenses
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Liquorlicenses")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="liquorLicenseID", referencedColumnName="liquorLicenseID")
+     * })
+     */
+    private $liquorlicenseid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Utilities
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Utilities")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="utilityID", referencedColumnName="utilityID")
+     * })
+     */
+    private $utilityid;
+
+    /**
      * @var \Earls\LeaseBundle\Entity\Riskinfo
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Riskinfo")
@@ -269,16 +289,6 @@ class Restaurants
     private $riskid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Licenses
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Licenses")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="licenseID", referencedColumnName="licenseID")
-     * })
-     */
-    private $licenseid;
-
-    /**
      * @var \Earls\LeaseBundle\Entity\Rentandmaintenances
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Rentandmaintenances")
@@ -287,16 +297,6 @@ class Restaurants
      * })
      */
     private $rentandmaintenanceid;
-
-    /**
-     * @var \Earls\LeaseBundle\Entity\Landlords
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Landlords")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="landlordID", referencedColumnName="landlordID")
-     * })
-     */
-    private $landlordid;
 
 
 
@@ -794,187 +794,49 @@ class Restaurants
     }
 
     /**
-     * Set liquorlicenseid
+     * Set licenseid
      *
-     * @param \Earls\LeaseBundle\Entity\Liquorlicenses $liquorlicenseid
+     * @param \Earls\LeaseBundle\Entity\Licenses $licenseid
      * @return Restaurants
      */
-    public function setLiquorlicenseid(\Earls\LeaseBundle\Entity\Liquorlicenses $liquorlicenseid = null)
+    public function setLicenseid(\Earls\LeaseBundle\Entity\Licenses $licenseid = null)
     {
-        $this->liquorlicenseid = $liquorlicenseid;
+        $this->licenseid = $licenseid;
     
         return $this;
     }
 
     /**
-     * Get liquorlicenseid
+     * Get licenseid
      *
-     * @return \Earls\LeaseBundle\Entity\Liquorlicenses 
+     * @return \Earls\LeaseBundle\Entity\Licenses 
      */
-    public function getLiquorlicenseid()
+    public function getLicenseid()
     {
-        return $this->liquorlicenseid;
+        return $this->licenseid;
     }
 
     /**
-     * Set provincestateid
+     * Set landlordid
      *
-     * @param \Earls\LeaseBundle\Entity\Provincestate $provincestateid
+     * @param \Earls\LeaseBundle\Entity\Landlords $landlordid
      * @return Restaurants
      */
-    public function setProvincestateid(\Earls\LeaseBundle\Entity\Provincestate $provincestateid = null)
+    public function setLandlordid(\Earls\LeaseBundle\Entity\Landlords $landlordid = null)
     {
-        $this->provincestateid = $provincestateid;
+        $this->landlordid = $landlordid;
     
         return $this;
     }
 
     /**
-     * Get provincestateid
+     * Get landlordid
      *
-     * @return \Earls\LeaseBundle\Entity\Provincestate 
+     * @return \Earls\LeaseBundle\Entity\Landlords 
      */
-    public function getProvincestateid()
+    public function getLandlordid()
     {
-        return $this->provincestateid;
-    }
-
-    /**
-     * Set storeclassid
-     *
-     * @param \Earls\LeaseBundle\Entity\Storeclasses $storeclassid
-     * @return Restaurants
-     */
-    public function setStoreclassid(\Earls\LeaseBundle\Entity\Storeclasses $storeclassid = null)
-    {
-        $this->storeclassid = $storeclassid;
-    
-        return $this;
-    }
-
-    /**
-     * Get storeclassid
-     *
-     * @return \Earls\LeaseBundle\Entity\Storeclasses 
-     */
-    public function getStoreclassid()
-    {
-        return $this->storeclassid;
-    }
-
-    /**
-     * Set city
-     *
-     * @param \Earls\LeaseBundle\Entity\Northamericancities $city
-     * @return Restaurants
-     */
-    public function setCity(\Earls\LeaseBundle\Entity\Northamericancities $city = null)
-    {
-        $this->city = $city;
-    
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return \Earls\LeaseBundle\Entity\Northamericancities 
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * Set buildingtype
-     *
-     * @param \Earls\LeaseBundle\Entity\Buildingtypes $buildingtype
-     * @return Restaurants
-     */
-    public function setBuildingtype(\Earls\LeaseBundle\Entity\Buildingtypes $buildingtype = null)
-    {
-        $this->buildingtype = $buildingtype;
-    
-        return $this;
-    }
-
-    /**
-     * Get buildingtype
-     *
-     * @return \Earls\LeaseBundle\Entity\Buildingtypes 
-     */
-    public function getBuildingtype()
-    {
-        return $this->buildingtype;
-    }
-
-    /**
-     * Set corporateid
-     *
-     * @param \Earls\LeaseBundle\Entity\Corporations $corporateid
-     * @return Restaurants
-     */
-    public function setCorporateid(\Earls\LeaseBundle\Entity\Corporations $corporateid = null)
-    {
-        $this->corporateid = $corporateid;
-    
-        return $this;
-    }
-
-    /**
-     * Get corporateid
-     *
-     * @return \Earls\LeaseBundle\Entity\Corporations 
-     */
-    public function getCorporateid()
-    {
-        return $this->corporateid;
-    }
-
-    /**
-     * Set utilityid
-     *
-     * @param \Earls\LeaseBundle\Entity\Utilities $utilityid
-     * @return Restaurants
-     */
-    public function setUtilityid(\Earls\LeaseBundle\Entity\Utilities $utilityid = null)
-    {
-        $this->utilityid = $utilityid;
-    
-        return $this;
-    }
-
-    /**
-     * Get utilityid
-     *
-     * @return \Earls\LeaseBundle\Entity\Utilities 
-     */
-    public function getUtilityid()
-    {
-        return $this->utilityid;
-    }
-
-    /**
-     * Set regionid
-     *
-     * @param \Earls\LeaseBundle\Entity\Regions $regionid
-     * @return Restaurants
-     */
-    public function setRegionid(\Earls\LeaseBundle\Entity\Regions $regionid = null)
-    {
-        $this->regionid = $regionid;
-    
-        return $this;
-    }
-
-    /**
-     * Get regionid
-     *
-     * @return \Earls\LeaseBundle\Entity\Regions 
-     */
-    public function getRegionid()
-    {
-        return $this->regionid;
+        return $this->landlordid;
     }
 
     /**
@@ -1001,6 +863,190 @@ class Restaurants
     }
 
     /**
+     * Set regionid
+     *
+     * @param \Earls\LeaseBundle\Entity\Regions $regionid
+     * @return Restaurants
+     */
+    public function setRegionid(\Earls\LeaseBundle\Entity\Regions $regionid = null)
+    {
+        $this->regionid = $regionid;
+    
+        return $this;
+    }
+
+    /**
+     * Get regionid
+     *
+     * @return \Earls\LeaseBundle\Entity\Regions 
+     */
+    public function getRegionid()
+    {
+        return $this->regionid;
+    }
+
+    /**
+     * Set storeclassid
+     *
+     * @param \Earls\LeaseBundle\Entity\Storeclasses $storeclassid
+     * @return Restaurants
+     */
+    public function setStoreclassid(\Earls\LeaseBundle\Entity\Storeclasses $storeclassid = null)
+    {
+        $this->storeclassid = $storeclassid;
+    
+        return $this;
+    }
+
+    /**
+     * Get storeclassid
+     *
+     * @return \Earls\LeaseBundle\Entity\Storeclasses 
+     */
+    public function getStoreclassid()
+    {
+        return $this->storeclassid;
+    }
+
+    /**
+     * Set corporateid
+     *
+     * @param \Earls\LeaseBundle\Entity\Corporations $corporateid
+     * @return Restaurants
+     */
+    public function setCorporateid(\Earls\LeaseBundle\Entity\Corporations $corporateid = null)
+    {
+        $this->corporateid = $corporateid;
+    
+        return $this;
+    }
+
+    /**
+     * Get corporateid
+     *
+     * @return \Earls\LeaseBundle\Entity\Corporations 
+     */
+    public function getCorporateid()
+    {
+        return $this->corporateid;
+    }
+
+    /**
+     * Set buildingtype
+     *
+     * @param \Earls\LeaseBundle\Entity\Buildingtypes $buildingtype
+     * @return Restaurants
+     */
+    public function setBuildingtype(\Earls\LeaseBundle\Entity\Buildingtypes $buildingtype = null)
+    {
+        $this->buildingtype = $buildingtype;
+    
+        return $this;
+    }
+
+    /**
+     * Get buildingtype
+     *
+     * @return \Earls\LeaseBundle\Entity\Buildingtypes 
+     */
+    public function getBuildingtype()
+    {
+        return $this->buildingtype;
+    }
+
+    /**
+     * Set provincestateid
+     *
+     * @param \Earls\LeaseBundle\Entity\Provincestate $provincestateid
+     * @return Restaurants
+     */
+    public function setProvincestateid(\Earls\LeaseBundle\Entity\Provincestate $provincestateid = null)
+    {
+        $this->provincestateid = $provincestateid;
+    
+        return $this;
+    }
+
+    /**
+     * Get provincestateid
+     *
+     * @return \Earls\LeaseBundle\Entity\Provincestate 
+     */
+    public function getProvincestateid()
+    {
+        return $this->provincestateid;
+    }
+
+    /**
+     * Set city
+     *
+     * @param \Earls\LeaseBundle\Entity\Northamericancities $city
+     * @return Restaurants
+     */
+    public function setCity(\Earls\LeaseBundle\Entity\Northamericancities $city = null)
+    {
+        $this->city = $city;
+    
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return \Earls\LeaseBundle\Entity\Northamericancities 
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Set liquorlicenseid
+     *
+     * @param \Earls\LeaseBundle\Entity\Liquorlicenses $liquorlicenseid
+     * @return Restaurants
+     */
+    public function setLiquorlicenseid(\Earls\LeaseBundle\Entity\Liquorlicenses $liquorlicenseid = null)
+    {
+        $this->liquorlicenseid = $liquorlicenseid;
+    
+        return $this;
+    }
+
+    /**
+     * Get liquorlicenseid
+     *
+     * @return \Earls\LeaseBundle\Entity\Liquorlicenses 
+     */
+    public function getLiquorlicenseid()
+    {
+        return $this->liquorlicenseid;
+    }
+
+    /**
+     * Set utilityid
+     *
+     * @param \Earls\LeaseBundle\Entity\Utilities $utilityid
+     * @return Restaurants
+     */
+    public function setUtilityid(\Earls\LeaseBundle\Entity\Utilities $utilityid = null)
+    {
+        $this->utilityid = $utilityid;
+    
+        return $this;
+    }
+
+    /**
+     * Get utilityid
+     *
+     * @return \Earls\LeaseBundle\Entity\Utilities 
+     */
+    public function getUtilityid()
+    {
+        return $this->utilityid;
+    }
+
+    /**
      * Set riskid
      *
      * @param \Earls\LeaseBundle\Entity\Riskinfo $riskid
@@ -1024,29 +1070,6 @@ class Restaurants
     }
 
     /**
-     * Set licenseid
-     *
-     * @param \Earls\LeaseBundle\Entity\Licenses $licenseid
-     * @return Restaurants
-     */
-    public function setLicenseid(\Earls\LeaseBundle\Entity\Licenses $licenseid = null)
-    {
-        $this->licenseid = $licenseid;
-    
-        return $this;
-    }
-
-    /**
-     * Get licenseid
-     *
-     * @return \Earls\LeaseBundle\Entity\Licenses 
-     */
-    public function getLicenseid()
-    {
-        return $this->licenseid;
-    }
-
-    /**
      * Set rentandmaintenanceid
      *
      * @param \Earls\LeaseBundle\Entity\Rentandmaintenances $rentandmaintenanceid
@@ -1067,28 +1090,5 @@ class Restaurants
     public function getRentandmaintenanceid()
     {
         return $this->rentandmaintenanceid;
-    }
-
-    /**
-     * Set landlordid
-     *
-     * @param \Earls\LeaseBundle\Entity\Landlords $landlordid
-     * @return Restaurants
-     */
-    public function setLandlordid(\Earls\LeaseBundle\Entity\Landlords $landlordid = null)
-    {
-        $this->landlordid = $landlordid;
-    
-        return $this;
-    }
-
-    /**
-     * Get landlordid
-     *
-     * @return \Earls\LeaseBundle\Entity\Landlords 
-     */
-    public function getLandlordid()
-    {
-        return $this->landlordid;
     }
 }

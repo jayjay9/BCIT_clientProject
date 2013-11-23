@@ -36,16 +36,6 @@ class Riskinfo
     private $riskid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Constructiontypes
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Constructiontypes")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="constructionID", referencedColumnName="constructionID")
-     * })
-     */
-    private $constructionid;
-
-    /**
      * @var \Earls\LeaseBundle\Entity\Owners
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Owners")
@@ -54,6 +44,16 @@ class Riskinfo
      * })
      */
     private $insuredby;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Constructiontypes
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Constructiontypes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="constructionID", referencedColumnName="constructionID")
+     * })
+     */
+    private $constructionid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Restaurants
@@ -124,29 +124,6 @@ class Riskinfo
     }
 
     /**
-     * Set constructionid
-     *
-     * @param \Earls\LeaseBundle\Entity\Constructiontypes $constructionid
-     * @return Riskinfo
-     */
-    public function setConstructionid(\Earls\LeaseBundle\Entity\Constructiontypes $constructionid = null)
-    {
-        $this->constructionid = $constructionid;
-    
-        return $this;
-    }
-
-    /**
-     * Get constructionid
-     *
-     * @return \Earls\LeaseBundle\Entity\Constructiontypes 
-     */
-    public function getConstructionid()
-    {
-        return $this->constructionid;
-    }
-
-    /**
      * Set insuredby
      *
      * @param \Earls\LeaseBundle\Entity\Owners $insuredby
@@ -167,6 +144,29 @@ class Riskinfo
     public function getInsuredby()
     {
         return $this->insuredby;
+    }
+
+    /**
+     * Set constructionid
+     *
+     * @param \Earls\LeaseBundle\Entity\Constructiontypes $constructionid
+     * @return Riskinfo
+     */
+    public function setConstructionid(\Earls\LeaseBundle\Entity\Constructiontypes $constructionid = null)
+    {
+        $this->constructionid = $constructionid;
+    
+        return $this;
+    }
+
+    /**
+     * Get constructionid
+     *
+     * @return \Earls\LeaseBundle\Entity\Constructiontypes 
+     */
+    public function getConstructionid()
+    {
+        return $this->constructionid;
     }
 
     /**

@@ -1,105 +1,297 @@
 {% extends "EarlsLeaseBundle::layout.html.twig" %}
 {% block body %}
-	{% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION')%}
+    {% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION') %}
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-header">
+                <div class="clearfix">
+                    <h3 class="content-title pull-left">Manage Areas</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
     {{ form_start(form) }}
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span12">
-            <h1>Manage Areas</h1>
-            <form class="form-horizontal">
-                <div class="control-group">
-                    <label class="control-label">Find Store Number:</label>
-                    <div class="controls">
-                        {{form_widget(form.storefilenumber) }}
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box border blue">
+                        <div class="box-body big">
+                            <h3 class="form-title">Find Store By Nick Name</h3>
+
+                            <div class="form-group">
+                                {{ form_widget(form.storefilenumber, {'label': 'Nick Name',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </div>
+                            {{ form_row(form.go) }}
+                        </div>
                     </div>
                 </div>
-                {{ form_row(form.go) }}
-            </form>
+                <div class="col-md-6"></div>
+            </div>
         </div>
     </div>
-    <div class="row-fluid">
-        <div class="span4">
-            <div class="widget">
-                <div class="widget-head">
-                    <h3>Square Footage</h3>
+
+    <div class="separator"></div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box border blue">
+                <div class="box-title">
+                    <h4>Square Footage</h4>
                 </div>
-                <div class="widget-body">
-                    <div class="control-group">
-                        <label class="control-label">Entry:</label>
-                        <div class="controls">
-                            {{ form_widget(form.area1.entrybar) }}
+                <div class="box-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Entry</th>
+                            <th>Bar</th>
+                            <th>Lounge</th>
+                            <th>Dining</th>
+                            <th>Washrooms</th>
+                            <th>BOH</th>
+                            <th>Patio</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                {{ form_widget(form.area1.entry, {'label': 'Entry',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(form.area1.bar, {'label': 'Bar',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(form.area1.lounge, {'label': 'Lounge',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(form.area1.dining, {'label': 'Dining',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(form.area1.washrooms, {'label': 'Washrooms',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(form.area1.boh, {'label': 'BOH',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(form.area1.patio, {'label': 'Patio',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="pull-right">
+                                {{ form_row(form.area1.totalarea) }}
+                            </div>
                         </div>
                     </div>
-                    <div class="control-group">
-                        <label class="control-label">Bar:</label>
-                        <div class="controls">
-                            {{ form_widget(form.area1.bar) }}
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">Lounge:</label>
-                        <div class="controls">
-                            {{ form_widget(form.area1.lounge) }}
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">Dining:</label>
-                        <div class="controls">
-                            {{ form_widget(form.area1.dining) }}
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">Washrooms:</label>
-                        <div class="controls">
-                            {{ form_widget(form.area1.washrooms) }}
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">BOH:</label>
-                        <div class="controls">
-                            {{ form_widget(form.area1.boh) }}
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">Patio:</label>
-                        <div class="controls">
-                            {{ form_widget(form.area1.patio) }}
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label class="control-label">Total:</label>
-                        <div class="controls">
-                            {{ form_widget(form.area1.totalarea) }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="span4">
-            <div class="widget">
-                <div class="widget-head">
-                    <h3>Tables</h3>
-                </div>
-                <div class="widget-body">
-                    {{ form_row(form.area2) }}
-                </div>
-            </div>
-        </div>
-        <div class="span4">
-            <div class="widget">
-                <div class="widget-head">
-                    <h3>Seats</h3>
-                </div>
-                <div class="widget-body">
-                    {{ form_row(form.area3) }}
                 </div>
             </div>
         </div>
     </div>
 
-    {{ form_row(form.update) }}
+    <div class="separator"></div>
 
-    <div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box border blue">
+                <div class="box-title">
+                    <h4>Tables</h4>
+                </div>
+                <div class="box-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Entry</th>
+                            <th>Bar</th>
+                            <th>Lounge</th>
+                            <th>Dining</th>
+                            <th>Washrooms</th>
+                            <th>BOH</th>
+                            <th>Patio</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                {{ form_widget(form.area2.entry, {'label': 'Entry',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(form.area2.bar, {'label': 'Bar',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(form.area2.lounge, {'label': 'Lounge',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(form.area2.dining, {'label': 'Dining',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(form.area2.washrooms, {'label': 'Washrooms',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(form.area2.boh, {'label': 'BOH',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(form.area2.patio, {'label': 'Patio',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="col-sm-6 control-label">Total Area</label>
+
+                                <div class="col-sm-3">
+                                    {{ form_widget(form.area2.totalarea, {'label': 'Total',
+                                    'label_attr': {'class': 'sr-only'},
+                                    'attr': {'class': 'form-control'}
+                                    }) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div class="separator"></div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box border blue">
+                <div class="box-title">
+                    <h4>Seats</h4>
+                </div>
+                <div class="box-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Entry</th>
+                            <th>Bar</th>
+                            <th>Lounge</th>
+                            <th>Dining</th>
+                            <th>Washrooms</th>
+                            <th>BOH</th>
+                            <th>Patio</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                {{ form_widget(form.area3.entry, {'label': 'Entry',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(form.area3.bar, {'label': 'Bar',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(form.area3.lounge, {'label': 'Lounge',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(form.area3.dining, {'label': 'Dining',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(form.area3.washrooms, {'label': 'Washrooms',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(form.area3.boh, {'label': 'BOH',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(form.area3.patio, {'label': 'Patio',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="pull-right">
+                                {{ form_row(form.area3.totalarea) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="row">
+        {{ form_row(form.update, {
+        'attr': {'class': 'btn btn-primary'}
+        }) }}
+    </div>
+
     {{ form_end(form) }}
-    {% endblock %}
+
+{% endblock %}

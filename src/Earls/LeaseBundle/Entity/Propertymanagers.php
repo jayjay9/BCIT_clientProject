@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Propertymanagers
  *
- * @ORM\Table(name="propertyManagers")
+ * @ORM\Table(name="propertymanagers")
  * @ORM\Entity
  */
 class Propertymanagers

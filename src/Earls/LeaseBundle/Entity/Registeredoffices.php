@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Registeredoffices
  *
- * @ORM\Table(name="registeredOffices")
+ * @ORM\Table(name="registeredoffices")
  * @ORM\Entity
  */
 class Registeredoffices
@@ -43,16 +43,6 @@ class Registeredoffices
     private $registeredofficeid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Offices
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Offices")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="officeID", referencedColumnName="officeID")
-     * })
-     */
-    private $officeid;
-
-    /**
      * @var \Earls\LeaseBundle\Entity\Provincestate
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
@@ -61,6 +51,16 @@ class Registeredoffices
      * })
      */
     private $provincestateid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Offices
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Offices")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="officeID", referencedColumnName="officeID")
+     * })
+     */
+    private $officeid;
 
 
 
@@ -144,29 +144,6 @@ class Registeredoffices
     }
 
     /**
-     * Set officeid
-     *
-     * @param \Earls\LeaseBundle\Entity\Offices $officeid
-     * @return Registeredoffices
-     */
-    public function setOfficeid(\Earls\LeaseBundle\Entity\Offices $officeid = null)
-    {
-        $this->officeid = $officeid;
-    
-        return $this;
-    }
-
-    /**
-     * Get officeid
-     *
-     * @return \Earls\LeaseBundle\Entity\Offices 
-     */
-    public function getOfficeid()
-    {
-        return $this->officeid;
-    }
-
-    /**
      * Set provincestateid
      *
      * @param \Earls\LeaseBundle\Entity\Provincestate $provincestateid
@@ -187,5 +164,28 @@ class Registeredoffices
     public function getProvincestateid()
     {
         return $this->provincestateid;
+    }
+
+    /**
+     * Set officeid
+     *
+     * @param \Earls\LeaseBundle\Entity\Offices $officeid
+     * @return Registeredoffices
+     */
+    public function setOfficeid(\Earls\LeaseBundle\Entity\Offices $officeid = null)
+    {
+        $this->officeid = $officeid;
+    
+        return $this;
+    }
+
+    /**
+     * Get officeid
+     *
+     * @return \Earls\LeaseBundle\Entity\Offices 
+     */
+    public function getOfficeid()
+    {
+        return $this->officeid;
     }
 }

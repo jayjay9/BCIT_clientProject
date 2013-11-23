@@ -43,16 +43,6 @@ class Directors
     private $directorid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Northamericancities
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Northamericancities")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="city", referencedColumnName="northAmericanCityID")
-     * })
-     */
-    private $city;
-
-    /**
      * @var \Earls\LeaseBundle\Entity\Provincestate
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
@@ -61,6 +51,16 @@ class Directors
      * })
      */
     private $provincestateid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Northamericancities
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Northamericancities")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="city", referencedColumnName="northAmericanCityID")
+     * })
+     */
+    private $city;
 
 
 
@@ -144,29 +144,6 @@ class Directors
     }
 
     /**
-     * Set city
-     *
-     * @param \Earls\LeaseBundle\Entity\Northamericancities $city
-     * @return Directors
-     */
-    public function setCity(\Earls\LeaseBundle\Entity\Northamericancities $city = null)
-    {
-        $this->city = $city;
-    
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return \Earls\LeaseBundle\Entity\Northamericancities 
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
      * Set provincestateid
      *
      * @param \Earls\LeaseBundle\Entity\Provincestate $provincestateid
@@ -187,5 +164,28 @@ class Directors
     public function getProvincestateid()
     {
         return $this->provincestateid;
+    }
+
+    /**
+     * Set city
+     *
+     * @param \Earls\LeaseBundle\Entity\Northamericancities $city
+     * @return Directors
+     */
+    public function setCity(\Earls\LeaseBundle\Entity\Northamericancities $city = null)
+    {
+        $this->city = $city;
+    
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return \Earls\LeaseBundle\Entity\Northamericancities 
+     */
+    public function getCity()
+    {
+        return $this->city;
     }
 }

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Constructiontypes
  *
- * @ORM\Table(name="constructionTypes")
+ * @ORM\Table(name="constructiontypes")
  * @ORM\Entity
  */
 class Constructiontypes

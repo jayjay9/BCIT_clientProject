@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Liquorlicenses
  *
- * @ORM\Table(name="liquorLicenses")
+ * @ORM\Table(name="liquorlicenses")
  * @ORM\Entity
  */
 class Liquorlicenses
@@ -38,16 +38,16 @@ class Liquorlicenses
      *
      * @ORM\Column(name="liquorLicenseID", type="smallint")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $liquorlicenseid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Restaurants
      *
-     * @ORM\OneToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID", unique=true)
+     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID")
      * })
      */
     private $restaurantid;
@@ -121,19 +121,6 @@ class Liquorlicenses
     public function getLicensedate()
     {
         return $this->licensedate;
-    }
-
-    /**
-     * Set liquorlicenseid
-     *
-     * @param integer $liquorlicenseid
-     * @return Liquorlicenses
-     */
-    public function setLiquorlicenseid($liquorlicenseid)
-    {
-        $this->liquorlicenseid = $liquorlicenseid;
-    
-        return $this;
     }
 
     /**

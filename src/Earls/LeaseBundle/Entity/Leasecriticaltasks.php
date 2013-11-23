@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Leasecriticaltasks
  *
- * @ORM\Table(name="leaseCriticalTasks")
+ * @ORM\Table(name="leasecriticaltasks")
  * @ORM\Entity
  */
 class Leasecriticaltasks

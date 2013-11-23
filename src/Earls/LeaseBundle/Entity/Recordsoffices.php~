@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Recordsoffices
  *
- * @ORM\Table(name="recordsOffices")
+ * @ORM\Table(name="recordsoffices")
  * @ORM\Entity
  */
 class Recordsoffices
@@ -36,14 +36,14 @@ class Recordsoffices
     private $recordofficeid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Offices
+     * @var \Earls\LeaseBundle\Entity\Provincestate
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Offices")
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="officeID", referencedColumnName="officeID")
+     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
      * })
      */
-    private $officeid;
+    private $provincestateid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Northamericancities
@@ -56,139 +56,14 @@ class Recordsoffices
     private $city;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Provincestate
+     * @var \Earls\LeaseBundle\Entity\Offices
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Offices")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
+     *   @ORM\JoinColumn(name="officeID", referencedColumnName="officeID")
      * })
      */
-    private $provincestateid;
+    private $officeid;
 
 
-
-    /**
-     * Set address
-     *
-     * @param string $address
-     * @return Recordsoffices
-     */
-    public function setAddress($address)
-    {
-        $this->address = $address;
-    
-        return $this;
-    }
-
-    /**
-     * Get address
-     *
-     * @return string 
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
-    /**
-     * Set postalzip
-     *
-     * @param string $postalzip
-     * @return Recordsoffices
-     */
-    public function setPostalzip($postalzip)
-    {
-        $this->postalzip = $postalzip;
-    
-        return $this;
-    }
-
-    /**
-     * Get postalzip
-     *
-     * @return string 
-     */
-    public function getPostalzip()
-    {
-        return $this->postalzip;
-    }
-
-    /**
-     * Get recordofficeid
-     *
-     * @return integer 
-     */
-    public function getRecordofficeid()
-    {
-        return $this->recordofficeid;
-    }
-
-    /**
-     * Set officeid
-     *
-     * @param \Earls\LeaseBundle\Entity\Offices $officeid
-     * @return Recordsoffices
-     */
-    public function setOfficeid(\Earls\LeaseBundle\Entity\Offices $officeid = null)
-    {
-        $this->officeid = $officeid;
-    
-        return $this;
-    }
-
-    /**
-     * Get officeid
-     *
-     * @return \Earls\LeaseBundle\Entity\Offices 
-     */
-    public function getOfficeid()
-    {
-        return $this->officeid;
-    }
-
-    /**
-     * Set city
-     *
-     * @param \Earls\LeaseBundle\Entity\Northamericancities $city
-     * @return Recordsoffices
-     */
-    public function setCity(\Earls\LeaseBundle\Entity\Northamericancities $city = null)
-    {
-        $this->city = $city;
-    
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return \Earls\LeaseBundle\Entity\Northamericancities 
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * Set provincestateid
-     *
-     * @param \Earls\LeaseBundle\Entity\Provincestate $provincestateid
-     * @return Recordsoffices
-     */
-    public function setProvincestateid(\Earls\LeaseBundle\Entity\Provincestate $provincestateid = null)
-    {
-        $this->provincestateid = $provincestateid;
-    
-        return $this;
-    }
-
-    /**
-     * Get provincestateid
-     *
-     * @return \Earls\LeaseBundle\Entity\Provincestate 
-     */
-    public function getProvincestateid()
-    {
-        return $this->provincestateid;
-    }
 }

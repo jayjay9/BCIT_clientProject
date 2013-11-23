@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Billingowners
  *
- * @ORM\Table(name="billingOwners")
+ * @ORM\Table(name="billingowners")
  * @ORM\Entity
  */
 class Billingowners
@@ -29,37 +29,4 @@ class Billingowners
     private $billingownerid;
 
 
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Billingowners
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Get billingownerid
-     *
-     * @return integer 
-     */
-    public function getBillingownerid()
-    {
-        return $this->billingownerid;
-    }
 }

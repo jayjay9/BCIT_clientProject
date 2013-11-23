@@ -13,7 +13,7 @@ class ManageArea extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('entrybar')
+            ->add('entry')
             ->add('bar', 'text')
             ->add('lounge')
             ->add('dining')

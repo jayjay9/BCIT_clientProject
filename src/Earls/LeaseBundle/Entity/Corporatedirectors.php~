@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Corporatedirectors
  *
- * @ORM\Table(name="corporateDirectors")
+ * @ORM\Table(name="corporatedirectors")
  * @ORM\Entity
  */
 class Corporatedirectors
@@ -49,83 +49,4 @@ class Corporatedirectors
     private $corporateid;
 
 
-
-    /**
-     * Set position
-     *
-     * @param string $position
-     * @return Corporatedirectors
-     */
-    public function setPosition($position)
-    {
-        $this->position = $position;
-    
-        return $this;
-    }
-
-    /**
-     * Get position
-     *
-     * @return string 
-     */
-    public function getPosition()
-    {
-        return $this->position;
-    }
-
-    /**
-     * Get corporatedirectorid
-     *
-     * @return integer 
-     */
-    public function getCorporatedirectorid()
-    {
-        return $this->corporatedirectorid;
-    }
-
-    /**
-     * Set directorid
-     *
-     * @param \Earls\LeaseBundle\Entity\Directors $directorid
-     * @return Corporatedirectors
-     */
-    public function setDirectorid(\Earls\LeaseBundle\Entity\Directors $directorid = null)
-    {
-        $this->directorid = $directorid;
-    
-        return $this;
-    }
-
-    /**
-     * Get directorid
-     *
-     * @return \Earls\LeaseBundle\Entity\Directors 
-     */
-    public function getDirectorid()
-    {
-        return $this->directorid;
-    }
-
-    /**
-     * Set corporateid
-     *
-     * @param \Earls\LeaseBundle\Entity\Corporations $corporateid
-     * @return Corporatedirectors
-     */
-    public function setCorporateid(\Earls\LeaseBundle\Entity\Corporations $corporateid = null)
-    {
-        $this->corporateid = $corporateid;
-    
-        return $this;
-    }
-
-    /**
-     * Get corporateid
-     *
-     * @return \Earls\LeaseBundle\Entity\Corporations 
-     */
-    public function getCorporateid()
-    {
-        return $this->corporateid;
-    }
 }

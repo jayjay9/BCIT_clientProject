@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Corporatedirectors
  *
- * @ORM\Table(name="corporateDirectors")
+ * @ORM\Table(name="corporatedirectors")
  * @ORM\Entity
  */
 class Corporatedirectors

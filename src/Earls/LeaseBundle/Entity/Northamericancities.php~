@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Northamericancities
  *
- * @ORM\Table(name="northAmericanCities")
+ * @ORM\Table(name="northamericancities")
  * @ORM\Entity
  */
 class Northamericancities
@@ -29,37 +29,4 @@ class Northamericancities
     private $northamericancityid;
 
 
-
-    /**
-     * Set city
-     *
-     * @param string $city
-     * @return Northamericancities
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
-    
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return string 
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * Get northamericancityid
-     *
-     * @return integer 
-     */
-    public function getNorthamericancityid()
-    {
-        return $this->northamericancityid;
-    }
 }

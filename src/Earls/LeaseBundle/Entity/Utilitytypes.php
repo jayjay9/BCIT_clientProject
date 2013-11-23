@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Utilitytypes
  *
- * @ORM\Table(name="utilityTypes")
+ * @ORM\Table(name="utilitytypes")
  * @ORM\Entity
  */
 class Utilitytypes

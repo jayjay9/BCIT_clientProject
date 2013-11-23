@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Leasereportsinfo
  *
- * @ORM\Table(name="leaseReportsInfo")
+ * @ORM\Table(name="leasereportsinfo")
  * @ORM\Entity
  */
 class Leasereportsinfo
@@ -50,16 +50,6 @@ class Leasereportsinfo
     private $leasereportinfoid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Reportperiodtypes
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Reportperiodtypes")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="reportTypeID", referencedColumnName="reportTypeID")
-     * })
-     */
-    private $reporttypeid;
-
-    /**
      * @var \Earls\LeaseBundle\Entity\Leases
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Leases")
@@ -68,6 +58,16 @@ class Leasereportsinfo
      * })
      */
     private $leaseid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Reportperiodtypes
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Reportperiodtypes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="reportTypeID", referencedColumnName="reportTypeID")
+     * })
+     */
+    private $reporttypeid;
 
 
 
@@ -174,29 +174,6 @@ class Leasereportsinfo
     }
 
     /**
-     * Set reporttypeid
-     *
-     * @param \Earls\LeaseBundle\Entity\Reportperiodtypes $reporttypeid
-     * @return Leasereportsinfo
-     */
-    public function setReporttypeid(\Earls\LeaseBundle\Entity\Reportperiodtypes $reporttypeid = null)
-    {
-        $this->reporttypeid = $reporttypeid;
-    
-        return $this;
-    }
-
-    /**
-     * Get reporttypeid
-     *
-     * @return \Earls\LeaseBundle\Entity\Reportperiodtypes 
-     */
-    public function getReporttypeid()
-    {
-        return $this->reporttypeid;
-    }
-
-    /**
      * Set leaseid
      *
      * @param \Earls\LeaseBundle\Entity\Leases $leaseid
@@ -217,5 +194,28 @@ class Leasereportsinfo
     public function getLeaseid()
     {
         return $this->leaseid;
+    }
+
+    /**
+     * Set reporttypeid
+     *
+     * @param \Earls\LeaseBundle\Entity\Reportperiodtypes $reporttypeid
+     * @return Leasereportsinfo
+     */
+    public function setReporttypeid(\Earls\LeaseBundle\Entity\Reportperiodtypes $reporttypeid = null)
+    {
+        $this->reporttypeid = $reporttypeid;
+    
+        return $this;
+    }
+
+    /**
+     * Get reporttypeid
+     *
+     * @return \Earls\LeaseBundle\Entity\Reportperiodtypes 
+     */
+    public function getReporttypeid()
+    {
+        return $this->reporttypeid;
     }
 }

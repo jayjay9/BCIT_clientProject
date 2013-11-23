@@ -113,14 +113,14 @@ class Corporations
     private $corporateid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Provincestate
+     * @var \Earls\LeaseBundle\Entity\Registeredoffices
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Registeredoffices")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
+     *   @ORM\JoinColumn(name="registeredOfficeID", referencedColumnName="registeredOfficeID")
      * })
      */
-    private $provincestateid;
+    private $registeredofficeid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Recordsoffices
@@ -133,14 +133,14 @@ class Corporations
     private $recordsofficeid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Registeredoffices
+     * @var \Earls\LeaseBundle\Entity\Provincestate
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Registeredoffices")
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="registeredOfficeID", referencedColumnName="registeredOfficeID")
+     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
      * })
      */
-    private $registeredofficeid;
+    private $provincestateid;
 
 
 
@@ -454,26 +454,26 @@ class Corporations
     }
 
     /**
-     * Set provincestateid
+     * Set registeredofficeid
      *
-     * @param \Earls\LeaseBundle\Entity\Provincestate $provincestateid
+     * @param \Earls\LeaseBundle\Entity\Registeredoffices $registeredofficeid
      * @return Corporations
      */
-    public function setProvincestateid(\Earls\LeaseBundle\Entity\Provincestate $provincestateid = null)
+    public function setRegisteredofficeid(\Earls\LeaseBundle\Entity\Registeredoffices $registeredofficeid = null)
     {
-        $this->provincestateid = $provincestateid;
+        $this->registeredofficeid = $registeredofficeid;
     
         return $this;
     }
 
     /**
-     * Get provincestateid
+     * Get registeredofficeid
      *
-     * @return \Earls\LeaseBundle\Entity\Provincestate 
+     * @return \Earls\LeaseBundle\Entity\Registeredoffices 
      */
-    public function getProvincestateid()
+    public function getRegisteredofficeid()
     {
-        return $this->provincestateid;
+        return $this->registeredofficeid;
     }
 
     /**
@@ -500,25 +500,25 @@ class Corporations
     }
 
     /**
-     * Set registeredofficeid
+     * Set provincestateid
      *
-     * @param \Earls\LeaseBundle\Entity\Registeredoffices $registeredofficeid
+     * @param \Earls\LeaseBundle\Entity\Provincestate $provincestateid
      * @return Corporations
      */
-    public function setRegisteredofficeid(\Earls\LeaseBundle\Entity\Registeredoffices $registeredofficeid = null)
+    public function setProvincestateid(\Earls\LeaseBundle\Entity\Provincestate $provincestateid = null)
     {
-        $this->registeredofficeid = $registeredofficeid;
+        $this->provincestateid = $provincestateid;
     
         return $this;
     }
 
     /**
-     * Get registeredofficeid
+     * Get provincestateid
      *
-     * @return \Earls\LeaseBundle\Entity\Registeredoffices 
+     * @return \Earls\LeaseBundle\Entity\Provincestate 
      */
-    public function getRegisteredofficeid()
+    public function getProvincestateid()
     {
-        return $this->registeredofficeid;
+        return $this->provincestateid;
     }
 }

@@ -36,16 +36,6 @@ class Jurisdictions
     private $jurisdictionsid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Corporations
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Corporations")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="corporateID", referencedColumnName="corporateID")
-     * })
-     */
-    private $corporateid;
-
-    /**
      * @var \Earls\LeaseBundle\Entity\Provincestate
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Provincestate")
@@ -54,6 +44,16 @@ class Jurisdictions
      * })
      */
     private $provincestateid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Corporations
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Corporations")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="corporateID", referencedColumnName="corporateID")
+     * })
+     */
+    private $corporateid;
 
 
 
@@ -114,29 +114,6 @@ class Jurisdictions
     }
 
     /**
-     * Set corporateid
-     *
-     * @param \Earls\LeaseBundle\Entity\Corporations $corporateid
-     * @return Jurisdictions
-     */
-    public function setCorporateid(\Earls\LeaseBundle\Entity\Corporations $corporateid = null)
-    {
-        $this->corporateid = $corporateid;
-    
-        return $this;
-    }
-
-    /**
-     * Get corporateid
-     *
-     * @return \Earls\LeaseBundle\Entity\Corporations 
-     */
-    public function getCorporateid()
-    {
-        return $this->corporateid;
-    }
-
-    /**
      * Set provincestateid
      *
      * @param \Earls\LeaseBundle\Entity\Provincestate $provincestateid
@@ -157,5 +134,28 @@ class Jurisdictions
     public function getProvincestateid()
     {
         return $this->provincestateid;
+    }
+
+    /**
+     * Set corporateid
+     *
+     * @param \Earls\LeaseBundle\Entity\Corporations $corporateid
+     * @return Jurisdictions
+     */
+    public function setCorporateid(\Earls\LeaseBundle\Entity\Corporations $corporateid = null)
+    {
+        $this->corporateid = $corporateid;
+    
+        return $this;
+    }
+
+    /**
+     * Get corporateid
+     *
+     * @return \Earls\LeaseBundle\Entity\Corporations 
+     */
+    public function getCorporateid()
+    {
+        return $this->corporateid;
     }
 }

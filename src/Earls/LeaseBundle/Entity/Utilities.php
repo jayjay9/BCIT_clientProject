@@ -36,16 +36,6 @@ class Utilities
     private $utilityid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Billingowners
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Billingowners")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="billingBy", referencedColumnName="billingOwnerID")
-     * })
-     */
-    private $billingby;
-
-    /**
      * @var \Earls\LeaseBundle\Entity\Utilitytypes
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Utilitytypes")
@@ -54,6 +44,16 @@ class Utilities
      * })
      */
     private $utilitytypeid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Billingowners
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Billingowners")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="billingBy", referencedColumnName="billingOwnerID")
+     * })
+     */
+    private $billingby;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Restaurants
@@ -124,29 +124,6 @@ class Utilities
     }
 
     /**
-     * Set billingby
-     *
-     * @param \Earls\LeaseBundle\Entity\Billingowners $billingby
-     * @return Utilities
-     */
-    public function setBillingby(\Earls\LeaseBundle\Entity\Billingowners $billingby = null)
-    {
-        $this->billingby = $billingby;
-    
-        return $this;
-    }
-
-    /**
-     * Get billingby
-     *
-     * @return \Earls\LeaseBundle\Entity\Billingowners 
-     */
-    public function getBillingby()
-    {
-        return $this->billingby;
-    }
-
-    /**
      * Set utilitytypeid
      *
      * @param \Earls\LeaseBundle\Entity\Utilitytypes $utilitytypeid
@@ -167,6 +144,29 @@ class Utilities
     public function getUtilitytypeid()
     {
         return $this->utilitytypeid;
+    }
+
+    /**
+     * Set billingby
+     *
+     * @param \Earls\LeaseBundle\Entity\Billingowners $billingby
+     * @return Utilities
+     */
+    public function setBillingby(\Earls\LeaseBundle\Entity\Billingowners $billingby = null)
+    {
+        $this->billingby = $billingby;
+    
+        return $this;
+    }
+
+    /**
+     * Get billingby
+     *
+     * @return \Earls\LeaseBundle\Entity\Billingowners 
+     */
+    public function getBillingby()
+    {
+        return $this->billingby;
     }
 
     /**

@@ -439,7 +439,113 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="box border blue">
+                        <div class="box-title">
+                            <h4>Cont. Info</h4>
+                        </div>
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">No. of</label>
+                                <div class="col-sm-9">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+
+                                            <label>Seats</label>
+
+                                        </div>
+                                        <div class="col-lg-6">
+
+                                            <label>Tables</label>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Din Room</label>
+                                <div class="col-sm-9">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+
+                                            {{ form_widget(storeInfoForm.restaurantInfo.diningroomseating, {
+                                            'attr': {'class': 'form-control', 'form':'storeinfo'}
+                                            }) }}
+
+                                        </div>
+                                        <div class="col-lg-6">
+
+                                            {{ form_widget(storeInfoForm.restaurantInfo.diningroomtable, {
+                                            'attr': {'class': 'form-control', 'form':'storeinfo'}
+                                            }) }}
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Lounge</label>
+                                <div class="col-sm-9">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+
+                                            {{ form_widget(storeInfoForm.restaurantInfo.loungeseating, {
+                                            'attr': {'class': 'form-control', 'form':'storeinfo'}
+                                            }) }}
+
+                                        </div>
+                                        <div class="col-lg-6">
+
+                                            {{ form_widget(storeInfoForm.restaurantInfo.loungetable, {
+                                            'attr': {'class': 'form-control', 'form':'storeinfo'}
+                                            }) }}
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Patio</label>
+                                <div class="col-sm-9">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+
+                                            {{ form_widget(storeInfoForm.restaurantInfo.patioseating, {
+                                            'attr': {'class': 'form-control', 'form':'storeinfo'}
+                                            }) }}
+
+                                        </div>
+                                        <div class="col-lg-6">
+
+                                            {{ form_widget(storeInfoForm.restaurantInfo.patiotable, {
+                                            'attr': {'class': 'form-control', 'form':'storeinfo'}
+                                            }) }}
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Total</label>
+                                <div class="col-sm-9">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+
+                                            <label>Total Seats</label>
+
+                                        </div>
+                                        <div class="col-lg-6">
+
+                                            <label>Total Tables</label>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
             </div>
             <div class="separator"></div>
             <div class="row">

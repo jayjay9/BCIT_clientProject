@@ -8,6 +8,7 @@
 
 namespace Earls\LeaseBundle\Form\Model;
 
+use Earls\LeaseBundle\Entity\Licenses;
 use Earls\LeaseBundle\Entity\Liquorlicenses;
 use Earls\LeaseBundle\Entity\Rentandmaintenances;
 use Earls\LeaseBundle\Entity\Restaurants;
@@ -24,6 +25,8 @@ class StoreInformationModel {
     protected $restaurantinfo;
 
     protected $liquorlicense;
+
+    protected $licenseinfo;
 
     protected $riskinfo;
 
@@ -51,6 +54,16 @@ class StoreInformationModel {
     public function getLiquorlicense()
     {
         return $this->liquorlicense;
+    }
+
+    public function setLicenseinfo(Licenses $licenseinfo)
+    {
+        $this->licenseinfo = $licenseinfo;
+    }
+
+    public function getLicenseinfo()
+    {
+        return $this->licenseinfo;
     }
 
     public function setRiskinfo(Riskinfo $riskinfo)

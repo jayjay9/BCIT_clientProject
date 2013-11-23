@@ -217,7 +217,7 @@ class StoreInformationController extends Controller
         $liquorlicense->setRestaurantid($id);
         $liquorlicense->setBusinesslicense(Null);
         $liquorlicense->setLiquorlicense(Null);
-        $liquorlicense->setLicensedate('0000-00-00');
+        //$liquorlicense->setLicensedate('0000-00-00');
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($liquorlicense);

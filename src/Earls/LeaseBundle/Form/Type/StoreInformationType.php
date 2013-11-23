@@ -8,6 +8,7 @@
 
 namespace Earls\LeaseBundle\Form\Type;
 
+use Earls\LeaseBundle\Entity\Licenses;
 use Earls\LeaseBundle\Form\Type\RestaurantsType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,6 +21,7 @@ class StoreInformationType extends AbstractType
     {
         $builder->add('restaurantInfo', new RestaurantsType())
             ->add('liquorlicense', new LiquorlicensesType())
+            ->add('licenseinfo', new LicensesType())
             ->add('riskinfo', new RiskinfoType())
             ->add('rentandmaintenance', new RentandmaintenancesType())
             ->add('utilities', new UtilitiesType())

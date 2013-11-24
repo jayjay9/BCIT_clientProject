@@ -1,8 +1,8 @@
 {% extends "EarlsLeaseBundle::layout.html.twig" %}
 {% block body %}
     {% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION')%}
-    <p>This is DefaultController.php  --->  index.html.twig</p>
-    </br>
+
+
     <center>
         <img src="{{ asset('bundles/earlslease/images/welcome2.png') }}" alt="" />
         </br>
@@ -10,7 +10,7 @@
         <h1>Earls Lease Web Application</h1>
         <p>Please Login</p>
         </br>
-        <button class="btn btn-success btn-small" type="button" onClick="javascript:window.location.href='login' " >Login</button>
+
     </center>
 
 {% endblock %}

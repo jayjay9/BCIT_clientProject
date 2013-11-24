@@ -58,13 +58,30 @@
 
         <a href="#" id="menu" class="ico fl">menu</a>
 
+        <!-- ----------------------------------------------  -->
         <div id="userAccount">
-            Welcome User! &nbsp
-            <button class="btn btn-small btn-danger" type="button"
-                    onclick="javascript:window.location.href='{{ path('fos_user_security_logout') }}'">
-                Logout
-            </button>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'layout.welcome_'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                <button class="btn btn-small btn-danger" type="button"
+                        onclick="javascript:window.location.href='{{ path('fos_user_security_logout') }}'">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </button>
+            {% else %}
+                <button class="btn btn-small btn-success" type="button"
+                        onclick="javascript:window.location.href='{{ path('fos_user_security_login') }}'">
+                    {{ 'layout.login'|trans({}, 'FOSUserBundle') }}
+                </button>
+            {% endif %}
         </div>
+
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <div class="flash-{{ type }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+        <!-- ----------------------------------------------  -->
 
     </header>
     <!-- Header / end -->

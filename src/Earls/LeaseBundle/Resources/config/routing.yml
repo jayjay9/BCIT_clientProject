@@ -9,6 +9,11 @@ _storeinformation:
    # requirements:
     #     _method:  POST
 
+_leaseinformation:
+    resource: "@EarlsLeaseBundle/Controller/LeaseInformationController.php"
+    type:     annotation
+    prefix:   /LeaseInformation
+
 _storeinformation_update:
    pattern:  /update/{id}
    defaults: { _controller: EarlsLeaseBundle:StoreInformation:Update }
@@ -18,38 +23,10 @@ _manageArea:
     type:       annotation
     prefix:     /ManageArea
 
-
 _manage_tables:
     resource:   "@EarlsLeaseBundle/Controller/ManageTablesController.php"
     type:       annotation
     prefix:     /ManageTables
-
-_building_types:
-    resource:   "@EarlsLeaseBundle/Controller/BuildingTypesController.php"
-    type:       annotation
-    prefix:     /BuildingTypes
-
-
-_jurisdiction_area:
-    resource:   "@EarlsLeaseBundle/Controller/JurisdictionAreaController.php"
-    type:       annotation
-    prefix:     /JurisdictionArea
-
-_landlord:
-    resource:   "@EarlsLeaseBundle/Controller/LandlordController.php"
-    type:       annotation
-    prefix:     /Landlord
-
-_property_manager:
-    resource:   "@EarlsLeaseBundle/Controller/PropertyManagerController.php"
-    type:        annotation
-    prefix:     /PropertyManager
-
-_store_classes:
-    resource:   "@EarlsLeaseBundle/Controller/StoreClassesController.php"
-    type:       annotation
-    prefix:     /StoreClasses
-
 
 _summary:
     resource:   "@EarlsLeaseBundle/Controller/SummaryController.php"

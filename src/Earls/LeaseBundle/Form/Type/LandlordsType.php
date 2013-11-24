@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class LandlordsType extends AbstractType
 {
-        /**
+     /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
@@ -21,8 +21,8 @@ class LandlordsType extends AbstractType
             ->add('attention')
             ->add('phone')
             ->add('fax')
-            //->add('provincestateid', 'entity', array('class' => 'EarlsLeaseBundle:Provincestate', 'property' => 'provincestateid'))
-            //->add('city', 'entity', array('class' => 'EarlsLeaseBundle:Northamericancities', 'property' => 'city'))
+            ->add('provincestateid', 'entity', array('class' => 'EarlsLeaseBundle:Provincestate', 'property' => 'provincestateid'))
+            ->add('city', 'entity', array('class' => 'EarlsLeaseBundle:Northamericancities', 'property' => 'city'))
         ;
     }
     

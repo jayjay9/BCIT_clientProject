@@ -119,6 +119,7 @@ class StoreInformationController extends Controller
 
         if (isset($restaurantObj) )
         $storeinformationnmodel->setRestaurantinfo($restaurantObj);
+        $storeinformationnmodel->setRestaurantId($id);
         if(isset($liquorlicensesObj))
         $storeinformationnmodel->setLiquorlicense($liquorlicensesObj);
         if(isset($riskinfoObj))

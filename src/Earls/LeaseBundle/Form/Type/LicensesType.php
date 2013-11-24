@@ -16,9 +16,9 @@ class LicensesType extends AbstractType
     {
         $builder
             ->add('licenseagreement')
-            ->add('startdate')
-            ->add('expirarydate')
-            ->add('comments')
+            ->add('startdate', 'date')
+            ->add('expirarydate', 'date')
+            ->add('comments', 'textarea')
         ;
     }
     

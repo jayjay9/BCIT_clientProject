@@ -2,93 +2,95 @@
 <html>
 <head>
     {% block head %}
-        <!-- CSS -->
-        <link href="{{ asset('bundles/earlslease/css/bootstrap.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('bundles/earlslease/css/default.css') }}" rel="stylesheet">
-        <link href="{{ asset('bundles/earlslease/css/cloud-admin.css') }}" rel="stylesheet">
-        <link href="{{ asset('bundles/earlslease/css/resposive.css') }}" rel="stylesheet">
+    <!-- CSS -->
 
-        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="{{ asset('bundles/earlslease/css/default.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/earlslease/css/cloud-admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/earlslease/css/responsive.css') }}" rel="stylesheet">
 
-        <link rel="stylesheet" href="{{ asset('bundles/earlslease/css/normalize.css') }}">
-        <link rel="stylesheet" href="{{ asset('bundles/earlslease/css/style.css') }}">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
-        <title>{% block title 'Earls Lease Bundle' %}</title>
+    <link rel="stylesheet" href="{{ asset('bundles/earlslease/css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/earlslease/css/style.css') }}">
+
+    <title>{% block title 'Earls Lease Bundle' %}</title>
     {% endblock %}
 </head>
 <body>
 
-    <div id="left-menu">
-        <div class="search">
+<div id="left-menu">
+    <div class="search">
 
-        </div>
-        
-        <div class="wrapmenu">
-          
-          <div id="logo"><a href="#"><span><img src="{{ asset('bundles/earlslease/images/EarlsLogo.png') }}" alt="" /></span></a></div>
-          
-          <div id="category">Reports</div>
-          
-          <ul class="menu">
+    </div>
+
+    <div class="wrapmenu">
+
+        <div id="logo"><a href="#"><span><img src="{{ asset('bundles/earlslease/images/EarlsLogo.png') }}"
+                                              alt=""/></span></a></div>
+
+        <div id="category">Reports</div>
+
+        <ul class="menu">
             <li><a href="{{ path('_summary') }}"><span>Lease Summary</a></span></li>
             <li><a href="{{ path('_leases_byExpiry') }}"><span>Leases By Expiry</a></span></li>
             <li><a href="{{ path('_license_byExpiry') }}"><span>License By Expiry</a></span></li>
-          </ul>
+        </ul>
 
-          <div id="category">Administration</div>
-          
-          <ul class="menu">
+        <div id="category">Administration</div>
+
+        <ul class="menu">
             <li><a href="{{ path('_storeinformation') }}"><span>Store Information</span></a></li>
             <li><a href="{{ path('_manageArea') }}"><span>Manage Areas</span></a></li>
             <li><a href="{{ path('_manage_tables') }}"><span>Manage Tables</span></a></li>
-          </ul>
-          
-          <!-- Footer / start -->
-          <footer>
-          Earls Lease Web Application
-          </footer>
-          <!-- Footer / end -->
-        </div>
+        </ul>
+
+        <!-- Footer / start -->
+        <footer>
+            Earls Lease Web Application
+        </footer>
+        <!-- Footer / end -->
     </div>
-    <div id="content-wrapper">
-        
-            <!-- Header / start -->
-            <header>
-              
-                <a href="#" id="menu" class="ico fl">menu</a>
-                
-                <div id="userAccount">
-                    Welcome User! &nbsp
-                      <button class="btn btn-danger btn-small" type="button" onClick="javascript:window.location.href='/BCIT_clientProject/web/app_dev.php/logout'" >Logout</button>
-                </div>
-              
-            </header>
-            <!-- Header / end -->
-    
-            <!-- Content / start -->
-            <section>
+</div>
+<div id="content-wrapper">
+
+    <!-- Header / start -->
+    <header>
+
+        <a href="#" id="menu" class="ico fl">menu</a>
+
+        <div id="userAccount">
+            Welcome User! &nbsp
+            <button class="btn btn-small btn-danger" type="button"
+                    onclick="javascript:window.location.href='{{ path('fos_user_security_logout') }}'">
+                Logout
+            </button>
+        </div>
+
+    </header>
+    <!-- Header / end -->
+
+    <!-- Content / start -->
+    <section>
+        <div class="container">
+            <div class="row">
                 <div id="content" class="col-lg-12">
                     {% block body %}
 
-                    <!-- Here goes the content of the index.html.twig files -->
+                        <!-- Here goes the content of the index.html.twig files -->
 
                     {% endblock %}
                 </div>
-                <div class="block">
-                    {% block content %}
-
-                        
-                    {% endblock %}
-                </div>   
-            </section>
-            <!-- Content / end -->
+            </div>
         </div>
-    <!-- Scripts -->
-    <script src="{{ asset('bundles/earlslease/js/jquery-1.9.0.min.js') }}"></script>
-    <script src="{{ asset('bundles/earlslease/js/modernizr-2.6.1.min.js') }}"></script>
-    <script src="{{ asset('bundles/earlslease/js/main.js') }}"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="{{ asset('js/jquery.js') }}"><\/script>')</script>
-    <script src="{{ asset('bundles/earlslease/js/bootstrap.js') }}"></script>
+    </section>
+    <!-- Content / end -->
+</div>
+<!-- Scripts -->
+<script src="{{ asset('bundles/earlslease/js/jquery-1.9.0.min.js') }}"></script>
+<script src="{{ asset('bundles/earlslease/js/modernizr-2.6.1.min.js') }}"></script>
+<script src="{{ asset('bundles/earlslease/js/main.js') }}"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{ asset('js/jquery.js') }}"><\/script>')</script>
+<script src="{{ asset('bundles/earlslease/js/bootstrap.js') }}"></script>
 </body>
 </html>

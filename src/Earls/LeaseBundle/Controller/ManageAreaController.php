@@ -65,11 +65,42 @@ class ManageAreaController extends Controller
             ->getRepository('EarlsLeaseBundle:Restaurants')
             ->find($id);
 
+        $areatypeid1 = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Areatypes')
+            ->find(1);
+
+        $areatypeid2 = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Areatypes')
+            ->find(2);
+
+        $areatypeid3 = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Areatypes')
+            ->find(3);
+
         $model = new DropDownModel();
 
-        $model->setArea1($area1);
-        $model->setArea2($area2);
-        $model->setArea3($area3);
+        if (empty($area1) ){
+            $area1= new Areas();
+            $this->addAreaSquareFootage($area1, $areatypeid1, $selectedRestaurant);
+        }else{
+            $model->setArea1($area1);
+        }
+
+        if(empty($area2)){
+            $area2 = new Areas();
+            $this->addAreaSquareFootage($area2, $areatypeid2, $selectedRestaurant);
+        }else{
+            $model->setArea2($area2);
+        }
+
+        if(empty($area3)){
+            $area3 = new Areas();
+            $this->addAreaSquareFootage($area3, $areatypeid3, $selectedRestaurant);
+        }else{
+            $model->setArea3($area3);
+        }
+
+        if (isset($restaurantObj) )
         $model->setStorefileNumber($selectedRestaurant);
 
         $form = $this->createForm(new DropDownList(), $model);
@@ -88,9 +119,7 @@ class ManageAreaController extends Controller
                     {
                         //print_r($request);
                         $em = $this->getDoctrine()->getEntityManager();
-                        $em->flush();          // entity is already persisted and managed by doctrine.
-
-                        // return success response
+                        $em->flush();
                     }
                 }
 
@@ -100,6 +129,16 @@ class ManageAreaController extends Controller
 
         return $this->render('EarlsLeaseBundle:ManageArea:index.html.twig', array('form' => $form->createView()));
 
+    }
+
+    private function addAreaSquareFootage(Areas $area, Areatypes $areatypes, Restaurants $restaurantid){
+        $em = $this->getDoctrine()->getManager();
+            $area->setAreatypeid($areatypes);
+            $area->setRestaurantid($restaurantid);
+        $em->persist($area);
+        $em->flush();
+
+        return 1;
     }
 }
 

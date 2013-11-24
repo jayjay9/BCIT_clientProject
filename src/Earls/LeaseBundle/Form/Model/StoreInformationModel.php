@@ -34,6 +34,7 @@ class StoreInformationModel {
 
     protected $utilities;
 
+    protected $restaurantId;
 
 
     public function setRestaurantinfo(Restaurants $restaurantinfo)
@@ -94,6 +95,16 @@ class StoreInformationModel {
     public function getUtilities()
     {
         return $this->utilities;
+    }
+
+    public function setRestaurantId($restaurantId)
+    {
+        $this->restaurantId = $restaurantId;
+    }
+
+    public function getRestaurantId()
+    {
+        return $this->restaurantId;
     }
 
 

@@ -1,13 +1,168 @@
 {% extends "EarlsLeaseBundle::layout.html.twig" %}
+
 {% block body %}
 	{% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION')%}
-<p>This is ManageTables.php  --->  index.html.twig</p>
-<a href="http://www.google.com">google</a>
 
-                <span class="border-l">
-                    <span class="border-r">
-                        <span class="btn-bg">Store info</span>
-                    </span>
-                </span>
-            </a>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-header">
+                <div class="clearfix">
+                    <h3 class="content-title pull-left">Manage Tables</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box border blue">
+            <div class="box-body big">
+                <ul class="nav nav-tabs">
+                    <li><a href="#landlord" data-toggle="tab">Landlord</a></li>
+                    <li><a href="#propertymanager" data-toggle="tab">Property Manager</a></li>
+                    <li><a href="#buildingtypes" data-toggle="tab">Building Types</a></li>
+                    <li><a href="#storeclasses" data-toggle="tab">Store Classes</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="landlord">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                        <div class="box border" style="margin-top: 30px;">
+                            <div class="box-title">
+                                <h4>Landlords Table</h4>
+                            </div>
+                            <div class="box-body">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Landlord Name</th>
+                                            <th>Landlord Address</th>
+                                            <th>Update</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for landlord in allLandlord %}
+                                    <tr>
+                                        <td> </td>
+                                        <td> {{ landlord.landlordname }}</td>
+                                        <td>{{ landlord.address }}</td>
+                                        <td><a data-toggle="modal" data-remote="{{ path('_manage_tables_landlord_get_id', {'id': landlord.landlordid }) }}" data-target="#landlordModal{{ landlord.landlordid }}">Update</a></td>
+                                        <td><a href="{{ path('_manage_tables_landlord_delete_id', {'id': landlord.landlordid }) }}">Delete</a></td>
+                                    </tr>
+                                        <div class="modal fade in" id="landlordModal{{ landlord.landlordid }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                                        </div><!-- /.modal -->
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="tab-pane fade" id="propertymanager">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="box border" style="margin-top: 30px;">
+                                    <div class="box-title">
+                                        <h4>Property Manager Table</h4>
+                                    </div>
+                                    <div class="box-body">
+                                        <table class="table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Property Manager Name</th>
+                                                <th>Property Manager Address</th>
+                                                <th>Update</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for propertymanager in allPropertymanager %}
+                                                <tr>
+                                                    <td> </td>
+                                                    <td> {{ propertymanager.propertymanagername }}</td>
+                                                    <td>{{ propertymanager.address }}</td>
+                                                    <td> <td><a data-toggle="modal" data-remote="{{ path('_manage_tables_propertyManager_get_id', {'id': propertymanager.propertymanagerid }) }}" data-target="#propertymanagerModal{{ propertymanager.propertymanagerid }}">Update</a></td></td>
+                                                    <td><a href="{{ path('_manage_tables_propertyManager_delete_id', {'id': propertymanager.propertymanagerid }) }}">Delete</a></td>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="propertymanagerModal{{ propertymanager.propertymanagerid }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+
+                                                    </div><!-- /.modal -->
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="buildingtypes">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="box border" style="margin-top: 30px;">
+                                    <div class="box-title">
+                                        <h4>Building Types Table</h4>
+                                    </div>
+                                    <div class="box-body">
+                                        <table class="table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th>Building Types</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for buildingtypes in allBuildingtypes %}
+                                                    <tr>
+                                                        <td> {{ buildingtypes.buildingtypes }}</td>
+                                                        <td><a href="{{ path('_manage_tables_buildingtypes_delete_id', {'id': buildingtypes.buildingtypeid }) }}">Delete</a></td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="storeclasses">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="box border" style="margin-top: 30px;">
+                                    <div class="box-title">
+                                        <h4>Store Classes Table</h4>
+                                    </div>
+                                    <div class="box-body">
+                                        <table class="table table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th>Store Classes</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for storeclasses in allStoreclasses %}
+                                                <tr>
+                                                    <td> {{ storeclasses.storeclass }}</td>
+                                                    <td><a href="{{ path('_manage_tables_storeClasses_delete_id', {'id': storeclasses.storeclassid }) }}">Delete</a></td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

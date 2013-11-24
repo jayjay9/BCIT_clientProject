@@ -1,16 +1,21 @@
 {% extends "EarlsLeaseBundle::layout.html.twig" %}
 {% block body %}
-	{% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION')%}
+    {% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION') %}
+
+    <!-- CONTENT HEADER -->
 
     <div class="row">
         <div class="col-sm-12">
             <div class="page-header">
                 <div class="clearfix">
-                <h3 class="content-title pull-left">Store Information</h3>
+                    <h3 class="content-title pull-left">Store Information</h3>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- /CONTENT HEADER -->
+    <!-- RESTAURANT FINDER FORM -->
 
     <div class="row">
         <div class="col-md-12">
@@ -29,10 +34,10 @@
                                 'attr': {'class': 'form-control'}
                                 }) }}
                             </div>
-                            {{ form_widget(storeFinderForm.Go, {'attr': {'class': 'btn btn-default'} }) }}
+                            {{ form_widget(storeFinderForm.Go, {'attr': {'class': 'btn btn-info'} }) }}
 
                             {{ form_end(storeFinderForm) }}
-
+                            <button class="btn btn-small btn-pink" type="button" onclick="javascript:window.location.href='{{ path('_leaseinformation', {'id': storeInfoForm.restaurantId.vars.value}) }}'">Lease Information</button>
                         </div>
                     </div>
                 </div>
@@ -41,8 +46,11 @@
         </div>
     </div>
 
-<div class="separator"></div>
+    <!-- /RESTAURANT FINDER FORM -->
 
+    <div class="separator"></div>
+
+    <!-- FORMS -->
 
     {{ form_start(storeInfoForm, {
     'attr': {
@@ -51,673 +59,654 @@
     'id':'storeinfo'
     }
     }) }}
+
     <div class="row">
-        <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="box border orange">
-                        <div class="box-title">
-                            <h4>Restaurant Info</h4>
-                        </div>
-                        <div class="box-body big">
-
-
-                            {{ form_errors(storeInfoForm) }}
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Store File No.</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.restaurantInfo.storefilenumber, {
-                                    'attr': {'class': 'form-control'}
-                                    }) }}
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Store Nick Name</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.restaurantInfo.storenickname, {'label': 'Store Nick Name',
-                                    'label_attr': {'class': 'control-label'},
-                                    'attr': {'class': 'form-control'}
-                                    }) }}
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Landlord</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.restaurantInfo.landlordid, {'label': 'Landlord',
-                                    'label_attr': {'class': 'control-label'},
-                                    'attr': {'class': 'form-control'}
-                                    }) }}
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Property Manager</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.restaurantInfo.propertymanagerid, {
-                                    'attr': {'class': 'form-control'}
-                                    }) }}
-
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Corporate File</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.restaurantInfo.corporateid, {
-                                    'attr': {'class': 'form-control'}
-                                    }) }}
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Tenant</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.restaurantInfo.tenant, {
-                                    'attr': {'class': 'form-control'}
-                                    }) }}
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Address</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.restaurantInfo.address, {
-                                    'attr': {'class': 'form-control'}
-                                    }) }}
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">City</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.restaurantInfo.city, {
-                                    'attr': {'class': 'form-control'}
-                                    }) }}
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Province/State</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.restaurantInfo.provincestateid, {
-                                    'attr': {'class': 'form-control'}
-                                    }) }}
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Postal/Zip</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.restaurantInfo.postalzip, {
-                                    'attr': {'class': 'form-control'}
-                                    }) }}
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="box border green">
-                        <div class="box-title">
-                            <h4>Cont. Info</h4>
-                        </div>
-                        <div class="box-body big">
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Opening Date</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.restaurantInfo.openingdate, {
-                                    'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                    }) }}
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Legal Description</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.restaurantInfo.legaldescription, {
-                                    'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                    }) }}
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Royalty Fee</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.restaurantInfo.royaltyfee, {
-                                    'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                    }) }}
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Advertising Fee</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.restaurantInfo.advertisingfee, {
-                                    'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                    }) }}
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Regional Management Fee</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.restaurantInfo.regionalmngtfee, {
-                                    'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                    }) }}
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Comments</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.restaurantInfo.comments, {
-                                    'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                    }) }}
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Open?</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.restaurantInfo.restaurantstate, {
-                                    'attr': {'form':'storeinfo'}
-                                    }) }}
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Closing Date</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.restaurantInfo.closedate, {
-                                    'attr': {'form':'storeinfo'}
-                                    }) }}
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+    <div class="col-md-6">
+        <div class="box border blue">
+            <div class="box-title">
+                <h4>Restaurant Info</h4>
             </div>
-            <div class="separator"></div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="box border default">
-                        <div class="box-title">
-                            <h4>Cont. Info</h4>
-                        </div>
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Department #</label>
-                                <div class="col-sm-9">
+            <div class="box-body big">
 
-                                    {{ form_widget(storeInfoForm.restaurantInfo.departmentnumber, {
-                                    'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                    }) }}
 
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Building Type</label>
-                                <div class="col-sm-9">
+                {{ form_errors(storeInfoForm) }}
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Store File No.</label>
 
-                                    {{ form_widget(storeInfoForm.restaurantInfo.buildingtype, {
-                                    'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                    }) }}
+                    <div class="col-sm-9">
 
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Store Class</label>
-                                <div class="col-sm-9">
+                        {{ form_widget(storeInfoForm.restaurantInfo.storefilenumber, {
+                        'attr': {'class': 'form-control'}
+                        }) }}
 
-                                    {{ form_widget(storeInfoForm.restaurantInfo.storeclassid, {
-                                    'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                    }) }}
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Liquor License</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.liquorlicense.liquorlicense, {
-                                    'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                    }) }}
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Business License</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.liquorlicense.businesslicense, {
-                                    'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                    }) }}
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Year Built</label>
-                                <div class="col-sm-9">
-
-                                    {{ form_widget(storeInfoForm.restaurantInfo.yearbuilt, {
-                                    'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                    }) }}
-
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="box border default">
-                        <div class="box-title">
-                            <h4>Cont. Info</h4>
-                        </div>
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">No. of</label>
-                                <div class="col-sm-9">
-                                    <div class="row">
-                                        <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Store Nick Name</label>
 
-                                            <label>Seats</label>
+                    <div class="col-sm-9">
 
-                                        </div>
-                                        <div class="col-lg-6">
+                        {{ form_widget(storeInfoForm.restaurantInfo.storenickname, {'label': 'Store Nick Name',
+                        'label_attr': {'class': 'control-label'},
+                        'attr': {'class': 'form-control'}
+                        }) }}
 
-                                            <label>Tables</label>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Din Room</label>
-                                <div class="col-sm-9">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-
-                                            {{ form_widget(storeInfoForm.restaurantInfo.diningroomseating, {
-                                            'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                            }) }}
-
-                                        </div>
-                                        <div class="col-lg-6">
-
-                                            {{ form_widget(storeInfoForm.restaurantInfo.diningroomtable, {
-                                            'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                            }) }}
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Lounge</label>
-                                <div class="col-sm-9">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-
-                                            {{ form_widget(storeInfoForm.restaurantInfo.loungeseating, {
-                                            'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                            }) }}
-
-                                        </div>
-                                        <div class="col-lg-6">
-
-                                            {{ form_widget(storeInfoForm.restaurantInfo.loungetable, {
-                                            'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                            }) }}
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Patio</label>
-                                <div class="col-sm-9">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-
-                                            {{ form_widget(storeInfoForm.restaurantInfo.patioseating, {
-                                            'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                            }) }}
-
-                                        </div>
-                                        <div class="col-lg-6">
-
-                                            {{ form_widget(storeInfoForm.restaurantInfo.patiotable, {
-                                            'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                            }) }}
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Total</label>
-                                <div class="col-sm-9">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-
-                                            <label>Total Seats</label>
-
-                                        </div>
-                                        <div class="col-lg-6">
-
-                                            <label>Total Tables</label>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="box border blue">
-                        <div class="box-title">
-                            <h4>Cont. Info</h4>
-                        </div>
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">No. of</label>
-                                <div class="col-sm-9">
-                                    <div class="row">
-                                        <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Landlord</label>
 
-                                            <label>Seats</label>
+                    <div class="col-sm-9">
 
-                                        </div>
-                                        <div class="col-lg-6">
+                        {{ form_widget(storeInfoForm.restaurantInfo.landlordid, {'label': 'Landlord',
+                        'label_attr': {'class': 'control-label'},
+                        'attr': {'class': 'form-control'}
+                        }) }}
 
-                                            <label>Tables</label>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Din Room</label>
-                                <div class="col-sm-9">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-
-                                            {{ form_widget(storeInfoForm.restaurantInfo.diningroomseating, {
-                                            'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                            }) }}
-
-                                        </div>
-                                        <div class="col-lg-6">
-
-                                            {{ form_widget(storeInfoForm.restaurantInfo.diningroomtable, {
-                                            'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                            }) }}
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Lounge</label>
-                                <div class="col-sm-9">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-
-                                            {{ form_widget(storeInfoForm.restaurantInfo.loungeseating, {
-                                            'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                            }) }}
-
-                                        </div>
-                                        <div class="col-lg-6">
-
-                                            {{ form_widget(storeInfoForm.restaurantInfo.loungetable, {
-                                            'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                            }) }}
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Patio</label>
-                                <div class="col-sm-9">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-
-                                            {{ form_widget(storeInfoForm.restaurantInfo.patioseating, {
-                                            'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                            }) }}
-
-                                        </div>
-                                        <div class="col-lg-6">
-
-                                            {{ form_widget(storeInfoForm.restaurantInfo.patiotable, {
-                                            'attr': {'class': 'form-control', 'form':'storeinfo'}
-                                            }) }}
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Total</label>
-                                <div class="col-sm-9">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-
-                                            <label>Total Seats</label>
-
-                                        </div>
-                                        <div class="col-lg-6">
-
-                                            <label>Total Tables</label>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
-                </div>
-            </div>
-            <div class="separator"></div>
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="box border inverse">
-                        <div class="box-title">
-                            <h4>Risk</h4>
-                        </div>
-                        <div class="box-body">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Construction Type</th>
-                                    <th>Building Insured By</th>
-                                    <th>Rent Abatement</th>
-                                    <th>Exterior Maintenance</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Property Manager</label>
 
-                                        {{ form_widget(storeInfoForm.riskinfo.constructionid, {
-                                        'attr': {'class': 'form-control',
-                                        'form': 'storeinfo'
-                                        }
-                                        }) }}
+                    <div class="col-sm-9">
 
-                                    </td>
-                                    <td>
+                        {{ form_widget(storeInfoForm.restaurantInfo.propertymanagerid, {
+                        'attr': {'class': 'form-control'}
+                        }) }}
 
-                                        {{ form_widget(storeInfoForm.riskinfo.insuredby, {
-                                        'attr': {'class': 'form-control',
-                                        'form': 'storeinfo'
-                                        }
-                                        }) }}
-
-                                    </td>
-                                    <td>
-
-                                        {{ form_widget(storeInfoForm.riskinfo.rentabatement, {
-                                        'attr': {'class': 'form-control',
-                                        'form': 'storeinfo'
-                                        }
-                                        }) }}
-
-                                    </td>
-                                    <td>
-
-                                        {{ form_widget(storeInfoForm.riskinfo.exteriormaintenance, {
-                                        'attr': {'class': 'form-control',
-                                        'form': 'storeinfo'
-                                        }
-                                        }) }}
-
-                                    </td>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="box border inverse">
-                        <div class="box-title">
-                            <h4>Rent and Maintenance</h4>
-                        </div>
-                        <div class="box-body">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>HVAC Repair</th>
-                                    <th>HVAC Replace</th>
-                                    <th>Roof Repare</th>
-                                    <th>Roof Replace</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>
-
-                                        {{ form_widget(storeInfoForm.rentandmaintenance.hvacrepair, {
-                                        'attr': {'class': 'form-control',
-                                        'form': 'storeinfo'
-                                        }
-                                        }) }}
-
-                                    </td>
-                                    <td>
-
-                                        {{ form_widget(storeInfoForm.rentandmaintenance.hvacreplace, {
-                                        'attr': {'class': 'form-control',
-                                        'form': 'storeinfo'
-                                        }
-                                        }) }}
-
-                                    </td>
-                                    <td>
-
-                                        {{ form_widget(storeInfoForm.rentandmaintenance.roofrepair, {
-                                        'attr': {'class': 'form-control',
-                                        'form': 'storeinfo'
-                                        }
-                                        }) }}
-
-                                    </td>
-                                    <td>
-
-                                        {{ form_widget(storeInfoForm.rentandmaintenance.roofreplace, {
-                                        'attr': {'class': 'form-control',
-                                        'form': 'storeinfo'
-                                        }
-                                        }) }}
-
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <!-- *********  this area is for Utilities table data ********** -->
-                    <div class="box border red">
-                        <div class="box-title">
-                            <h4>Utilities</h4>
-                        </div>
-                        <div class="box-body">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Utility Type</th>
-                                        <th>Billed By</th>
-                                        <th>Is Metered?</th>
-                                        <th>Is CAM?</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>{{ form_widget(storeInfoForm.utilities.utilitytypeid, {
-                                        'attr': {'class': 'form-control',
-                                        'form': 'storeinfo'
-                                        }
-                                        }) }}</td>
-                                    <td>{{ form_widget(storeInfoForm.utilities.billingby, {
-                                        'attr': {'class': 'form-control',
-                                        'form': 'storeinfo'
-                                        }
-                                        }) }}</td>
-                                    <td>{{ form_widget(storeInfoForm.utilities.ismetered, {
-                                        'attr': {'class': 'form-control',
-                                        'form': 'storeinfo'
-                                        }
-                                        }) }}</td>
-                                    <td>{{ form_widget(storeInfoForm.utilities.iscam, {
-                                        'attr': {'class': 'form-control',
-                                        'form': 'storeinfo'
-                                        }
-                                        }) }}</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Corporate File</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.restaurantInfo.corporateid, {
+                        'attr': {'class': 'form-control'}
+                        }) }}
+
                     </div>
                 </div>
-            </div>
-            <div class="separator"></div>
-            <div class="row">
-                {{ form_row(storeInfoForm.Update, {
-                    'attr': {'class': 'btn btn-primary',
-                    'form': 'storeinfo'}
-                }) }}
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Tenant</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.restaurantInfo.tenant, {
+                        'attr': {'class': 'form-control'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Address</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.restaurantInfo.address, {
+                        'attr': {'class': 'form-control'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">City</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.restaurantInfo.city, {
+                        'attr': {'class': 'form-control'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Province/State</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.restaurantInfo.provincestateid, {
+                        'attr': {'class': 'form-control'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Postal/Zip</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.restaurantInfo.postalzip, {
+                        'attr': {'class': 'form-control'}
+                        }) }}
+
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
+    <div class="col-md-6">
+        <div class="box border blue">
+            <div class="box-title">
+                <h4>Cont. Info</h4>
+            </div>
+            <div class="box-body big">
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Opening Date</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.restaurantInfo.openingdate, {
+                        'attr': {'class': 'form-control', 'form':'storeinfo'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Legal Description</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.restaurantInfo.legaldescription, {
+                        'attr': {'class': 'form-control', 'form':'storeinfo'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Royalty Fee</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.restaurantInfo.royaltyfee, {
+                        'attr': {'class': 'form-control', 'form':'storeinfo'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Advertising Fee</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.restaurantInfo.advertisingfee, {
+                        'attr': {'class': 'form-control', 'form':'storeinfo'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Regional Management Fee</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.restaurantInfo.regionalmngtfee, {
+                        'attr': {'class': 'form-control', 'form':'storeinfo'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Comments</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.restaurantInfo.comments, {
+                        'attr': {'class': 'form-control', 'form':'storeinfo'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Open?</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.restaurantInfo.restaurantstate, {
+                        'attr': {'class': 'checkbox', 'form':'storeinfo'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Closing Date</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.restaurantInfo.closedate, {
+                        'attr': {'form':'storeinfo'}
+                        }) }}
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="row">
+    <div class="col-md-4">
+        <div class="box border blue">
+            <div class="box-title">
+                <h4>Cont. Info</h4>
+            </div>
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Department #</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.restaurantInfo.departmentnumber, {
+                        'attr': {'class': 'form-control', 'form':'storeinfo'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Building Type</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.restaurantInfo.buildingtype, {
+                        'attr': {'class': 'form-control', 'form':'storeinfo'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Store Class</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.restaurantInfo.storeclassid, {
+                        'attr': {'class': 'form-control', 'form':'storeinfo'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Liquor License</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.liquorlicense.liquorlicense, {
+                        'attr': {'class': 'form-control', 'form':'storeinfo'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Business License</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.liquorlicense.businesslicense, {
+                        'attr': {'class': 'form-control', 'form':'storeinfo'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Year Built</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.restaurantInfo.yearbuilt, {
+                        'attr': {'class': 'form-control', 'form':'storeinfo'}
+                        }) }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="box border default">
+            <div class="box-title">
+                <h4>Furniture</h4>
+            </div>
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">No. of</label>
+
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                <label>Seats</label>
+
+                            </div>
+                            <div class="col-lg-6">
+
+                                <label>Tables</label>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Din Room</label>
+
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                {{ form_widget(storeInfoForm.restaurantInfo.diningroomseating, {
+                                'attr': {'class': 'form-control', 'form':'storeinfo'}
+                                }) }}
+
+                            </div>
+                            <div class="col-lg-6">
+
+                                {{ form_widget(storeInfoForm.restaurantInfo.diningroomtable, {
+                                'attr': {'class': 'form-control', 'form':'storeinfo'}
+                                }) }}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Lounge</label>
+
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                {{ form_widget(storeInfoForm.restaurantInfo.loungeseating, {
+                                'attr': {'class': 'form-control', 'form':'storeinfo'}
+                                }) }}
+
+                            </div>
+                            <div class="col-lg-6">
+
+                                {{ form_widget(storeInfoForm.restaurantInfo.loungetable, {
+                                'attr': {'class': 'form-control', 'form':'storeinfo'}
+                                }) }}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Patio</label>
+
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                {{ form_widget(storeInfoForm.restaurantInfo.patioseating, {
+                                'attr': {'class': 'form-control', 'form':'storeinfo'}
+                                }) }}
+
+                            </div>
+                            <div class="col-lg-6">
+
+                                {{ form_widget(storeInfoForm.restaurantInfo.patiotable, {
+                                'attr': {'class': 'form-control', 'form':'storeinfo'}
+                                }) }}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Total</label>
+
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                <label>Total Seats</label>
+
+                            </div>
+                            <div class="col-lg-6">
+
+                                <label>Total Tables</label>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="box border green">
+            <div class="box-title">
+                <h4>License Information</h4>
+            </div>
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Start Date</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.licenseinfo.startdate, {
+                        'attr': {'form':'storeinfo'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Expiry Date</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.licenseinfo.expirarydate, {
+                        'attr': {'form':'storeinfo'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">License Agreement?</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.licenseinfo.licenseagreement, {
+                        'attr': {'form':'storeinfo'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Comments</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(storeInfoForm.licenseinfo.comments, {
+                        'attr': {'class': 'form-control', 'form':'storeinfo'}
+                        }) }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="separator"></div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="box border orange">
+                <div class="box-title">
+                    <h4>Risk</h4>
+                </div>
+                <div class="box-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Construction Type</th>
+                            <th>Building Insured By</th>
+                            <th>Rent Abatement</th>
+                            <th>Exterior Maintenance</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+
+                                {{ form_widget(storeInfoForm.riskinfo.constructionid, {
+                                'attr': {'class': 'form-control',
+                                'form': 'storeinfo'
+                                }
+                                }) }}
+
+                            </td>
+                            <td>
+
+                                {{ form_widget(storeInfoForm.riskinfo.insuredby, {
+                                'attr': {'class': 'form-control',
+                                'form': 'storeinfo'
+                                }
+                                }) }}
+
+                            </td>
+                            <td>
+
+                                {{ form_widget(storeInfoForm.riskinfo.rentabatement, {
+                                'attr': {'class': 'form-control',
+                                'form': 'storeinfo'
+                                }
+                                }) }}
+
+                            </td>
+                            <td>
+
+                                {{ form_widget(storeInfoForm.riskinfo.exteriormaintenance, {
+                                'attr': {'class': 'form-control',
+                                'form': 'storeinfo'
+                                }
+                                }) }}
+
+                            </td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="box border inverse">
+                <div class="box-title">
+                    <h4>Rent and Maintenance</h4>
+                </div>
+                <div class="box-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>HVAC Repair</th>
+                            <th>HVAC Replace</th>
+                            <th>Roof Repare</th>
+                            <th>Roof Replace</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+
+                                {{ form_widget(storeInfoForm.rentandmaintenance.hvacrepair, {
+                                'attr': {'class': 'form-control',
+                                'form': 'storeinfo'
+                                }
+                                }) }}
+
+                            </td>
+                            <td>
+
+                                {{ form_widget(storeInfoForm.rentandmaintenance.hvacreplace, {
+                                'attr': {'class': 'form-control',
+                                'form': 'storeinfo'
+                                }
+                                }) }}
+
+                            </td>
+                            <td>
+
+                                {{ form_widget(storeInfoForm.rentandmaintenance.roofrepair, {
+                                'attr': {'class': 'form-control',
+                                'form': 'storeinfo'
+                                }
+                                }) }}
+
+                            </td>
+                            <td>
+
+                                {{ form_widget(storeInfoForm.rentandmaintenance.roofreplace, {
+                                'attr': {'class': 'form-control',
+                                'form': 'storeinfo'
+                                }
+                                }) }}
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <!-- *********  this area is for Utilities table data ********** -->
+            <div class="box border red">
+                <div class="box-title">
+                    <h4>Utilities</h4>
+                </div>
+                <div class="box-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Utility Type</th>
+                            <th>Billed By</th>
+                            <th>Is Metered?</th>
+                            <th>Is CAM?</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>{{ form_widget(storeInfoForm.utilities.utilitytypeid, {
+                                'attr': {'class': 'form-control',
+                                'form': 'storeinfo'
+                                }
+                                }) }}</td>
+                            <td>{{ form_widget(storeInfoForm.utilities.billingby, {
+                                'attr': {'class': 'form-control',
+                                'form': 'storeinfo'
+                                }
+                                }) }}</td>
+                            <td>{{ form_widget(storeInfoForm.utilities.ismetered, {
+                                'attr': {'class': 'checkbox',
+                                'form': 'storeinfo'
+                                }
+                                }) }}</td>
+                            <td>{{ form_widget(storeInfoForm.utilities.iscam, {
+                                'attr': {'class': 'checkbox',
+                                'form': 'storeinfo'
+                                }
+                                }) }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="row">
+        {{ form_widget(storeInfoForm.Update, {
+        'attr': {'class': 'btn btn-lg btn-primary',
+        'form': 'storeinfo'}
+        }) }}
+    </div>
+
+
 
     {{ form_end(storeInfoForm) }}
 

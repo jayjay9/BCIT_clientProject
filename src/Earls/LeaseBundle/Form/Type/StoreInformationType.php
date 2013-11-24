@@ -25,7 +25,7 @@ class StoreInformationType extends AbstractType
             ->add('riskinfo', new RiskinfoType())
             ->add('rentandmaintenance', new RentandmaintenancesType())
             ->add('utilities', new UtilitiesType())
-
+            ->add('restaurantId', 'hidden')
             ->add('Update', 'submit')
                 ->getForm()
         ;

@@ -23,8 +23,25 @@
         "twitter/bootstrap": "2.3.*",
         "symfony/form": "2.3.*",
         "symfony/validator": "2.3.*",
-        "friendsofsymfony/user-bundle": "~2.0@dev"
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "phpword/phpword": "0.6.2"
     },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "phpword/phpword",
+                "version": "0.6.2",
+                "dist": {
+                    "url": "https://github.com/PHPOffice/PHPWord.git",
+                    "type": "git"
+                },
+                "autoload": {
+                    "classmap": ["."]
+                }
+            }
+        }
+    ],
     "scripts": {
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -56,4 +73,5 @@
             "dev-master": "2.3-dev"
         }
     }
+
 }

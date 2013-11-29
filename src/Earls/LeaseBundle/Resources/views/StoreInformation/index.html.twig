@@ -36,8 +36,20 @@
                             </div>
                             {{ form_widget(storeFinderForm.Go, {'attr': {'class': 'btn btn-info'} }) }}
 
+                            <button class="btn btn-small btn-success" type="button"
+                                    onclick="javascript:window.location.href='{{ path('_addStore') }}'">
+                                <i class="fa fa-plus"></i>
+                                Add a Store
+                            </button>
+
                             {{ form_end(storeFinderForm) }}
-                            <button class="btn btn-small btn-pink" type="button" onclick="javascript:window.location.href='{{ path('_leaseinformation', {'id': storeInfoForm.restaurantId.vars.value}) }}'">Lease Information</button>
+
+                            <div>
+                                <button class="btn btn-small btn-pink" type="button"
+                                        onclick="javascript:window.location.href='{{ path('_leaseinformation', {'id': storeInfoForm.restaurantId.vars.value}) }}'">
+                                    Lease Information
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -22,10 +22,12 @@ class LeasesInfoType extends AbstractType
         $builder->add('leaseinfo', new LeasesType())
             ->add('leasereportinfo', new LeaseReportInfoType())
             ->add('leasecriticaltasks', 'collection', array(
-                'type' => new LeaseCriticalTasksType()
+                'type' => new LeaseCriticalTasksType(),
+                'allow_add' => true,
             ))
             ->add('renewals', 'collection', array(
-                'type' => new RenewalsType()
+                'type' => new RenewalsType(),
+                'allow_add' => true,
             ))
             ->add('leaseid', 'hidden');
     }

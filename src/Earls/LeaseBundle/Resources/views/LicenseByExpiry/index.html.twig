@@ -1,13 +1,46 @@
 {% extends "EarlsLeaseBundle::layout.html.twig" %}
 {% block body %}
-	{% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION')%}
-<p>This is LicenseByExpiry.php  --->  index.html.twig</p>
-<a href="http://www.google.com">google</a>
+    {% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION')%}
 
-                <span class="border-l">
-                    <span class="border-r">
-                        <span class="btn-bg">Store info</span>
-                    </span>
-                </span>
-            </a>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-header">
+                <div class="clearfix">
+                    <h3 class="content-title pull-left">License By Expiry</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>STORE NAME</th>
+                    <th>LICENSE AGREEMENT</th>
+                    <th>START DATE</th>
+                    <th>EXPIRY DATE</th>
+                    <th>ROYALTY FEE</th>
+                    <th>ADVERTISING FEE</th>
+                    <th>REGIONAL FEE</th>
+                    <th>COMMENTS</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for license in licenseByExpiry %}
+                    <tr>
+                        <td> {{ license.storeNickname }}</td>
+                        <td> {{ license.licenseAgreement }}</td>
+                        <td>{{ license.startDate}}</td>
+                        <td>{{ license.expiryDate}}</td>
+                        <td>{{ license.royaltyFee }}</td>
+                        <td>{{ license.advertisingFee }}</td>
+                        <td>{{ license.regionalFee }}</td>
+                        <td>{{ license.comments }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}

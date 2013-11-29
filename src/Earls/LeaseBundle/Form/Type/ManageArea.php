@@ -20,7 +20,8 @@ class ManageArea extends AbstractType
             ->add('washrooms')
             ->add('boh')
             ->add('patio')
-            ->add('totalarea');
+            //->add('totalarea')
+        ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

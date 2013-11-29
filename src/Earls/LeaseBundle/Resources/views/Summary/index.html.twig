@@ -1,13 +1,212 @@
 {% extends "EarlsLeaseBundle::layout.html.twig" %}
 {% block body %}
 	{% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION')%}
-<p>This is Summary.php  --->  index.html.twig</p>
-<a href="http://www.google.com">google</a>
 
-                <span class="border-l">
-                    <span class="border-r">
-                        <span class="btn-bg">Store info</span>
-                    </span>
-                </span>
-            </a>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-header">
+                <div class="clearfix">
+                    <h3 class="content-title pull-left">Lease Summary</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="box border blue">
+                        <div class="box-body big">
+                            <h3 class="form-title">Select Store Name:</h3>
+
+                            {{ form_start(storeFinderForm, {'attr': {'role': 'form', 'class': 'form-inline'} }) }}
+
+                            {{ form_errors(storeFinderForm) }}
+                            <div class="form-group">
+                                {{ form_row(storeFinderForm.restaurant, {'label': 'Nick Name',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </div>
+                            {{ form_widget(storeFinderForm.Go, {'attr': {'class': 'btn btn-info'} }) }}
+                            <button class="btn btn-small btn-pink" type="button" onclick="javascript:window.location.href='{{ path('_summary_createreport', {'id': restaurantarray.restaurantid}) }}'">Export to Word Document</button>
+
+                            {{ form_end(storeFinderForm) }}
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="box border blue">
+                <div class="box-title">
+                    <h4>Summary</h4>
+                </div>
+                <div class="box-body big">
+                    <div class="row">
+                        <div class="col-md-12">
+                            </br>
+                            <p><b>{{RestaurantObj.storenickname}}</b></p>
+                            <p><b>Store No. {{RestaurantObj.storefilenumber}}</b></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            </br>
+                            <p><b>Lease Information</b></p>
+                            <p>Lease Type: {{leaseObj.leasetype}}</p>
+                            <p>Lease Date: {{leaseObj.leasedate|date('F d, Y')}}</p>
+                            <p>Lease Term: {{leaseObj.term}}</p>
+                            <p>Commencement Date: {{leaseObj.commencementdate|date('F d, Y')}}</p>
+                            <p>Expiry Date: {{leaseObj.expirydate|date('F d, Y')}}</p>
+                            <p>Option Time: {{leaseObj.optiontime}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            </br>
+                            <p><b>Renewal Information</b></p>
+                            <p>Renewal Term: {{leaseObj.renewalterms}}</p>
+                            <p>Renewal Rate:</p>
+                            {% for renewal in RenewalObj %}
+                                <p>{{renewal.term}} Excercised[0=no, 1=yes]: {{renewal.exercised}}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="col-md-6">
+                            </br>
+                            <p><b>Renewal Option Date:</b> {{leaseObj.renewaloptiondate|date('F d, Y')}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        </br>
+                        <p><b>Report Information</b></p>
+                        <p>Reporting Period: [IMPLEMENT]</p>
+                        <p>Certified Sales: [BOOLEAN]</p>
+                        <p>Due Date: {{LeasereportsinfoObj.duedate}}</p>
+                        <p>Is Audit: [BOOLEAN]</p>
+                        <p>Is Certified: [BOOLEAN]</p>
+
+                        </br>
+                        <p><b>Special Term and Condition</b></p>
+                        <p>Exclusive Use: {{leaseObj.exclusiveuse}}</p>
+                        <p>TI Allowance: {{leaseObj.tiallowance}}</p>
+                        <p>Radius Clause: {{leaseObj.radiusclause}}</p>
+                        <p>Other: {{leaseObj.otherdescription}}</p>
+                        <p>Indemnifier: {{leaseObj.indemnifier}}</p>
+                        <p>Indemnifier Period: {{leaseObj.indemnityperiod}}</p>
+                        <p>Indemnifier Expiry: {{leaseObj.indemnityexpiry|date('F d, Y')}}</p>
+
+                        </br>
+                        <p><b>Critical Issues</b></p>
+                        {% for renewal in RenewalObj %}
+                            <p>{{renewal.term}}</p>
+                            <p>{{renewal.exercised}}</p>
+                        {% endfor %}
+                        <p>Date:    Clause:     Description:  [IMPLEMENT]</p>
+
+                        </br>
+                        <p><b>Landlord</b></p>
+                        <p>{{LandlordObj.landlordname}}</p>
+                        <p>{{LandlordObj.address}}</p>
+                        <p>Attention: {{LandlordObj.attention}}</p>
+                        <p>Phone: {{LandlordObj.phone}}</p>
+                        <p>Fax: {{LandlordObj.fax}}</p>
+
+                        </br>
+                        <p><b>Property Manager</b></p>
+                        <p>{{PropertymanagerObj.propertymanagername}}</p>
+                        <p>{{PropertymanagerObj.address}}</p>
+                        <p>Attention: {{PropertymanagerObj.attention}}</p>
+                        <p>Phone: {{PropertymanagerObj.phone}}</p>
+                        <p>Fax: {{PropertymanagerObj.fax}}</p>
+
+                        </br>
+                        <p><b>Store Into</b></p>
+                        <p>Tenant: {{RestaurantObj.tenant}}</p>
+                        <p>Open: {{RestaurantObj.openingdate|date('F d, Y')}}</p>
+                        <p>Address: {{RestaurantObj.address}}</p>
+                        <p>Legal Description: {{RestaurantObj.legaldescription}}</p>
+                        <p>Liquor License # {{LiquorlicenseObj.liquorlicense}}</p>
+                        <p>Business License # {{LiquorlicenseObj.businesslicense}}</p>
+
+                        <p>License Expiry: {{LicenseObj.expirarydate}}</p>
+
+
+
+                        <p>License Expiry:</p>
+
+
+                        </br>
+                        <table border="1">
+                            <tr>
+                                <td colspan="2"><p><b>Building Info</b></p></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><p>Building Type: {{BuildingtypeObj.buildingtype}}</p></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><p>Store Class: {{leaseObj.leasetype}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>No. of dining seats: {{RestaurantObj.diningroomseating}}</p></td>
+                                <td><p>No. of dining tables: {{RestaurantObj.diningroomtable}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>No. of lounge seats: {{RestaurantObj.loungeseating}}</p></td>
+                                <td><p>No. of lounge tables: {{RestaurantObj.loungetable}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>No. of patio seats: {{RestaurantObj.patioseating}}</p></td>
+                                <td><p>No. of patio tables: {{RestaurantObj.patiotable}}</p></td>
+                            </tr>
+                            <tr>
+                                <td><p>Total seats: {{totalseats}}</p></td>
+                                <td><p>Total tables: {{totaltables}}</p></td>
+                            </tr>
+                        </table>
+
+                        </br>
+                        <p><b>Area Breakdown</b></p>
+                        <p>Square Feet: </p>
+                        <p>Main: {{leaseObj.areamain}}</p>
+                        <p>Upper/Base: {{leaseObj.areaupperfloor}}</p>
+                        <p>Mezzanine: {{leaseObj.areamezzanine}}</p>
+                        <p>Patio: {{leaseObj.areapatio}}</p>
+                        <p>Other: {{leaseObj.areaother}}</p>
+                        <p>Surveyed: [BOOLEAN]</p>
+
+                        </br>
+                        <p><b>Risk Info</b></p>
+                        <p>Building Type: {{BuildingtypeObj.buildingtype}}</p>
+                        <p>Building Insured By: {{RiskinfoObj.insuredby.ownertype}}</p>
+                        <p>Rent Abatement: {{RiskinfoObj.rentabatement}}</p>
+                        <p>Exterior Maintenance: {{RiskinfoObj.exteriormaintenance}}</p>
+                        <p>Notes: [NO COLUMN EXISTS IN DB]</p>
+
+                        </br>
+                        <p><b>Rent and Maintenance</b></p>
+                        <p>[NO COLUMNS SPECIFIED IN DB]</p>
+
+                        </br>
+                        <p><b>Utilities</b></p>
+                        <p>Utility Type: {{UtilitiesObj1}}</p>
+                        <p>Billing By: {{UtilitiesObj.billingby}}</p>
+                        <p>Metered: [BOOLEAN]</p>
+                        <p>CAM?: [BOOLEAN]</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

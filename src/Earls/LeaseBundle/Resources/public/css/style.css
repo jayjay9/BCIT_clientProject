@@ -59,11 +59,11 @@ ul.menu {
 	padding-bottom: 10px;
 }
 
-td{
-	text-align: center;
-	padding-bottom: 5px;
-	padding-right: 40px;
-}
+/*td{*/
+	/*text-align: center;*/
+	/*padding-bottom: 5px;*/
+	/*padding-right: 40px;*/
+/*}*/
 
 .widget{
 background: #fff;
@@ -334,3 +334,25 @@ footer a:hover {
 .i-logout { background-position: 0 -637px; }
 
 .i-white-add { background-position: 0 -774px; width: 47px; height: 32px; }
+
+/* ---------------------------------------------------- */
+/*                        Appended                      */
+/* ---------------------------------------------------- */
+img#landing-page{
+    min-height: 100%;
+    min-width: 1024px;
+
+    width: 100%;
+    height: auto;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+@media screen and (max-width: 1024px){
+    img#landing-page{
+        left: 50%;
+        margin-left: -512px;
+    }
+}

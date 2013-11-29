@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "3fa4a1be00dc223d62ac724744b9b889",
+    "hash": "1b0c0ec1639c44ca38f497b1cb18823f",
     "packages": [
         {
             "name": "braincrafted/bootstrap-bundle",
@@ -979,6 +979,22 @@
                 "psr-3"
             ],
             "time": "2013-11-14 19:48:31"
+        },
+        {
+            "name": "phpword/phpword",
+            "version": "0.6.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/PHPOffice/PHPWord/archive/develop.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "."
+                ]
+            }
         },
         {
             "name": "psr/log",

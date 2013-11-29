@@ -37,7 +37,7 @@ class ManageAreaController extends Controller
         $data = $query->getResult();
         $restaurantid = $data[0]->getRestaurantid();
 
-        print_r($restaurantid);
+        //print_r($restaurantid);
 
         return $this->redirect($this->generateUrl('_manageArea_get_id', array('id'=> $restaurantid)));
     }
@@ -82,25 +82,32 @@ class ManageAreaController extends Controller
         if (empty($area1) ){
             $area1= new Areas();
             $this->addAreaSquareFootage($area1, $areatypeid1, $selectedRestaurant);
-        }else{
-            $model->setArea1($area1);
         }
+
+            $totalArea1 = $this->addTotal($area1);
+            $area1->setTotalarea($totalArea1);
+            $model->setArea1($area1);
+
 
         if(empty($area2)){
             $area2 = new Areas();
             $this->addAreaSquareFootage($area2, $areatypeid2, $selectedRestaurant);
-        }else{
-            $model->setArea2($area2);
         }
+            $totalArea2 = $this->addTotal($area2);
+            $area2->setTotalarea($totalArea2);
+            $model->setArea2($area2);
+
 
         if(empty($area3)){
             $area3 = new Areas();
             $this->addAreaSquareFootage($area3, $areatypeid3, $selectedRestaurant);
-        }else{
-            $model->setArea3($area3);
         }
+            $totalArea3 = $this->addTotal($area3);
+            $area3->setTotalarea($totalArea3);
+            $model->setArea3($area3);
 
-        if (isset($restaurantObj) )
+
+        if (isset($selectedRestaurant) )
         $model->setStorefileNumber($selectedRestaurant);
 
         $form = $this->createForm(new DropDownList(), $model);
@@ -117,7 +124,6 @@ class ManageAreaController extends Controller
                 if ($request->isMethod('POST')) {
                     if ($form->isValid())
                     {
-                        //print_r($request);
                         $em = $this->getDoctrine()->getEntityManager();
                         $em->flush();
                     }
@@ -127,7 +133,12 @@ class ManageAreaController extends Controller
             }
         }
 
-        return $this->render('EarlsLeaseBundle:ManageArea:index.html.twig', array('form' => $form->createView()));
+        return $this->render('EarlsLeaseBundle:ManageArea:index.html.twig', array(
+            'form' => $form->createView(),
+            'totalArea1' => (String)$totalArea1,
+            'totalArea2' => (String)$totalArea2,
+            'totalArea3' => (String)$totalArea3
+        ));
 
     }
 
@@ -135,10 +146,33 @@ class ManageAreaController extends Controller
         $em = $this->getDoctrine()->getManager();
             $area->setAreatypeid($areatypes);
             $area->setRestaurantid($restaurantid);
+            $area->setEntry(0);
+            $area->setBar(0);
+            $area->setLounge(0);
+            $area->setDining(0);
+            $area->setWashrooms(0);
+            $area->setBoh(0);
+            $area->setPatio(0);
+            $area->setTotalarea(0);
         $em->persist($area);
         $em->flush();
 
         return 1;
+    }
+
+    private function addTotal(Areas $area){
+
+        $entryNumber = $area->getEntry();
+        $barNumber = $area->getBar();
+        $loungeNumber = $area->getLounge();
+        $diningNumber = $area->getDining();
+        $washroomNumber = $area->getWashrooms();
+        $bohNumber = $area->getBoh();
+        $patioNumber = $area->getPatio();
+
+        $total = $entryNumber + $barNumber + $loungeNumber + $diningNumber + $washroomNumber + $bohNumber + $patioNumber;
+
+        return $total;
     }
 }
 

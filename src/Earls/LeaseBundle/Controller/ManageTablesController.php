@@ -14,6 +14,9 @@ use Earls\LeaseBundle\Form\Type\LandlordsType;
 use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Earls\LeaseBundle\Entity\Landlords;
+use Earls\LeaseBundle\Entity\Propertymanagers;
+use Earls\LeaseBundle\Entity\Storeclasses;
+use Earls\LeaseBundle\Entity\Buildingtypes;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 // these import the "@Route" and "@Template" annotations
@@ -143,18 +146,6 @@ class ManageTablesController extends Controller {
     }
 
     /**
-     * @Route("/LandlordDelete/{id}", name="_manage_tables_landlord_delete_id")
-     * @Template()
-     */
-
-    public function landlordDeleteAction($id)
-    {
-
-        echo $id;
-
-    }
-
-    /**
      * @Route("/getPropertymanager/{id}", name="_manage_tables_propertyManager_get_id")
      * @Template()
      */
@@ -195,7 +186,7 @@ class ManageTablesController extends Controller {
             $form->submit($request);
             if ($form->isValid()) {
                 $em->flush();
-                return $this->redirect($this->generateUrl('_manage_tables'));
+                return $this->redirect($this->generateUrl('_manage_tables').'#propertymanager');
             }
         }
 
@@ -207,14 +198,73 @@ class ManageTablesController extends Controller {
     }
 
     /**
+     * @Route("/LandlordDelete/{id}", name="_manage_tables_landlord_delete_id")
+     * @Template()
+     */
+
+    public function landlordDeleteAction($id)
+    {
+
+        $restaurantlist = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Restaurants')
+            ->findAll();
+
+        foreach($restaurantlist as $restaurant){
+            $landlordObj = $restaurant->getLandlordid();
+            if(isset($landlordObj)){
+                $landlordid =  $landlordObj->getLandlordid();
+                if($landlordid==$id){
+                    $em = $this->getDoctrine()->getManager();
+                    $restaurant->setLandlordid(Null);
+                    $em->flush();
+                }
+            }
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $landlord = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Landlords')
+            ->find($id);
+
+        $em->remove($landlord);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('_manage_tables'));
+    }
+
+
+    /**
      * @Route("/PropertyManagerDelete/{id}", name="_manage_tables_propertyManager_delete_id")
      * @Template()
      */
 
     public function propertyManagerDeleteAction($id)
     {
+        $restaurantlist = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Restaurants')
+            ->findAll();
 
-        echo $id;
+        foreach($restaurantlist as $restaurant){
+            $propertymanObj = $restaurant->getPropertymanagerid();
+            if(isset($propertymanObj)){
+                $propertymanid =  $propertymanObj->getPropertymanagerid();
+                if($propertymanid==$id){
+                    $em = $this->getDoctrine()->getManager();
+                    $restaurant->setPropertymanagerid(Null);
+                    $em->flush();
+                }
+            }
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $propertymanager = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Propertymanagers')
+            ->find($id);
+
+        $em->remove($propertymanager);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('_manage_tables').'#propertymanager');
 
     }
 
@@ -225,8 +275,31 @@ class ManageTablesController extends Controller {
 
     public function storeClassesDeleteAction($id)
     {
+        $restaurantlist = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Restaurants')
+            ->findAll();
 
-        echo $id;
+        foreach($restaurantlist as $restaurant){
+            $storeClassObj = $restaurant->getStoreclassid();
+            if(isset($storeClassObj)){
+                $storeclassid =  $storeClassObj->getStoreclassid();
+                if($storeclassid==$id){
+                    $em = $this->getDoctrine()->getManager();
+                    $restaurant->setStoreclassid(Null);
+                    $em->flush();
+                }
+            }
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $storeClasses = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Storeclasses')
+            ->find($id);
+
+        $em->remove($storeClasses);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('_manage_tables').'#storeclasses');
 
     }
 
@@ -238,7 +311,178 @@ class ManageTablesController extends Controller {
     public function buildingTypesDeleteAction($id)
     {
 
-        echo $id;
+        $restaurantlist = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Restaurants')
+            ->findAll();
+
+        foreach($restaurantlist as $restaurant){
+            $buildingtypeObj = $restaurant->getBuildingtype();
+            if(isset($buildingtypeObj)){
+                $buildingtypeid =  $buildingtypeObj->getBuildingtypeid();
+                if($buildingtypeid==$id){
+                    $em = $this->getDoctrine()->getManager();
+                    $restaurant->setBuildingtype(Null);
+                    $em->flush();
+                }
+            }
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $buildingtypes = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Buildingtypes')
+            ->find($id);
+
+        $em->remove($buildingtypes);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('_manage_tables').'#buildingtypes');
+
+    }
+
+    /**
+     * @Route("/LandlordAdd", name="_manage_tables_landlord_add")
+     * @Template()
+     */
+
+    public function landlordAddAction()
+    {
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $landlord = new Landlords();
+
+        $form = $this->createForm(new LandlordsType(), $landlord, array(
+            'action' => $this->generateUrl('_manage_tables_landlord_add'))
+        );
+
+        $request = $this->getRequest();
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $landlordObj = $form->getData();
+
+            $em->persist($landlordObj);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('_manage_tables'));
+        }
+
+        return $this->render('EarlsLeaseBundle:ManageTables:addLandlord.html.twig',
+            array(
+                'landlordForm' => $form->createView()
+            )
+        );
+
+    }
+
+    /**
+     * @Route("/PropertyManagerAdd", name="_manage_tables_propertyManager_add")
+     * @Template()
+     */
+
+    public function propertyManagerAddAction()
+    {
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $propertymanager = new Propertymanagers();
+
+        $form = $this->createForm(new PropertyManagerType(), $propertymanager, array(
+                'action' => $this->generateUrl('_manage_tables_propertyManager_add'))
+        );
+
+        $request = $this->getRequest();
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $propertymanagerObj = $form->getData();
+
+            $em->persist($propertymanagerObj);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('_manage_tables').'#propertymanager');
+        }
+
+        return $this->render('EarlsLeaseBundle:ManageTables:addPropertymanager.html.twig',
+            array(
+                'propertyManagerForm' => $form->createView()
+            )
+        );
+
+    }
+
+    /**
+     * @Route("/StoreClassesAdd", name="_manage_tables_storeClasses_add")
+     * @Template()
+     */
+
+    public function storeClassesAddAction()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $storeClass = new Storeclasses();
+
+        $form = $this->createFormBuilder($storeClass)
+            ->setAction($this->generateUrl('_manage_tables_storeClasses_add'))
+            ->add('storeclass', 'text')
+            ->getForm();
+
+        $request = $this->getRequest();
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+
+            $storeClassObj = $form->getData();
+
+            $em->persist($storeClassObj);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('_manage_tables').'#storeclasses');
+        }
+
+        return $this->render('EarlsLeaseBundle:ManageTables:addstoreClasses.html.twig',
+            array(
+                'storeclassesForm' => $form->createView()
+            )
+        );
+
+    }
+
+    /**
+     * @Route("/BuildingTypesAdd", name="_manage_tables_buildingtypes_add")
+     * @Template()
+     */
+
+    public function buildingTypesAddAction()
+    {
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $buildingtypes = new Buildingtypes();
+
+        $form = $this->createFormBuilder($buildingtypes)
+            ->setAction($this->generateUrl('_manage_tables_buildingtypes_add'))
+            ->add('buildingtype', 'text')
+            ->getForm();
+
+        $request = $this->getRequest();
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+
+            $buildingtypesObj = $form->getData();
+
+            $em->persist($buildingtypesObj);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('_manage_tables').'#buildingtypes');
+        }
+
+        return $this->render('EarlsLeaseBundle:ManageTables:addBuildingTypes.html.twig',
+            array(
+                'buildingTypesForm' => $form->createView()
+            )
+        );
 
     }
 

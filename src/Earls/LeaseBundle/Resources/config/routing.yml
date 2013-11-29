@@ -14,6 +14,16 @@ _leaseinformation:
     type:     annotation
     prefix:   /LeaseInformation
 
+_addStore:
+   resource: "@EarlsLeaseBundle/Controller/AddStoreInformationController.php"
+   type:     annotation
+   prefix:   /AddStore
+
+_addLease_id:
+   resource: "@EarlsLeaseBundle/Controller/AddLeaseInformationController.php"
+   type:     annotation
+   prefix:   /AddLease
+
 _storeinformation_update:
    pattern:  /update/{id}
    defaults: { _controller: EarlsLeaseBundle:StoreInformation:Update }

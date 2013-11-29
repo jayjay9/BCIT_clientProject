@@ -28,7 +28,7 @@
                                 'attr': {'class': 'form-control'}
                                 }) }}
                             </div>
-                            {{ form_row(form.go) }}
+                            {{ form_row(form.go, {'attr': {'class': 'btn btn-info'} }) }}
                         </div>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="pull-right">
-                                {{ form_row(form.area1.totalarea) }}
+                                <h3 class="form-title"><b>TOTAL: {{ totalArea1 }} </b></h3>
                             </div>
                         </div>
                     </div>
@@ -186,16 +186,9 @@
                         </tbody>
                     </table>
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label class="col-sm-6 control-label">Total Area</label>
-
-                                <div class="col-sm-3">
-                                    {{ form_widget(form.area2.totalarea, {'label': 'Total',
-                                    'label_attr': {'class': 'sr-only'},
-                                    'attr': {'class': 'form-control'}
-                                    }) }}
-                                </div>
+                        <div class="col-sm-12">
+                            <div class="pull-right">
+                                <h3 class="form-title"><b>TOTAL: {{ totalArea2 }} </b></h3>
                             </div>
                         </div>
                     </div>
@@ -275,7 +268,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="pull-right">
-                                {{ form_row(form.area3.totalarea) }}
+                                <h3 class="form-title"><b>TOTAL: {{ totalArea3 }} </b></h3>
                             </div>
                         </div>
                     </div>

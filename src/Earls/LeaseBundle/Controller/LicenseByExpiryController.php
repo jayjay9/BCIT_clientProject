@@ -18,10 +18,88 @@ class LicenseByExpiryController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        $restaurantlist = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Restaurants')
+            ->findAll();
+
+        $restaurantArray = array();
+        $restaurantObj = array();
+
+        foreach($restaurantlist as $restaurant){
+
+            $storeNickname = $restaurant->getStorenickname();
+
+            $royaltyFee = $restaurant->getRoyaltyfee();
+            $advertisingfee = $restaurant->getAdvertisingFee();
+            $regionalmngtfee = $restaurant->getRegionalmngtfee();
+
+            $licenselink = $restaurant->getLicenseid();
+
+            if(empty($licenselink)){
+                $licenseAgreement= "";
+                $startDate= "";
+                $expiryDate="";
+                $comments="";
+            }else{
+                $licenseid = $licenselink->getLicenseid();
+
+                $licenseObj = $this->getDoctrine()
+                    ->getRepository('EarlsLeaseBundle:Licenses')
+                    ->findOneBy(array(
+                        'licenseid' => $licenseid
+                    ));
+
+                $licenseAgreement= "";
+                $startDate= "";
+                $expiryDate="";
+                $comments="";
+
+                if(isset($licenseObj)){
+                    $licenseAgreementNum = $licenseObj->getLicenseagreement();
+                    if($licenseAgreementNum = 1){
+                        $licenseAgreement = "YES";
+                    }else{
+                        $licenseAgreement = "NO";
+                    }
+
+                    $startDateObj = $licenseObj->getStartdate();
+
+                    if(isset($startDateObj)){
+                        $startDate = $startDateObj->format('M d, Y');
+                    }
+
+                    $expiryDateObj = $licenseObj->getExpirarydate();
+
+                    if(isset($expiryDateObj)){
+                        $expiryDate = $expiryDateObj->format('M d, Y');
+                    }
+
+                    $comments = $licenseObj->getComments();
+                }
+            }
+
+            $restaurantObj = array(
+                'storeNickname' => $storeNickname,
+                'licenseAgreement' => $licenseAgreement,
+                'startDate' => $startDate,
+                'expiryDate' => $expiryDate,
+                'royaltyFee' => $royaltyFee,
+                'advertisingFee' => $advertisingfee,
+                'regionalFee' => $regionalmngtfee,
+                'comments' => $comments
+            );
+
+            array_push($restaurantArray, $restaurantObj);
+        }
+
+        return $this->render('EarlsLeaseBundle:LicenseByExpiry:index.html.twig',
+            array(
+                'licenseByExpiry' => $restaurantArray
+            )
+        );
     }
 
- 
+
 }
 
 ?>

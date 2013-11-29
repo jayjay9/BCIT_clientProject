@@ -12,6 +12,7 @@ use Earls\LeaseBundle\Entity\Licenses;
 use Earls\LeaseBundle\Form\Type\RestaurantsType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 
 class StoreInformationType extends AbstractType
@@ -29,6 +30,13 @@ class StoreInformationType extends AbstractType
             ->add('Update', 'submit')
                 ->getForm()
         ;
+    }
+
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'Earls\LeaseBundle\Form\Model\StoreInformationModel',
+        ));
     }
 
     public function getName()

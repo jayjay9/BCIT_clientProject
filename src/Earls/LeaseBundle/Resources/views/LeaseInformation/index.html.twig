@@ -17,11 +17,15 @@
     <div class="col-md-12">
         <div class="box border blue">
             <div class="box-body big">
-                <h3 class="form-title">Store Name:{{ leaseInfoForm.restaurantName.vars.value }}<b></b></h3>
+                <h3 class="form-title">{{ leaseInfoForm.restaurantName.vars.value }}<b></b></h3>
+                <a class="btn btn-small btn-success" href="{{ path('_addLease_id', {'id': leaseInfoForm.restaurantid.vars.value} )}}">
+                    <i class="fa fa-plus"></i> Add a Lease
+                </a>
             </div>
         </div>
     </div>
 </div>
+
 
 <ul class="nav nav-tabs">
 {% for leaseInfoForm in leaseInfoForm.leaseinfo %}
@@ -122,8 +126,7 @@
                                 <div class="col-sm-9">
 
                                     {{ form_widget(leaseInfoForm.leaseinfo.showinlease, {'label': 'Show in Lease Rpt',
-                                    'label_attr': {'class': 'control-label'},
-                                    'attr': {'class': 'form-control'}
+                                    'label_attr': {'class': 'control-label'}
                                     }) }}
 
                                 </div>
@@ -193,12 +196,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Indmenity Expiry:</label>
+                                <label class="col-sm-3 control-label">Indemnity Expiry:</label>
                                 <div class="col-sm-9">
 
                                     {{ form_widget(leaseInfoForm.leaseinfo.indemnityexpiry, {'label': 'Indmenity Expiry',
                                     'label_attr': {'class': 'control-label'},
-                                    'attr': {'form':'leaseInfoForm'}
+                                    'attr': {'form':'leaseInfoForm','class': 'form-control' }
                                     }) }}
 
                                 </div>
@@ -316,8 +319,7 @@
                                 <div class="col-sm-9">
 
                                     {{ form_widget(leaseInfoForm.leasereportinfo.iscertifiedsales, {'label': 'Certified Sales',
-                                    'label_attr': {'class': 'control-label'},
-                                    'attr': {'class': 'form-control'}
+                                    'label_attr': {'class': 'control-label'}
                                     }) }}
 
                                 </div>
@@ -327,8 +329,7 @@
                                 <div class="col-sm-9">
 
                                     {{ form_widget(leaseInfoForm.leasereportinfo.duedate, {'label': 'Due Date',
-                                    'label_attr': {'class': 'control-label'},
-                                    'attr': {'class': 'form-control'}
+                                    'label_attr': {'class': 'control-label'}
                                     }) }}
 
                                 </div>
@@ -338,8 +339,7 @@
                                 <div class="col-sm-9">
 
                                     {{ form_widget(leaseInfoForm.leasereportinfo.isaudit, {'label': 'Is Audit',
-                                    'label_attr': {'class': 'control-label'},
-                                    'attr': {'class': 'form-control'}
+                                    'label_attr': {'class': 'control-label'}
                                     }) }}
 
                                 </div>
@@ -349,8 +349,7 @@
                                 <div class="col-sm-9">
 
                                     {{ form_widget(leaseInfoForm.leasereportinfo.iscertified, {'label': 'Is Certified',
-                                    'label_attr': {'class': 'control-label'},
-                                    'attr': {'class': 'form-control'}
+                                    'label_attr': {'class': 'control-label'}
                                     }) }}
 
                                 </div>
@@ -436,20 +435,20 @@
                                                 </div>
                                                 <div class="col-lg-3">
                                                     {{ form_widget(renewalField.exercised, {'label': '',
-                                                    'label_attr': {'class': 'control-label'},
-                                                    'attr': {'class': 'form-control'}
+                                                    'label_attr': {'class': 'control-label'}
                                                     }) }}
                                                 </div>
                                                 <div class="col-lg-3">
                                                     {{ form_widget(renewalField.showinleasereport, {'label': '',
-                                                    'label_attr': {'class': 'control-label'},
-                                                    'attr': {'class': 'form-control'}
+                                                    'label_attr': {'class': 'control-label'}
                                                     }) }}
                                                 </div>
                                             </div>
                                             <div class="separator"></div>
                                         {% endfor %}
-                                        <a data-toggle="modal" data-remote="{{ path('_getRenewal_id', {'id': leaseInfoForm.leaseid.vars.value}) }}" data-target="#renewalModal{{ leaseInfoForm.leaseid.vars.value }}">Add Renewal Rate</a>
+                                        <a class="btn btn-small btn-success" data-toggle="modal" data-remote="{{ path('_getRenewal_id', {'id': leaseInfoForm.leaseid.vars.value}) }}" data-target="#renewalModal{{ leaseInfoForm.leaseid.vars.value }}">
+                                            <i class="fa fa-plus"></i> Add Renewal Rate
+                                        </a>
 
                                     </div>
                             </div>
@@ -503,7 +502,9 @@
                                         </div>
                                         <div class="separator"></div>
                                     {% endfor %}
-                                    <a data-toggle="modal" data-remote="{{ path('_getTasks_id', {'id': leaseInfoForm.leaseid.vars.value}) }}" data-target="#tasksModal{{ leaseInfoForm.leaseid.vars.value }}">Add Critical Tasks</a>
+                                    <a class="btn btn-small btn-success" data-toggle="modal" data-remote="{{ path('_getTasks_id', {'id': leaseInfoForm.leaseid.vars.value}) }}" data-target="#tasksModal{{ leaseInfoForm.leaseid.vars.value }}">
+                                        <i class="fa fa-plus"></i> Add Critical Tasks
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -517,9 +518,15 @@
 {% endfor %}
 </div>
 
-    {{ form_widget(leaseInfoForm.save) }}
+<div class="separator"></div>
+
+    {{ form_widget(leaseInfoForm.save, {
+        'attr': {'class': 'btn btn-lg btn-primary', 'onclick':'sendTextToServer();'}
+    }) }}
 
     {{ form_end(leaseInfoForm) }}
+
+
 {% for leaseInfoForm in leaseInfoForm.leaseinfo %}
 <!-- Modal -->
 <div class="modal fade" id="renewalModal{{ leaseInfoForm.leaseid.vars.value }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
@@ -532,4 +539,16 @@
 
     </div><!-- /.modal -->
 {% endfor %}
+
+
+
+<script>
+    function sendTextToServer(){
+        var $tab = $('#tab-content'), $active = $tab.find('.tab-pane.active'), $id = $active.attr('id');
+        var $currentId = $active.attr('id');
+        alert($active.id.toSource());
+    }
+
+</script>
+
 {% endblock %}

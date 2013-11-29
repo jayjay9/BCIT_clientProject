@@ -111,6 +111,7 @@ class LeaseInformationController extends Controller{
         $leasecollection = new LeaseCollectionModel();
         $leasecollection->setLeaseInfo($formarray);
         $leasecollection->setrestaurantName($restaurantName);
+        $leasecollection->setrestaurantid($id);
         $collectionform = $this->createForm(new LeaseCollectionType(), $leasecollection);
 
         if ($request->isMethod('POST')) {
@@ -273,7 +274,7 @@ class LeaseInformationController extends Controller{
 
         if($form->isValid()){
 
-            $renewals = $form->getData();
+            $tasks = $form->getData();
             $em->persist($tasks);
             $em->flush();
 

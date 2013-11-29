@@ -26,6 +26,13 @@ class DropDownList extends AbstractType
         ->add('update', 'submit');
     }
 
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'Earls\LeaseBundle\Form\Model\DropDownModel',
+        ));
+    }
+
     public function getName()
     {
         return 'areatypes';

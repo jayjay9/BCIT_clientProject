@@ -15,7 +15,7 @@ class LeaseCollectionModel {
 
     protected $restaurantname;
 
-
+    protected $restaurantid;
 
     public function setLeaseInfo($leasecollectioninfo)
     {
@@ -35,6 +35,16 @@ class LeaseCollectionModel {
     public function getrestaurantname()
     {
         return $this->restaurantname;
+    }
+
+    public function setrestaurantid($restaurantid)
+    {
+        $this->restaurantid = $restaurantid;
+    }
+
+    public function getrestaurantid()
+    {
+        return $this->restaurantid;
     }
 
 }

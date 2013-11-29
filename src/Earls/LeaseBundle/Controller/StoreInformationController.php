@@ -3,6 +3,7 @@
 namespace Earls\LeaseBundle\Controller;
 
 use Doctrine\Tests\Common\Annotations\Null;
+use Earls\LeaseBundle\Entity\Licenses;
 use Earls\LeaseBundle\Entity\Liquorlicenses;
 use Earls\LeaseBundle\Entity\Rentandmaintenances;
 use Earls\LeaseBundle\Entity\Riskinfo;
@@ -59,13 +60,25 @@ class StoreInformationController extends Controller
             ->getRepository('EarlsLeaseBundle:Restaurants')
             ->find($id);
 
+        $licenseObj = $restaurantObj->getLicenseid();
+        if (isset($licenseObj)) {
+            $licenseid = $licenseObj->getLicenseid();
+            $license = $this->getDoctrine()
+                ->getRepository('EarlsLeaseBundle:Licenses')
+                ->find($licenseid);
+        } else {
+            $license = new Licenses();
+            $this->addLicenseEntry($license);
+            $this->setLicense($restaurantObj, $license);
+        }
+
 
         $liquorlicenseidObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Liquorlicenses')
             ->findOneBy(array(
                 'restaurantid' => $id
             ));
-        if(empty($liquorlicenseidObj)) {
+        if (empty($liquorlicenseidObj)) {
             $liquorlicensesObj = new Liquorlicenses();
             $this->addLiquorLicenseEntry($liquorlicensesObj, $restaurantObj);
         }
@@ -76,7 +89,7 @@ class StoreInformationController extends Controller
             ->findOneBy(array(
                 'restaurantid' => $id
             ));
-        if(empty($riskinfoObj)){
+        if (empty($riskinfoObj)) {
             $this->addRiskInfoEntry(new Riskinfo(), $restaurantObj);
         }
 
@@ -85,7 +98,7 @@ class StoreInformationController extends Controller
             ->findOneBy(array(
                 'restaurantid' => $id
             ));
-        if(empty($rentandmaintenancesObj)){
+        if (empty($rentandmaintenancesObj)) {
             $this->addRentAndMaintenanceEntry(new Rentandmaintenances(), $restaurantObj);
         }
 
@@ -94,7 +107,7 @@ class StoreInformationController extends Controller
             ->findOneBy(array(
                 'restaurantid' => $id
             ));
-        if(empty($utilitiesObj)){
+        if (empty($utilitiesObj)) {
             $this->addUtilitiesEntry(new Utilities(), $restaurantObj);
         }
 
@@ -117,17 +130,19 @@ class StoreInformationController extends Controller
         /** Store Information Form */
         $storeinformationnmodel = new StoreInformationModel();
 
-        if (isset($restaurantObj) )
-        $storeinformationnmodel->setRestaurantinfo($restaurantObj);
+        if (isset($restaurantObj))
+            $storeinformationnmodel->setRestaurantinfo($restaurantObj);
         $storeinformationnmodel->setRestaurantId($id);
-        if(isset($liquorlicensesObj))
-        $storeinformationnmodel->setLiquorlicense($liquorlicensesObj);
-        if(isset($riskinfoObj))
-        $storeinformationnmodel->setRiskinfo($riskinfoObj);
-        if(isset($rentandmaintenancesObj))
-        $storeinformationnmodel->setRentandmaintenance($rentandmaintenancesObj);
-        if(isset($utilitiesObj))
-        $storeinformationnmodel->setUtilities($utilitiesObj);
+        if (isset($license))
+            $storeinformationnmodel->setLicenseinfo($license);
+        if (isset($liquorlicensesObj))
+            $storeinformationnmodel->setLiquorlicense($liquorlicensesObj);
+        if (isset($riskinfoObj))
+            $storeinformationnmodel->setRiskinfo($riskinfoObj);
+        if (isset($rentandmaintenancesObj))
+            $storeinformationnmodel->setRentandmaintenance($rentandmaintenancesObj);
+        if (isset($utilitiesObj))
+            $storeinformationnmodel->setUtilities($utilitiesObj);
 
         $storeInfoForm = $this->createForm(new StoreInformationType(), $storeinformationnmodel, array(
             'action' => $this->generateUrl('_storeinformation_update', array('id' => $id))
@@ -157,32 +172,36 @@ class StoreInformationController extends Controller
         $restaurant = $em->getRepository('EarlsLeaseBundle:Restaurants')->find($id);
         $storeInfoObj->setRestaurantinfo($restaurant);
 
+        $license = $restaurant->getLicenseid()->getLicenseid();
+        $licenseObj = $em->getRepository('EarlsLeaseBundle:Licenses')->find($license);
+        if (isset($licenseObj)) {
+            $storeInfoObj->setLicenseinfo($licenseObj);
+        }
 
         $liquorlicenseidObj = $em->getRepository('EarlsLeaseBundle:Liquorlicenses')->findOneBy(array(
             'restaurantid' => $id
         ));
-        if(isset($liquorlicenseidObj)){
-             $storeInfoObj->setLiquorlicense($liquorlicenseidObj);
+        if (isset($liquorlicenseidObj)) {
+            $storeInfoObj->setLiquorlicense($liquorlicenseidObj);
         }
 
         $riskinfo = $em->getRepository('EarlsLeaseBundle:Riskinfo')->findOneBy(array(
             'restaurantid' => $id
         ));
-        if(isset($riskinfo))
-        $storeInfoObj->setRiskinfo($riskinfo);
+        if (isset($riskinfo))
+            $storeInfoObj->setRiskinfo($riskinfo);
 
         $rentandmaintenance = $em->getRepository('EarlsLeaseBundle:Rentandmaintenances')->findOneBy(array(
             'restaurantid' => $id
         ));
-        if(isset($rentandmaintenance))
-        $storeInfoObj->setRentandmaintenance($rentandmaintenance);
+        if (isset($rentandmaintenance))
+            $storeInfoObj->setRentandmaintenance($rentandmaintenance);
 
         $utilities = $em->getRepository('EarlsLeaseBundle:Utilities')->findOneBy(array(
             'restaurantid' => $id
         ));
-        if(isset($utilities))
-        $storeInfoObj->setUtilities($utilities);
-
+        if (isset($utilities))
+            $storeInfoObj->setUtilities($utilities);
 
         $form = $this->createForm(new StoreInformationType(), $storeInfoObj);
 
@@ -195,13 +214,13 @@ class StoreInformationController extends Controller
                 $em->flush();
                 return $this->redirect($this->generateUrl('_storeinformation_display', array('id' => $id)));
 
-            }else{
+            } else {
 
                 print_r('is not Valid');
                 print_r($form->getErrorsAsString());
 
             }
-        }else{
+        } else {
 
             print_r($request->getMethod());
 
@@ -214,7 +233,8 @@ class StoreInformationController extends Controller
 
     }
 
-    private function addLiquorLicenseEntry(Liquorlicenses $liquorlicense, Restaurants $id){
+    private function addLiquorLicenseEntry(Liquorlicenses $liquorlicense, Restaurants $id)
+    {
         $liquorlicense->setRestaurantid($id);
         $liquorlicense->setBusinesslicense(Null);
         $liquorlicense->setLiquorlicense(Null);
@@ -227,7 +247,25 @@ class StoreInformationController extends Controller
         return 1;
     }
 
-    private function addRiskInfoEntry(Riskinfo $riskinfo, Restaurants $id){
+    private function addLicenseEntry(Licenses $license)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($license);
+        $em->flush();
+
+        return 1;
+    }
+
+    private function setLicense(Restaurants $restaurant, Licenses $license)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $restaurant->setLicenseid($license);
+        $em->flush();
+        return 1;
+    }
+
+    private function addRiskInfoEntry(Riskinfo $riskinfo, Restaurants $id)
+    {
         $riskinfo->setRestaurantid($id);
 
         $em = $this->getDoctrine()->getManager();
@@ -237,7 +275,8 @@ class StoreInformationController extends Controller
         return 1;
     }
 
-    private function addRentAndMaintenanceEntry(Rentandmaintenances $rentandmaintenance, Restaurants $id){
+    private function addRentAndMaintenanceEntry(Rentandmaintenances $rentandmaintenance, Restaurants $id)
+    {
         $rentandmaintenance->setRestaurantid($id);
 
         $em = $this->getDoctrine()->getManager();
@@ -247,7 +286,8 @@ class StoreInformationController extends Controller
         return 1;
     }
 
-    private function addUtilitiesEntry(Utilities $utilities, Restaurants $id){
+    private function addUtilitiesEntry(Utilities $utilities, Restaurants $id)
+    {
         $utilities->setRestaurantid($id);
 
         $em = $this->getDoctrine()->getManager();

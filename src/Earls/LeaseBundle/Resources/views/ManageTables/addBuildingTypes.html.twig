@@ -1,0 +1,31 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">ADD A STORE CLASS</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12">
+                    {{ form_start(buildingTypesForm, {'attr': {'id': 'addStoreClassForm', 'role': 'form',
+                    'class': 'form-horizontal'} }) }}
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Building Type:</label>
+                        <div class="col-sm-9">
+                            {{ form_widget(buildingTypesForm.buildingtype,{'label': 'City',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'class': 'form-control'}
+                            }) }}
+                        </div>
+                    </div>
+                    {{ form_end(buildingTypesForm) }}
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" form="addStoreClassForm">Add</button>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->

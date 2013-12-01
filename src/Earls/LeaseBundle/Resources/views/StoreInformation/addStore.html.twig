@@ -1,1315 +1,1432 @@
 {% extends "EarlsLeaseBundle::layout.html.twig" %}
 {% block body %}
     <div class="row">
-        <div class="col-md-12">
-            <div class="box border red" id="formWizard">
-                <div class="box-title">
-                    <h4>
-                        ADD A STORE <span class="stepHeader">Step 1 of 3</span>
-                    </h4>
-                </div>
-                <div class="box-body form">
+    <div class="col-md-12">
+    <div class="box border" id="formWizard">
+    <div class="box-title">
+        <h4>
+            ADD A STORE <span class="stepHeader">Step 1 of 3</span>
+        </h4>
+    </div>
+    <div class="box-body form">
 
-                        {{ form_start(addStoreForm, {
-                        'attr': {
-                        'class': 'form-horizontal',
-                        'id':'wizForm'
-                        }
+    {{ form_start(addStoreForm, {
+    'attr': {
+    'class': 'form-horizontal',
+    'id':'wizForm',
+    'action': '#',
+    }
+    }) }}
+    <div class="wizard-form">
+    <div class="wizard-content">
+    <ul class="nav nav-pills nav-justified steps">
+        <li>
+            <a href="#store" data-toggle="tab" class="wiz-step">
+                <span class="step-number">1</span>
+                <span class="step-name">CREATE A STORE</span>
+            </a>
+        </li>
+        <li>
+            <a href="#lease" data-toggle="tab" class="wiz-step">
+                <span class="step-number">2</span>
+                <span class="step-name">ADD A LEASE</span>
+            </a>
+        </li>
+        <li>
+            <a href="#area" data-toggle="tab" class="wiz-step">
+                <span class="step-number">3</span>
+                <span class="step-name">ADD THE AREAS</span>
+            </a>
+        </li>
+    </ul>
+    <div id="bar" class="progress progress-striped progress-sm active" role="progressbar">
+        <div class="progress-bar progress-bar-warning"></div>
+    </div>
+    <div class="tab-content">
+    <div class="alert alert-danger display-none">
+        <a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>
+        Your form has errors. Please correct them to proceed.
+    </div>
+    <div class="alert alert-success display-none">
+        <a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>
+        Your form validation is successful!
+    </div>
+
+    <!-- ******************************* STORE INFORMATION ************************ -->
+
+    <div class="tab-pane active" id="store">
+
+    <div class="separator"></div>
+
+    <!-- FORMS -->
+
+    <div class="row">
+    <div class="col-md-6">
+        <div class="box border blue">
+            <div class="box-title">
+                <h4>Restaurant Info</h4>
+            </div>
+            <div class="box-body big">
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Store File No.</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.storefilenumber, {
+                        'attr': {'class': 'form-control'}
                         }) }}
-                        <div class="wizard-form">
-                            <div class="wizard-content">
-                                <ul class="nav nav-pills nav-justified steps">
-                                    <li>
-                                        <a href="#store" data-toggle="tab" class="wiz-step">
-                                            <span class="step-number">1</span>
-                                            <span class="step-name">CREATE A STORE</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#lease" data-toggle="tab" class="wiz-step">
-                                            <span class="step-number">2</span>
-                                            <span class="step-name">ADD A LEASE</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#area" data-toggle="tab" class="wiz-step">
-                                            <span class="step-number">3</span>
-                                            <span class="step-name">ADD THE AREAS</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div id="bar" class="progress progress-striped progress-sm active" role="progressbar">
-                                    <div class="progress-bar progress-bar-warning"></div>
-                                </div>
-                                <div class="tab-content">
-                                    <div class="alert alert-danger display-none">
-                                        <a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>
-                                        Your form has errors. Please correct them to proceed.
-                                    </div>
-                                    <div class="tab-pane active" id="store">
-                                        <h4>Restaurant Info</h4>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Store File No.</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.storefilenumber, {
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Store Nick Name</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.storenickname, {'label': 'Store Nick Name',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Landlord</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.landlordid, {'label': 'Landlord',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Property Manager</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.propertymanagerid, {
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Corporate File</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.corporateid, {
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Tenant</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.tenant, {
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Address</label>
 
-                                            <div class="col-sm-9">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Store Nick Name</label>
 
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.address, {
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
+                    <div class="col-sm-9">
 
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">City</label>
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.storenickname, {'label': 'Store Nick Name',
+                        'label_attr': {'class': 'control-label'},
+                        'attr': {'class': 'form-control'}
+                        }) }}
 
-                                            <div class="col-sm-9">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Landlord</label>
 
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.city, {
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
+                    <div class="col-sm-9">
 
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Province/State</label>
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.landlordid, {'label': 'Landlord',
+                        'label_attr': {'class': 'control-label'},
+                        'attr': {'class': 'form-control'}
+                        }) }}
 
-                                            <div class="col-sm-9">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Property Manager</label>
 
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.provincestateid, {
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
+                    <div class="col-sm-9">
 
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Postal/Zip</label>
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.propertymanagerid, {
+                        'attr': {'class': 'form-control'}
+                        }) }}
 
-                                            <div class="col-sm-9">
+                    </div>
+                </div>
 
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.postalzip, {
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Corporate File</label>
 
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Opening Date</label>
+                    <div class="col-sm-9">
 
-                                            <div class="col-sm-9">
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.corporateid, {
+                        'attr': {'class': 'form-control'}
+                        }) }}
 
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.openingdate, {
-                                                'attr': {'class': 'form-control', 'form':'wizForm'}
-                                                }) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Tenant</label>
 
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Legal Description</label>
+                    <div class="col-sm-9">
 
-                                            <div class="col-sm-9">
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.tenant, {
+                        'attr': {'class': 'form-control'}
+                        }) }}
 
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.legaldescription, {
-                                                'attr': {'class': 'form-control', 'form':'wizForm'}
-                                                }) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Address</label>
 
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Royalty Fee</label>
+                    <div class="col-sm-9">
 
-                                            <div class="col-sm-9">
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.address, {
+                        'attr': {'class': 'form-control'}
+                        }) }}
 
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.royaltyfee, {
-                                                'attr': {'class': 'form-control', 'form':'wizForm'}
-                                                }) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">City</label>
 
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Advertising Fee</label>
+                    <div class="col-sm-9">
 
-                                            <div class="col-sm-9">
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.city, {
+                        'attr': {'class': 'form-control'}
+                        }) }}
 
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.advertisingfee, {
-                                                'attr': {'class': 'form-control', 'form':'wizForm'}
-                                                }) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Province/State</label>
 
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Regional Management Fee</label>
+                    <div class="col-sm-9">
 
-                                            <div class="col-sm-9">
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.provincestateid, {
+                        'attr': {'class': 'form-control'}
+                        }) }}
 
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.regionalmngtfee, {
-                                                'attr': {'class': 'form-control', 'form':'wizForm'}
-                                                }) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Postal/Zip</label>
 
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Comments</label>
+                    <div class="col-sm-9">
 
-                                            <div class="col-sm-9">
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.postalzip, {
+                        'attr': {'class': 'form-control'}
+                        }) }}
 
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.comments, {
-                                                'attr': {'class': 'form-control', 'form':'wizForm'}
-                                                }) }}
+                    </div>
+                </div>
 
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Open?</label>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="box border blue">
+            <div class="box-title">
+                <h4>Cont. Info</h4>
+            </div>
+            <div class="box-body big">
 
-                                            <div class="col-sm-9">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Opening Date</label>
 
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.restaurantstate, {
-                                                'attr': {'class': 'checkbox', 'form':'wizForm'}
-                                                }) }}
+                    <div class="col-sm-9">
 
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Closing Date</label>
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.openingdate, {
+                        'attr': {'class': 'form-control', 'form':'wizForm'}
+                        }) }}
 
-                                            <div class="col-sm-9">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Legal Description</label>
 
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.closedate, {
-                                                'attr': {'form':'wizForm'}
-                                                }) }}
+                    <div class="col-sm-9">
 
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Department #</label>
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.legaldescription, {
+                        'attr': {'class': 'form-control', 'form':'wizForm'}
+                        }) }}
 
-                                            <div class="col-sm-9">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Royalty Fee</label>
 
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.departmentnumber, {
-                                                'attr': {'class': 'form-control', 'form':'wizForm'}
-                                                }) }}
+                    <div class="col-sm-9">
 
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Building Type</label>
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.royaltyfee, {
+                        'attr': {'class': 'form-control', 'form':'wizForm'}
+                        }) }}
 
-                                            <div class="col-sm-9">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Advertising Fee</label>
 
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.buildingtype, {
-                                                'attr': {'class': 'form-control', 'form':'wizForm'}
-                                                }) }}
+                    <div class="col-sm-9">
 
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Store Class</label>
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.advertisingfee, {
+                        'attr': {'class': 'form-control', 'form':'wizForm'}
+                        }) }}
 
-                                            <div class="col-sm-9">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Regional Management Fee</label>
 
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.storeclassid, {
-                                                'attr': {'class': 'form-control', 'form':'wizForm'}
-                                                }) }}
+                    <div class="col-sm-9">
 
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Liquor License</label>
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.regionalmngtfee, {
+                        'attr': {'class': 'form-control', 'form':'wizForm'}
+                        }) }}
 
-                                            <div class="col-sm-9">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Comments</label>
 
-                                                {{ form_widget(addStoreForm.storeInfoForm.liquorlicense.liquorlicense, {
-                                                'attr': {'class': 'form-control', 'form':'wizForm'}
-                                                }) }}
+                    <div class="col-sm-9">
 
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Business License</label>
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.comments, {
+                        'attr': {'class': 'form-control', 'form':'wizForm'}
+                        }) }}
 
-                                            <div class="col-sm-9">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Open?</label>
 
-                                                {{ form_widget(addStoreForm.storeInfoForm.liquorlicense.businesslicense, {
-                                                'attr': {'class': 'form-control', 'form':'wizForm'}
-                                                }) }}
+                    <div class="col-sm-9">
 
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Year Built</label>
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.restaurantstate, {
+                        'attr': {'class': 'checkbox', 'form':'wizForm'}
+                        }) }}
 
-                                            <div class="col-sm-9">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Closing Date</label>
 
-                                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.yearbuilt, {
-                                                'attr': {'class': 'form-control', 'form':'wizForm'}
-                                                }) }}
+                    <div class="col-sm-9">
 
-                                            </div>
-                                        </div>
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.closedate, {
+                        'attr': {'form':'wizForm'}
+                        }) }}
 
-                                        <h4>Furniture</h4>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">No. of</label>
+                    </div>
+                </div>
 
-                                            <div class="col-sm-9">
-                                                <div class="row">
-                                                    <div class="col-lg-6">
+            </div>
+        </div>
+    </div>
+    </div>
 
-                                                        <label>Seats</label>
+    <div class="separator"></div>
 
-                                                    </div>
-                                                    <div class="col-lg-6">
+    <div class="row">
+    <div class="col-md-4">
+        <div class="box border blue">
+            <div class="box-title">
+                <h4>Cont. Info</h4>
+            </div>
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Department #</label>
 
-                                                        <label>Tables</label>
+                    <div class="col-sm-9">
 
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Din Room</label>
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.departmentnumber, {
+                        'attr': {'class': 'form-control', 'form':'wizForm'}
+                        }) }}
 
-                                            <div class="col-sm-9">
-                                                <div class="row">
-                                                    <div class="col-lg-6">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Building Type</label>
 
-                                                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.diningroomseating, {
-                                                        'attr': {'class': 'form-control', 'form':'wizForm'}
-                                                        }) }}
+                    <div class="col-sm-9">
 
-                                                    </div>
-                                                    <div class="col-lg-6">
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.buildingtype, {
+                        'attr': {'class': 'form-control', 'form':'wizForm'}
+                        }) }}
 
-                                                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.diningroomtable, {
-                                                        'attr': {'class': 'form-control', 'form':'wizForm'}
-                                                        }) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Store Class</label>
 
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Lounge</label>
+                    <div class="col-sm-9">
 
-                                            <div class="col-sm-9">
-                                                <div class="row">
-                                                    <div class="col-lg-6">
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.storeclassid, {
+                        'attr': {'class': 'form-control', 'form':'wizForm'}
+                        }) }}
 
-                                                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.loungeseating, {
-                                                        'attr': {'class': 'form-control', 'form':'wizForm'}
-                                                        }) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Liquor License</label>
 
-                                                    </div>
-                                                    <div class="col-lg-6">
+                    <div class="col-sm-9">
 
-                                                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.loungetable, {
-                                                        'attr': {'class': 'form-control', 'form':'wizForm'}
-                                                        }) }}
+                        {{ form_widget(addStoreForm.storeInfoForm.liquorlicense.liquorlicense, {
+                        'attr': {'class': 'form-control', 'form':'wizForm'}
+                        }) }}
 
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Patio</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Business License</label>
 
-                                            <div class="col-sm-9">
-                                                <div class="row">
-                                                    <div class="col-lg-6">
+                    <div class="col-sm-9">
 
-                                                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.patioseating, {
-                                                        'attr': {'class': 'form-control', 'form':'wizForm'}
-                                                        }) }}
+                        {{ form_widget(addStoreForm.storeInfoForm.liquorlicense.businesslicense, {
+                        'attr': {'class': 'form-control', 'form':'wizForm'}
+                        }) }}
 
-                                                    </div>
-                                                    <div class="col-lg-6">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Year Built</label>
 
-                                                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.patiotable, {
-                                                        'attr': {'class': 'form-control', 'form':'wizForm'}
-                                                        }) }}
+                    <div class="col-sm-9">
 
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Total</label>
+                        {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.yearbuilt, {
+                        'attr': {'class': 'form-control', 'form':'wizForm'}
+                        }) }}
 
-                                            <div class="col-sm-9">
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-
-                                                        <label>Total Seats</label>
-
-                                                    </div>
-                                                    <div class="col-lg-6">
-
-                                                        <label>Total Tables</label>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <h4>License Information</h4>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Start Date</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.licenseinfo.startdate, {
-                                                'attr': {'form':'wizForm'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Expiry Date</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.licenseinfo.expirarydate, {
-                                                'attr': {'form':'wizForm'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">License Agreement?</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.licenseinfo.licenseagreement, {
-                                                'attr': {'form':'wizForm'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Comments</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.licenseinfo.comments, {
-                                                'attr': {'class': 'form-control', 'form':'wizForm'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-
-                                        <h4>Risk</h4>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Construction Type</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.riskinfo.constructionid, {
-                                                'attr': {'class': 'form-control',
-                                                'form': 'wizForm'
-                                                }
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Building Insured By</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.riskinfo.insuredby, {
-                                                'attr': {'class': 'form-control',
-                                                'form': 'wizForm'
-                                                }
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Rent Abatement</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.riskinfo.rentabatement, {
-                                                'attr': {'class': 'form-control',
-                                                'form': 'wizForm'
-                                                }
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Exterior Maintenance</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.riskinfo.exteriormaintenance, {
-                                                'attr': {'class': 'form-control',
-                                                'form': 'wizForm'
-                                                }
-                                                }) }}
-
-                                            </div>
-                                        </div>
-
-                                        <h4>Rent and Maintenance</h4>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">HVAC Repair</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.rentandmaintenance.hvacrepair, {
-                                                'attr': {'class': 'form-control',
-                                                'form': 'wizForm'
-                                                }
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">HVAC Replace</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.rentandmaintenance.hvacreplace, {
-                                                'attr': {'class': 'form-control',
-                                                'form': 'wizForm'
-                                                }
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Roof Repair</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.rentandmaintenance.roofrepair, {
-                                                'attr': {'class': 'form-control',
-                                                'form': 'wizForm'
-                                                }
-                                                }) }}
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Roof Replace</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.rentandmaintenance.roofreplace, {
-                                                'attr': {'class': 'form-control',
-                                                'form': 'wizForm'
-                                                }
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <h4>Utilities</h4>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Utility Type</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.utilities.utilitytypeid, {
-                                                'attr': {'class': 'form-control',
-                                                'form': 'wizForm'
-                                                }
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Billed By</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.utilities.billingby, {
-                                                'attr': {'class': 'form-control',
-                                                'form': 'wizForm'
-                                                }
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Is Metered?</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.utilities.ismetered, {
-                                                'attr': {'class': 'checkbox',
-                                                'form': 'wizForm'
-                                                }
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Is CAM?</label>
-
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.storeInfoForm.utilities.iscam, {
-                                                'attr': {'class': 'checkbox',
-                                                'form': 'wizForm'
-                                                }
-                                                }) }}
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="tab-pane" id="lease">
-                                        <h4>Lease Info</h4>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Lease Type:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.leasetype, {'label': 'Lease Type',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Lease Date:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.leasedate, {'label': 'Lease Date',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'form':'wizForm'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Term:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.term, {'label': 'Term',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Commencement Date:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.commencementdate, {'label': 'Commencement Date',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'form':'wizForm'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Expiry Date:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.expirydate, {'label': 'Expiry Date',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'form':'wizForm'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Option Time:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.optiontime, {'label': 'Option Time',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Show in Lease Rpt</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.showinlease, {'label': 'Show in Lease Rpt',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-
-                                        <h4>Square Feet</h4>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Main:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.areamain, {'label': 'Main',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Upper Floor/Basement:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.areaupperfloor, {'label': 'Upper Floor/Basement',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Mezzanine:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.areamezzanine, {'label': 'Mezzanine',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Patio:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.areapatio, {'label': 'Patio',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Other:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.areaother, {'label': 'Other',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Surveyed:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.surveyeddescription, {'label': 'Surveyed',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-
-                                        <h4>Special Terms and Condition</h4>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Exclusive Use:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.exclusiveuse, {'label': 'Exclusive Use',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">TI Allowance:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.tiallowance, {'label': 'TI Allowance',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Radius Clause:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.radiusclause, {'label': 'Radius Clause',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Indemnifier:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.indemnifier, {'label': 'Indemnifier',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Indemnity Period:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.indemnityperiod, {'label': 'Indemnity Period',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Indmenity Expiry:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.indemnityexpiry, {'label': 'Indmenity Expiry',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'form':'wizForm'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Other:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.otherdescription, {'label': 'Other',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-
-                                        <h4>Lease Report Info</h4>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Reporting Period:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leasereportinfo.reporttypeid, {'label': 'Reporting Period',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Certified Sales?</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leasereportinfo.iscertifiedsales, {'label': 'Certified Sales',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Due Date:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leasereportinfo.duedate, {'label': 'Due Date',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Is Audit?</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leasereportinfo.isaudit, {'label': 'Is Audit',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Is Certified?</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leasereportinfo.iscertified, {'label': 'Is Certified',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-
-                                        <h4>Renewal Information</h4>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Renewal Terms:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.renewalterms, {'label': 'Renewal Terms',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Renewal Option Date:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.renewaloptiondate, {'label': 'Renewal Option Date',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'form':'wizForm'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Renewal Comments:</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.renewalcomments, {'label': 'Renewal Comments',
-                                                'label_attr': {'class': 'control-label'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Renewal Rate</label>
-                                            <div class="col-sm-9">
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-
-                                                        <label>Term</label>
-
-                                                    </div>
-                                                    <div class="col-lg-3">
-
-                                                        <label>Exercised</label>
-
-                                                    </div>
-                                                    <div class="col-lg-3">
-
-                                                        <label>Show?</label>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label"></label>
-                                            <div class="col-sm-9">
-
-                                                {% for renewalField in addStoreForm.leaseInfoForm.renewals %}
-
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            {{ form_widget(renewalField.term, {'label': '',
-                                                            'label_attr': {'class': 'control-label'},
-                                                            'attr': {'class': 'form-control'}
-                                                            }) }}
-                                                        </div>
-                                                        <div class="col-lg-3">
-                                                            {{ form_widget(renewalField.exercised, {'label': '',
-                                                            'label_attr': {'class': 'control-label'},
-                                                            'attr': {'class': 'form-control'}
-                                                            }) }}
-                                                        </div>
-                                                        <div class="col-lg-3">
-                                                            {{ form_widget(renewalField.showinleasereport, {'label': '',
-                                                            'label_attr': {'class': 'control-label'},
-                                                            'attr': {'class': 'form-control'}
-                                                            }) }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-3 control-label">Critical Issues</label>
-                                                        <div class="col-sm-9">
-                                                            <div class="row">
-                                                                <div class="col-lg-6">
-
-                                                                    <label>Date</label>
-
-                                                                </div>
-                                                                <div class="col-lg-3">
-
-                                                                    <label>Clause</label>
-
-                                                                </div>
-                                                                <div class="col-lg-3">
-
-                                                                    <label>Description</label>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-3 control-label"></label>
-                                                        <div class="col-sm-9">
-
-                                                            {% for criticalField in addStoreForm.leaseInfoForm.leasecriticaltasks %}
-
-                                                                <div class="row">
-                                                                    <div class="col-lg-6">
-                                                                        {{ form_widget(criticalField.ctdate, {'label': '',
-                                                                        'label_attr': {'class': 'control-label'},
-                                                                        'attr': {'form':'wizForm'}
-                                                                        }) }}
-                                                                    </div>
-                                                                    <div class="col-lg-3">
-                                                                        {{ form_widget(criticalField.ctclause, {'label': '',
-                                                                        'label_attr': {'class': 'control-label'},
-                                                                        'attr': {'class': 'form-control'}
-                                                                        }) }}
-                                                                    </div>
-                                                                    <div class="col-lg-3">
-                                                                        {{ form_widget(criticalField.ctdescription, {'label': '',
-                                                                        'label_attr': {'class': 'control-label'},
-                                                                        'attr': {'class': 'form-control'}
-                                                                        }) }}
-                                                                    </div>
-                                                                </div>
-                                                            {% endfor %}
-                                                        </div>
-                                                    </div>
-                                                {% endfor %}
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="tab-pane" id="area">
-                                        <h4>Square Footage</h4>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Entry</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area1.entry, {'label': 'Entry',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Bar</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area1.bar, {'label': 'Bar',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Lounge</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area1.lounge, {'label': 'Lounge',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Dining</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area1.dining, {'label': 'Dining',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Washrooms</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area1.washrooms, {'label': 'Washrooms',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">BOH</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area1.boh, {'label': 'BOH',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Patio</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area1.patio, {'label': 'Patio',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-
-                                        <h4>Tables</h4>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Entry</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area2.entry, {'label': 'Entry',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Bar</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area2.bar, {'label': 'Bar',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Lounge</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area2.lounge, {'label': 'Lounge',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Dining</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area2.dining, {'label': 'Dining',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Washrooms</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area2.washrooms, {'label': 'Washrooms',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">BOH</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area2.boh, {'label': 'BOH',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Patio</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area2.patio, {'label': 'Patio',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-
-                                        <h4>Seats</h4>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Entry</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area3.entry, {'label': 'Entry',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Bar</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area3.bar, {'label': 'Bar',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Lounge</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area3.lounge, {'label': 'Lounge',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Dining</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area3.dining, {'label': 'Dining',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Washrooms</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area3.washrooms, {'label': 'Washrooms',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">BOH</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area3.boh, {'label': 'BOH',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Patio</label>
-                                            <div class="col-sm-9">
-
-                                                {{ form_widget(addStoreForm.manageAreaForm.area3.patio, {'label': 'Patio',
-                                                'label_attr': {'class': 'sr-only'},
-                                                'attr': {'class': 'form-control'}
-                                                }) }}
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="wizard-buttons">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="col-md-offset-3 col-md-9">
-                                            <a href="javascript:;" class="btn btn-default prevBtn">Back</a>
-                                            <a href="javascript:;" class="btn btn-primary nextBtn">Continue</a>
-                                            <a href="javascript:;" class="btn btn-success submitBtn">
-                                                {{ form_widget(addStoreForm.Add, {
-                                                'attr': {'class': 'btn btn-lg btn-primary',
-                                                'form': 'wizForm'}
-                                                }) }}
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {{ form_end(addStoreForm) }}
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="col-md-4">
+        <div class="box border default">
+            <div class="box-title">
+                <h4>Furniture</h4>
+            </div>
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">No. of</label>
+
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                <label>Seats</label>
+
+                            </div>
+                            <div class="col-lg-6">
+
+                                <label>Tables</label>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Din Room</label>
+
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.diningroomseating, {
+                                'attr': {'class': 'form-control', 'form':'wizForm'}
+                                }) }}
+
+                            </div>
+                            <div class="col-lg-6">
+
+                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.diningroomtable, {
+                                'attr': {'class': 'form-control', 'form':'wizForm'}
+                                }) }}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Lounge</label>
+
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.loungeseating, {
+                                'attr': {'class': 'form-control', 'form':'wizForm'}
+                                }) }}
+
+                            </div>
+                            <div class="col-lg-6">
+
+                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.loungetable, {
+                                'attr': {'class': 'form-control', 'form':'wizForm'}
+                                }) }}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Patio</label>
+
+                    <div class="col-sm-9">
+                        <div class="row">
+                            <div class="col-lg-6">
+
+                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.patioseating, {
+                                'attr': {'class': 'form-control', 'form':'wizForm'}
+                                }) }}
+
+                            </div>
+                            <div class="col-lg-6">
+
+                                {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.patiotable, {
+                                'attr': {'class': 'form-control', 'form':'wizForm'}
+                                }) }}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="box border green">
+            <div class="box-title">
+                <h4>License Information</h4>
+            </div>
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Start Date</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(addStoreForm.storeInfoForm.licenseinfo.startdate, {
+                        'attr': {'form':'wizForm'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Expiry Date</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(addStoreForm.storeInfoForm.licenseinfo.expirarydate, {
+                        'attr': {'form':'wizForm'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">License Agreement?</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(addStoreForm.storeInfoForm.licenseinfo.licenseagreement, {
+                        'attr': {'form':'wizForm'}
+                        }) }}
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Comments</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(addStoreForm.storeInfoForm.licenseinfo.comments, {
+                        'attr': {'class': 'form-control', 'form':'wizForm'}
+                        }) }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="separator"></div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="box border orange">
+                <div class="box-title">
+                    <h4>Risk</h4>
+                </div>
+                <div class="box-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Construction Type</th>
+                            <th>Building Insured By</th>
+                            <th>Rent Abatement</th>
+                            <th>Exterior Maintenance</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+
+                                {{ form_widget(addStoreForm.storeInfoForm.riskinfo.constructionid, {
+                                'attr': {'class': 'form-control',
+                                'form': 'wizForm'
+                                }
+                                }) }}
+
+                            </td>
+                            <td>
+
+                                {{ form_widget(addStoreForm.storeInfoForm.riskinfo.insuredby, {
+                                'attr': {'class': 'form-control',
+                                'form': 'wizForm'
+                                }
+                                }) }}
+
+                            </td>
+                            <td>
+
+                                {{ form_widget(addStoreForm.storeInfoForm.riskinfo.rentabatement, {
+                                'attr': {'class': 'form-control',
+                                'form': 'wizForm'
+                                }
+                                }) }}
+
+                            </td>
+                            <td>
+
+                                {{ form_widget(addStoreForm.storeInfoForm.riskinfo.exteriormaintenance, {
+                                'attr': {'class': 'form-control',
+                                'form': 'wizForm'
+                                }
+                                }) }}
+
+                            </td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="box border inverse">
+                <div class="box-title">
+                    <h4>Rent and Maintenance</h4>
+                </div>
+                <div class="box-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>HVAC Repair</th>
+                            <th>HVAC Replace</th>
+                            <th>Roof Repair</th>
+                            <th>Roof Replace</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+
+                                {{ form_widget(addStoreForm.storeInfoForm.rentandmaintenance.hvacrepair, {
+                                'attr': {'class': 'form-control',
+                                'form': 'wizForm'
+                                }
+                                }) }}
+
+                            </td>
+                            <td>
+
+                                {{ form_widget(addStoreForm.storeInfoForm.rentandmaintenance.hvacreplace, {
+                                'attr': {'class': 'form-control',
+                                'form': 'wizForm'
+                                }
+                                }) }}
+
+                            </td>
+                            <td>
+
+                                {{ form_widget(addStoreForm.storeInfoForm.rentandmaintenance.roofrepair, {
+                                'attr': {'class': 'form-control',
+                                'form': 'wizForm'
+                                }
+                                }) }}
+
+                            </td>
+                            <td>
+
+                                {{ form_widget(addStoreForm.storeInfoForm.rentandmaintenance.roofreplace, {
+                                'attr': {'class': 'form-control',
+                                'form': 'wizForm'
+                                }
+                                }) }}
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <!-- *********  this area is for Utilities table data ********** -->
+            <div class="box border red">
+                <div class="box-title">
+                    <h4>Utilities</h4>
+                </div>
+                <div class="box-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Utility Type</th>
+                            <th>Billed By</th>
+                            <th>Is Metered?</th>
+                            <th>Is CAM?</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>{{ form_widget(addStoreForm.storeInfoForm.utilities.utilitytypeid, {
+                                'attr': {'class': 'form-control',
+                                'form': 'wizForm'
+                                }
+                                }) }}</td>
+                            <td>{{ form_widget(addStoreForm.storeInfoForm.utilities.billingby, {
+                                'attr': {'class': 'form-control',
+                                'form': 'wizForm'
+                                }
+                                }) }}</td>
+                            <td>{{ form_widget(addStoreForm.storeInfoForm.utilities.ismetered, {
+                                'attr': {'class': 'checkbox',
+                                'form': 'wizForm'
+                                }
+                                }) }}</td>
+                            <td>{{ form_widget(addStoreForm.storeInfoForm.utilities.iscam, {
+                                'attr': {'class': 'checkbox',
+                                'form': 'wizForm'
+                                }
+                                }) }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="separator"></div>
+
+    </div>
+
+    <!-- ********************* ENDS RESTAURANT INFORMATION ********************************* -->
+    <div class="tab-pane" id="lease">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="box border orange">
+                <div class="box-title">
+                    <h4>Lease Info</h4>
+                </div>
+                <div class="box-body big">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Lease Type:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.leasetype, {'label': 'Lease Type',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'class': 'form-control'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Lease Date:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.leasedate, {'label': 'Lease Date',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'form':'wizForm'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Term:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.term, {'label': 'Term',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'class': 'form-control'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Commencement Date:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.commencementdate, {'label': 'Commencement Date',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'form':'wizForm'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Expiry Date:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.expirydate, {'label': 'Expiry Date',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'form':'wizForm'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Option Time:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.optiontime, {'label': 'Option Time',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'class': 'form-control'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Show in Lease Rpt</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.showinlease, {'label': 'Show in Lease Rpt',
+                            'label_attr': {'class': 'control-label'}
+                            }) }}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="box border green">
+                <div class="box-title">
+                    <h4>Special Terms and Condition</h4>
+                </div>
+                <div class="box-body big">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Exclusive Use:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.exclusiveuse, {'label': 'Exclusive Use',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'class': 'form-control'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">TI Allowance:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.tiallowance, {'label': 'TI Allowance',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'class': 'form-control'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Radius Clause:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.radiusclause, {'label': 'Radius Clause',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'class': 'form-control'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Indemnifier:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.indemnifier, {'label': 'Indemnifier',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'class': 'form-control'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Indemnity Period:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.indemnityperiod, {'label': 'Indemnity Period',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'class': 'form-control'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Indemnity Expiry:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.indemnityexpiry, {'label': 'Indmenity Expiry',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'form':'wizForm','class': 'form-control' }
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Other:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.otherdescription, {'label': 'Other',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'class': 'form-control'}
+                            }) }}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="box border orange">
+                <div class="box-title">
+                    <h4>Square Feet</h4>
+                </div>
+                <div class="box-body big">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Main:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.areamain, {'label': 'Main',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'class': 'form-control'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Upper Floor/Basement:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.areaupperfloor, {'label': 'Upper Floor/Basement',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'class': 'form-control'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Mezzanine:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.areamezzanine, {'label': 'Mezzanine',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'class': 'form-control'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Patio:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.areapatio, {'label': 'Patio',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'class': 'form-control'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Other:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.areaother, {'label': 'Other',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'class': 'form-control'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Surveyed:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.surveyeddescription, {'label': 'Surveyed',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'class': 'form-control'}
+                            }) }}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="box border green">
+                <div class="box-title">
+                    <h4>Lease Report Info</h4>
+                </div>
+                <div class="box-body big">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Reporting Period:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leasereportinfo.reporttypeid, {'label': 'Reporting Period',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'class': 'form-control'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Certified Sales?</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leasereportinfo.iscertifiedsales, {'label': 'Certified Sales',
+                            'label_attr': {'class': 'control-label'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Due Date:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leasereportinfo.duedate, {'label': 'Due Date',
+                            'label_attr': {'class': 'control-label'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Is Audit?</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leasereportinfo.isaudit, {'label': 'Is Audit',
+                            'label_attr': {'class': 'control-label'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Is Certified?</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leasereportinfo.iscertified, {'label': 'Is Certified',
+                            'label_attr': {'class': 'control-label'}
+                            }) }}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box border orange">
+                <div class="box-title">
+                    <h4>Renewal Information</h4>
+                </div>
+                <div class="box-body big">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Renewal Terms:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.renewalterms, {'label': 'Renewal Terms',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'class': 'form-control'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Renewal Option Date:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.renewaloptiondate, {'label': 'Renewal Option Date',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'form':'wizForm'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Renewal Comments:</label>
+
+                        <div class="col-sm-9">
+
+                            {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.renewalcomments, {'label': 'Renewal Comments',
+                            'label_attr': {'class': 'control-label'},
+                            'attr': {'class': 'form-control'}
+                            }) }}
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Renewal Rate</label>
+
+                        <div class="col-sm-9">
+                            <div class="row">
+                                <div class="col-lg-6">
+
+                                    <label>Term</label>
+
+                                </div>
+                                <div class="col-lg-3">
+
+                                    <label>Exercised</label>
+
+                                </div>
+                                <div class="col-lg-3">
+
+                                    <label>Show?</label>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"></label>
+
+                        <div class="col-sm-9">
+
+                            {% for renewalField in addStoreForm.leaseInfoForm.renewals %}
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        {{ form_widget(renewalField.term, {'label': '',
+                                        'label_attr': {'class': 'control-label'},
+                                        'attr': {'class': 'form-control'}
+                                        }) }}
+                                    </div>
+                                    <div class="col-lg-3">
+                                        {{ form_widget(renewalField.exercised, {'label': '',
+                                        'label_attr': {'class': 'control-label'}
+                                        }) }}
+                                    </div>
+                                    <div class="col-lg-3">
+                                        {{ form_widget(renewalField.showinleasereport, {'label': '',
+                                        'label_attr': {'class': 'control-label'}
+                                        }) }}
+                                    </div>
+                                </div>
+                                <div class="separator"></div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Critical Issues</label>
+
+                        <div class="col-sm-9">
+                            <div class="row">
+                                <div class="col-lg-6">
+
+                                    <label>Date</label>
+
+                                </div>
+                                <div class="col-lg-3">
+
+                                    <label>Clause</label>
+
+                                </div>
+                                <div class="col-lg-3">
+
+                                    <label>Description</label>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"></label>
+
+                        <div class="col-sm-9">
+
+                            {% for criticalField in addStoreForm.leaseInfoForm.leasecriticaltasks %}
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        {{ form_widget(criticalField.ctdate, {'label': '',
+                                        'label_attr': {'class': 'control-label'},
+                                        'attr': {'form':'wizForm'}
+                                        }) }}
+                                    </div>
+                                    <div class="col-lg-3">
+                                        {{ form_widget(criticalField.ctclause, {'label': '',
+                                        'label_attr': {'class': 'control-label'},
+                                        'attr': {'class': 'form-control'}
+                                        }) }}
+                                    </div>
+                                    <div class="col-lg-3">
+                                        {{ form_widget(criticalField.ctdescription, {'label': '',
+                                        'label_attr': {'class': 'control-label'},
+                                        'attr': {'class': 'form-control'}
+                                        }) }}
+                                    </div>
+                                </div>
+                                <div class="separator"></div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- **************************** ENDS LEASE INFORMATION ************************* -->
+    <div class="tab-pane" id="area">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box border blue">
+                <div class="box-title">
+                    <h4>Square Footage</h4>
+                </div>
+                <div class="box-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Entry</th>
+                            <th>Bar</th>
+                            <th>Lounge</th>
+                            <th>Dining</th>
+                            <th>Washrooms</th>
+                            <th>BOH</th>
+                            <th>Patio</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area1.entry, {'label': 'Entry',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area1.bar, {'label': 'Bar',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area1.lounge, {'label': 'Lounge',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area1.dining, {'label': 'Dining',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area1.washrooms, {'label': 'Washrooms',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area1.boh, {'label': 'BOH',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area1.patio, {'label': 'Patio',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box border blue">
+                <div class="box-title">
+                    <h4>Tables</h4>
+                </div>
+                <div class="box-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Entry</th>
+                            <th>Bar</th>
+                            <th>Lounge</th>
+                            <th>Dining</th>
+                            <th>Washrooms</th>
+                            <th>BOH</th>
+                            <th>Patio</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area2.entry, {'label': 'Entry',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area2.bar, {'label': 'Bar',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area2.lounge, {'label': 'Lounge',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area2.dining, {'label': 'Dining',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area2.washrooms, {'label': 'Washrooms',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area2.boh, {'label': 'BOH',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area2.patio, {'label': 'Patio',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box border blue">
+                <div class="box-title">
+                    <h4>Seats</h4>
+                </div>
+                <div class="box-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Entry</th>
+                            <th>Bar</th>
+                            <th>Lounge</th>
+                            <th>Dining</th>
+                            <th>Washrooms</th>
+                            <th>BOH</th>
+                            <th>Patio</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area3.entry, {'label': 'Entry',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area3.bar, {'label': 'Bar',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area3.lounge, {'label': 'Lounge',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area3.dining, {'label': 'Dining',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area3.washrooms, {'label': 'Washrooms',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area3.boh, {'label': 'BOH',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                            <td>
+                                {{ form_widget(addStoreForm.manageAreaForm.area3.patio, {'label': 'Patio',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="separator"></div>
+
+    </div>
+
+    <!-- **************************   ENDS AREAS INFO **************************** -->
+
+    </div>
+    </div>
+    <div class="wizard-buttons">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-offset-3 col-md-9">
+                    <a href="javascript:;" class="btn btn-default prevBtn">
+                        <i class="fa fa-arrow-circle-left"></i> Back
+                    </a>
+                    <a href="javascript:;" class="btn btn-primary nextBtn">
+                        Continue <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                    <a href="javascript:;" class="btn btn-success submitBtn">
+                        {{ form_widget(addStoreForm.Add, {
+                            'attr': {'form': 'wizForm'}
+                        }) }} <i class="fa fa-arrow-circle-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    {{ form_widget(addStoreForm._token) }}
+    {{ form_end(addStoreForm, {'render_rest': false}) }}
+    </div>
+    </div>
+    </div>
     </div>
 {% endblock %}

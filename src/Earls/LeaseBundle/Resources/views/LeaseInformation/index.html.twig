@@ -524,7 +524,7 @@
         'attr': {'class': 'btn btn-lg btn-primary', 'onclick':'sendTextToServer();'}
     }) }}
 
-    {{ form_end(leaseInfoForm) }}
+    {{ form_end(leaseInfoForm, {'render_rest': false}) }}
 
 
 {% for leaseInfoForm in leaseInfoForm.leaseinfo %}

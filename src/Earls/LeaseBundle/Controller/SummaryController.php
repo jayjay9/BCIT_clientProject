@@ -310,7 +310,7 @@ class SummaryController extends Controller
         $restaurantid = $restaurantObj->getRestaurantid();
 
         $restaurantname = $restaurantObj->getStorenickname();
-        $storenumber = $restaurantObj->getStorenickname();
+        $storenumber = $restaurantObj->getStorefilenumber();
         $tenantname = $restaurantObj->getTenant();
         $storeaddress = $restaurantObj->getAddress();
         $storecityprovince = $restaurantObj->getProvincestateid()->getDescription();
@@ -550,7 +550,7 @@ class SummaryController extends Controller
 
         $PHPWord = new \PHPWord();
 
-        $templatePath = __DIR__.'/Templates/LeaseTemplate.docx';
+        $templatePath = __DIR__.'/Templates/rptLeaseSummary.docx';
         print_r($templatePath);
         $document = $PHPWord->loadTemplate($templatePath);
 
@@ -566,7 +566,7 @@ class SummaryController extends Controller
         $document->setValue($trimmedValue['Value1'], $restaurantname); //Earl's Albert Street
 
 //Store Number
-        $document->setValue($trimmedValue['Value2'], 'HELLO'); //10303
+        $document->setValue($trimmedValue['Value2'], $storenumber); //10303
 
 //Landlord info
         $document->setValue($trimmedValue['Value3'], $landlordname); //Kalamaki Properties Inc.
@@ -574,113 +574,113 @@ class SummaryController extends Controller
         $document->setValue($trimmedValue['Value5'], $landattention); //landlord attention
         $document->setValue($trimmedValue['Value6'], $landphone );//landlord phone
         $document->setValue($trimmedValue['Value7'], $landfax); //landlord fax
-//
+
 ////Property Manager Info
-//        $document->setValue('Value8', $propertycompanyname);// Colliers International Regina
-//        $document->setValue('Value9', $propertyaddress); // 1821 Scarth Street, Suite 200
-//        $document->setValue('Value10', $cityprovince); //Regina, SK
-//        $document->setValue('Value11', $propertypostalcode); //S4P 2G9
-//        $document->setValue('Value12', $propertyattention);// Marlene Portras
-//        $document->setValue('Value13', $propertyphone); // (306) 789-8300
-//        $document->setValue('Value14', $propertyfax); // (306) 757-4714
-//
+//        $document->setValue($trimmedValue['Value8'], $propertycompanyname);// Colliers International Regina
+//        $document->setValue($trimmedValue['Value9'], $propertyaddress); // 1821 Scarth Street, Suite 200
+//        $document->setValue($trimmedValue['Value10'], $cityprovince); //Regina, SK
+//        $document->setValue($trimmedValue['Value11'], $propertypostalcode); //S4P 2G9
+//        $document->setValue($trimmedValue['Value12'], $propertyattention);// Marlene Portras
+//        $document->setValue($trimmedValue['Value13'], $propertyphone); // (306) 789-8300
+//        $document->setValue($trimmedValue['Value14'], $propertyfax); // (306) 757-4714
+
 ////Store Info
-//        $document->setValue('Value15', $tenantname); //Earl's Restaurant (Albert Street) Ltd.
-//        $document->setValue('Value16', $storeaddress); //2606 - 28th Avenue
-//        $document->setValue('Value17', $storecityprovince); //Regina, SK
-//        $document->setValue('Value18', $storepostalcode);//S4S 6P3
-//        $document->setValue('Value19', $storelegaldescription); // 	See Schedule "A" of Lease
-//
-//        $document->setValue('Value20', $storeopen); //OPEN: Yes or no
-//        $document->setValue('Value21', $dateopened); //December 10, 1998
-//        $document->setValue('Value22', $liquorlicense); //125814
-//        $document->setValue('Value23', $businesslicense);// n/a
-//        $document->setValue('Value24', $license); // no example from rpt summary
-//        $document->setValue('Value25', $expiry); // expiry date
-//
+//        $document->setValue($trimmedValue['Value15'], $tenantname); //Earl's Restaurant (Albert Street) Ltd.
+//        $document->setValue($trimmedValue['Value16'], $storeaddress); //2606 - 28th Avenue
+//        $document->setValue($trimmedValue['Value17'], $storecityprovince); //Regina, SK
+//        $document->setValue($trimmedValue['Value18'], $storepostalcode);//S4S 6P3
+//        $document->setValue($trimmedValue['Value19'], $storelegaldescription); // 	See Schedule "A" of Lease
+
+//        $document->setValue($trimmedValue['Value20'], $storeopen); //OPEN: Yes or no
+//        $document->setValue($trimmedValue['Value21'], $dateopened); //December 10, 1998
+//        $document->setValue($trimmedValue['Value22'], $liquorlicense); //125814
+//        $document->setValue($trimmedValue['Value23'], $businesslicense);// n/a
+//        $document->setValue($trimmedValue['Value24'], $license); // no example from rpt summary
+//        $document->setValue($trimmedValue['Value25'], $expiry); // expiry date
+
 ////Building Info
-//        $document->setValue('Value26', $building); //FS Mall
-//        $document->setValue('Value27', $buildingclass); //EHL Owned
-//        $document->setValue('Value28', $diningseats); //Dining Seats : 120
-//        $document->setValue('Value29', $diningtables); // Dining Tables : 3333
-//        $document->setValue('Value30', $loungeseats); //lounge seats : 93
-//        $document->setValue('Value31', $loungetables); //lounge tables : 18
-//        $document->setValue('Value32', $patioseats); //patio seats : 112
-//        $document->setValue('Value33', $patiotables); //patio tables : 28
-//        $document->setValue('Value34', $totalseats); //total seats : 325
-//        $document->setValue('Value35', $totaltables); //total tables : 3379
-//
+//        $document->setValue($trimmedValue['Value26'], $building); //FS Mall
+//        $document->setValue($trimmedValue['Value27'], $buildingclass); //EHL Owned
+//        $document->setValue($trimmedValue['Value28'], $diningseats); //Dining Seats : 120
+//        $document->setValue($trimmedValue['Value29'], $diningtables); // Dining Tables : 3333
+//        $document->setValue($trimmedValue['Value30'], $loungeseats); //lounge seats : 93
+//        $document->setValue($trimmedValue['Value31'], $loungetables); //lounge tables : 18
+//        $document->setValue($trimmedValue['Value32'], $patioseats); //patio seats : 112
+//        $document->setValue($trimmedValue['Value33'], $patiotables); //patio tables : 28
+//        $document->setValue($trimmedValue['Value34'], $totalseats); //total seats : 325
+//        $document->setValue($trimmedValue['Value35'], $totaltables); //total tables : 3379
+
 ////Area breakdown Info
-//        $document->setValue('Value36', $squareftmain); //Main : 7190.0
-//        $document->setValue('Value37', $squareftupperbas); //Uppr/Bas : 0.0
-//        $document->setValue('Value38', $squareftmezzanin); //Mezzanin : 700.0
-//        $document->setValue('Value39', $squareftpatio); // Patio : 2178.0
-//        $document->setValue('Value40', $other); //Other : 0.0
-//        $document->setValue('Value41', $surveyed); //Surveyed:
+//        $document->setValue($trimmedValue['Value36'], $squareftmain); //Main : 7190.0
+//        $document->setValue($trimmedValue['Value37'], $squareftupperbas); //Uppr/Bas : 0.0
+//        $document->setValue($trimmedValue['Value38'], $squareftmezzanin); //Mezzanin : 700.0
+//        $document->setValue($trimmedValue['Value39'], $squareftpatio); // Patio : 2178.0
+//        $document->setValue($trimmedValue['Value40'], $other); //Other : 0.0
+//        $document->setValue($trimmedValue['Value41'], $surveyed); //Surveyed:
 //
 ////Risk Info
-//        $document->setValue('Value42', $buildingtypes); // Unknown
-//        $document->setValue('Value43', $buildinginsured); //tenant
-//        $document->setValue('Value44', $rent); // see 12.02 and 12.03
-//        $document->setValue('Value45', $exterior); //tenant see clause 11.01
-//        $document->setValue('Value46', $note); //notes
+//        //$document->setValue('Value42', $buildingtypes); // Unknown
+//        $document->setValue($trimmedValue['Value43'], $buildinginsured); //tenant
+//        $document->setValue($trimmedValue['Value44'], $rent); // see 12.02 and 12.03
+//        $document->setValue($trimmedValue['Value45'], $exterior); //tenant see clause 11.01
+//        $document->setValue($trimmedValue['Value46'], $note); //notes
 //
 ////Rent and Maintenance Info
-//        $document->setValue('Value47', $hvacrepair); // Tenant
-//        $document->setValue('Value48', $hvacreplace); //Tenant
-//        $document->setValue('Value49', $roofrepair); // Tenant
-//        $document->setValue('Value50', $roofreplace); //Tenant
+//        $document->setValue($trimmedValue['Value47'], $hvacrepair); // Tenant
+//        $document->setValue($trimmedValue['Value48'], $hvacreplace); //Tenant
+//        $document->setValue($trimmedValue['Value49'], $roofrepair); // Tenant
+//        $document->setValue($trimmedValue['Value50'], $roofreplace); //Tenant
 //
 ////Utilities Info
-//        $document->setValue('Value51', $waterbillingby); // utility
-//        $document->setValue('Value52', $watermetered); // metered
-//        $document->setValue('Value53', $watercam); // CAM
+//        $document->setValue($trimmedValue['Value51'], $waterbillingby); // utility
+//        $document->setValue($trimmedValue['Value52'], $watermetered); // metered
+//        $document->setValue($trimmedValue['Value53'], $watercam); // CAM
 //
-//        $document->setValue('Value54', $electricbillingby); // Purchasing
-//        $document->setValue('Value55', $electricmetered); //metered
-//        $document->setValue('Value56', $electriccam); //CAM
+//        $document->setValue($trimmedValue['Value54'], $electricbillingby); // Purchasing
+//        $document->setValue($trimmedValue['Value55'], $electricmetered); //metered
+//        $document->setValue($trimmedValue['Value56'], $electriccam); //CAM
 //
-//        $document->setValue('Value57', $gasbillingby); // Purchasing
-//        $document->setValue('Value58', $gasmetered); //metered
-//        $document->setValue('Value59', $gascam); //CAM
+//        $document->setValue($trimmedValue['Value57'], $gasbillingby); // Purchasing
+//        $document->setValue($trimmedValue['Value58'], $gasmetered); //metered
+//        $document->setValue($trimmedValue['Value59'], $gascam); //CAM
 //
 ////Lease Information
-//        $document->setValue('Value60', $leasetype); // Lease with TI
-//        $document->setValue('Value61', $leasedate); //January 12, 1998
-//        $document->setValue('Value62', $term); //15 years
-//        $document->setValue('Value63', $commencement); // December 10, 1998
-//        $document->setValue('Value64', $leaseexpiry); //December 31, 2013
-//        $document->setValue('Value65', $optiontime); //6 months
+//        $document->setValue($trimmedValue['Value60'], $leasetype); // Lease with TI
+//        $document->setValue($trimmedValue['Value61'], $leasedate); //January 12, 1998
+//        $document->setValue($trimmedValue['Value62'], $term); //15 years
+//        $document->setValue($trimmedValue['Value63'], $commencement); // December 10, 1998
+//        $document->setValue($trimmedValue['Value64'], $leaseexpiry); //December 31, 2013
+//        $document->setValue($trimmedValue['Value65'], $optiontime); //6 months
 //
 ////Renewal Information
-//        $document->setValue('Value66', $renewaloptiondate); // June 30,2013
-//        $document->setValue('Value67', $renewal); //3x5 years
-//        $document->setValue('Value68', $renewalratebegin1); //Jan 1/XX
-//        $document->setValue('Value69', $renewalrateend); // Dec 31/XX
-//        $document->setValue('Value70', $renewalpsf); //$40 p.s.f.
-//        $document->setValue('Value71', $renewalexercisedyes); //yes
-//        $document->setValue('Value72', $renewalexercisedno); //no
+//        $document->setValue($trimmedValue['Value66'], $renewaloptiondate); // June 30,2013
+//        $document->setValue($trimmedValue['Value67'], $renewal); //3x5 years
+//        $document->setValue($trimmedValue['Value68'], $renewalratebegin1); //Jan 1/XX
+//        $document->setValue($trimmedValue['Value69'], $renewalrateend); // Dec 31/XX
+//        $document->setValue($trimmedValue['Value70'], $renewalpsf); //$40 p.s.f.
+//        $document->setValue($trimmedValue['Value71'], $renewalexercisedyes); //yes
+//        $document->setValue($trimmedValue['Value72'], $renewalexercisedno); //no
 //
 ////Report Information
-//        $document->setValue('Value73', $reportingperiod); // Month
-//        $document->setValue('Value74', $certsales); // certified sales?
-//        $document->setValue('Value75', $duedate); // 2/28/2014
-//        $document->setValue('Value76', $audit); // is audit?
-//        $document->setValue('Value77', $certified); // certified ?
+//        $document->setValue($trimmedValue['Value73'], $reportingperiod); // Month
+//        $document->setValue($trimmedValue['Value74'], $certsales); // certified sales?
+//        $document->setValue($trimmedValue['Value75'], $duedate); // 2/28/2014
+//        $document->setValue($trimmedValue['Value76'], $audit); // is audit?
+//        $document->setValue($trimmedValue['Value77'], $certified); // certified ?
 //
 ////Special Terms and Conditions Information
-//        $document->setValue('Value78', $exclusive); // yes or no
-//        $document->setValue('Value79', $TI); // $700,000
-//        $document->setValue('Value80', $radiusclause); // yes or no
-//        $document->setValue('Value81', $other); // cap on op costs - see page 10 of lease
-//        $document->setValue('Value82', $indemnifier); // Earl's Restuarants Ltd.
-//        $document->setValue('Value83', $indemnityperiod); // end of 2nd Extension
-//        $document->setValue('Value84', $indemnityexpiry); // December 31, 2008
+//        $document->setValue($trimmedValue['Value78'], $exclusive); // yes or no
+//        $document->setValue($trimmedValue['Value79'], $TI); // $700,000
+//        $document->setValue($trimmedValue['Value80'], $radiusclause); // yes or no
+//        $document->setValue($trimmedValue['Value81'], $other); // cap on op costs - see page 10 of lease
+//        $document->setValue($trimmedValue['Value82'], $indemnifier); // Earl's Restuarants Ltd.
+//        $document->setValue($trimmedValue['Value83'], $indemnityperiod); // end of 2nd Extension
+//        $document->setValue($trimmedValue['Value84'], $indemnityexpiry); // December 31, 2008
 //
 ////Critical Issues
-//        $document->setValue('Value85', $crdate); // Date
-//        $document->setValue('Value86', $crclause); //Clause
-//        $document->setValue('Value87', $crdescr); // Description
+//        $document->setValue($trimmedValue['Value85'], $crdate); // Date
+//        $document->setValue($trimmedValue['Value86'], $crclause); //Clause
+//        $document->setValue($trimmedValue['Value87'], $crdescr); // Description
 
 //save the document
         $outputFilePath = __DIR__.'/Templates/Reports/LeaseSummary.docx';

@@ -52,159 +52,343 @@
                 <div class="box-body big">
                     <div class="row">
                         <div class="col-md-12">
-                            </br>
-                            <p><b>{{RestaurantObj.storenickname}}</b></p>
-                            <p><b>Store No. {{RestaurantObj.storefilenumber}}</b></p>
+                            <div class="row">
+                                    <div class="col-md-6">
+                                        <b>{{RestaurantObj.storenickname}}</b>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <b>Store No. {{RestaurantObj.storefilenumber}}</b>
+                                    </div>
+                            </div>
+                            <div class="separator"></div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            </br>
-                            <p><b>Lease Information</b></p>
-                            <p>Lease Type: {{leaseObj.leasetype}}</p>
-                            <p>Lease Date: {{leaseObj.leasedate|date('F d, Y')}}</p>
-                            <p>Lease Term: {{leaseObj.term}}</p>
-                            <p>Commencement Date: {{leaseObj.commencementdate|date('F d, Y')}}</p>
-                            <p>Expiry Date: {{leaseObj.expirydate|date('F d, Y')}}</p>
-                            <p>Option Time: {{leaseObj.optiontime}}</p>
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="page1">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p><b>LANDLORD</b></p>
+                                            <p>{{ LandlordObj.landlordname }}</p>
+                                            <p>{{ LandlordObj.address }}</p>
+                                            <p>{{ ProvinceState.provinceLandlord }}</p>
+                                            <p>{{ LandlordObj.postalzip }}</p>
+                                            <p><b>ATTENTION: </b>{{ LandlordObj.attention }}</p>
+                                            <p><b>PHONE: </b>{{ LandlordObj.phone }}</p>
+                                            <p><b>FAX:</b> {{ LandlordObj.fax }}</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><b>PROPERTY MANAGER</b></p>
+                                            <p>{{ PropertymanagerObj.propertymanagername }}</p>
+                                            <p>{{ PropertymanagerObj.address }}</p>
+                                            <p>{{ ProvinceState.provinceProperty }}</p>
+                                            <p>{{ PropertymanagerObj.postalzip }}</p>
+                                            <p><b>ATTENTION: </b> {{ PropertymanagerObj.attention }}</p>
+                                            <p><b>PHONE: </b> {{ PropertymanagerObj.phone }}</p>
+                                            <p><b>FAX: </b> {{ PropertymanagerObj.fax }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="separator"></div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p><b>STORE INFO</b></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p><b>TENANT:</b> {{ RestaurantObj.tenant }}</p>
+                                            <p>{{ RestaurantObj.address }}</p>
+                                            <p>{{ restaurant.provinceState }}</p>
+                                            <p>{{ RestaurantObj.postalzip }}</p>
+                                            <p><b>Legal Description:</b></p>
+                                            <p>{{ RestaurantObj.legaldescription }}</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><b>OPEN: </b> {{ RestaurantObj.openingdate }}</p>
+                                            <br>
+                                            <br>
+                                            <p><b>Liquor License#: </b> {{ LiquorlicenseObj.liquorlicense }}</p>
+                                            <p><b>Business License#: </b> {{ LiquorlicenseObj.businesslicense }}</p>
+                                            <p><b>License Expiry: </b> {{ LicenseObj.expirarydate }} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="separator"></div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p><b>BUILDING INFO </b></p>
+                                            <p><b>Building Type: </b> {{ restaurant.buildingtype }}</p>
+                                            <p><b>Store Class: </b> {{ restaurant.storeclass }}</p>
+                                            <table style="text-align: center;" cellpadding="5">
+                                                <tr>
+                                                    <td> No.of</td>
+                                                    <td>Seats</td>
+                                                    <td>Tables</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dining</td>
+                                                    <td>{{ RestaurantObj.diningroomseating }}</td>
+                                                    <td>{{ RestaurantObj.diningroomtable }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Lounge</td>
+                                                    <td> {{ RestaurantObj.loungeseating }}</td>
+                                                    <td>{{ RestaurantObj.loungetable }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Patio</td>
+                                                    <td> {{ RestaurantObj.patioseating }}</td>
+                                                    <td>{{ RestaurantObj.patiotable }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>TOTAL</b></td>
+                                                    <td>{{ restaurant.totalSeats }}</td>
+                                                    <td>{{ restaurant.totalTables }}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><b>AREA BREAKDOWN </b></p>
+                                            <p><b>Square Feet: </b></p>
+                                            <table cellpadding="5">
+                                                <tr>
+                                                    <td>Main:</td>
+                                                    <td>{{ leaseObj.areamain }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Uppr/Base:</td>
+                                                    <td> {{ leaseObj.areaupperfloor }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mezzanin:</td>
+                                                    <td>{{ leaseObj.areamezzanine }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Patio:</td>
+                                                    <td>{{ leaseObj.areapatio }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Other:</td>
+                                                    <td>{{ leaseObj.areaother }}</td>
+                                                </tr>
+                                            </table>
+                                            <br>
+                                            <p><b>Surveyed:</b> {{ leaseObj.surveyeddescription }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="separator"></div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p><b>RISK INFO </b></p>
+                                            <p><b>Buidling Type: </b>{{ risk.constructiontypes }}</p>
+                                            <p><b>Building Insured by:</b>{{ risk.insuredby }}</p>
+                                            <p><b>Rent Abatement:</b>{{ RiskinfoObj.rentabatement }}</p>
+                                            <p><b>Exterior Maintenance:</b>{{ RiskinfoObj.exteriormaintenance }}</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><b>RENT AND MAINTENANCE</b></p>
+                                            <p><b>HVAC Repair: </b>{{ rentAndMaintenance.hvacRepair }}</p>
+                                            <p><b>HVAC Replace: </b>{{ rentAndMaintenance.hvacReplace }}</p>
+                                            <p><b>Roof Repair: </b> {{ rentAndMaintenance.roofRepair }}</p>
+                                            <p><b>Roof Replace: </b> {{ rentAndMaintenance.roofReplace }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="separator"></div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p><b>UTILITIES</b></p>
+                                    <table cellpadding="8">
+                                        <tr>
+                                            <td>Utility Type:</td>
+                                            <td>Billing By:</td>
+                                            <td>Metered?</td>
+                                            <td>CAM?:</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Water</td>
+                                            <td>  {{ billing.billing1 }}</td>
+                                            <td>{{ UtilitiesObj1.ismetered }}</td>
+                                            <td> {{ UtilitiesObj1.iscam }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Electric</td>
+                                            <td>  {{ billing.billing2 }}</td>
+                                            <td> {{ UtilitiesObj2.ismetered }}</td>
+                                            <td> {{ UtilitiesObj2.iscam }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gas</td>
+                                            <td>  {{ billing.billing3 }}</td>
+                                            <td>{{ UtilitiesObj3.ismetered }}</td>
+                                            <td> {{ UtilitiesObj3.iscam }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="separator"></div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <center><p>Page 1 of 2</p></center>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="page2">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p><b>LEASE INFORMATION </b></p>
+                                    <table cellpadding="10">
+                                        <tr>
+                                            <td>Lease Type:</td>
+                                            <td>{{ leaseObj.leasetype }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lease Date:</td>
+                                            <td>{{ leaseDates.leasedate }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Term:</td>
+                                            <td>{{ leaseObj.term }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Commencement Date:</td>
+                                            <td>{{ leaseDates.commencementdate }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Expiry Date:</td>
+                                            <td>{{ LicenseObj.expirarydate }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Option Time:</td>
+                                            <td>{{ leaseObj.optiontime }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="separator"></div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p><b>RENEWAL INFORMATION</b></p>
+                                            <table cellpadding="10">
+                                                <tr>
+                                                    <td><b>Renewal Option Date:</b></td>
+                                                    <td>{{ leaseDates.renewalOptionDate }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Renewal Term: </b></td>
+                                                    <td>{{ leaseObj.renewalterms }}</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><b>RENEWAL RATE</b></p>
+                                            <table cellpadding="10">
+                                                {% for Renewal in RenewalObj %}
+                                                        <tr>
+                                                            <td></td>
+                                                            <td>{{ Renewal.term }}</td>
+                                                            <td><b>Exercised?</b></td>
+                                                            <td>{{ Renewal.exercised }}</td>
+                                                        </tr>
+                                                {% endfor %}
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="separator"></div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p><b>REPORT INFORMATION</b></p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p><b>Reporting Period: </b> {{ LeaseReport.periodType }}</p>
+                                            <p><b>Reporting Due Date: </b> {{ LeaseReport.dueDate }}</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><b>is Certified? </b> {{ LeasereportsinfoObj.iscertified }}</p>
+                                            <p><b>is Audit </b> {{ LeasereportsinfoObj.isaudit }}</p>
+                                            <p><b>is Certified Sales? </b> {{ LeasereportsinfoObj.iscertifiedsales }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="separator"></div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p><b>SPECIAL TERMS AND CONDITION</b></p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p><b>Exclusive Use: </b> {{ leaseObj.exclusiveuse }}</p>
+                                            <p><b>TI Allowance: </b> {{ leaseObj.tiallowance }}</p>
+                                            <p><b>Reporting Period: </b> {{ LeaseReport.periodType }}</p>
+                                            <p><b>Radius Clause: </b> {{ leaseObj.radiusclause }}</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><b>Indemnifier: </b> {{ leaseObj.indemnifier }}</p>
+                                            <p><b>Indemnity Period: </b> {{ leaseObj.indemnityperiod }}</p>
+                                            <p><b>Indemnity Expiry: </b> {{ leaseObj.indemnityexpiry }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p><b>OTHER: </b> {{ leaseObj.otherdescription }}</p>
+                                </div>
+                            </div>
+                            <div class="separator"></div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p><b>CRITICAL ISSUES </b></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table cellpadding="10">
+                                        <tr>
+                                            <td>Date:</td>
+                                            <td>Clause</td>
+                                            <td>Description</td>
+                                        </tr>
+                                        {% for LeaseCriticalTask in LeasecriticaltaskObj %}
+                                            <tr>
+                                                <td>{{ LeaseCriticalTask.ctdate }}</td>
+                                                <td>{{ LeaseCriticalTask.ctclause }}</td>
+                                                <td>{{ LeaseCriticalTask.ctdescription }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="separator"></div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <center><p>Page 2 of 2</p></center>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            </br>
-                            <p><b>Renewal Information</b></p>
-                            <p>Renewal Term: {{leaseObj.renewalterms}}</p>
-                            <p>Renewal Rate:</p>
-                            {% for renewal in RenewalObj %}
-                                <p>{{renewal.term}} Excercised[0=no, 1=yes]: {{renewal.exercised}}</p>
-                            {% endfor %}
-                        </div>
-                        <div class="col-md-6">
-                            </br>
-                            <p><b>Renewal Option Date:</b> {{leaseObj.renewaloptiondate|date('F d, Y')}}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-
-                        </br>
-                        <p><b>Report Information</b></p>
-                        <p>Reporting Period: [IMPLEMENT]</p>
-                        <p>Certified Sales: [BOOLEAN]</p>
-                        <p>Due Date: {{LeasereportsinfoObj.duedate}}</p>
-                        <p>Is Audit: [BOOLEAN]</p>
-                        <p>Is Certified: [BOOLEAN]</p>
-
-                        </br>
-                        <p><b>Special Term and Condition</b></p>
-                        <p>Exclusive Use: {{leaseObj.exclusiveuse}}</p>
-                        <p>TI Allowance: {{leaseObj.tiallowance}}</p>
-                        <p>Radius Clause: {{leaseObj.radiusclause}}</p>
-                        <p>Other: {{leaseObj.otherdescription}}</p>
-                        <p>Indemnifier: {{leaseObj.indemnifier}}</p>
-                        <p>Indemnifier Period: {{leaseObj.indemnityperiod}}</p>
-                        <p>Indemnifier Expiry: {{leaseObj.indemnityexpiry|date('F d, Y')}}</p>
-
-                        </br>
-                        <p><b>Critical Issues</b></p>
-                        {% for renewal in RenewalObj %}
-                            <p>{{renewal.term}}</p>
-                            <p>{{renewal.exercised}}</p>
-                        {% endfor %}
-                        <p>Date:    Clause:     Description:  [IMPLEMENT]</p>
-
-                        </br>
-                        <p><b>Landlord</b></p>
-                        <p>{{LandlordObj.landlordname}}</p>
-                        <p>{{LandlordObj.address}}</p>
-                        <p>Attention: {{LandlordObj.attention}}</p>
-                        <p>Phone: {{LandlordObj.phone}}</p>
-                        <p>Fax: {{LandlordObj.fax}}</p>
-
-                        </br>
-                        <p><b>Property Manager</b></p>
-                        <p>{{PropertymanagerObj.propertymanagername}}</p>
-                        <p>{{PropertymanagerObj.address}}</p>
-                        <p>Attention: {{PropertymanagerObj.attention}}</p>
-                        <p>Phone: {{PropertymanagerObj.phone}}</p>
-                        <p>Fax: {{PropertymanagerObj.fax}}</p>
-
-                        </br>
-                        <p><b>Store Into</b></p>
-                        <p>Tenant: {{RestaurantObj.tenant}}</p>
-                        <p>Open: {{RestaurantObj.openingdate|date('F d, Y')}}</p>
-                        <p>Address: {{RestaurantObj.address}}</p>
-                        <p>Legal Description: {{RestaurantObj.legaldescription}}</p>
-                        <p>Liquor License # {{LiquorlicenseObj.liquorlicense}}</p>
-                        <p>Business License # {{LiquorlicenseObj.businesslicense}}</p>
-
-                        <p>License Expiry: {{LicenseObj.expirarydate}}</p>
-
-
-
-                        <p>License Expiry:</p>
-
-
-                        </br>
-                        <table border="1">
-                            <tr>
-                                <td colspan="2"><p><b>Building Info</b></p></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"><p>Building Type: {{BuildingtypeObj.buildingtype}}</p></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"><p>Store Class: {{leaseObj.leasetype}}</p></td>
-                            </tr>
-                            <tr>
-                                <td><p>No. of dining seats: {{RestaurantObj.diningroomseating}}</p></td>
-                                <td><p>No. of dining tables: {{RestaurantObj.diningroomtable}}</p></td>
-                            </tr>
-                            <tr>
-                                <td><p>No. of lounge seats: {{RestaurantObj.loungeseating}}</p></td>
-                                <td><p>No. of lounge tables: {{RestaurantObj.loungetable}}</p></td>
-                            </tr>
-                            <tr>
-                                <td><p>No. of patio seats: {{RestaurantObj.patioseating}}</p></td>
-                                <td><p>No. of patio tables: {{RestaurantObj.patiotable}}</p></td>
-                            </tr>
-                            <tr>
-                                <td><p>Total seats: {{totalseats}}</p></td>
-                                <td><p>Total tables: {{totaltables}}</p></td>
-                            </tr>
-                        </table>
-
-                        </br>
-                        <p><b>Area Breakdown</b></p>
-                        <p>Square Feet: </p>
-                        <p>Main: {{leaseObj.areamain}}</p>
-                        <p>Upper/Base: {{leaseObj.areaupperfloor}}</p>
-                        <p>Mezzanine: {{leaseObj.areamezzanine}}</p>
-                        <p>Patio: {{leaseObj.areapatio}}</p>
-                        <p>Other: {{leaseObj.areaother}}</p>
-                        <p>Surveyed: [BOOLEAN]</p>
-
-                        </br>
-                        <p><b>Risk Info</b></p>
-                        <p>Building Type: {{BuildingtypeObj.buildingtype}}</p>
-                        <p>Building Insured By: {{RiskinfoObj.insuredby.ownertype}}</p>
-                        <p>Rent Abatement: {{RiskinfoObj.rentabatement}}</p>
-                        <p>Exterior Maintenance: {{RiskinfoObj.exteriormaintenance}}</p>
-                        <p>Notes: [NO COLUMN EXISTS IN DB]</p>
-
-                        </br>
-                        <p><b>Rent and Maintenance</b></p>
-                        <p>[NO COLUMNS SPECIFIED IN DB]</p>
-
-                        </br>
-                        <p><b>Utilities</b></p>
-                        <p>Utility Type: {{UtilitiesObj1}}</p>
-                        <p>Billing By: {{UtilitiesObj.billingby}}</p>
-                        <p>Metered: [BOOLEAN]</p>
-                        <p>CAM?: [BOOLEAN]</p>
-
-
-                    </div>
-                </div>
+                    <ul class="pager">
+                        <li class="previous"><a href="#page1" data-toggle="tab">Previous</a></li>
+                        <li class="next"><a href="#page2" data-toggle="tab">Next</a></li>
+                    </ul>
+                 </div>
             </div>
         </div>
     </div>

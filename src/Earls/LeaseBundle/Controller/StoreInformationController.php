@@ -8,6 +8,7 @@ use Earls\LeaseBundle\Entity\Liquorlicenses;
 use Earls\LeaseBundle\Entity\Rentandmaintenances;
 use Earls\LeaseBundle\Entity\Riskinfo;
 use Earls\LeaseBundle\Entity\Utilities;
+use Earls\LeaseBundle\Entity\Utilitytypes;
 use Earls\LeaseBundle\Form\Model\StoreInformationModel;
 use Earls\LeaseBundle\Form\Type\StoreInformationType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -72,7 +73,6 @@ class StoreInformationController extends Controller
             $this->setLicense($restaurantObj, $license);
         }
 
-
         $liquorlicenseidObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Liquorlicenses')
             ->findOneBy(array(
@@ -102,13 +102,52 @@ class StoreInformationController extends Controller
             $this->addRentAndMaintenanceEntry(new Rentandmaintenances(), $restaurantObj);
         }
 
-        $utilitiesObj = $this->getDoctrine()
+        $utilitiestype1 = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Utilitytypes')
+            ->find(1);
+
+        $utilitiestype2 = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Utilitytypes')
+            ->find(2);
+
+        $utilitiestype3 = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Utilitytypes')
+            ->find(3);
+
+        $utilitiesObj1 = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Utilities')
             ->findOneBy(array(
-                'restaurantid' => $id
+                'restaurantid' => $id,
+                'utilitytypeid' => $utilitiestype1
             ));
-        if (empty($utilitiesObj)) {
-            $this->addUtilitiesEntry(new Utilities(), $restaurantObj);
+
+        if (empty($utilitiesObj1)) {
+            $utilitiesObj1 = new Utilities();
+            $this->addUtilitiesEntry($utilitiesObj1, $restaurantObj, $utilitiestype1);
+        }
+
+        $utilitiesObj2 = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Utilities')
+            ->findOneBy(array(
+                'restaurantid' => $id,
+                'utilitytypeid' => $utilitiestype2
+            ));
+
+        if (empty($utilitiesObj2)) {
+            $utilitiesObj2 = new Utilities();
+            $this->addUtilitiesEntry($utilitiesObj2, $restaurantObj, $utilitiestype2);
+        }
+
+        $utilitiesObj3 = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Utilities')
+            ->findOneBy(array(
+                'restaurantid' => $id,
+                'utilitytypeid' => $utilitiestype3
+            ));
+
+        if (empty($utilitiesObj3)) {
+            $utilitiesObj3 = new Utilities();
+            $this->addUtilitiesEntry($utilitiesObj3, $restaurantObj, $utilitiestype3);
         }
 
 
@@ -141,8 +180,12 @@ class StoreInformationController extends Controller
             $storeinformationnmodel->setRiskinfo($riskinfoObj);
         if (isset($rentandmaintenancesObj))
             $storeinformationnmodel->setRentandmaintenance($rentandmaintenancesObj);
-        if (isset($utilitiesObj))
-            $storeinformationnmodel->setUtilities($utilitiesObj);
+        if (isset($utilitiesObj1))
+            $storeinformationnmodel->setUtilities1($utilitiesObj1);
+        if (isset($utilitiesObj2))
+            $storeinformationnmodel->setUtilities2($utilitiesObj2);
+        if (isset($utilitiesObj3))
+            $storeinformationnmodel->setUtilities3($utilitiesObj3);
 
         $storeInfoForm = $this->createForm(new StoreInformationType(), $storeinformationnmodel, array(
             'action' => $this->generateUrl('_storeinformation_update', array('id' => $id))
@@ -194,14 +237,45 @@ class StoreInformationController extends Controller
         $rentandmaintenance = $em->getRepository('EarlsLeaseBundle:Rentandmaintenances')->findOneBy(array(
             'restaurantid' => $id
         ));
+
         if (isset($rentandmaintenance))
             $storeInfoObj->setRentandmaintenance($rentandmaintenance);
 
-        $utilities = $em->getRepository('EarlsLeaseBundle:Utilities')->findOneBy(array(
-            'restaurantid' => $id
-        ));
-        if (isset($utilities))
-            $storeInfoObj->setUtilities($utilities);
+        $utilitiestype1 = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Utilitytypes')
+            ->find(1);
+
+        $utilitiesObj1 = $this->getDoctrine()->getRepository('EarlsLeaseBundle:Utilities')->findOneBy(array(
+                'restaurantid' => $id,
+                'utilitytypeid' => $utilitiestype1
+            ));
+
+        if (isset($utilitiesObj1))
+            $storeInfoObj->setUtilities1($utilitiesObj1);
+
+        $utilitiestype2 = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Utilitytypes')
+            ->find(2);
+
+        $utilitiesObj2 = $this->getDoctrine()->getRepository('EarlsLeaseBundle:Utilities')->findOneBy(array(
+                'restaurantid' => $id,
+                'utilitytypeid' => $utilitiestype2
+            ));
+
+        if (isset($utilitiesObj2))
+            $storeInfoObj->setUtilities2($utilitiesObj2);
+
+        $utilitiestype3 = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Utilitytypes')
+            ->find(3);
+
+        $utilitiesObj3 = $this->getDoctrine()->getRepository('EarlsLeaseBundle:Utilities')->findOneBy(array(
+                'restaurantid' => $id,
+                'utilitytypeid' => $utilitiestype3
+            ));
+
+        if (isset($utilitiesObj3))
+            $storeInfoObj->setUtilities3($utilitiesObj3);
 
         $form = $this->createForm(new StoreInformationType(), $storeInfoObj);
 
@@ -286,10 +360,10 @@ class StoreInformationController extends Controller
         return 1;
     }
 
-    private function addUtilitiesEntry(Utilities $utilities, Restaurants $id)
+    private function addUtilitiesEntry(Utilities $utilities, Restaurants $id, Utilitytypes $utilitiestype)
     {
         $utilities->setRestaurantid($id);
-
+        $utilities->setUtilitytypeid($utilitiestype);
         $em = $this->getDoctrine()->getManager();
         $em->persist($utilities);
         $em->flush();

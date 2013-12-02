@@ -45,7 +45,9 @@ class AddStoreInformationController extends Controller {
        $riskinfo = new Riskinfo();
        $licenseinfo = new Licenses();
        $rentandmaintenance = new Rentandmaintenances();
-       $utilities = new Utilities();
+       $utilities1 = new Utilities();
+       $utilities2 = new Utilities();
+       $utilities3 = new Utilities();
 
        $storeinfomodel = new StoreInformationModel();
        $storeinfomodel->setRestaurantinfo($restaurant);
@@ -53,7 +55,9 @@ class AddStoreInformationController extends Controller {
        $storeinfomodel->setLicenseinfo($licenseinfo);
        $storeinfomodel->setRiskinfo($riskinfo);
        $storeinfomodel->getRentandmaintenance($rentandmaintenance);
-       $storeinfomodel->setUtilities($utilities);
+       $storeinfomodel->setUtilities1($utilities1);
+       $storeinfomodel->setUtilities1($utilities2);
+       $storeinfomodel->setUtilities1($utilities3);
 
        $leaseinfo = new Leases();
        $leasereportinfo = new Leasereportsinfo();
@@ -137,9 +141,34 @@ class AddStoreInformationController extends Controller {
                     $em->persist($rentandmaintenance);
                     $em->flush();
 
-                $utilities = $storeinfo->getUtilities();
-                $utilities->setRestaurantid($restaurant);
-                    $em->persist($utilities);
+            $utilitiestype1 = $this->getDoctrine()
+                ->getRepository('EarlsLeaseBundle:Utilitytypes')
+                ->find(1);
+
+            $utilitiestype2 = $this->getDoctrine()
+                ->getRepository('EarlsLeaseBundle:Utilitytypes')
+                ->find(2);
+
+            $utilitiestype3 = $this->getDoctrine()
+                ->getRepository('EarlsLeaseBundle:Utilitytypes')
+                ->find(3);
+
+                $utilities1 = $storeinfo->getUtilities1();
+                $utilities1->setRestaurantid($restaurant);
+                $utilities1->setUtilitytypeid($utilitiestype1);
+                    $em->persist($utilities1);
+                    $em->flush();
+
+                $utilities2 = $storeinfo->getUtilities2();
+                $utilities2->setRestaurantid($restaurant);
+                $utilities2->setUtilitytypeid($utilitiestype2);
+                    $em->persist($utilities2);
+                    $em->flush();
+
+                $utilities3 = $storeinfo->getUtilities3();
+                $utilities3->setRestaurantid($restaurant);
+                $utilities3->setUtilitytypeid($utilitiestype3);
+                    $em->persist($utilities3);
                     $em->flush();
 
             $leaseinfo = $form->getData()->getLeaseInfoForm();

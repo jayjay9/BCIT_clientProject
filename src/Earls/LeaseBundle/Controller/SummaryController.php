@@ -2,6 +2,7 @@
 
 namespace Earls\LeaseBundle\Controller;
 
+use Earls\LeaseBundle\Entity\Rentandmaintenances;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Acme\DemoBundle\Form\ContactType;
@@ -26,6 +27,10 @@ use Earls\LeaseBundle\Entity\Renewals;
 use Earls\LeaseBundle\Entity\Licenses;
 use Earls\LeaseBundle\Entity\Leasecriticaltasks;
 use Earls\LeaseBundle\Entity\Utilities;
+use Earls\LeaseBundle\Entity\Provincestate;
+use Earls\LeaseBundle\Entity\Billingowners;
+use Earls\LeaseBundle\Entity\Owners;
+use Earls\LeaseBundle\Entity\Constructiontypes;
 
 
 class SummaryController extends Controller
@@ -79,23 +84,39 @@ class SummaryController extends Controller
             ->getRepository('EarlsLeaseBundle:Restaurants')
             ->findoneby(array('restaurantid' => $id));
 
-        if(empty($RestaurantObj)){
-            $RestaurantObj = new Restaurants();
-        }
-
         $totalseats = (($RestaurantObj->getDiningroomseating()) +  ($RestaurantObj->getLoungeseating()) + ($RestaurantObj->getPatioseating()));
         $totaltables = (($RestaurantObj->getDiningroomtable()) +  ($RestaurantObj->getLoungetable()) + ($RestaurantObj->getPatiotable()));
 
-
-        $RiskinfoObj = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Riskinfo')
-            ->findoneby(array('restaurantid' => $id));
-
-        if(empty($RiskinfoObj)){
-            $RiskinfoObj = new Riskinfo();
+        $buildingtypeObj = $RestaurantObj->getBuildingtype();
+        if(empty($buildingtypeObj)){
+            $buildingtypeObj = new Buildingtypes();
         }
 
+        $buildingtype = $buildingtypeObj->getBuildingtype();
 
+        $storeClassObj = $RestaurantObj->getStoreclassid();
+        if(empty($storeClassObj)){
+            $storeClassObj = new Storeclasses();
+        }
+
+        $storeClass = $storeClassObj->getStoreclass();
+
+        $provincestateid = $RestaurantObj->getProvincestateid();
+        if(empty($provincestateid)){
+            $provincestateid = new Provincestate();
+        }
+
+        $provincestateRestaurant = $provincestateid->getDescription();
+
+        $restaurant= array(
+            'buildingtype' => $buildingtype,
+            'storeclass' => $storeClass,
+            'totalSeats' => $totalseats,
+            'totalTables' => $totaltables,
+            'provinceState' => $provincestateRestaurant
+        );
+
+        /****LANDLORD *****/
         $landlordlink = $RestaurantObj->getLandlordid();
 
         $LandlordObj = $this->getDoctrine()
@@ -105,6 +126,15 @@ class SummaryController extends Controller
         if(empty($LandlordObj)){
             $LandlordObj = new Landlords();
         }
+
+        $provincestateid = $LandlordObj->getProvincestateid();
+        if(empty($provincestateid)){
+            $provincestateid = new Provincestate();
+        }
+
+        $provincestateLandlord = $provincestateid->getDescription();
+
+        /****PROPERTY MANAGER *****/
 
         $propertymanagerlink = $RestaurantObj->getPropertymanagerid();
 
@@ -116,36 +146,31 @@ class SummaryController extends Controller
             $PropertymanagerObj = new Propertymanagers();
         }
 
+        $provincestateid = $PropertymanagerObj->getProvincestateid();
+        if(empty($provincestateid)){
+            $provincestateid = new Provincestate();
+        }
+
+        $provincestateProperty = $provincestateid->getDescription();
+
+        $provinceState = array(
+            'provinceLandlord' => $provincestateLandlord,
+            'provinceProperty' => $provincestateProperty
+        );
+
+        /**** LIQUOR LICENSE *****/
+
         $liquorlicenselink = $RestaurantObj->getLiquorlicenseid();
 
         $LiquorlicenseObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Liquorlicenses')
-            ->findoneby(array('liquorlicenseid' => $liquorlicenselink));
+            ->findOneby(array('liquorlicenseid' => $liquorlicenselink));
 
         if(empty($LiquorlicenseObj)){
             $LiquorlicenseObj = new Liquorlicenses();
         }
 
-        $storeclasslink = $RestaurantObj->getStoreclassid();
-
-        $StoreclassObj = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Storeclasses')
-            ->findoneby(array('storeclassid' => $storeclasslink));
-
-        if(empty($StoreclassObj)){
-            $StoreclassObj = new Storeclasses();
-        }
-
-        $buildingtypeslink = $RestaurantObj->getBuildingtype()->getBuildingtypeid();
-
-        $BuildingtypeObj = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Buildingtypes')
-            ->find($buildingtypeslink);
-
-        if(empty($BuildingtypeObj)){
-            $BuildingtypeObj = new Buildingtypes();
-        }
-
+        /**** LICENSE *****/
         $licenselink = $RestaurantObj->getLicenseid()->getLicenseid();
 
         $LicenseObject = $this->getDoctrine()
@@ -153,7 +178,7 @@ class SummaryController extends Controller
             ->find($licenselink);
 
         if(empty($LicenseObject)){
-            $LicenseObj = new Licenses();
+            $LicenseObject = new Licenses();
         }
 
         $expiry = $LicenseObject->getExpirarydate();
@@ -166,61 +191,168 @@ class SummaryController extends Controller
 
         $LicenseObj = array('expirarydate' => $expiryformat);
 
-        $utilitieslink = $RestaurantObj->getUtilityid();
+        /**** RISK INFO *****/
 
-        $UtilitiesObj = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Utilities')
-            ->findoneby(array('restaurantid' => $utilitieslink));
+        $RiskinfoObj = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Riskinfo')
+            ->findoneby(array('restaurantid' => $id));
 
-        if(empty($UtilitiesObj)){
-            $UtilitiesObj = new Utilities();
+        if(empty($RiskinfoObj)){
+            $RiskinfoObj = new Riskinfo();
         }
 
+        $insuredbyObj = $RiskinfoObj->getInsuredby();
+        if(empty($insuredbyObj)){
+            $insuredbyObj = new Owners();
+        }
+
+        $insuredBy = $insuredbyObj->getOwnertype();
+
+        $constructionObj = $RiskinfoObj->getConstructionid();
+        if(empty($constructionObj)){
+            $constructionObj = new Constructiontypes();
+        }
+
+        $constructiontypes = $constructionObj->getConstructiontype();
+
+        $risk = array(
+            'insuredby' => $insuredBy,
+            'constructiontypes' => $constructiontypes
+        );
+
+        /**** RENT AND MAINTENANCE *****/
+        $RentandMaintenanceObj = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Rentandmaintenances')
+            ->findoneby(array('restaurantid' => $id));
+
+        if(empty($RentandMaintenanceObj)){
+            $RentandMaintenanceObj = new Rentandmaintenances();
+        }
+
+        $roofReplaceObj = $RentandMaintenanceObj->getRoofreplace();
+        if(empty($roofReplaceObj)){
+            $roofReplaceObj = new Owners();
+        }
+        $roofReplace = $roofReplaceObj->getOwnertype();
+
+        $roofRepairObj = $RentandMaintenanceObj->getRoofrepair();
+        if(empty($roofRepairObj)){
+            $roofRepairObj = new Owners();
+        }
+        $roofRepair = $roofRepairObj->getOwnertype();
+
+        $hvacReplaceObj = $RentandMaintenanceObj->getHvacreplace();
+        if(empty($hvacReplaceObj)){
+            $hvacReplaceObj = new Owners();
+        }
+        $hvacReplace = $hvacReplaceObj->getOwnertype();
+
+        $hvacRepairObj = $RentandMaintenanceObj->getHvacrepair();
+        if(empty($hvacRepairObj)){
+            $hvacRepairObj = new Owners();
+        }
+        $hvacRepair = $hvacRepairObj->getOwnertype();
+
+        $rentAndMaintenance= array(
+            'roofReplace' => $roofReplace,
+            'roofRepair' => $roofRepair,
+            'hvacReplace' => $hvacReplace,
+            'hvacRepair' => $hvacRepair
+        );
+
+        /**** UTILITIES *****/
 
         $UtilitiesObj1 = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Utilities')
-            ->findoneby(array('restaurantid' => $utilitieslink, 'utilitytypeid' => 1));
+            ->findoneby(array('restaurantid' => $id, 'utilitytypeid' => 1));
 
-        if(empty($UtilitytypeObj1)){
-            $UtilitytypeObj1 = new Utilities();
-        } else {$UtilitiesObj1 = "Water";}
+        if(empty($UtilitiesObj1)){
+            $UtilitiesObj1 = new Utilities();
+        }
 
-        $UtilitiesObj1 = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Utilities')
-            ->findoneby(array('restaurantid' => $utilitieslink, 'utilitytypeid' => 1));
+        $billingObj1 = $UtilitiesObj1->getBillingBy();
+        if(empty($billingObj1)){
+            $billingObj1 = new BillingOwners();
+        }
 
-        if(empty($UtilitytypeObj1)){
-            $UtilitytypeObj1 = new Utilities();
-        } else {$UtilitiesObj1 = "Water";}
+        $billing1 = $billingObj1->getDescription();
 
         $UtilitiesObj2 = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Utilities')
-            ->findoneby(array('restaurantid' => $utilitieslink, 'utilitytypeid' => 2));
+            ->findoneby(array('restaurantid' => $id, 'utilitytypeid' => 2));
 
-        if(empty($UtilitytypeObj2)){
-            $UtilitytypeObj2 = new Utilities();
-        } else {$UtilitiesObj2 = "Electric";}
+        if(empty($UtilitiesObj2)){
+            $UtilitiesObj2 = new Utilities();
+        }
+
+        $billingObj2 = $UtilitiesObj2->getBillingBy();
+        if(empty($billingObj2)){
+            $billingObj2 = new BillingOwners();
+        }
+
+        $billing2 = $billingObj2->getDescription();
 
         $UtilitiesObj3 = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Utilities')
-            ->findoneby(array('restaurantid' => $utilitieslink, 'utilitytypeid' => 3));
+            ->findoneby(array('restaurantid' => $id, 'utilitytypeid' => 3));
 
-        if(empty($UtilitytypeObj3)){
-            $UtilitytypeObj3 = new Utilities();
-        } else {$UtilitiesObj3 = "Gas";}
-
-        /***************************/
-        /** Lease Database Branch **/
-        /***************************/
-
-        $leaseObj = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Leases')
-            ->findoneby(array('restaurantid' => $id));
-
-        if(empty($leaseObj)){
-            $leaseObj = new leases();
+        if(empty($UtilitiesObj3)){
+            $UtilitiesObj3 = new Utilities();
         }
 
+        $billingObj3 = $UtilitiesObj3->getBillingBy();
+        if(empty($billingObj3)){
+            $billingObj3 = new BillingOwners();
+        }
+
+        $billing3 = $billingObj3->getDescription();
+
+        $billing = array(
+            'billing1' => $billing1,
+            'billing2' => $billing2,
+            'billing3' => $billing3
+        );
+
+        /**** LEASE *****/
+        $leaseList = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Leases')
+            ->findby(array('restaurantid' => $id));
+
+        $leaseObj = end($leaseList);
+
+        if(empty($leaseObj)){
+            $leaseObj = new Leases();
+        }
+
+        $leaseDateObj = $leaseObj->getLeasedate();
+        if(empty($leaseDateObj)){
+            $leasedate = "";
+        }else{
+            $leasedate = $leaseDateObj->format('F d, Y');
+        }
+
+        $commencementDateObj = $leaseObj->getCommencementdate();
+        if(empty($commencementDateObj)){
+            $commencementdate = "";
+        }else{
+            $commencementdate = $commencementDateObj->format('F d, Y');
+        }
+
+        $renewalOptionDateObj = $leaseObj->getRenewaloptiondate();
+        if(empty($renewalOptionDateObj)){
+            $renewalOptionDate = "";
+        }else{
+            $renewalOptionDate = $renewalOptionDateObj->format('F d, Y');
+        }
+
+        $leaseDates = array(
+            'leasedate' => $leasedate,
+            'commencementdate' => $commencementdate,
+            'renewalOptionDate' => $renewalOptionDate
+        );
+
+
+        /**** LEASE REPORTS *****/
         $linklease = $leaseObj->getLeaseid();
 
         $LeasereportsinfoObj = $this->getDoctrine()
@@ -231,29 +363,42 @@ class SummaryController extends Controller
             $LeasereportsinfoObj = new Leasereportsinfo();
         }
 
+        $dueDateObj = $LeasereportsinfoObj->getDuedate();
+        if(empty($dueDateObj)){
+            $dueDate = "";
+        }else{
+            $dueDate = $dueDateObj->format('F d, Y');
+        }
+
+        $reportPeriodObj = $LeasereportsinfoObj->getReporttypeid();
+        if(empty($reportPeriodObj)){
+            $reportPeriodObj = new Reportperiodtypes();
+        }
+
+        $reporttype = $reportPeriodObj->getPeriodtype();
+
+        $leaseReport = array(
+            'dueDate' => $dueDate,
+            'periodType' => $reporttype
+        );
+
+        /**** CRITICAL TASK *****/
+        $LeasecriticaltaskObj = array();
+
         $LeasecriticaltaskObj =$this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Leasecriticaltasks')
-            ->findoneby(array('leaseid' => $linklease));
+            ->findby(array('leaseid' => $linklease));
 
         if(empty($LeasecriticaltaskObj)){
-            $LeasecriticaltaskObj = new Leasecriticaltasks();
+            $CriticalTask = new Leasecriticaltasks();
+            array_push($LeasecriticaltaskObj, $CriticalTask);
         }
 
-        $linkreporttype = $LeasereportsinfoObj->getReporttypeid();
-
-        $ReportperiodtypeObj = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Reportperiodtypes')
-            ->findoneby(array('reporttypeid' => $linkreporttype));
-
-        if(empty($ReportperiodtypeObj)){
-            $ReportperiodtypeObj = new Reportperiodtypes();
-        }
-
-        $renewallink = $leaseObj->getLeaseid();
+        $RenewalObj = array();
 
         $RenewalObj =$this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Renewals')
-            ->findby(array('leaseid' => $renewallink));
+            ->findby(array('leaseid' => $linklease));
 
         if(empty($RenewalObj)){
             $Renewal = new Renewals();
@@ -273,27 +418,29 @@ class SummaryController extends Controller
             array(
                 'storeFinderForm' => $formRequested->createView(),
                 'restaurantarray' => $restaurantarray,
+                'restaurant' => $restaurant,
                 'leaseObj' => $leaseObj,
+                'leaseDates' => $leaseDates,
                 'RestaurantObj' => $RestaurantObj,
-                'totalseats' => $totalseats,
-                'totaltables' => $totaltables,
                 'LeasereportsinfoObj' => $LeasereportsinfoObj,
+                'LeaseReport' => $leaseReport,
                 'RiskinfoObj' => $RiskinfoObj,
+                'risk' => $risk,
+                'rentAndMaintenance' => $rentAndMaintenance,
                 'LandlordObj' => $LandlordObj,
                 'PropertymanagerObj' => $PropertymanagerObj,
+                'ProvinceState' => $provinceState,
                 'LiquorlicenseObj' => $LiquorlicenseObj,
-                'StoreclassObj' => $StoreclassObj,
-                'ReportperiodtypeObj' => $ReportperiodtypeObj,
-                'BuildingtypeObj' => $BuildingtypeObj,
                 'RenewalObj' => $RenewalObj,
                 'LeasecriticaltaskObj' => $LeasecriticaltaskObj,
                 'LicenseObj' => $LicenseObj,
-                'UtilitiesObj' => $UtilitiesObj,
                 'UtilitiesObj1' => $UtilitiesObj1,
                 'UtilitiesObj2' => $UtilitiesObj2,
                 'UtilitiesObj3' => $UtilitiesObj3,
+                'billing' => $billing
             )
         );
+
 
     }
 
@@ -414,6 +561,7 @@ class SummaryController extends Controller
         $rentandmaintenanceObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Rentandmaintenances')
             ->findOneBy(array('restaurantid' => $restaurantid));
+
 
         $hvacrepair = $rentandmaintenanceObj->getHvacrepair();
         $hvacreplace = $rentandmaintenanceObj->getHvacreplace();

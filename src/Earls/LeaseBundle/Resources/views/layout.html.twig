@@ -13,12 +13,18 @@
     <link href="{{ asset('bundles/earlslease/css/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
 
     <link href="{{ asset('bundles/earlslease/js/bootstrap-wizard/wizard.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/earlslease/js/bootstrap-dist/fonts') }}" rel="stylesheet">
 
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('bundles/earlslease/css/normalize.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/earlslease/css/style.css') }}">
-
+    <!-- JQUERY UI-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/earlslease/js/jquery-ui-1.10.3.custom/css/custom-theme/jquery-ui-1.10.3.custom.min.css') }}" />
+    <!-- DATA TABLES -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/earlslease/js/datatables/media/css/jquery.dataTables.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/earlslease/js/datatables/media/assets/css/datatables.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/earlslease/js/datatables/extras/TableTools/media/css/TableTools.min.css') }}" />
     <title>{% block title 'Earls Lease Bundle' %}</title>
     {% endblock %}
 </head>
@@ -145,6 +151,19 @@
         App.setPage("wizards_validations");
         App.init();
         FormWizard.init();
+    });
+</script>
+
+<script type="text/javascript" src="{{ asset('bundles/earlslease/js/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/earlslease/js/datatables/media/assets/js/datatables.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/earlslease/js/datatables/extras/TableTools/media/js/TableTools.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/earlslease/js/datatables/extras/TableTools/media/js/ZeroClipboard.min.js') }}"></script>
+
+<script>
+    jQuery(document).ready(function() {
+        $('.datatable').dataTable();
+        App.setPage("dynamic_table");  //Set current page
+        App.init(); //Initialise plugins and elements
     });
 </script>
 </body>

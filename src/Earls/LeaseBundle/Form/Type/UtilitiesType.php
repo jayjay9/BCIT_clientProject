@@ -19,7 +19,8 @@ class UtilitiesType extends AbstractType
             ->add('iscam')
             ->add('utilitytypeid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Utilitytypes',
-                'property' => 'utilitytype'
+                'property' => 'utilitytype',
+                'disabled'=>true,
             ))
 //            ->add('restaurantid')
             ->add('billingby', 'entity', array(

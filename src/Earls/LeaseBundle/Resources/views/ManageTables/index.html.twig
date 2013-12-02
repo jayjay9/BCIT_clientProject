@@ -17,7 +17,7 @@
     <div class="col-md-12">
         <div class="box border blue">
             <div class="box-body big">
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-tabs" id="myTab">
                     <li><a href="#landlord" data-toggle="tab">Landlord</a></li>
                     <li><a href="#propertymanager" data-toggle="tab">Property Manager</a></li>
                     <li><a href="#buildingtypes" data-toggle="tab">Building Types</a></li>
@@ -35,7 +35,7 @@
                                 </a>
                             </div>
                             <div class="box-body">
-                                <table class="table table-hover">
+                                <table id="datatableLandlord" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -48,7 +48,7 @@
                                     <tbody>
                                     {% for landlord in allLandlord %}
                                     <tr>
-                                        <td> </td>
+                                        <td>{{ loop.index }}</td>
                                         <td> {{ landlord.landlordname }}</td>
                                         <td>{{ landlord.address }}</td>
                                         <td><a data-toggle="modal" class="btn btn-small btn-warning" href="{{ path('_manage_tables_landlord_get_id', {'id': landlord.landlordid }) }}" data-target="#landlordModal{{ landlord.landlordid }}">
@@ -81,7 +81,7 @@
                                         </a>
                                     </div>
                                     <div class="box-body">
-                                        <table class="table table-hover">
+                                        <table id="datatablePropertyManager" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover">
                                             <thead>
                                             <tr>
                                                 <th>#</th>
@@ -94,7 +94,7 @@
                                             <tbody>
                                             {% for propertymanager in allPropertymanager %}
                                                 <tr>
-                                                    <td> </td>
+                                                    <td>{{ loop.index }}</td>
                                                     <td> {{ propertymanager.propertymanagername }}</td>
                                                     <td>{{ propertymanager.address }}</td>
                                                     <td> <a data-toggle="modal" class="btn btn-small btn-warning" href="{{ path('_manage_tables_propertyManager_get_id', {'id': propertymanager.propertymanagerid }) }}" data-target="#propertymanagerModal{{ propertymanager.propertymanagerid }}">
@@ -128,9 +128,10 @@
                                         </a>
                                     </div>
                                     <div class="box-body">
-                                        <table class="table table-hover">
+                                        <table id="datatableBuildingTypes" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover">
                                             <thead>
                                             <tr>
+                                                <th>#</th>
                                                 <th>Building Types</th>
                                                 <th>Delete</th>
                                             </tr>
@@ -138,6 +139,7 @@
                                             <tbody>
                                                 {% for buildingtypes in allBuildingtypes %}
                                                     <tr>
+                                                        <td>{{ loop.index }}</td>
                                                         <td> {{ buildingtypes.buildingtypes }}</td>
                                                         <td><a class="btn btn-small btn-danger" href="{{ path('_manage_tables_buildingtypes_delete_id', {'id': buildingtypes.buildingtypeid }) }}">
                                                                 <i class="fa fa-times-circle"></i> Delete
@@ -164,9 +166,10 @@
                                         </a>
                                     </div>
                                     <div class="box-body">
-                                        <table class="table table-hover">
+                                        <table id="datatableStoreClass" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover">
                                             <thead>
                                             <tr>
+                                                <th>#</th>
                                                 <th>Store Classes</th>
                                                 <th>Delete</th>
                                             </tr>
@@ -174,6 +177,7 @@
                                             <tbody>
                                             {% for storeclasses in allStoreclasses %}
                                                 <tr>
+                                                    <td>{{ loop.index }}</td>
                                                     <td> {{ storeclasses.storeclass }}</td>
                                                     <td><a class="btn btn-small btn-danger" href="{{ path('_manage_tables_storeClasses_delete_id', {'id': storeclasses.storeclassid }) }}">
                                                             <i class="fa fa-times-circle"></i> Delete
@@ -201,5 +205,4 @@
         </div><!-- /.modal -->
     </div>
 </div>
-
 {% endblock %}

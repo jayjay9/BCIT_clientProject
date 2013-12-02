@@ -615,7 +615,7 @@
                         <tr>
                             <th>HVAC Repair</th>
                             <th>HVAC Replace</th>
-                            <th>Roof Repair</th>
+                            <th>Roof Repare</th>
                             <th>Roof Replace</th>
                         </tr>
                         </thead>
@@ -681,22 +681,66 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>{{ form_widget(storeInfoForm.utilities.utilitytypeid, {
+                            <td>{{ form_widget(storeInfoForm.utilities1.utilitytypeid, {
                                 'attr': {'class': 'form-control',
                                 'form': 'storeinfo'
                                 }
                                 }) }}</td>
-                            <td>{{ form_widget(storeInfoForm.utilities.billingby, {
+                            <td>{{ form_widget(storeInfoForm.utilities1.billingby, {
                                 'attr': {'class': 'form-control',
                                 'form': 'storeinfo'
                                 }
                                 }) }}</td>
-                            <td>{{ form_widget(storeInfoForm.utilities.ismetered, {
+                            <td>{{ form_widget(storeInfoForm.utilities1.ismetered, {
                                 'attr': {'class': 'checkbox',
                                 'form': 'storeinfo'
                                 }
                                 }) }}</td>
-                            <td>{{ form_widget(storeInfoForm.utilities.iscam, {
+                            <td>{{ form_widget(storeInfoForm.utilities1.iscam, {
+                                'attr': {'class': 'checkbox',
+                                'form': 'storeinfo'
+                                }
+                                }) }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form_widget(storeInfoForm.utilities2.utilitytypeid, {
+                                'attr': {'class': 'form-control',
+                                'form': 'storeinfo'
+                                }
+                                }) }}</td>
+                            <td>{{ form_widget(storeInfoForm.utilities2.billingby, {
+                                'attr': {'class': 'form-control',
+                                'form': 'storeinfo'
+                                }
+                                }) }}</td>
+                            <td>{{ form_widget(storeInfoForm.utilities2.ismetered, {
+                                'attr': {'class': 'checkbox',
+                                'form': 'storeinfo'
+                                }
+                                }) }}</td>
+                            <td>{{ form_widget(storeInfoForm.utilities2.iscam, {
+                                'attr': {'class': 'checkbox',
+                                'form': 'storeinfo'
+                                }
+                                }) }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form_widget(storeInfoForm.utilities3.utilitytypeid, {
+                                'attr': {'class': 'form-control',
+                                'form': 'storeinfo'
+                                }
+                                }) }}</td>
+                            <td>{{ form_widget(storeInfoForm.utilities3.billingby, {
+                                'attr': {'class': 'form-control',
+                                'form': 'storeinfo'
+                                }
+                                }) }}</td>
+                            <td>{{ form_widget(storeInfoForm.utilities3.ismetered, {
+                                'attr': {'class': 'checkbox',
+                                'form': 'storeinfo'
+                                }
+                                }) }}</td>
+                            <td>{{ form_widget(storeInfoForm.utilities3.iscam, {
                                 'attr': {'class': 'checkbox',
                                 'form': 'storeinfo'
                                 }
@@ -719,7 +763,8 @@
     </div>
 
 
-
+    {#{{ form_widget(addStoreForm._token) }}
+    {{ form_end(addStoreForm, {'render_rest': false}) }}#}
     {{ form_end(storeInfoForm) }}
 
 

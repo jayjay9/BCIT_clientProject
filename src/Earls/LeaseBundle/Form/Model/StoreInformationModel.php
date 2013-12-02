@@ -32,7 +32,11 @@ class StoreInformationModel {
 
     protected $rentandmaintenance;
 
-    protected $utilities;
+    protected $utilities1;
+
+    protected $utilities2;
+
+    protected $utilities3;
 
     protected $restaurantId;
 
@@ -87,14 +91,34 @@ class StoreInformationModel {
         return $this->rentandmaintenance;
     }
 
-    public function setUtilities(Utilities $utilities)
+    public function setUtilities1(Utilities $utilities1)
     {
-        $this->utilities = $utilities;
+        $this->utilities1 = $utilities1;
     }
 
-    public function getUtilities()
+    public function getUtilities1()
     {
-        return $this->utilities;
+        return $this->utilities1;
+    }
+
+    public function setUtilities2(Utilities $utilities2)
+    {
+        $this->utilities2 = $utilities2;
+    }
+
+    public function getUtilities2()
+    {
+        return $this->utilities2;
+    }
+
+    public function setUtilities3(Utilities $utilities3)
+    {
+        $this->utilities3 = $utilities3;
+    }
+
+    public function getUtilities3()
+    {
+        return $this->utilities3;
     }
 
     public function setRestaurantId($restaurantId)

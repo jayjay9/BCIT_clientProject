@@ -3,17 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5a7a6150-0dcb-41f1-a63f-812e63589da4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/AddStoreInformationController.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/AddStoreInformationController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Model/StoreInformationModel.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Model/StoreInformationModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/StoreInformationType.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/StoreInformationType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/SummaryController.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/SummaryController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/UtilitiesType.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/UtilitiesType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LeasesByExpiry/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LeasesByExpiry/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LicenseByExpiry/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LicenseByExpiry/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Summary/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Summary/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/layout.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/layout.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/addStore.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/addStore.html.twig" />
     </list>
     <ignored path="EarlsLeaseWebApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,84 +26,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="layout.html.twig" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/layout.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="68" selection-start="723" selection-end="723" vertical-scroll-proportion="0.1331361" vertical-offset="0" max-vertical-offset="2625">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="105" column="66" selection-start="7114" selection-end="7114" vertical-scroll-proportion="-65.625" vertical-offset="0" max-vertical-offset="3210">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="683" column="85" selection-start="24389" selection-end="24402" vertical-scroll-proportion="-19.791666" vertical-offset="9770" max-vertical-offset="11655">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UtilitiesType.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/UtilitiesType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="16" selection-start="669" selection-end="669" vertical-scroll-proportion="-12.5" vertical-offset="0" max-vertical-offset="825">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="addStore.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/addStore.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1426" column="56" selection-start="56883" selection-end="56978" vertical-scroll-proportion="-63.583332" vertical-offset="19864" max-vertical-offset="21555">
+            <state line="679" column="72" selection-start="25020" selection-end="25020" vertical-scroll-proportion="-43.875" vertical-offset="9132" max-vertical-offset="22215">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StoreInformationController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php">
+      <file leaf-file-name="AddStoreInformationController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/AddStoreInformationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="0" selection-start="1771" selection-end="1771" vertical-scroll-proportion="94.916664" vertical-offset="3148" max-vertical-offset="5715">
-              <folding>
-                <element signature="e#48#91#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Summary/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="152" column="88" selection-start="8926" selection-end="8926" vertical-scroll-proportion="28.265306" vertical-offset="3665" max-vertical-offset="6030">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StoreInformationModel.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Model/StoreInformationModel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1935">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StoreInformationType.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/StoreInformationType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="51" selection-start="861" selection-end="861" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="675">
+            <state line="175" column="63" selection-start="6309" selection-end="6309" vertical-scroll-proportion="0.5172213" vertical-offset="1334" max-vertical-offset="3585">
               <folding />
             </state>
           </provider>
@@ -137,14 +62,12 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Model/LeaseCollectionModel.php" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/LeaseCollectionType.php" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/AddLeaseInformationController.php" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/LeasesInfoType.php" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/ManageTablesController.php" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/LeaseInformationController.php" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LeaseInformation/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/addStore.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception/error.html.twig" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/SummaryController.php" />
@@ -153,6 +76,8 @@
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/UtilitiesType.php" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/layout.html.twig" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/addStore.html.twig" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/AddStoreInformationController.php" />
       </list>
     </option>
   </component>
@@ -701,41 +626,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ManageTables" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EarlsLeaseWebApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EarlsLeaseWebApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Earls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LeaseBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LeaseInformation" />
+              <option name="myItemId" value="StoreInformation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1076,7 +967,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24963072" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30754352" sideWeight="0.67504185" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30754352" sideWeight="0.67504185" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1123,13 +1014,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="675">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="44" column="0" selection-start="4307" selection-end="4307" vertical-scroll-proportion="0.38528895" vertical-offset="0" max-vertical-offset="1713">
@@ -1173,13 +1057,6 @@
           <folding>
             <element signature="e#48#91#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/addStore.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1426" column="56" selection-start="56883" selection-end="56978" vertical-scroll-proportion="-63.583332" vertical-offset="19864" max-vertical-offset="21555">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1234,7 +1111,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="68" selection-start="723" selection-end="723" vertical-scroll-proportion="0.1331361" vertical-offset="0" max-vertical-offset="2625">
+        <state line="15" column="68" selection-start="723" selection-end="723" vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="2625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/addStore.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="679" column="72" selection-start="25020" selection-end="25020" vertical-scroll-proportion="-43.875" vertical-offset="9132" max-vertical-offset="22215">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/AddStoreInformationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="175" column="63" selection-start="6309" selection-end="6309" vertical-scroll-proportion="0.5172213" vertical-offset="1334" max-vertical-offset="3585">
           <folding />
         </state>
       </provider>

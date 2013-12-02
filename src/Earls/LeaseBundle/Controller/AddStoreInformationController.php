@@ -45,9 +45,27 @@ class AddStoreInformationController extends Controller {
        $riskinfo = new Riskinfo();
        $licenseinfo = new Licenses();
        $rentandmaintenance = new Rentandmaintenances();
+
+        $utilitiestype1 = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Utilitytypes')
+            ->find(1);
+
+        $utilitiestype2 = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Utilitytypes')
+            ->find(2);
+
+        $utilitiestype3 = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Utilitytypes')
+            ->find(3);
+
        $utilities1 = new Utilities();
+       $utilities1->setUtilitytypeid($utilitiestype1);
+
        $utilities2 = new Utilities();
+        $utilities2->setUtilitytypeid($utilitiestype2);
+
        $utilities3 = new Utilities();
+        $utilities3->setUtilitytypeid($utilitiestype3);
 
        $storeinfomodel = new StoreInformationModel();
        $storeinfomodel->setRestaurantinfo($restaurant);
@@ -56,8 +74,8 @@ class AddStoreInformationController extends Controller {
        $storeinfomodel->setRiskinfo($riskinfo);
        $storeinfomodel->getRentandmaintenance($rentandmaintenance);
        $storeinfomodel->setUtilities1($utilities1);
-       $storeinfomodel->setUtilities1($utilities2);
-       $storeinfomodel->setUtilities1($utilities3);
+       $storeinfomodel->setUtilities2($utilities2);
+       $storeinfomodel->setUtilities3($utilities3);
 
        $leaseinfo = new Leases();
        $leasereportinfo = new Leasereportsinfo();

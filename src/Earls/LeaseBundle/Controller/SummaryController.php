@@ -171,25 +171,32 @@ class SummaryController extends Controller
         }
 
         /**** LICENSE *****/
-        $licenselink = $RestaurantObj->getLicenseid()->getLicenseid();
+        $licenselinkObj = $RestaurantObj->getLicenseid();
 
-        $LicenseObject = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Licenses')
-            ->find($licenselink);
-
-        if(empty($LicenseObject)){
-            $LicenseObject = new Licenses();
-        }
-
-        $expiry = $LicenseObject->getExpirarydate();
-
-        if(isset($expiry)){
-            $expiryformat = $expiry->format('F d, Y');
+        if(empty($licenselinkObj)){
+            $LicenseObj = array('expirarydate' => "");
         }else{
-            $expiryformat = "";
+            $licenselink = $licenselinkObj->getLicenseid();
+
+            $LicenseObject = $this->getDoctrine()
+                ->getRepository('EarlsLeaseBundle:Licenses')
+                ->find($licenselink);
+
+            if(empty($LicenseObject)){
+                $LicenseObject = new Licenses();
+            }
+
+            $expiry = $LicenseObject->getExpirarydate();
+
+            if(isset($expiry)){
+                $expiryformat = $expiry->format('F d, Y');
+            }else{
+                $expiryformat = "";
+            }
+
+            $LicenseObj = array('expirarydate' => $expiryformat);
         }
 
-        $LicenseObj = array('expirarydate' => $expiryformat);
 
         /**** RISK INFO *****/
 

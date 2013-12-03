@@ -123,51 +123,23 @@
 <script src="{{ asset('bundles/earlslease/js/modernizr-2.6.1.min.js') }}"></script>
 <script src="{{ asset('bundles/earlslease/js/main.js') }}"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="{{ asset('js/jquery.js') }}"><\/script>')</script>
 <script src="{{ asset('bundles/earlslease/js/bootstrap.js') }}"></script>
 
 
 <!--added-->
-
 <script src="{{ asset('bundles/earlslease/js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js') }}"></script>
 <script src="{{ asset('bundles/earlslease/js/bootstrap-dist/js/bootstrap.min.js') }}"></script>
 
 <script src="{{ asset('bundles/earlslease/js/bootstrap-daterangepicker/moment.min.js') }}"></script>
 <script src="{{ asset('bundles/earlslease/js/bootstrap-daterangepicker/daterangepicker.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('bundles/earlslease/js/jQuery-slimScroll-1.3.0/jquery.slimscroll.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/earlslease/js/jQuery-slimScroll-1.3.0/slimScrollHorizontal.min') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/earlslease/js/jQuery-slimScroll-1.3.0/slimScrollHorizontal.min.js') }}"></script>
 
-<script src="{{ asset('bundles/earlslease/js/Query-BlockUI/jquery.blockUI.min.js') }}"></script>
-<script src="{{ asset('bundles/earlslease/js/select2/select2.min.js') }}"></script>
-<script src="{{ asset('bundles/earlslease/js/uniform/jquery.uniform.min.js') }}"></script>
-<script src="{{ asset('bundles/earlslease/js/bootstrap-wizard/jquery.bootstrap.wizard.min.js') }}"></script>
-<script src="{{ asset('bundles/earlslease/js/jquery-validate/jquery.validate.min.js') }}"></script>
-<script src="{{ asset('bundles/earlslease/js/jquery-validate/additional-methods.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/earlslease/js/bootbox/bootbox.min.js') }}"></script>
-
-<script type="text/javascript" src="{{ asset('bundles/earlslease/js/jQuery-cookie/jquery.cookie.min.js') }}"></script>
-
+<script src="{{ asset('bundles/earlslease/js/jQuery-BlockUI/jquery.blockUI.min.js') }}"></script>
 <script src="{{ asset('bundles/earlslease/js/script.js') }}"></script>
-<script src="{{ asset('bundles/earlslease/js/bootstrap-wizard/form-wizard.min.js') }}"></script>
-<script>
-    jQuery(document).ready(function(){
-        App.setPage("wizards_validations");
-        App.init();
-        FormWizard.init();
-    });
-</script>
+{% block javascript %}
 
-<script type="text/javascript" src="{{ asset('bundles/earlslease/js/datatables/media/js/jquery.dataTables.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/earlslease/js/datatables/media/assets/js/datatables.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/earlslease/js/datatables/extras/TableTools/media/js/TableTools.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/earlslease/js/datatables/extras/TableTools/media/js/ZeroClipboard.min.js') }}"></script>
+{% endblock %}
 
-<script>
-    jQuery(document).ready(function() {
-        $('.datatable').dataTable();
-        App.setPage("dynamic_table");  //Set current page
-        App.init(); //Initialise plugins and elements
-    });
-</script>
 </body>
 </html>

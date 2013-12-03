@@ -206,3 +206,17 @@
     </div>
 </div>
 {% endblock %}
+{% block javascript %}
+    <script type="text/javascript" src="{{ asset('bundles/earlslease/js/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/earlslease/js/datatables/media/assets/js/datatables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/earlslease/js/datatables/extras/TableTools/media/js/TableTools.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/earlslease/js/datatables/extras/TableTools/media/js/ZeroClipboard.min.js') }}"></script>
+
+    <script>
+        jQuery(document).ready(function() {
+            $('.datatable').dataTable();
+            App.setPage("dynamic_table");  //Set current page
+            App.init(); //Initialise plugins and elements
+        });
+    </script>
+{% endblock %}

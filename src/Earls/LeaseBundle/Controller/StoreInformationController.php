@@ -61,6 +61,10 @@ class StoreInformationController extends Controller
             ->getRepository('EarlsLeaseBundle:Restaurants')
             ->find($id);
 
+
+        $totalSeats = $restaurantObj->getDiningroomseating() + $restaurantObj->getLoungeseating() + $restaurantObj->getPatioseating();
+        $totalTables = $restaurantObj->getDiningroomtable() + $restaurantObj->getLoungetable() + $restaurantObj->getPatiotable();
+
         $licenseObj = $restaurantObj->getLicenseid();
         if (isset($licenseObj)) {
             $licenseid = $licenseObj->getLicenseid();
@@ -195,7 +199,8 @@ class StoreInformationController extends Controller
         return $this->render('EarlsLeaseBundle:StoreInformation:index.html.twig',
             array(
                 'storeFinderForm' => $formRequested->createView(),
-                'storeInfoForm' => $storeInfoForm->createView()
+                'storeInfoForm' => $storeInfoForm->createView(),
+                'totals' => array('totalSeats' => $totalSeats, 'totalTables' => $totalTables),
             )
         );
 

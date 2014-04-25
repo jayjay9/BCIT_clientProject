@@ -1,0 +1,69 @@
+<?php
+
+namespace Earls\CorporateBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Recordsoffices
+ *
+ * @ORM\Table(name="recordsoffices")
+ * @ORM\Entity
+ */
+class Recordsoffices
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=255, nullable=true)
+     */
+    private $address;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="postalZip", type="string", length=45, nullable=true)
+     */
+    private $postalzip;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="recordOfficeID", type="smallint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $recordofficeid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Offices
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Offices")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="officeID", referencedColumnName="officeID")
+     * })
+     */
+    private $officeid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Provincestate
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Provincestate")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
+     * })
+     */
+    private $provincestateid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Northamericancities
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Northamericancities")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="city", referencedColumnName="northAmericanCityID")
+     * })
+     */
+    private $city;
+
+
+}

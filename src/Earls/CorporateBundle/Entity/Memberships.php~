@@ -1,0 +1,62 @@
+<?php
+
+namespace Earls\CorporateBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Memberships
+ *
+ * @ORM\Table(name="memberships")
+ * @ORM\Entity
+ */
+class Memberships
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="numberOfShares", type="integer", nullable=true)
+     */
+    private $numberofshares;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="membershipID", type="smallint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $membershipid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Sharetypes
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Sharetypes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="shareTypeID", referencedColumnName="shareTypeID")
+     * })
+     */
+    private $sharetypeid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Directors
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Directors")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="directorID", referencedColumnName="directorID")
+     * })
+     */
+    private $directorid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Corporations
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Corporations")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="corporateID", referencedColumnName="corporateID")
+     * })
+     */
+    private $corporateid;
+
+
+}

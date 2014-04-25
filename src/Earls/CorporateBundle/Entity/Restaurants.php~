@@ -1,0 +1,302 @@
+<?php
+
+namespace Earls\CorporateBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Restaurants
+ *
+ * @ORM\Table(name="restaurants")
+ * @ORM\Entity
+ */
+class Restaurants
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="storeFileNumber", type="integer", nullable=true)
+     */
+    private $storefilenumber;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tenant", type="string", length=255, nullable=true)
+     */
+    private $tenant;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="storenickname", type="string", length=45, nullable=true)
+     */
+    private $storenickname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=45, nullable=true)
+     */
+    private $address;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="postalZip", type="string", length=45, nullable=true)
+     */
+    private $postalzip;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="openingDate", type="string", length=45, nullable=true)
+     */
+    private $openingdate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="legaldescription", type="string", length=300, nullable=true)
+     */
+    private $legaldescription;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="diningRoomSeating", type="integer", nullable=true)
+     */
+    private $diningroomseating;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="loungeSeating", type="integer", nullable=true)
+     */
+    private $loungeseating;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="patioSeating", type="integer", nullable=true)
+     */
+    private $patioseating;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="diningRoomTable", type="integer", nullable=true)
+     */
+    private $diningroomtable;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="loungeTable", type="integer", nullable=true)
+     */
+    private $loungetable;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="patioTable", type="integer", nullable=true)
+     */
+    private $patiotable;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="departmentNumber", type="integer", nullable=true)
+     */
+    private $departmentnumber;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="restaurantState", type="boolean", nullable=true)
+     */
+    private $restaurantstate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="closeDate", type="date", nullable=true)
+     */
+    private $closedate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="royaltyFee", type="string", length=45, nullable=true)
+     */
+    private $royaltyfee;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="advertisingFee", type="string", length=45, nullable=true)
+     */
+    private $advertisingfee;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="regionalMngtFee", type="string", length=45, nullable=true)
+     */
+    private $regionalmngtfee;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="yearBuilt", type="string", length=4, nullable=true)
+     */
+    private $yearbuilt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comments", type="string", length=255, nullable=true)
+     */
+    private $comments;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="restaurantID", type="smallint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $restaurantid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Licenses
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Licenses")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="licenseID", referencedColumnName="licenseID")
+     * })
+     */
+    private $licenseid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Landlords
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Landlords")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="landlordID", referencedColumnName="landlordID")
+     * })
+     */
+    private $landlordid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Propertymanagers
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Propertymanagers")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="propertymanagerID", referencedColumnName="propertyManagerID")
+     * })
+     */
+    private $propertymanagerid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Regions
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Regions")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="regionID", referencedColumnName="regionID")
+     * })
+     */
+    private $regionid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Storeclasses
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Storeclasses")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="storeClassID", referencedColumnName="storeClassID")
+     * })
+     */
+    private $storeclassid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Corporations
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Corporations")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="corporateID", referencedColumnName="corporateID")
+     * })
+     */
+    private $corporateid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Buildingtypes
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Buildingtypes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="buildingType", referencedColumnName="buildingTypeID")
+     * })
+     */
+    private $buildingtype;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Liquorlicenses
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Liquorlicenses")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="liquorLicenseID", referencedColumnName="liquorLicenseID")
+     * })
+     */
+    private $liquorlicenseid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Provincestate
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Provincestate")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="provinceStateID", referencedColumnName="provinceStateID")
+     * })
+     */
+    private $provincestateid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Utilities
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Utilities")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="utilityID", referencedColumnName="utilityID")
+     * })
+     */
+    private $utilityid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Rentandmaintenances
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Rentandmaintenances")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="rentAndMaintenanceID", referencedColumnName="rentAndMaintenanceID")
+     * })
+     */
+    private $rentandmaintenanceid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Riskinfo
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Riskinfo")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="riskID", referencedColumnName="riskID")
+     * })
+     */
+    private $riskid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Northamericancities
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Northamericancities")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="city", referencedColumnName="northAmericanCityID")
+     * })
+     */
+    private $city;
+
+
+}

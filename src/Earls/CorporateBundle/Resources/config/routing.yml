@@ -1,0 +1,3 @@
+earls_corporate_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: EarlsCorporateBundle:Default:index }

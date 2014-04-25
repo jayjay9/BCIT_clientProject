@@ -1,0 +1,7 @@
+parameters:
+#    earls_corporate.example.class: Earls\CorporateBundle\Example
+
+services:
+#    earls_corporate.example:
+#        class: %earls_corporate.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -47,9 +47,12 @@
 
     <script>
         jQuery(document).ready(function() {
-            $('.datatable').dataTable();
+            $('.datatable').dataTable({
+                "iDisplayLength": 25
+            });
             App.setPage("dynamic_table");  //Set current page
             App.init(); //Initialise plugins and elements
         });
     </script>
+
 {% endblock %}

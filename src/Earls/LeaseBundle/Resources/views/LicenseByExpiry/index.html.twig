@@ -29,7 +29,7 @@
                 <tbody>
                 {% for license in licenseByExpiry %}
                     <tr>
-                        <td> {{ license.storeNickname }}</td>
+                        <td> <a href="{{ path('_summary_get_id', {'id': license.restaurantId}) }}">{{ license.storeNickname }}</a></td>
                         <td> {{ license.licenseAgreement }}</td>
                         <td>{{ license.startDate}}</td>
                         <td>{{ license.expiryDate}}</td>

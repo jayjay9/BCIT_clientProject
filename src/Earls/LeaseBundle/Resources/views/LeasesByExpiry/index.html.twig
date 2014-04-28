@@ -26,7 +26,7 @@
                 <tbody>
                 {% for lease in leasesByExpiry %}
                     <tr>
-                        <td> {{ lease.storeNickName }}</td>
+                        <td> <a href="{{ path('_summary_get_id', {'id': lease.restaurantId}) }}">{{ lease.storeNickName }}</a></td>
                         <td> {{ lease.storeClass }}</td>
                         <td>{{ lease.leaseExpiryDate }}</td>
                         <td>{{ lease.leaseOptionDate }}</td>

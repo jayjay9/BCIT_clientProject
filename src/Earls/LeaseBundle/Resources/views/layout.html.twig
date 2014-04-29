@@ -40,7 +40,7 @@
 
     <div class="wrapmenu">
 
-        <div id="logo"><a href="#" onClick="alert('You are amazing!')"><span><img src="{{ asset('bundles/earlslease/images/EarlsLogo.png') }}"
+        <div id="logo"><a href="#" onClick="alert('You are amazing, just the way you are!')"><span><img src="{{ asset('bundles/earlslease/images/EarlsLogo.png') }}"
                                               alt="" /></span></a></div>
 
         <div id="category">Reports</div>
@@ -56,8 +56,23 @@
         <ul class="menu">
             <li><a href="{{ path('_storeinformation') }}"><span>Store Information</span></a></li>
             <li><a href="{{ path('_manageArea') }}"><span>Manage Areas</span></a></li>
-            <li><a href="{{ path('_manage_tables') }}"><span>Manage Tables</span></a></li>
+            <li><a href="{{ path('_manage_tables') }}"><span>Manage Lease Tables</span></a></li>
+            <li><a href="{{ path('_summaryshareholder') }}"><span>Summary Shareholder</span></a></li>
         </ul>
+
+        <div id="category">Corp Reports</div>    
+        <ul class="menu">
+            <li><a href="{{ path('_corporatesummary') }}"><span>Corporate Summary</span></a></li>
+            <li><a href="{{ path('_summaryshareholder') }}"><span>Summary By Shareholder</span></a></li>
+            <li><a href="{{ path('_summarycompany') }}"><span>Summary By Company</span></a></li>
+        </ul>
+
+        <div id="category">Corp Administration</div>
+        <ul class="menu">
+            <li><a href="{{ path('_corporateinformation') }}"><span>Corporate Information</span></a></li>
+            <li><a href="{{ path('_corporate_manage_tables') }}"><span>Manage Corporate Tables</span></a></li>
+        </ul>
+
 
         <!-- Footer / start -->
         <footer>

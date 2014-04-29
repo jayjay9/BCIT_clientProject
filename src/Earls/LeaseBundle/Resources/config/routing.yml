@@ -52,3 +52,4 @@ _license_byExpiry:
     resource:   "@EarlsLeaseBundle/Controller/LicenseByExpiryController.php"
     type:       annotation
     prefix:     /LicenseByExpiry
+

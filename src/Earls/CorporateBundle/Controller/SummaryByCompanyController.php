@@ -3,6 +3,9 @@
 // src/Acme/CorporateBundle/Controller/SummaryByCompanyController.php
 namespace Earls\CorporateBundle\Controller;
 
+use Earls\CorporateBundle\Entity\Corporations;
+use Earls\CorporateBundle\Entity\Memberships;
+use Earls\CorporateBundle\Entity\Directors;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
@@ -19,10 +22,36 @@ class SummaryByCompanyController extends Controller
      */
     public function indexAction()
     {   
-        return $this->render('EarlsCorporateBundle:SummaryCompany:index.html.twig');
+    	$companylist = $this->getDoctrine()
+            ->getRepository('EarlsCorporateBundle:Corporations')
+            ->findAll();
+
+        $companyArray = array();
+        $companyObj = array();
+
+        foreach($companylist as $company){
+        	$corporateName = $company->getCorporatename(); 
+        
+
+      		$companyObj = array(
+        		'corporateName' => $corporateName
+        	);
+
+        	array_push($companyArray, $companyObj);
+
+    	}
+
+
+        return $this->render('EarlsCorporateBundle:SummaryCompany:index.html.twig',
+        	array(
+                'shareholderByCompany' => $companyArray
+            )
+        );
 
     }
 
 }
+
+
 
 ?>

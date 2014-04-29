@@ -1,5 +1,48 @@
 {% extends "EarlsLeaseBundle::layout.html.twig" %}
 {% block body %}
-<p>
-summary by company page </p>
+
+    {% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION')%}
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-header">
+                <div class="clearfix">
+                    <h3 class="content-title pull-left">Shareholder Summary By Company</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+           <table id="datatableShareholderbyCompany" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>COMPANY</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for company in shareholderByCompany %}
+                    <tr>
+                        <td> {{ company.corporateName }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+    <script type="text/javascript" src="{{ asset('bundles/earlslease/js/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/earlslease/js/datatables/media/assets/js/datatables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/earlslease/js/datatables/extras/TableTools/media/js/TableTools.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/earlslease/js/datatables/extras/TableTools/media/js/ZeroClipboard.min.js') }}"></script>
+
+    <script>
+        jQuery(document).ready(function() {
+            $('.datatable').dataTable();
+            App.setPage("dynamic_table");  //Set current page
+            App.init(); //Initialise plugins and elements
+        });
+    </script>
+
 {% endblock %}

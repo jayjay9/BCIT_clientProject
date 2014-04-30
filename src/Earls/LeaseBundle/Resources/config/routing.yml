@@ -5,24 +5,24 @@ earls_lease_homepage:
 _storeinformation:
     resource: "@EarlsLeaseBundle/Controller/StoreInformationController.php"
     type:     annotation
-    prefix:   /StoreInformation
+    prefix:   /storeinformation
    # requirements:
     #     _method:  POST
 
 _leaseinformation:
     resource: "@EarlsLeaseBundle/Controller/LeaseInformationController.php"
     type:     annotation
-    prefix:   /LeaseInformation
+    prefix:   /leaseinformation
 
 _addStore:
    resource: "@EarlsLeaseBundle/Controller/AddStoreInformationController.php"
    type:     annotation
-   prefix:   /AddStore
+   prefix:   /addstore
 
 _addLease_id:
    resource: "@EarlsLeaseBundle/Controller/AddLeaseInformationController.php"
    type:     annotation
-   prefix:   /AddLease
+   prefix:   /addlease
 
 _storeinformation_update:
    pattern:  /update/{id}
@@ -31,25 +31,25 @@ _storeinformation_update:
 _manageArea:
     resource:   "@EarlsLeaseBundle/Controller/ManageAreaController.php"
     type:       annotation
-    prefix:     /ManageArea
+    prefix:     /managearea
 
 _manage_tables:
     resource:   "@EarlsLeaseBundle/Controller/ManageTablesController.php"
     type:       annotation
-    prefix:     /ManageTables
+    prefix:     /managetables
 
 _summary:
     resource:   "@EarlsLeaseBundle/Controller/SummaryController.php"
     type:       annotation
-    prefix:     /Summary
+    prefix:     /summary
 
 _leases_byExpiry:
     resource:   "@EarlsLeaseBundle/Controller/LeasesByExpiryController.php"
     type:       annotation
-    prefix:     /LeasesByExpiry
+    prefix:     /leasesbyexpiry
 
 _license_byExpiry:
     resource:   "@EarlsLeaseBundle/Controller/LicenseByExpiryController.php"
     type:       annotation
-    prefix:     /LicenseByExpiry
+    prefix:     /licensebyexpiry
 

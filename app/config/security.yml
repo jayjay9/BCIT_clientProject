@@ -25,10 +25,17 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         
-        - { path: ^/Summary, role: ROLE_USER}
-        - { path: ^/LeasesByExpiry, role: ROLE_USER}
-        - { path: ^/LicenseByExpiry, role: ROLE_USER}
+        - { path: ^/summary, role: ROLE_USER}
+        - { path: ^/leasesbyexpiry, role: ROLE_USER}
+        - { path: ^/licensebyexpiry, role: ROLE_USER}
+        - { path: ^/licensebyexpiry, role: ROLE_USER}
+        - { path: ^/corporatesummary, role: ROLE_USER}
+        - { path: ^/shareholdersummary, role: ROLE_USER}
         
-        - { path: ^/StoreInformation, role: ROLE_ADMIN}
-        - { path: ^/ManageArea, role: ROLE_ADMIN}
-        - { path: ^/ManageTables, role: ROLE_ADMIN}
+        - { path: ^/storeinformation, role: ROLE_ADMIN}
+        - { path: ^/managearea, role: ROLE_ADMIN}
+        - { path: ^/managetables, role: ROLE_ADMIN}
+        - { path: ^/corporateinformation, role: ROLE_ADMIN}
+        - { path: ^/corporatemanagetables, role: ROLE_ADMIN}
+
+

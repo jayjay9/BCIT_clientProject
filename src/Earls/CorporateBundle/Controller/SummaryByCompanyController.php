@@ -17,24 +17,71 @@ class SummaryByCompanyController extends Controller
 
 {
     /**
-     * @Route("/", name="_summarycompany")
+     * @Route("/", name="_shareholdersummary")
      * @Template()
      */
     public function indexAction()
     {   
+
+        //
+
     	$companylist = $this->getDoctrine()
-            ->getRepository('EarlsCorporateBundle:Corporations')
+            ->getRepository('EarlsCorporateBundle:Memberships')
             ->findAll();
 
         $companyArray = array();
         $companyObj = array();
 
         foreach($companylist as $company){
-        	$corporateName = $company->getCorporatename(); 
-        
+        	$numberofshares = $company->getNumberofshares(); 
+            
+            //a link to grab data from Corporations table
+            $corporationlink = $company->getCorporateid();
 
+            $CorporationObj = $this->getDoctrine()
+            ->getRepository('EarlsCorporateBundle:Corporations')
+            ->findoneby(array('corporateid' => $corporationlink));
+
+            if(empty($CorporationObj)){
+            $CorporationObj = new Corporations();
+            }
+
+            $corporatename = $CorporationObj->getCorporatename();
+
+
+            //Getting data from Directors table
+            $directorlink = $company->getDirectorid();
+
+            $DirectorObj = $this->getDoctrine()
+            ->getRepository('EarlsCorporateBundle:Directors')
+            ->findoneby(array('directorid' => $directorlink));
+
+            if(empty($DirectorObj)){
+            $DirectorObj = new Directors();
+            }
+
+            $directorname = $DirectorObj->getDirectorname();
+
+            //Getting data from Sharetypes table
+            $sharetypelink = $company->getSharetypeid();
+
+            $SharetypeObj = $this->getDoctrine()
+            ->getRepository('EarlsCorporateBundle:Sharetypes')
+            ->findoneby(array('sharetypeid' => $sharetypelink));
+
+            if(empty($SharetypeObj)){
+            $SharetypeObj = new Sharetypes();
+            }
+
+            $sharetype = $SharetypeObj->getSharetype();
+
+
+            //add everything into the companyObj
       		$companyObj = array(
-        		'corporateName' => $corporateName
+        		'corporatename' => $corporatename,
+                'directorname' => $directorname,
+                'sharetype' => $sharetype,
+                'numberofshares' => $numberofshares
         	);
 
         	array_push($companyArray, $companyObj);

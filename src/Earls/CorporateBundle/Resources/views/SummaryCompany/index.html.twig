@@ -7,7 +7,7 @@
         <div class="col-sm-12">
             <div class="page-header">
                 <div class="clearfix">
-                    <h3 class="content-title pull-left">Shareholder Summary By Company</h3>
+                    <h3 class="content-title pull-left">Shareholder Summary</h3>
                 </div>
             </div>
         </div>
@@ -18,12 +18,18 @@
                 <thead>
                 <tr>
                     <th>COMPANY</th>
+                    <th>SHAREHOLDER</th>
+                    <th>NO. OF SHARES</th>
+                    <th>SHARE TYPE</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for company in shareholderByCompany %}
                     <tr>
-                        <td> {{ company.corporateName }}</td>
+                        <td> {{ company.corporatename }}</td>
+                        <td> {{ company.directorname }}</td>
+                        <td> {{ company.numberofshares }}</td>
+                        <td> {{ company.sharetype }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>

@@ -1,37 +1,29 @@
 {% extends "EarlsLeaseBundle::layout.html.twig" %}
 {% block body %}
+
     {% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION')%}
+
     <div class="row">
         <div class="col-sm-12">
             <div class="page-header">
                 <div class="clearfix">
-                    <h3 class="content-title pull-left">Leases By Expiry</h3>
+                    <h3 class="content-title pull-left">Shareholder Summary By Company</h3>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            <table id="datatableLeasebyExpiry" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover">
+           <table id="datatableShareholderbyCompany" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover">
                 <thead>
                 <tr>
-                    <th>STORE NAME</th>
-                    <th>STORE CLASS</th>
-                    <th>EXPIRY DATE</th>
-                    <th>OPTION TIME</th>
-                    <th>OPTION DEADLINE</th>
-                    <th>RENEWAL COMMENTS</th>
+                    <th>COMPANY</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for lease in leasesByExpiry %}
+                {% for company in shareholderByCompany %}
                     <tr>
-                        <td> <a href="{{ path('_summary_get_id', {'id': lease.restaurantId}) }}">{{ lease.storeNickName }}</a></td>
-                        <td> {{ lease.storeClass }}</td>
-                        <td>{{ lease.leaseExpiryDate }}</td>
-                        <td>{{ lease.leaseOptionDate }}</td>
-                        <td>{{ lease.leaseOptionDeadline }}</td>
-                        <td>{{ lease.leaseRenewalComments }}</td>
+                        <td> {{ company.corporateName }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
@@ -47,9 +39,7 @@
 
     <script>
         jQuery(document).ready(function() {
-            $('.datatable').dataTable({
-                "iDisplayLength": 25
-            });
+            $('.datatable').dataTable();
             App.setPage("dynamic_table");  //Set current page
             App.init(); //Initialise plugins and elements
         });

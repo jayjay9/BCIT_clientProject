@@ -1,3 +1,28 @@
 earls_corporate_homepage:
-    pattern:  /hello/{name}
+    pattern:  /
     defaults: { _controller: EarlsCorporateBundle:Default:index }
+
+_corporatesummary:
+    resource:   "@EarlsCorporateBundle/Controller/CorporateSummaryController.php"
+    type:       annotation
+    prefix:     /corporatesummary
+
+_summaryshareholder:
+    resource:   "@EarlsCorporateBundle/Controller/SummaryByShareholderController.php"
+    type:       annotation
+    prefix:     /summarybyshareholder
+
+_summarycompany:
+    resource:   "@EarlsCorporateBundle/Controller/SummaryByCompanyController.php"
+    type:       annotation
+    prefix:     /summarybycompany
+
+_corporateinformation:
+    resource:   "@EarlsCorporateBundle/Controller/CorporateInformationController.php"
+    type:       annotation
+    prefix:     /corporateinformation
+
+_corporate_manage_tables:
+    resource:   "@EarlsCorporateBundle/Controller/CorporateManageTablesController.php"
+    type:       annotation
+    prefix:     /corporatemanagetables

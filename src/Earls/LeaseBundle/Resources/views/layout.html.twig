@@ -65,6 +65,7 @@
                             <li><a href="{{ path('_leases_byExpiry') }}"><span>Leases By Expiry</span></a></li>
                             <li><a href="{{ path('_license_byExpiry') }}"><span>License By Expiry</span></a></li>
                         </ul>
+                         {% if is_granted('ROLE_ADMIN') %}
                         <div id="classification">
                             ADMINISTRATION
                         </div>
@@ -73,6 +74,9 @@
                             <li><a href="{{ path('_manageArea') }}"><span>Manage Areas</span></a></li>
                             <li><a href="{{ path('_manage_tables') }}"><span>Manage Lease Tables</span></a></li>
                         </ul>
+                        {% else %}
+                            <div></div>
+                         {% endif %}
                         </div>
                     </div>
                     </div>
@@ -94,6 +98,7 @@
                                 <li><a href="{{ path('_summaryshareholder') }}"><span>Summary By Shareholder</span></a></li>
                                 <li><a href="{{ path('_summarycompany') }}"><span>Summary By Company</span></a></li>
                             </ul>
+                            {% if is_granted('ROLE_ADMIN') %}
                             <div id="classification">
                                 ADMINISTRATION
                             </div>
@@ -101,6 +106,9 @@
                                 <li><a href="{{ path('_corporateinformation') }}"><span>Corporate Information</span></a></li>
                                 <li><a href="{{ path('_corporate_manage_tables') }}"><span>Manage Corporate Tables</span></a></li>
                             </ul>
+                            {% else %}
+                            <div></div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -113,12 +121,14 @@
         <!-- Footer / end -->
     </div>
 </div>
+
 <div id="content-wrapper">
 
     <!-- Header / start -->
     <header>
-
-        <a href="#" id="menu" class="ico fl">menu</a>
+        {% if is_granted('ROLE_USER') %}
+            <a href="#" id="menu" class="ico fl">menu</a>
+        {% endif %}
 
         <!-- ----------------------------------------------  -->
         <div id="userAccount">

@@ -42,8 +42,6 @@
     </div>
 
     <div class="wrapmenu">
-
-
         <div id="logo"><a href="#" onClick="alert('You are amazing, just the way you are!')"><span><img src="{{ asset('bundles/earlslease/images/EarlsLogo.png') }}" alt="" /></span></a></div>
 
 
@@ -96,8 +94,7 @@
                             </div>
                             <ul class="menu">
                                 <li><a href="{{ path('_corporatesummary') }}"><span>Corporate Summary</span></a></li>
-                                <li><a href="{{ path('_summaryshareholder') }}"><span>Summary By Shareholder</span></a></li>
-                                <li><a href="{{ path('_summarycompany') }}"><span>Summary By Company</span></a></li>
+                                <li><a href="{{ path('_shareholdersummary') }}"><span>Summary By Shareholder</span></a></li>
                             </ul>
                             {% if is_granted('ROLE_ADMIN') %}
                             <div id="classification">

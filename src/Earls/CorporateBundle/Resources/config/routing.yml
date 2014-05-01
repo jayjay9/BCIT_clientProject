@@ -7,15 +7,10 @@ _corporatesummary:
     type:       annotation
     prefix:     /corporatesummary
 
-_summaryshareholder:
-    resource:   "@EarlsCorporateBundle/Controller/SummaryByShareholderController.php"
-    type:       annotation
-    prefix:     /summarybyshareholder
-
-_summarycompany:
+_shareholdersummary:
     resource:   "@EarlsCorporateBundle/Controller/SummaryByCompanyController.php"
     type:       annotation
-    prefix:     /summarybycompany
+    prefix:     /shareholdersummary
 
 _corporateinformation:
     resource:   "@EarlsCorporateBundle/Controller/CorporateInformationController.php"

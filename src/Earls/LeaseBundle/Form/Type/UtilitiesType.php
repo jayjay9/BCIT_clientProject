@@ -5,6 +5,7 @@ namespace Earls\LeaseBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Doctrine\ORM\EntityRepository;
 
 class UtilitiesType extends AbstractType
 {
@@ -25,7 +26,11 @@ class UtilitiesType extends AbstractType
 //            ->add('restaurantid')
             ->add('billingby', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Billingowners',
-                'property' => 'description'
+                'property' => 'description',
+                'query_builder' => function(EntityRepository $er) {
+                return $er->createQueryBuilder('u')
+                ->orderBy('u.description', 'ASC');
+                },
             ))
 //            ->add('utilitytypeid')
         ;

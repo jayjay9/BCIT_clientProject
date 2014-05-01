@@ -5,6 +5,8 @@ namespace Earls\LeaseBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Doctrine\ORM\EntityRepository;
+
 
 class LandlordsType extends AbstractType
 {
@@ -21,8 +23,16 @@ class LandlordsType extends AbstractType
             ->add('attention')
             ->add('phone')
             ->add('fax')
-            ->add('provincestateid', 'entity', array('class' => 'EarlsLeaseBundle:Provincestate', 'property' => 'provincestateid'))
-            ->add('city', 'entity', array('class' => 'EarlsLeaseBundle:Northamericancities', 'property' => 'city'))
+            ->add('provincestateid', 'entity', array('class' => 'EarlsLeaseBundle:Provincestate', 'property' => 'description',
+                'query_builder' => function(EntityRepository $er) {
+                return $er->createQueryBuilder('u')
+                ->orderBy('u.description', 'ASC');
+                },))
+            ->add('city', 'entity', array('class' => 'EarlsLeaseBundle:Northamericancities', 'property' => 'city',
+                'query_builder' => function(EntityRepository $er) {
+                return $er->createQueryBuilder('u')
+                ->orderBy('u.city', 'ASC');
+                },))
         ;
     }
     

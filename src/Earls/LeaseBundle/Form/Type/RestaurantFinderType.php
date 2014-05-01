@@ -3,6 +3,7 @@ namespace Earls\LeaseBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Doctrine\ORM\EntityRepository;
 
 class RestaurantFinderType extends AbstractType
 {
@@ -10,7 +11,11 @@ class RestaurantFinderType extends AbstractType
     {
         $builder->add('restaurant', 'entity', array(
             'class' => 'EarlsLeaseBundle:Restaurants',
-            'property' => 'storenickname'
+            'property' => 'storenickname',
+            'query_builder' => function(EntityRepository $er) {
+            return $er->createQueryBuilder('u')
+            ->orderBy('u.storenickname', 'ASC');
+    },
         ))
                 ->add('Go', 'submit')
                 ->getForm();

@@ -168,7 +168,7 @@
                     <div class="col-sm-9">
 
                         {{ form_widget(storeInfoForm.restaurantInfo.city, {
-                        'attr': {'class': 'form-control'}
+                        'id' : 'ms6', 'attr': {'class': 'form-control'}
                         }) }}
 
                     </div>
@@ -179,7 +179,7 @@
                     <div class="col-sm-9">
 
                         {{ form_widget(storeInfoForm.restaurantInfo.provincestateid, {
-                        'attr': {'class': 'form-control'}
+                            'id' : 'ms7', 'attr': {'class': 'form-control'}
                         }) }}
 
                     </div>
@@ -768,4 +768,12 @@
     {{ form_end(storeInfoForm) }}
 
 
+{% endblock %}
+{% block javascript %}
+<script>
+        jQuery(document).ready(function() {     
+            App.setPage("elements");  //Set current page
+            App.init(); //Initialise plugins and elements
+        });
+</script>
 {% endblock %}

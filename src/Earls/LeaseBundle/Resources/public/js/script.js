@@ -747,6 +747,10 @@ var App = function () {
             });
             var ms6 = $('#ms6').magicSuggest({
                 // will fetch data from options
+                data: jsonData,
+                resultAsString: true,
+                maxSelection: 1,
+                maxSelectionRenderer: function(){}
             });
             var ms7 = $('#ms7').magicSuggest({
                 data: jsonData,
@@ -3201,6 +3205,7 @@ var App = function () {
 			}
 			if (App.isPage("dynamic_table")) {
 				handleDataTables();	//Function to display data tables
+                handleMagicSuggest(); //Function to display autosuggest
 			}
 			if (App.isPage("jqgrid_plugin")) {
 				handleJqgrid();	//Function to display jqGrid

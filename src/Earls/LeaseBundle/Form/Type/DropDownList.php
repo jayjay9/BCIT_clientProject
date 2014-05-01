@@ -16,7 +16,11 @@ class DropDownList extends AbstractType
         $builder->add('storefilenumber', 'entity', array(
             'class' => 'EarlsLeaseBundle:Restaurants',
             'property' => 'storenickname',
-            'empty_value' => false
+            'empty_value' => false,
+            'query_builder' => function(EntityRepository $er) {
+                return $er->createQueryBuilder('u')
+                ->orderBy('u.storenickname', 'ASC');
+            },
         ))
             ->add('go', 'submit', array(
                 'attr' => array('class' => 'btn')));

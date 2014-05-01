@@ -133,6 +133,7 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Building Types</th>
+                                                <th>Edit</th>
                                                 <th>Delete</th>
                                             </tr>
                                             </thead>
@@ -141,10 +142,18 @@
                                                     <tr>
                                                         <td>{{ loop.index }}</td>
                                                         <td> {{ buildingtypes.buildingtypes }}</td>
+                                                        <td> <a data-toggle="modal" class="btn btn-small btn-warning" href="{{ path('_manage_tables_buildingTypes_get_id', {'id': buildingtypes.buildingtypeid }) }}" data-target="#buildingtypeModal{{ buildingtypes.buildingtypeid }}">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                        </td>
                                                         <td><a class="btn btn-small btn-danger" href="{{ path('_manage_tables_buildingtypes_delete_id', {'id': buildingtypes.buildingtypeid }) }}">
                                                                 <i class="fa fa-times-circle"></i> Delete
                                                             </a>
                                                         </td>
+                                                        <!-- Modal -->
+                                                    <div class="modal fade" id="buildingtypeModal{{ buildingtypes.buildingtypeid }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+
+                                                    </div><!-- /.modal -->
                                                     </tr>
                                                 {% endfor %}
                                             </tbody>
@@ -215,7 +224,7 @@
     <script>
         jQuery(document).ready(function() {
             $('.datatable').dataTable();
-            App.setPage("dynamic_table");  //Set current page
+            App.setPage("dynamic_table");
             App.init(); //Initialise plugins and elements
         });
     </script>

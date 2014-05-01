@@ -11,6 +11,7 @@ namespace Earls\LeaseBundle\Controller;
 use Earls\LeaseBundle\Form\Type\PropertyManagerType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Earls\LeaseBundle\Form\Type\LandlordsType;
+use Earls\LeaseBundle\Form\Type\BuildingTypesType;
 use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Earls\LeaseBundle\Entity\Landlords;
@@ -193,6 +194,58 @@ class ManageTablesController extends Controller {
         return $this->render('EarlsLeaseBundle:ManageTables:propertymanagers.html.twig',
             array(
                 'propertyManagerForm' => $form->createView()
+            )
+        );
+    }
+
+    /**
+     * @Route("/getBuildingtype/{id}", name="_manage_tables_buildingTypes_get_id")
+     * @Template()
+     */
+
+    public function getBuildingtypeAction($id)
+    {
+
+        $buildingType = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Buildingtypes')
+            ->find($id);
+
+        $form = $this->createForm(new BuildingTypesType(), $buildingType, array(
+            'action' => $this->generateUrl('_manage_tables_buildingTypes_update_id', array('id' => $id))
+        ));
+
+        return $this->render('EarlsLeaseBundle:ManageTables:buildingtypes.html.twig',
+            array(
+                'buildingTypesForm' => $form->createView()
+            )
+        );
+
+    }
+
+    /**
+     * @Route("/updateBuildingtype/{id}", name="_manage_tables_buildingTypes_update_id")
+     * @Template()
+     */
+    public function updateBuildingtypeAction($id)
+    {
+        $request = $this->getRequest();
+
+        $em = $this->getDoctrine()->getManager();
+        $buildingType = $em->getRepository('EarlsLeaseBundle:Buildingtypes')->find($id);
+
+        $form = $this->createForm(new BuildingTypesType(), $buildingType);
+
+        if ($request->isMethod('POST')) {
+            $form->submit($request);
+            if ($form->isValid()) {
+                $em->flush();
+                return $this->redirect($this->generateUrl('_manage_tables').'#buildingtypes');
+            }
+        }
+
+        return $this->render('EarlsLeaseBundle:ManageTables:buildingtypes.html.twig',
+            array(
+                'buildingTypesForm' => $form->createView()
             )
         );
     }

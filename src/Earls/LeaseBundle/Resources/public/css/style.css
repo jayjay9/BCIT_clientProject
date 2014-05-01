@@ -50,6 +50,14 @@ ul.menu {
 	padding: 10px;
 }
 
+#classification{
+  color: black;
+  font-size: 15px;
+  background-color: gray;
+  text-align:left;
+  padding:10px;
+}
+
 #header{
 	font-size: 30px;
 	margin: 15px;

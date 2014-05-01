@@ -5,7 +5,7 @@ namespace Earls\LeaseBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-
+use Doctrine\ORM\EntityRepository;
 
 class RestaurantsType extends AbstractType
 {
@@ -47,29 +47,53 @@ class RestaurantsType extends AbstractType
 //            ->add('riskid', new RiskinfoType())
             ->add('storeclassid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Storeclasses',
-                'property' => 'storeclass'
+                'property' => 'storeclass',
+                'query_builder' => function(EntityRepository $er) {
+                return $er->createQueryBuilder('u')
+                ->orderBy('u.storeclass', 'ASC');
+                },
             ))
 //            ->add('utilityid')
             ->add('propertymanagerid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Propertymanagers',
-                'property' => 'propertymanagername'
+                'property' => 'propertymanagername',
+                'query_builder' => function(EntityRepository $er) {
+                return $er->createQueryBuilder('u')
+                ->orderBy('u.propertymanagername', 'ASC');
+                },
             ))
 
             ->add('city', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Northamericancities',
-                'property' => 'city'
+                'property' => 'city',
+                'query_builder' => function(EntityRepository $er) {
+                return $er->createQueryBuilder('u')
+                ->orderBy('u.city', 'ASC');
+                },
             ))
             ->add('corporateid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Corporations',
-                'property' => 'corporatename'
+                'property' => 'corporatename',
+                'query_builder' => function(EntityRepository $er) {
+                return $er->createQueryBuilder('u')
+                ->orderBy('u.corporatename', 'ASC');
+                },
             ))
             ->add('buildingtype', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Buildingtypes',
-                'property' => 'buildingtype'
+                'property' => 'buildingtype',
+                'query_builder' => function(EntityRepository $er) {
+                return $er->createQueryBuilder('u')
+                ->orderBy('u.buildingtype', 'ASC');
+                },
             ))
             ->add('landlordid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Landlords',
-                'property' => 'landlordname'
+                'property' => 'landlordname',
+                'query_builder' => function(EntityRepository $er) {
+                return $er->createQueryBuilder('u')
+                ->orderBy('u.landlordname', 'ASC');
+                },
             ))
 /*            ->add('licenseid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Licenses',
@@ -77,7 +101,11 @@ class RestaurantsType extends AbstractType
             ))*/
             ->add('provincestateid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Provincestate',
-                'property' => 'description'
+                'property' => 'description',
+                'query_builder' => function(EntityRepository $er) {
+                return $er->createQueryBuilder('u')
+                ->orderBy('u.description', 'ASC');
+                },
             ))
         ;
     }

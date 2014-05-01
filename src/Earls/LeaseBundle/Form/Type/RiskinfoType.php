@@ -5,6 +5,7 @@ namespace Earls\LeaseBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Doctrine\ORM\EntityRepository;
 
 class RiskinfoType extends AbstractType
 {
@@ -19,11 +20,19 @@ class RiskinfoType extends AbstractType
             ->add('exteriormaintenance', 'text')
             ->add('constructionid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Constructiontypes',
-                'property' => 'constructiontype'
+                'property' => 'constructiontype',
+                'query_builder' => function(EntityRepository $er) {
+                return $er->createQueryBuilder('u')
+                ->orderBy('u.constructiontype', 'ASC');
+                },
             ))
             ->add('insuredby', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Owners',
-                'property' => 'ownertype'
+                'property' => 'ownertype',
+                'query_builder' => function(EntityRepository $er) {
+                return $er->createQueryBuilder('u')
+                ->orderBy('u.ownertype', 'ASC');
+                },
             ))
             //->add('restaurantid')
         ;

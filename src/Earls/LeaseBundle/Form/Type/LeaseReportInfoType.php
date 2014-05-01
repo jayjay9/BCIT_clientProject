@@ -12,6 +12,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Earls\LeaseBundle\Entity\Reportperiodtypes;
+use Doctrine\ORM\EntityRepository;
 
 
 class LeaseReportInfoType extends AbstractType {
@@ -25,7 +26,11 @@ class LeaseReportInfoType extends AbstractType {
             ->add('iscertified')
             ->add('reporttypeid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Reportperiodtypes',
-                'property' => 'periodtype'
+                'property' => 'periodtype',
+                'query_builder' => function(EntityRepository $er) {
+                return $er->createQueryBuilder('u')
+                ->orderBy('u.periodtype', 'ASC');
+                },
             ));
     }
 

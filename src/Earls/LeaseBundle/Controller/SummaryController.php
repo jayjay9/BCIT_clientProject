@@ -101,6 +101,8 @@ class SummaryController extends Controller
 
         $storeClass = $storeClassObj->getStoreclass();
 
+        $storeCity = $RestaurantObj->getCity()->getCity();
+
         $provincestateid = $RestaurantObj->getProvincestateid();
         if(empty($provincestateid)){
             $provincestateid = new Provincestate();
@@ -113,6 +115,7 @@ class SummaryController extends Controller
             'storeclass' => $storeClass,
             'totalSeats' => $totalseats,
             'totalTables' => $totaltables,
+            'city' => $storeCity,
             'provinceState' => $provincestateRestaurant
         );
 
@@ -151,11 +154,20 @@ class SummaryController extends Controller
             $provincestateid = new Provincestate();
         }
 
+
         $provincestateProperty = $provincestateid->getDescription();
+
+        $cityid = $PropertymanagerObj->getCity();
+        $citiesObj = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Northamericancities')
+            ->findOneBy(array('northamericancityid' => $cityid));
+
+        $propertyCity = $citiesObj ->getCity();
 
         $provinceState = array(
             'provinceLandlord' => $provincestateLandlord,
-            'provinceProperty' => $provincestateProperty
+            'provinceProperty' => $provincestateProperty,
+            'propertyCity'  => $propertyCity
         );
 
         /**** LIQUOR LICENSE *****/
@@ -276,12 +288,11 @@ class SummaryController extends Controller
         if(empty($UtilitiesObj1)){
             $UtilitiesObj1 = new Utilities();
         }
-
         $billingObj1 = $UtilitiesObj1->getBillingBy();
+
         if(empty($billingObj1)){
             $billingObj1 = new BillingOwners();
         }
-
         $billing1 = $billingObj1->getDescription();
 
         $UtilitiesObj2 = $this->getDoctrine()
@@ -467,10 +478,17 @@ class SummaryController extends Controller
         $storenumber = $restaurantObj->getStorefilenumber();
         $tenantname = $restaurantObj->getTenant();
         $storeaddress = $restaurantObj->getAddress();
-        $storecityprovince = $restaurantObj->getProvincestateid()->getDescription();
+        $storecity = $restaurantObj->getCity()->getCity();
+        $storeprovince = $restaurantObj->getProvincestateid()->getDescription();
         $storepostalcode = $restaurantObj->getPostalzip();
         $storelegaldescription = $restaurantObj->getLegaldescription();
         $storeopen = $restaurantObj->getRestaurantstate();
+        if($storeopen == 1)
+        {
+            $storeopen = 'YES';
+        } else{
+            $storeopen = 'NO';
+        }
         $dateopened = $restaurantObj->getOpeningdate();
 
 
@@ -495,11 +513,28 @@ class SummaryController extends Controller
 
         $propertycompanyname = $propertymanagerObj->getPropertymanagername();
         $propertyaddress = $propertymanagerObj->getAddress();
-        $cityprovince = $propertymanagerObj->getCity();
+        $cityid = $propertymanagerObj->getCity();
+        $citiesObj = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Northamericancities')
+            ->findOneBy(array('northamericancityid' => $cityid));
+
+        $propertycity = $citiesObj ->getCity();
+
+        $provinceStateid = $propertymanagerObj->getProvincestateid();
+        $provinceStateObj = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Provincestate')
+            ->findOneBy(array('provincestateid' => $provinceStateid));
+        $propertyprovince = $provinceStateObj ->getDescription();
+
         $propertypostalcode = $propertymanagerObj->getPostalzip();
         $propertyattention = $propertymanagerObj->getAttention();
         $propertyphone = $propertymanagerObj->getPhone();
         $propertyfax = $propertymanagerObj->getFax();
+
+        ///////////////////////////////
+        ////      Liquour License
+        ////
+        ////////////////////////////////
 
         //$liquorlicenseid = $restaurantObj->getLiquorlicenseid();
 
@@ -507,7 +542,16 @@ class SummaryController extends Controller
             ->getRepository('EarlsLeaseBundle:Liquorlicenses')
             ->findOneBy(array('restaurantid' => $restaurantid));
 
+        if(empty($liquorlicenseObj)){
+            $liquorlicensedObj = new Liquorlicenses();
+        }
         $liquorlicense = $liquorlicensedObj ->getLiquorlicense();
+
+        /////////////////////////////////
+        ////
+        ////      License
+        ////
+        /////////////////////////////////
         $businesslicense = $liquorlicensedObj->getBusinesslicense();
 
         $licenseid = $restaurantObj->getLicenseid()->getLicenseid();
@@ -517,6 +561,14 @@ class SummaryController extends Controller
 
         $license = "";
         $expiry = $licenseObj->getExpirarydate();
+
+//        $expiryformat = $expiry->format('F d, Y');
+//        print_r($expiryformat);
+        if(isset($expiry)){
+            $expiryformat = $expiry->format('F d, Y');
+        }else{
+            $expiryformat = "";
+        }
 
         $building = $restaurantObj->getBuildingtype()->getBuildingtype();
 
@@ -532,10 +584,14 @@ class SummaryController extends Controller
         $totalseats = $diningseats + $loungeseats + $patioseats;
         $totaltables = $diningtables + $loungetables + $patiotables;
 
-        $leaseObj = $this->getDoctrine()
+        $leaseList = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Leases')
-            ->findOneBy(array('restaurantid' => $restaurantid));
+            ->findby(array('restaurantid' => $restaurantid));
 
+        $leaseObj = end($leaseList);
+        if(empty($leaseObj)){
+            $leaseObj = new Leases();
+        }
         $leaseid = $leaseObj->getLeaseid();
 
         $squareftmain = $leaseObj->getAreamain();
@@ -548,8 +604,14 @@ class SummaryController extends Controller
         $riskObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Riskinfo')
             ->findOneBy(array('restaurantid' => $restaurantid));
+        if(empty($riskObj)){
+            $riskObj = new Riskinfo();
+        }
 
         $constructionObj = $riskObj->getConstructionid();
+//        if(empty($constructionObj)){
+//            $constructionObj = new Constructiontypes();
+//        }
         if(isset($constructionObj)){
             $buildingtype = $constructionObj->getConstructiontype();
         }else{
@@ -569,68 +631,138 @@ class SummaryController extends Controller
             ->getRepository('EarlsLeaseBundle:Rentandmaintenances')
             ->findOneBy(array('restaurantid' => $restaurantid));
 
+        if(empty($rentandmaintenanceObj)){
+            $rentandmaintenanceObj = new Rentandmaintenances();
+        }
 
-        $hvacrepair = $rentandmaintenanceObj->getHvacrepair();
-        $hvacreplace = $rentandmaintenanceObj->getHvacreplace();
-        $roofrepair = $rentandmaintenanceObj->getRoofrepair();
-        $roofreplace = $rentandmaintenanceObj->getRoofreplace();
+        $hvacrepairObj = $rentandmaintenanceObj->getHvacrepair();
+        if(empty($hvacrepairObj)){
+            $hvacrepairObj = new Owners();
+        }
+        $hvacrepair = $hvacrepairObj->getOwnertype();
+
+        $hvacreplaceObj = $rentandmaintenanceObj->getHvacreplace();
+        if(empty($hvacreplaceObj)){
+            $hvacreplaceObj = new Owners();
+        }
+        $hvacreplace = $hvacreplaceObj->getOwnertype();
+
+        $roofrepairObj = $rentandmaintenanceObj->getRoofrepair();
+        if(empty($roofrepairObj)){
+            $roofrepairObj = new Owners();
+        }
+        $roofrepair = $roofrepairObj->getOwnertype();
+
+        $roofreplaceObj = $rentandmaintenanceObj->getRoofreplace();
+        if(empty($roofreplaceObj)){
+            $roofreplaceObj = new Owners();
+        }
+        $roofreplace = $roofreplaceObj->getOwnertype();
 
         $utilityWaterObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Utilities')
             ->findOneBy(array('restaurantid' => $restaurantid, 'utilitytypeid' => 1));
 
-        if(isset($utilityWaterObj)){
-        $waterbillingby = $utilityWaterObj->getBillingby();
-        $watermetered = $utilityWaterObj->getIsmetered();
-        $watercam = $utilityWaterObj->getIscam();
-        }else{
+        if(empty($utilityWaterObj)){
             $utilityWaterObj = new Utilities();
-            $waterbillingby = $utilityWaterObj->getBillingby();
-            $watermetered = $utilityWaterObj->getIsmetered();
-            $watercam = $utilityWaterObj->getIscam();
         }
+        $waterbillingbyObj = $utilityWaterObj->getBillingby();
+
+        if(empty($waterbillingbyObj)){
+            $waterbillingbyObj = new Billingowners();
+        }
+        $waterbillingby = $waterbillingbyObj->getDescription();
+        $watermetered = $utilityWaterObj->getIsmetered();
+        if($watermetered == 1){
+            $watermetered = 'YES';
+        }else{
+
+        }
+//        $watercam = $utilityWaterObj->getIscam();
+        $watercam = ($utilityWaterObj->getIscam() == 1 ? 'YES' : 'NO' );
 
         $utilityElectricObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Utilities')
             ->findOneBy(array('restaurantid' => $restaurantid, 'utilitytypeid' => 2));
-        if(isset($utilityElectricObj)){
-        $electricbillingby = $utilityElectricObj->getBillingby();
-        $electricmetered = $utilityElectricObj->getIsmetered();
-        $electriccam = $utilityElectricObj->getIscam();
-        } else{
+
+        if(empty($utilityElectricObj)){
             $utilityElectricObj = new Utilities();
-            $electricbillingby = $utilityElectricObj->getBillingby();
-            $electricmetered = $utilityElectricObj->getIsmetered();
-            $electriccam = $utilityElectricObj->getIscam();
+        }
+        $electricbillingbyObj = $utilityElectricObj->getBillingby();
+
+        if(empty($electricbillingbyObj)){
+            $electricbillingbyObj = new Billingowners();
+        }
+        $electricbillingby = $electricbillingbyObj->getDescription();
+        $electricmetered = $utilityElectricObj->getIsmetered();
+        if($electricmetered == 1){
+            $electricmetered = 'YES';
+        }else{
+            $electricmetered = 'NO';
+        }
+        $electriccam = $utilityElectricObj->getIscam();
+        if($electriccam == 1){
+            $electriccam = 'YES';
+        }else{
+            $electriccam = 'NO';
         }
 
         $utilityGasObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Utilities')
             ->findOneBy(array('restaurantid' => $restaurantid, 'utilitytypeid' => 3));
 
-        if(isset($utilityGasObj)){
-        $gasbillingby = $utilityGasObj->getBillingby();
-        $gasmetered = $utilityGasObj->getIsmetered();
-        $gascam = $utilityGasObj->getIscam();
-        }else{
+        if(empty($utilityGasObj)){
             $utilityGasObj = new Utilities();
-            $gasbillingby = $utilityGasObj->getBillingby();
-            $gasmetered = $utilityGasObj->getIsmetered();
-            $gascam = $utilityGasObj->getIscam();
         }
+        $gasbillingbyObj = $utilityGasObj->getBillingby();
+
+        if(empty($gasbillingbyObj)){
+            $gasbillingbyObj = new Billingowners();
+        }
+        $gasbillingby = $gasbillingbyObj->getDescription();
+        $gasmetered = ($utilityGasObj->getIsmetered() == 1 ? 'YES' : 'NO' );
+        $gascam = ($utilityGasObj->getIscam() == 1 ? 'YES' : 'NO' );
+
 
         $leasetype = $leaseObj->getLeasetype();
-        $leasedate = $leaseObj->getLeasedate();
+        $leasedateObj = $leaseObj->getLeasedate();
+        if(empty($leasedateObj)){
+            $leasedate = "";
+        }else{
+            $leasedate = $leasedateObj->format('F d, Y');
+        }
         $term = $leaseObj->getTerm();
-        $commencement = $leaseObj->getCommencementdate();
-        $leaseexpiry = $leaseObj->getExpirydate();
+        $commencementObj = $leaseObj->getCommencementdate();
+        if(empty($commencementObj)){
+            $commencement = "";
+        }else{
+            $commencement = $commencementObj->format('F d, Y');
+        }
+
+        $leaseexpiryObj = $leaseObj->getExpirydate();
+        if(empty($leaseexpiryObj)){
+            $leaseexpiry = "";
+        }else{
+            $leaseexpiry = $leaseexpiryObj->format('F d, Y');
+        }
+
         $optiontime = $leaseObj->getOptiontime();
-        $renewaloptiondate = $leaseObj->getRenewaloptiondate();
+        $renewaloptiondateObj = $leaseObj->getRenewaloptiondate();
+        if(empty($renewaloptiondateObj)){
+            $renewaloptiondate = "";
+        }else{
+            $renewaloptiondate = $renewaloptiondateObj->format('F d, Y');
+        }
+
         $renewal = $leaseObj->getRenewalterms();
 
         $leasereportsObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Leasereportsinfo')
             ->findOneBy(array('leaseid' => $leaseid));
+
+        if(empty($leasereportsObj)){
+            $leasereportsObj = new Leasereportsinfo();
+        }
 
         $reporttypeObj = $leasereportsObj->getReporttypeid();
         if(isset($reporttypeObj))
@@ -653,20 +785,24 @@ class SummaryController extends Controller
             ->getRepository('EarlsLeaseBundle:Renewals')
             ->findBy(array('leaseid' => $leaseid));
 
+//        $renewalRatesList = $this->getDoctrine()findBy('')
+//        print_r($renewals->getLeaseid());
+
         $renewalratebegin1 = "";
 
         foreach($renewals as $renewalObj){
             $renewalrate = $renewalObj->getTerm();
 
-            $renewalratebegin1 = $renewalratebegin1.$renewalrate.'\n';
+            $renewalratebegin1 = '<w:tab/>'.$renewalratebegin1.$renewalrate.'<w:br/>';
         }
 
         $renewalexercisedyes = "";
 
         foreach($renewals as $renewalObj){
-            $exercised = $renewalObj->getExercised();
+//            $exercised = $renewalObj->getExercised();
+            $exercised = ($renewalObj->getExercised() == 1 ? 'YES' : 'NO');
 
-            $renewalexercisedyes = $renewalexercisedyes.$exercised.'\n';
+            $renewalexercisedyes = '<w:tab/>'.$renewalexercisedyes.$exercised.'<w:br/>';
         }
 
         $renewalrateend = "";
@@ -701,7 +837,6 @@ class SummaryController extends Controller
             $crdescr= $crdescr.$criticaldesc.'\n';
         }
 
-        $note="hello world!";
 
         $PHPWord = new \PHPWord();
 
@@ -710,14 +845,8 @@ class SummaryController extends Controller
         $document = $PHPWord->loadTemplate($templatePath);
 
 
-//        $storenumber = 'HOOOOLA';
-//        $landlordname = 'ALFREDO';
-//        $landattention = 'I DONT KNOw WHAT TO PUT HERE';
-//        $landphone = '4444444';
-//        $landfax = 'WHO USES FAX??';
-
         $trimmedValue = $document->getReplacements();
-//Resturant name
+//Restaurant name
         $document->setValue($trimmedValue['Value1'], $restaurantname); //Earl's Albert Street
 
 //Store Number
@@ -731,111 +860,109 @@ class SummaryController extends Controller
         $document->setValue($trimmedValue['Value7'], $landfax); //landlord fax
 
 ////Property Manager Info
-//        $document->setValue($trimmedValue['Value8'], $propertycompanyname);// Colliers International Regina
-//        $document->setValue($trimmedValue['Value9'], $propertyaddress); // 1821 Scarth Street, Suite 200
-//        $document->setValue($trimmedValue['Value10'], $cityprovince); //Regina, SK
-//        $document->setValue($trimmedValue['Value11'], $propertypostalcode); //S4P 2G9
-//        $document->setValue($trimmedValue['Value12'], $propertyattention);// Marlene Portras
-//        $document->setValue($trimmedValue['Value13'], $propertyphone); // (306) 789-8300
-//        $document->setValue($trimmedValue['Value14'], $propertyfax); // (306) 757-4714
+        $document->setValue($trimmedValue['Value8'], $propertycompanyname);// Colliers International Regina
+        $document->setValue($trimmedValue['Value9'], $propertyaddress); // 1821 Scarth Street, Suite 200
+        $document->setValue($trimmedValue['Value10'], $propertycity); // Regina
+        $document->setValue($trimmedValue['Value11'], $propertyprovince); //SK
+        $document->setValue($trimmedValue['Value12'], $propertypostalcode); //S4P 2G9
+        $document->setValue($trimmedValue['Value13'], $propertyattention);// Marlene Portras
+        $document->setValue($trimmedValue['Value14'], $propertyphone); // (306) 789-8300
+        $document->setValue($trimmedValue['Value15'], $propertyfax); // (306) 757-4714
 
 ////Store Info
-//        $document->setValue($trimmedValue['Value15'], $tenantname); //Earl's Restaurant (Albert Street) Ltd.
-//        $document->setValue($trimmedValue['Value16'], $storeaddress); //2606 - 28th Avenue
-//        $document->setValue($trimmedValue['Value17'], $storecityprovince); //Regina, SK
-//        $document->setValue($trimmedValue['Value18'], $storepostalcode);//S4S 6P3
-//        $document->setValue($trimmedValue['Value19'], $storelegaldescription); // 	See Schedule "A" of Lease
-
-//        $document->setValue($trimmedValue['Value20'], $storeopen); //OPEN: Yes or no
-//        $document->setValue($trimmedValue['Value21'], $dateopened); //December 10, 1998
-//        $document->setValue($trimmedValue['Value22'], $liquorlicense); //125814
-//        $document->setValue($trimmedValue['Value23'], $businesslicense);// n/a
-//        $document->setValue($trimmedValue['Value24'], $license); // no example from rpt summary
-//        $document->setValue($trimmedValue['Value25'], $expiry); // expiry date
+        $document->setValue($trimmedValue['Value16'], $tenantname); //Earl's Restaurant (Albert Street) Ltd.
+        $document->setValue($trimmedValue['Value17'], $storeaddress); //2606 - 28th Avenue
+        $document->setValue($trimmedValue['Value18'], $storecity); //Regina
+        $document->setValue($trimmedValue['Value19'], $storeprovince); // SK
+        $document->setValue($trimmedValue['Value20'], $storepostalcode); //S4S 6P3
+        $document->setValue($trimmedValue['Value21'], $storelegaldescription); // 	See Schedule "A" of Lease
+//
+        $document->setValue($trimmedValue['Value22'], $storeopen); //OPEN: Yes or no
+        $document->setValue($trimmedValue['Value23'], $dateopened); //December 10, 1998
+        $document->setValue($trimmedValue['Value24'], $liquorlicense); //125814
+        $document->setValue($trimmedValue['Value25'], $businesslicense);// n/a
+        $document->setValue($trimmedValue['Value26'], $expiryformat); // expiry date
 
 ////Building Info
-//        $document->setValue($trimmedValue['Value26'], $building); //FS Mall
-//        $document->setValue($trimmedValue['Value27'], $buildingclass); //EHL Owned
-//        $document->setValue($trimmedValue['Value28'], $diningseats); //Dining Seats : 120
-//        $document->setValue($trimmedValue['Value29'], $diningtables); // Dining Tables : 3333
-//        $document->setValue($trimmedValue['Value30'], $loungeseats); //lounge seats : 93
-//        $document->setValue($trimmedValue['Value31'], $loungetables); //lounge tables : 18
-//        $document->setValue($trimmedValue['Value32'], $patioseats); //patio seats : 112
-//        $document->setValue($trimmedValue['Value33'], $patiotables); //patio tables : 28
-//        $document->setValue($trimmedValue['Value34'], $totalseats); //total seats : 325
-//        $document->setValue($trimmedValue['Value35'], $totaltables); //total tables : 3379
+        $document->setValue($trimmedValue['Value27'], $building); //FS Mall
+        $document->setValue($trimmedValue['Value28'], $buildingclass); //EHL Owned
+        $document->setValue($trimmedValue['Value29'], $diningseats); //Dining Seats : 120
+        $document->setValue($trimmedValue['Value30'], $diningtables); // Dining Tables : 3333
+        $document->setValue($trimmedValue['Value31'], $loungeseats); //lounge seats : 93
+        $document->setValue($trimmedValue['Value32'], $loungetables); //lounge tables : 18
+        $document->setValue($trimmedValue['Value33'], $patioseats); //patio seats : 112
+        $document->setValue($trimmedValue['Value34'], $patiotables); //patio tables : 28
+        $document->setValue($trimmedValue['Value35'], $totalseats); //total seats : 325
+        $document->setValue($trimmedValue['Value36'], $totaltables); //total tables : 3379
 
 ////Area breakdown Info
-//        $document->setValue($trimmedValue['Value36'], $squareftmain); //Main : 7190.0
-//        $document->setValue($trimmedValue['Value37'], $squareftupperbas); //Uppr/Bas : 0.0
-//        $document->setValue($trimmedValue['Value38'], $squareftmezzanin); //Mezzanin : 700.0
-//        $document->setValue($trimmedValue['Value39'], $squareftpatio); // Patio : 2178.0
-//        $document->setValue($trimmedValue['Value40'], $other); //Other : 0.0
-//        $document->setValue($trimmedValue['Value41'], $surveyed); //Surveyed:
+        $document->setValue($trimmedValue['Value37'], $squareftmain); //Main : 7190.0
+        $document->setValue($trimmedValue['Value38'], $squareftupperbas); //Uppr/Bas : 0.0
+        $document->setValue($trimmedValue['Value39'], $squareftmezzanin); //Mezzanin : 700.0
+        $document->setValue($trimmedValue['Value40'], $squareftpatio); // Patio : 2178.0
+        $document->setValue($trimmedValue['Value41'], $other); //Other : 0.0
+        $document->setValue($trimmedValue['Value42'], $surveyed); //Surveyed:
 //
 ////Risk Info
-//        //$document->setValue('Value42', $buildingtypes); // Unknown
-//        $document->setValue($trimmedValue['Value43'], $buildinginsured); //tenant
-//        $document->setValue($trimmedValue['Value44'], $rent); // see 12.02 and 12.03
-//        $document->setValue($trimmedValue['Value45'], $exterior); //tenant see clause 11.01
-//        $document->setValue($trimmedValue['Value46'], $note); //notes
+//        //$document->setValue('Value43', $buildingtypes); // Unknown
+        $document->setValue($trimmedValue['Value44'], $buildinginsured); //tenant
+        $document->setValue($trimmedValue['Value45'], $rent); // see 12.02 and 12.03
+        $document->setValue($trimmedValue['Value46'], $exterior); //tenant see clause 11.01
 //
 ////Rent and Maintenance Info
-//        $document->setValue($trimmedValue['Value47'], $hvacrepair); // Tenant
-//        $document->setValue($trimmedValue['Value48'], $hvacreplace); //Tenant
-//        $document->setValue($trimmedValue['Value49'], $roofrepair); // Tenant
-//        $document->setValue($trimmedValue['Value50'], $roofreplace); //Tenant
+        $document->setValue($trimmedValue['Value47'], $hvacrepair); // Tenant
+        $document->setValue($trimmedValue['Value48'], $hvacreplace); //Tenant
+        $document->setValue($trimmedValue['Value49'], $roofrepair); // Tenant
+        $document->setValue($trimmedValue['Value50'], $roofreplace); //Tenant
 //
 ////Utilities Info
-//        $document->setValue($trimmedValue['Value51'], $waterbillingby); // utility
-//        $document->setValue($trimmedValue['Value52'], $watermetered); // metered
-//        $document->setValue($trimmedValue['Value53'], $watercam); // CAM
-//
-//        $document->setValue($trimmedValue['Value54'], $electricbillingby); // Purchasing
-//        $document->setValue($trimmedValue['Value55'], $electricmetered); //metered
-//        $document->setValue($trimmedValue['Value56'], $electriccam); //CAM
-//
-//        $document->setValue($trimmedValue['Value57'], $gasbillingby); // Purchasing
-//        $document->setValue($trimmedValue['Value58'], $gasmetered); //metered
-//        $document->setValue($trimmedValue['Value59'], $gascam); //CAM
+        $document->setValue($trimmedValue['Value51'], $waterbillingby); // utility
+        $document->setValue($trimmedValue['Value52'], $watermetered); // metered
+        $document->setValue($trimmedValue['Value53'], $watercam); // CAM
+////
+        $document->setValue($trimmedValue['Value54'], $electricbillingby); // Purchasing
+        $document->setValue($trimmedValue['Value55'], $electricmetered); //metered
+        $document->setValue($trimmedValue['Value56'], $electriccam); //CAM
+////
+        $document->setValue($trimmedValue['Value57'], $gasbillingby); // Purchasing
+        $document->setValue($trimmedValue['Value58'], $gasmetered); //metered
+        $document->setValue($trimmedValue['Value59'], $gascam); //CAM
 //
 ////Lease Information
-//        $document->setValue($trimmedValue['Value60'], $leasetype); // Lease with TI
-//        $document->setValue($trimmedValue['Value61'], $leasedate); //January 12, 1998
-//        $document->setValue($trimmedValue['Value62'], $term); //15 years
-//        $document->setValue($trimmedValue['Value63'], $commencement); // December 10, 1998
-//        $document->setValue($trimmedValue['Value64'], $leaseexpiry); //December 31, 2013
-//        $document->setValue($trimmedValue['Value65'], $optiontime); //6 months
+        $document->setValue($trimmedValue['Value60'], $leasetype); // Lease with TI
+        $document->setValue($trimmedValue['Value61'], $leasedate); //January 12, 1998
+        $document->setValue($trimmedValue['Value62'], $term); //15 years
+        $document->setValue($trimmedValue['Value63'], $commencement); // December 10, 1998
+        $document->setValue($trimmedValue['Value64'], $leaseexpiry); //December 31, 2013
+        $document->setValue($trimmedValue['Value65'], $optiontime); //6 months
 //
 ////Renewal Information
-//        $document->setValue($trimmedValue['Value66'], $renewaloptiondate); // June 30,2013
-//        $document->setValue($trimmedValue['Value67'], $renewal); //3x5 years
-//        $document->setValue($trimmedValue['Value68'], $renewalratebegin1); //Jan 1/XX
-//        $document->setValue($trimmedValue['Value69'], $renewalrateend); // Dec 31/XX
-//        $document->setValue($trimmedValue['Value70'], $renewalpsf); //$40 p.s.f.
-//        $document->setValue($trimmedValue['Value71'], $renewalexercisedyes); //yes
-//        $document->setValue($trimmedValue['Value72'], $renewalexercisedno); //no
+        $document->setValue($trimmedValue['Value66'], $renewaloptiondate); // June 30,2013
+        $document->setValue($trimmedValue['Value67'], $renewal); //3x5 years
+        $document->setValue($trimmedValue['Value68'], $renewalratebegin1); //Jan 1/XX
+        $document->setValue($trimmedValue['Value69'], $renewalexercisedyes); //yes
+
 //
 ////Report Information
-//        $document->setValue($trimmedValue['Value73'], $reportingperiod); // Month
-//        $document->setValue($trimmedValue['Value74'], $certsales); // certified sales?
-//        $document->setValue($trimmedValue['Value75'], $duedate); // 2/28/2014
-//        $document->setValue($trimmedValue['Value76'], $audit); // is audit?
-//        $document->setValue($trimmedValue['Value77'], $certified); // certified ?
+        $document->setValue($trimmedValue['Value70'], $reportingperiod); // Month
+        $document->setValue($trimmedValue['Value71'], $certsales); // certified sales?
+        $document->setValue($trimmedValue['Value72'], $duedate); // 2/28/2014
+        $document->setValue($trimmedValue['Value73'], $audit); // is audit?
+        $document->setValue($trimmedValue['Value74'], $certified); // certified ?
 //
 ////Special Terms and Conditions Information
-//        $document->setValue($trimmedValue['Value78'], $exclusive); // yes or no
-//        $document->setValue($trimmedValue['Value79'], $TI); // $700,000
-//        $document->setValue($trimmedValue['Value80'], $radiusclause); // yes or no
-//        $document->setValue($trimmedValue['Value81'], $other); // cap on op costs - see page 10 of lease
-//        $document->setValue($trimmedValue['Value82'], $indemnifier); // Earl's Restuarants Ltd.
-//        $document->setValue($trimmedValue['Value83'], $indemnityperiod); // end of 2nd Extension
-//        $document->setValue($trimmedValue['Value84'], $indemnityexpiry); // December 31, 2008
+        $document->setValue($trimmedValue['Value75'], $exclusive); // yes or no
+        $document->setValue($trimmedValue['Value76'], $TI); // $700,000
+        $document->setValue($trimmedValue['Value77'], $radiusclause); // yes or no
+        $document->setValue($trimmedValue['Value78'], $other); // cap on op costs - see page 10 of lease
+        $document->setValue($trimmedValue['Value79'], $indemnifier); // Earl's Restuarants Ltd.
+        $document->setValue($trimmedValue['Value80'], $indemnityperiod); // end of 2nd Extension
+        $document->setValue($trimmedValue['Value81'], $indemnityexpiry); // December 31, 2008
 //
 ////Critical Issues
-//        $document->setValue($trimmedValue['Value85'], $crdate); // Date
-//        $document->setValue($trimmedValue['Value86'], $crclause); //Clause
-//        $document->setValue($trimmedValue['Value87'], $crdescr); // Description
+        $document->setValue($trimmedValue['Value82'], $crdate); // Date
+        $document->setValue($trimmedValue['Value83'], $crclause); //Clause
+        $document->setValue($trimmedValue['Value84'], $crdescr); // Description
 
 //save the document
         $outputFilePath = __DIR__.'/Templates/Reports/LeaseSummary.docx';

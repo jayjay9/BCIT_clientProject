@@ -120,10 +120,18 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Property Manager</label>
 
+
                     <div class="col-sm-9">
 
+                        {{ form_widget(storeInfoForm.propertymanager,{
+                            'label': 'Same as Landlord',
+                            'attr': {'class': 'form-control'}
+                        }) }}
+
+                        Same as Landlord
+
                         {{ form_widget(storeInfoForm.restaurantInfo.propertymanagerid, {
-                        'attr': {'class': 'form-control'}
+                            'attr': {'class': 'form-control'}
                         }) }}
 
                     </div>
@@ -770,10 +778,10 @@
 
 {% endblock %}
 {% block javascript %}
-<script>
-        jQuery(document).ready(function() {     
-            App.setPage("elements");  //Set current page
-            App.init(); //Initialise plugins and elements
-        });
-</script>
+    <script>
+            jQuery(document).ready(function() {
+                App.setPage("elements");  //Set current page
+                App.init(); //Initialise plugins and elements
+            });
+    </script>
 {% endblock %}

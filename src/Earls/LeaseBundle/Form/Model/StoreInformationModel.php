@@ -38,6 +38,8 @@ class StoreInformationModel {
 
     protected $utilities3;
 
+    protected $propertyManager;
+
     protected $restaurantId;
 
 
@@ -131,5 +133,14 @@ class StoreInformationModel {
         return $this->restaurantId;
     }
 
+    public function setPropertyManager($propertyManager)
+    {
+        $this->propertyManager = $propertyManager;
+    }
+
+    public function getPropertyManager()
+    {
+        return $this->propertyManager;
+    }
 
 } 

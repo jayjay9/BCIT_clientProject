@@ -19,6 +19,8 @@ use Earls\LeaseBundle\Form\Type\LeasesType;
 use Earls\LeaseBundle\Form\Type\LeasesInfoType;
 use Earls\LeaseBundle\Form\Type\LeaseCriticalTasksType;
 use Earls\LeaseBundle\Form\Type\RenewalsType;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class LeaseInformationController extends Controller{
 
@@ -31,16 +33,17 @@ class LeaseInformationController extends Controller{
         $em = $this->getDoctrine()->getManager();
 
         $restaurantObj = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Restaurants')
-            ->find($id);
+        ->getRepository('EarlsLeaseBundle:Restaurants')
+        ->find($id);
 
         $restaurantName = $restaurantObj->getStorenickname();
 
         $leaseinfo = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Leases')
-            ->findBy(array('restaurantid' => $id));
+        ->getRepository('EarlsLeaseBundle:Leases')
+        ->findBy(array('restaurantid' => $id));
 
         $formarray = array();
+        $countLease = 0;
 
         if(empty($leaseinfo)){
             $leaseinfoObj = new Leases();
@@ -49,63 +52,64 @@ class LeaseInformationController extends Controller{
             array_push($leaseinfo, $leaseinfoObj);
         }
 
-
         foreach($leaseinfo as $leaseinfoObj){
 
-        $leaseId = $leaseinfoObj->getLeaseid();
+            $leaseId = $leaseinfoObj->getLeaseid();
 
-        $leasereportinfoObj = $this->getDoctrine()
+            $leasereportinfoObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Leasereportsinfo')
             ->findOneBy(array('leaseid' => $leaseId));
 
-        if(empty($leasereportinfoObj)) {
-            $leasereportinfoObj = new Leasereportsinfo();
-            $this->addLeaseReportInfoEntry($leasereportinfoObj, $leaseinfoObj);
-        }
+            if(empty($leasereportinfoObj)) {
+                $leasereportinfoObj = new Leasereportsinfo();
+                $this->addLeaseReportInfoEntry($leasereportinfoObj, $leaseinfoObj);
+            }
 
-        $leasecriticaltaskObj = $this->getDoctrine()
+            $leasecriticaltaskObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Leasecriticaltasks')
             ->findBy(array('leaseid' => $leaseId));
 
-        if(empty($leasecriticaltaskObj)) {
-            $leasecriticaltaskObj = new Leasecriticaltasks();
-            $this->addLeaseCriticalTaskEntry($leasecriticaltaskObj, $leaseinfoObj);
-            $temparray = array();
-            array_push($temparray, $leasecriticaltaskObj);
-            $leasecriticaltaskObj = array();
-            $leasecriticaltaskObj = $temparray;
-        }
+            if(empty($leasecriticaltaskObj)) {
+                $leasecriticaltaskObj = new Leasecriticaltasks();
+                $this->addLeaseCriticalTaskEntry($leasecriticaltaskObj, $leaseinfoObj);
+                $temparray = array();
+                array_push($temparray, $leasecriticaltaskObj);
+                $leasecriticaltaskObj = array();
+                $leasecriticaltaskObj = $temparray;
+            }
 
-        $renewalObj = $this->getDoctrine()
+            $renewalObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Renewals')
             ->findBy(array('leaseid' => $leaseId));
 
-        if(empty($renewalObj)) {
-            $renewalObj = new Renewals();
-            $this->addRenewalEntry($renewalObj, $leaseinfoObj);
-            $temparray = array();
-            array_push($temparray, $renewalObj);
-            $renewalObj = array();
-            $renewalObj = $temparray;
+            if(empty($renewalObj)) {
+                $renewalObj = new Renewals();
+                $this->addRenewalEntry($renewalObj, $leaseinfoObj);
+                $temparray = array();
+                array_push($temparray, $renewalObj);
+                $renewalObj = array();
+                $renewalObj = $temparray;
+            }
+
+            $model = new LeasesModel();
+
+            if (isset($leaseinfoObj))
+                $model->setLeaseInfo($leaseinfoObj);
+            $model->setLeaseid($leaseId);
+
+            if (isset($leasereportinfoObj))
+                $model->setLeasereportinfo($leasereportinfoObj);
+
+            if (isset($leasecriticaltaskObj))
+                $model->setLeasecriticaltasks($leasecriticaltaskObj);
+
+            if (isset($renewalObj))
+                $model->setRenewals($renewalObj);
+
+            array_push($formarray, $model);
+
+            $countLease++;
         }
-
-        $model = new LeasesModel();
-
-        if (isset($leaseinfoObj))
-        $model->setLeaseInfo($leaseinfoObj);
-        $model->setLeaseid($leaseId);
-
-        if (isset($leasereportinfoObj))
-        $model->setLeasereportinfo($leasereportinfoObj);
-
-        if (isset($leasecriticaltaskObj))
-        $model->setLeasecriticaltasks($leasecriticaltaskObj);
-
-        if (isset($renewalObj))
-        $model->setRenewals($renewalObj);
-
-        array_push($formarray, $model);
-    }
 
         $request = $this->getRequest();
         $leasecollection = new LeaseCollectionModel();
@@ -114,9 +118,43 @@ class LeaseInformationController extends Controller{
         $leasecollection->setrestaurantid($id);
         $collectionform = $this->createForm(new LeaseCollectionType(), $leasecollection);
 
+        $leaseInfoArray = array();
+
         if ($request->isMethod('POST')) {
             $collectionform->submit($request);
             if ($collectionform->isValid()) {
+                $leaseInfoArray = $leasecollection->getLeaseInfo();
+                $lastLeaseObj = end($leaseInfoArray);
+                $leaseObj = $lastLeaseObj->getLeaseinfo();
+                foreach($leaseInfoArray as $lease){
+                    $leaseRenewals = $lease->getRenewals();
+                    foreach($leaseRenewals as $leaseRenewal){
+                        if($leaseRenewal->getLeaseid() == null && $leaseRenewal->getTerm() != null){
+                            $leaseRenewal->setLeaseid($leaseObj);
+                            $em = $this->getDoctrine()->getManager();
+                            $em->persist($leaseRenewal);
+                            $em->flush();
+                        }elseif($leaseRenewal->getTerm() == null && $leaseRenewal->getExercised() == 0 && $leaseRenewal->getShowinleasereport() == 0){
+                            $em = $this->getDoctrine()->getManager();
+                            $em->remove($leaseRenewal);
+                            $em->flush();
+                        }
+                    }
+                    $leaseTasks = $lease->getLeasecriticaltasks();
+                    foreach($leaseTasks as $leaseTask){
+                        if($leaseTask->getLeasecriticaltaskid() == null){
+                            $leaseTask->setLeaseid($leaseObj);
+                            $em = $this->getDoctrine()->getManager();
+                            $em->persist($leaseTask);
+                            $em->flush();
+                        }elseif($leaseTask->getCtdate() == null && $leaseTask->getCtclause() == null && $leaseTask->getCtdescription() == null){
+                            $em = $this->getDoctrine()->getManager();
+                            $em->remove($leaseTask);
+                            $em->flush();
+                        }
+
+                    }
+                }
                 $em->flush();
                 return $this->redirect($this->generateUrl('_leaseinformation', array('id' => $id)));
             }else{
@@ -126,9 +164,10 @@ class LeaseInformationController extends Controller{
 
         return $this->render('EarlsLeaseBundle:LeaseInformation:index.html.twig',
             array(
-                'leaseInfoForm' => $collectionform->createView()
-            )
-        );
+                'leaseInfoForm' => $collectionform->createView(),
+                'leaseCount' => $countLease
+                )
+            );
     }
 
     private function addLeaseinfo(Leases $lease, Restaurants $restaurant){
@@ -167,126 +206,6 @@ class LeaseInformationController extends Controller{
         $em->flush();
 
         return 1;
-    }
-
-    /**
-     * @Route("/getRenewal/{id}", name="_getRenewal_id")
-     * @Template()
-     */
-    public function getRenewalAction($id)
-    {
-        $renewal = new Renewals();
-
-        $form = $this->createForm(new RenewalsType(), $renewal, array(
-            'action' => $this->generateUrl('_addRenewal_id', array('id' => $id))
-        ));
-
-        return $this->render('EarlsLeaseBundle:LeaseInformation:renewals.html.twig',
-            array(
-                'renewalForm' => $form->createView()
-            )
-        );
-    }
-
-    /**
-     * @Route("/addRenewal/{id}", name="_addRenewal_id")
-     * @Template()
-     */
-    public function addRenewalAction($id)
-    {
-
-        $leaseObj = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Leases')
-            ->find($id);
-
-        $restaurantid = $leaseObj->getRestaurantid()->getRestaurantid();
-
-        $request = $this->getRequest();
-
-        $em= $this->getDoctrine()->getEntityManager();
-
-        $renewal = new Renewals();
-        $renewal->setLeaseid($leaseObj);
-
-        $form = $this->createForm(new RenewalsType(),$renewal);
-
-        $form->handleRequest($request);
-
-        if($form->isValid()){
-
-            $renewals = $form->getData();
-            $em->persist($renewals);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('_leaseinformation', array('id' => $restaurantid)));
-
-        }
-
-        return $this->render('EarlsLeaseBundle:LeaseInformation:renewals.html.twig',
-            array(
-                'renewalForm' => $form->createView()
-            )
-        );
-    }
-
-    /**
-     * @Route("/getTasks/{id}", name="_getTasks_id")
-     * @Template()
-     */
-    public function getTasksAction($id)
-    {
-        $tasks = new Leasecriticaltasks();
-
-        $form = $this->createForm(new LeaseCriticalTasksType(), $tasks, array(
-            'action' => $this->generateUrl('_addTasks_id', array('id' => $id))
-        ));
-
-        return $this->render('EarlsLeaseBundle:LeaseInformation:tasks.html.twig',
-            array(
-                'tasksForm' => $form->createView()
-            )
-        );
-    }
-
-    /**
-     * @Route("/addTasks/{id}", name="_addTasks_id")
-     * @Template()
-     */
-    public function addTasksAction($id)
-    {
-
-        $leaseObj = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Leases')
-            ->find($id);
-
-        $restaurantid = $leaseObj->getRestaurantid()->getRestaurantid();
-
-        $request = $this->getRequest();
-
-        $em= $this->getDoctrine()->getEntityManager();
-
-        $tasks = new Leasecriticaltasks();
-        $tasks->setLeaseid($leaseObj);
-
-        $form = $this->createForm(new LeaseCriticalTasksType(),$tasks);
-
-        $form->handleRequest($request);
-
-        if($form->isValid()){
-
-            $tasks = $form->getData();
-            $em->persist($tasks);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('_leaseinformation', array('id' => $restaurantid)));
-
-        }
-
-        return $this->render('EarlsLeaseBundle:LeaseInformation:tasks.html.twig',
-            array(
-                'tasksForm' => $form->createView()
-            )
-        );
     }
 
 }

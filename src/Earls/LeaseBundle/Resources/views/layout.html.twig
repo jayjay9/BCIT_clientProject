@@ -42,7 +42,7 @@
     </div>
 
     <div class="wrapmenu">
-        <div id="logo"><a href="#" onClick="alert('You are amazing, just the way you are!')"><span><img src="{{ asset('bundles/earlslease/images/EarlsLogo.png') }}" alt="" /></span></a></div>
+        <div id="logo"><a href="{{ path('earls_lease_homepage') }}"><span><img src="{{ asset('bundles/earlslease/images/EarlsLogo.png') }}" alt="" /></span></a></div>
 
 
             <div class="panel-group" id="accordion">
@@ -199,5 +199,6 @@
 {% block javascript %}
 
 {% endblock %}
+
 </body>
 </html>

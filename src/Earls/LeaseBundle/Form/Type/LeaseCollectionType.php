@@ -20,7 +20,8 @@ class LeaseCollectionType extends AbstractType{
     {
         $builder
             ->add('leaseinfo', 'collection', array(
-                'type' => new LeasesInfoType()
+                'type' => new LeasesInfoType(),
+                'allow_add' => true,
             ))
             ->add('restaurantName', 'hidden')
             ->add('restaurantid', 'hidden')

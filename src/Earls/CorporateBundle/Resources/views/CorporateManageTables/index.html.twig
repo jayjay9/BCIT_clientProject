@@ -1,5 +1,205 @@
 {% extends "EarlsLeaseBundle::layout.html.twig" %}
+
 {% block body %}
-<p>
-company manage table page </p>
+	{% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION')%}
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-header">
+                <div class="clearfix">
+                    <h3 class="content-title pull-left">Manage Corporate Tables</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="box border blue">
+            <div class="box-body big">
+                <ul class="nav nav-tabs" id="myTab">
+                    <li><a href="#director" data-toggle="tab">Directors</a></li>
+                    <li><a href="#office" data-toggle="tab">Registered & Records Offices</a></li>
+                    <li><a href="#sharetype" data-toggle="tab">Share Types</a></li>
+                </ul>
+                <div class="tab-content">
+
+                    <!-- Directors' Tab -->
+
+                    <div class="tab-pane fade in active" id="director">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                        <div class="box border" style="margin-top: 30px;">
+                            <div class="box-title">
+                                <h4>Directors Table</h4>
+                                <a data-toggle="modal" class="btn btn-small btn-success" href="{{ path('_manage_corporate_tables_director_add') }}" data-target="#directorModalAdd">
+                                    <i class="fa fa-plus"></i> ADD A DIRECTOR
+                                </a>
+                            </div>
+                            <div class="box-body">
+                                <table id="datatableDirector" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Director Name</th>
+                                            <th>Director Address</th>
+                                            <th>City</th>
+                                            <th>Province/State</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for director in allDirectors %}
+                                    <tr>
+                                        <td>{{ loop.index }}</td>
+                                        <td>{{ director.directorname }}</td>
+                                        <td>{{ director.address }}</td>
+                                        <td>{{ director.city }}</td>
+                                        <td>{{ director.provincestate }}</td>
+                                        <td>
+                                            <a data-toggle="modal" class="btn btn-small btn-warning" href="{{ path('_manage_corporate_tables_director_get_id', {'id': director.directorid }) }}" data-target="#directorModal{{ director.directorid }}">
+                                            <i class="fa fa-edit"></i> Edit
+                                        </td>
+                                        <td>
+                                        	<a class="btn btn-small btn-danger" href="{{ path('_manage_corporate_tables_director_delete_id', {'id': director.directorid })}}">
+                                            <i class="fa fa-times-circle"></i> Delete
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <!-- add modal fade in class here -->
+                                    <div class="modal fade in" id="directorModal{{ director.directorid }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                                        </div><!-- /.modal -->
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Registered and Records Offices Tab -->
+
+                    <div class="tab-pane fade in active" id="office">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                        <div class="box border" style="margin-top: 30px;">
+                            <div class="box-title">
+                                <h4>Registered & Records Offices Table</h4>
+                                <a data-toggle="modal" class="btn btn-small btn-success" href="{{ path('_manage_corporate_tables_office_add') }}" data-target="#officeModalAdd">
+                                    <i class="fa fa-plus"></i> ADD A OFFICE
+                                </a>
+                            </div>
+                            <div class="box-body">
+                                <table id="datatableOffice" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Office Name</th>
+                                            <th>Office Address</th>
+                                            <th>City</th>
+                                            <th>Province/State</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for office in allOffices %}
+                                    <tr>
+                                        <td>{{ loop.index }}</td>
+                                        <td>{{ office.officename }}</td>
+                                        <td>{{ office.address }}</td>
+                                        <td>{{ office.city }}</td>
+                                        <td>{{ office.provincestate }}</td>
+                                        <td>
+                                            <a data-toggle="modal" class="btn btn-small btn-warning" href="{{ path('_manage_corporate_tables_office_get_id', {'id': office.officeid }) }}" data-target="#officeModal{{ office.officeid }}">
+                                            <i class="fa fa-edit"></i> Edit
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-small btn-danger" href="{{ path('_manage_corporate_tables_office_delete_id', {'id': office.officeid })}}">
+                                            <i class="fa fa-times-circle"></i> Delete
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <!-- add modal fade in class here -->
+                                    <div class="modal fade in" id="officeModal{{ office.officeid }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                                    </div><!-- /.modal -->
+                                    <!-- /.modal -->
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Share Types Tab -->
+
+                    <div class="tab-pane fade in active" id="sharetype">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="box border" style="margin-top: 30px;">
+                                    <div class="box-title">
+                                    <h4>Share Types Table</h4> 
+                                        <a data-toggle="modal" class="btn btn-small btn-success" href="{{ path('_manage_corporate_tables_sharetype_add') }}" data-target="#sharetypeModalAdd">
+                                        <i class="fa fa-plus"></i> ADD A SHARE TYPE
+                                        </a>
+                                    </div>
+                                    <div class="box-body">
+                                        <table id="datatableSharetype" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Share Types</th>
+                                                    <th>Delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for sharetype in allSharetypes %}
+                                            <tr>
+                                                <td>{{ loop.index }}</td>
+                                                <td>{{ sharetype.sharetype }}</td>
+                                                <td>
+                                                <a class="btn btn-small btn-danger" href="{{ path('_manage_corporate_tables_sharetype_delete_id', {'id': sharetype.sharetypeid })}}">
+                                                <i class="fa fa-times-circle"></i> Delete
+                                                </a>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- add modal fade in class here --> 
+        <div class="modal fade in" id="directorModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+        </div><!-- /.modal -->
+        <div class="modal fade in" id="officeModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+        </div><!-- /.modal -->
+        <div class="modal fade in" id="sharetypeModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+        </div><!-- /.modal -->
+    </div>
+</div>
+{% endblock %}
+{% block javascript %}
+    <script type="text/javascript" src="{{ asset('bundles/earlslease/js/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/earlslease/js/datatables/media/assets/js/datatables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/earlslease/js/datatables/extras/TableTools/media/js/TableTools.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/earlslease/js/datatables/extras/TableTools/media/js/ZeroClipboard.min.js') }}"></script>
+
+    <script>
+        jQuery(document).ready(function() {
+            $('.datatable').dataTable({"iDisplayLength": 25});
+            App.setPage("dynamic_table");
+            App.init(); //Initialise plugins and elements
+        });
+    </script>
 {% endblock %}

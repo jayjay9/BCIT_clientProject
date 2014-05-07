@@ -182,10 +182,12 @@ class Directors
     /**
      * Get city
      *
-     * @return \Earls\CorporateBundle\Entity\Northamericancities 
+     * @return \Earls\CorporateBundle\Entity\Northamericancities
+     *  
      */
     public function getCity()
     {
         return $this->city;
     }
+
 }

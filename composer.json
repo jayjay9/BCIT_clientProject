@@ -23,7 +23,8 @@
         "twitter/bootstrap": "2.3.*",
         "symfony/form": "2.3.*",
         "symfony/validator": "2.3.*",
-        "friendsofsymfony/user-bundle": "~2.0@dev"
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "phpword/phpword": "0.6.2"
     },
     "scripts": {
         "post-install-cmd": [

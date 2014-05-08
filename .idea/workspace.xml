@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a7a6150-0dcb-41f1-a63f-812e63589da4" name="Default" comment="" />
+    <list default="true" id="5a7a6150-0dcb-41f1-a63f-812e63589da4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/views/SummaryCompany/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/views/SummaryCompany/index.html.twig" />
+    </list>
     <ignored path="EarlsLeaseWebApp.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -88,7 +90,7 @@
           <file leaf-file-name="layout.html.twig" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/layout.html.twig">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="193" column="13" selection-start="8969" selection-end="9015" vertical-scroll-proportion="-20.125" vertical-offset="2412" max-vertical-offset="3135">
+                <state line="193" column="13" selection-start="8966" selection-end="9012" vertical-scroll-proportion="-20.125" vertical-offset="2412" max-vertical-offset="3135">
                   <folding />
                 </state>
               </provider>
@@ -115,7 +117,16 @@
           <file leaf-file-name="index.html.twig" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/views/SummaryCompany/index.html.twig">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="42" column="30" selection-start="1794" selection-end="1794" vertical-scroll-proportion="0.55686855" vertical-offset="253" max-vertical-offset="1005">
+                <state line="48" column="0" selection-start="2153" selection-end="2153" vertical-scroll-proportion="0.62232417" vertical-offset="313" max-vertical-offset="1035">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Landlords.php" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Landlords.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="237" column="6" selection-start="4158" selection-end="4158" vertical-scroll-proportion="-8.125" vertical-offset="3360" max-vertical-offset="4290">
                   <folding />
                 </state>
               </provider>
@@ -156,7 +167,7 @@
           <file leaf-file-name="SummaryController.php" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/SummaryController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="967" column="35" selection-start="36441" selection-end="36477" vertical-scroll-proportion="0.6556671" vertical-offset="13628" max-vertical-offset="14340">
+                <state line="973" column="5" selection-start="36441" selection-end="36477" vertical-scroll-proportion="0.78479195" vertical-offset="13628" max-vertical-offset="14340">
                   <folding>
                     <element signature="e#1702#1719#0" expanded="true" />
                     <element signature="e#1958#1988#1" expanded="true" />
@@ -953,7 +964,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-148" y="-878" width="1600" height="878" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -966,7 +977,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16623877" sideWeight="0.5743671" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16623877" sideWeight="0.5743671" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1193,13 +1204,6 @@
         <state line="142" column="38" selection-start="2892" selection-end="2892" vertical-scroll-proportion="2.6185286" vertical-offset="43" max-vertical-offset="2100" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Landlords.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="276" column="20" selection-start="5054" selection-end="5072" vertical-scroll-proportion="1.0626704" vertical-offset="3360" max-vertical-offset="4290">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RestaurantsType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="96" column="36" selection-start="3752" selection-end="3752" vertical-scroll-proportion="0.28610355" vertical-offset="1185" max-vertical-offset="2055" />
@@ -1252,7 +1256,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="193" column="13" selection-start="8969" selection-end="9015" vertical-scroll-proportion="-20.125" vertical-offset="2412" max-vertical-offset="3135">
+        <state line="193" column="13" selection-start="8966" selection-end="9012" vertical-scroll-proportion="-20.125" vertical-offset="2412" max-vertical-offset="3135">
           <folding />
         </state>
       </provider>
@@ -1337,13 +1341,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/views/SummaryShareholder/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="12" selection-start="117" selection-end="117" vertical-scroll-proportion="0.08695652" vertical-offset="0" max-vertical-offset="690">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LicenseByExpiry/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="54" column="12" selection-start="2590" selection-end="3085" vertical-scroll-proportion="-16.333334" vertical-offset="418" max-vertical-offset="1110">
@@ -1358,9 +1355,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Landlords.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="237" column="6" selection-start="4158" selection-end="4158" vertical-scroll-proportion="-8.125" vertical-offset="3360" max-vertical-offset="4290">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/views/SummaryCompany/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="30" selection-start="1794" selection-end="1794" vertical-scroll-proportion="0.55686855" vertical-offset="253" max-vertical-offset="1005">
+        <state line="48" column="0" selection-start="2153" selection-end="2153" vertical-scroll-proportion="0.62232417" vertical-offset="313" max-vertical-offset="1035">
           <folding />
         </state>
       </provider>

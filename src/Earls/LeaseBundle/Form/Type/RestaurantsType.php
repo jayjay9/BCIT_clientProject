@@ -54,6 +54,8 @@ class RestaurantsType extends AbstractType
                 },
             ))
 //            ->add('utilityid')
+
+
             ->add('propertymanagerid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Propertymanagers',
                 'property' => 'propertymanagername',
@@ -62,6 +64,8 @@ class RestaurantsType extends AbstractType
                 ->orderBy('u.propertymanagername', 'ASC');
                 },
             ))
+
+
 
             ->add('city', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Northamericancities',

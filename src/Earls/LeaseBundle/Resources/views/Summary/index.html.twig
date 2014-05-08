@@ -33,7 +33,9 @@
                             <button class="btn btn-small btn-pink" type="button" onclick="javascript:window.location.href='{{ path('_summary_createreport', {'id': restaurantarray.restaurantid}) }}'">Export to Word Document</button>
 
                             {{ form_end(storeFinderForm) }}
-
+                            <form method="get" action="http://localhost/SymfonyProjects/EarlsLeaseWebApp/src/Earls/LeaseBundle/Controller/Templates/Reports/LeaseSummary.docx">
+                                <button type="submit">Download</button>
+                            </form>
                         </div>
 
                     </div>
@@ -82,7 +84,7 @@
                                             <p><b>PROPERTY MANAGER</b></p>
                                             <p>{{ PropertymanagerObj.propertymanagername }}</p>
                                             <p>{{ PropertymanagerObj.address }}</p>
-                                            <p>{{ ProvinceState.provinceProperty }}</p>
+                                            <p>{{ ProvinceState.propertyCity }}, {{ ProvinceState.provinceProperty }}</p>
                                             <p>{{ PropertymanagerObj.postalzip }}</p>
                                             <p><b>ATTENTION: </b> {{ PropertymanagerObj.attention }}</p>
                                             <p><b>PHONE: </b> {{ PropertymanagerObj.phone }}</p>
@@ -103,7 +105,7 @@
                                         <div class="col-md-6">
                                             <p><b>TENANT:</b> {{ RestaurantObj.tenant }}</p>
                                             <p>{{ RestaurantObj.address }}</p>
-                                            <p>{{ restaurant.provinceState }}</p>
+                                            <p>{{ restaurant.city }}, {{ restaurant.provinceState }}</p>
                                             <p>{{ RestaurantObj.postalzip }}</p>
                                             <p><b>Legal Description:</b></p>
                                             <p>{{ RestaurantObj.legaldescription }}</p>
@@ -303,7 +305,11 @@
                                                             <td></td>
                                                             <td>{{ Renewal.term }}</td>
                                                             <td><b>Exercised?</b></td>
-                                                            <td>{{ Renewal.exercised }}</td>
+                                                            {% if Renewal.exercised == 1 %}
+                                                                <td>YES</td>
+                                                            {% else %}
+                                                                <td>NO</td>
+                                                            {% endif %}
                                                         </tr>
                                                 {% endfor %}
                                             </table>

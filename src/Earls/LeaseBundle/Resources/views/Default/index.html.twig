@@ -2,10 +2,96 @@
 {% block body %}
     {% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION')%}
 
+{% if is_granted('ROLE_ADMIN') %}
+	<div id="sidebar" class="sidebar" style="float:right; position:static; width:25%;">
+		<div class="sidebar-menu">
+			<ul>
+				<li class="title" style="text-align:center;">
+					<a>
+					<i class="fa fa-bell fa-fw"></i> <b><span class="menu-text">{{ total }} Notifications</span></b>
+					<span class="selected"></span>
+					</a>
+					{% if dueDates is empty %}
+						{% if dueDatesinAMonth is empty %}
+							<li class="active">
+								<a>
+								<span class="menu-text">NO OVERDUE REPORTS</span>
+								<span class="selected"></span>
+								</a>					
+							</li>
+						{% else %}
+							<li class="active">
+								<a>
+								<span class="menu-text">REPORTS DUE IN A MONTH:</span>
+								<span class="selected"></span>
+								</a>					
+							</li>
+							{% for date in dueDatesinAMonth %}
+							 	<li>
+									<a href="{{ path('_leaseinformation', {'id': date.id}) }}">
+									<span class="menu-text">STORE: {{date.name}}</span>
+									<br>
+									<span class="menu-text">DUE DATE: {{date.due}}</span>
+									<i class="fa fa-refresh fa-fw" style="float:right;"></i><span class="selected"></span>
+									</a>					
+								</li>
+					 		{% endfor %}
+						{% endif %}
+						{% else %}
+							<li class="active">
+								<a>
+								<span class="menu-text">OVERDUE REPORTS:</span>
+								<span class="selected"></span>
+								</a>					
+							</li>
+							 {% for date in dueDates %}
+							 	<li>
+									<a href="{{ path('_leaseinformation', {'id': date.id}) }}">
+									<span class="menu-text">STORE: {{date.name}}</span>
+									<br>
+									<span class="menu-text">DUE DATE: {{date.due}}</span>
+									<i class="fa fa-refresh fa-fw" style="float:right;"></i> <span class="selected"></span>
+									</a>					
+								</li>
+							{% endfor %}
+							{% if dueDatesinAMonth is empty %}
+								{% else %}
+									<li class="active">
+									<a>
+									<span class="menu-text">REPORTS DUE IN A MONTH:</span>
+									<span class="selected"></span>
+									</a>					
+								</li>
+								{% for date in dueDatesinAMonth %}
+								 	<li>
+										<a href="{{ path('_leaseinformation', {'id': date.id}) }}">
+										<span class="menu-text">STORE: {{date.name}}</span>
+										<br>
+										<span class="menu-text">DUE DATE: {{date.due}}</span>
+										<i class="fa fa-refresh fa-fw" style="float:right;"></i><span class="selected"></span>
+										</a>					
+									</li>
+						 		{% endfor %}
+							{% endif %}
+					{% endif %}		
+				</li>
+			</ul>
+		</div>
+	</div>
+{% endif %}
+
+{% endblock %}
 
 
-<center>
-        <img class="img-responsive" src="{{ asset('bundles/earlslease/images/landingpage.png') }}" alt="landing_page" />
-</center>
-
+{% block javascript %}
+	{% if is_granted('ROLE_ADMIN') %}
+		{% if total != 0 %}
+		<script>
+			$( document ).ready(function() {
+		    	alert("CATH! THERE ARE " + {{ total|json_encode|raw }}+ " OVERDUE REPORTS!" );
+		    	alert("Please update the due date when you have run the report." );
+			});
+		</script>
+		{% endif %}
+	{% endif %}
 {% endblock %}

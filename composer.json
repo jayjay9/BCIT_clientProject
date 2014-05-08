@@ -23,32 +23,8 @@
         "twitter/bootstrap": "2.3.*",
         "symfony/form": "2.3.*",
         "symfony/validator": "2.3.*",
-        "friendsofsymfony/user-bundle": "~2.0@dev",
-        "phpword/phpword": "0.6.2",
-        "earls/rhino-report-bundle": "dev-master@dev",
-        "symfony/framework-bundle": "2.1.*"
-
+        "friendsofsymfony/user-bundle": "~2.0@dev"
     },
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "phpword/phpword",
-                "version": "0.6.2",
-                "dist": {
-                    "url": "https://github.com/PHPOffice/PHPWord.git",
-                    "type": "git"
-                },
-                "autoload": {
-                    "classmap": ["."]
-                }
-            }
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/Earls/RhinoReport.git"
-        }
-    ],
     "scripts": {
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -80,5 +56,4 @@
             "dev-master": "2.3-dev"
         }
     }
-
 }

@@ -1,5 +1,181 @@
 {% extends "EarlsLeaseBundle::layout.html.twig" %}
 {% block body %}
-<p>
-corporate summary page </p>
+{% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION')%}
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-header">
+                <div class="clearfix">
+                    <h3 class="content-title pull-left">Corporate Summary</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="box border blue">
+                        <div class="box-body big">
+                            <h3 class="form-title">Select Corporation Name:</h3>
+
+                            {{ form_start(corporationFinderForm, {'attr': {'role': 'form', 'class': 'form-inline'} }) }}
+
+                            {{ form_errors(corporationFinderForm) }}
+                            <div class="form-group">
+                                {{ form_row(corporationFinderForm.corporation, {'label': 'Nick Name',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </div>
+                            {{ form_widget(corporationFinderForm.Go, {'attr': {'class': 'btn btn-info'} }) }}
+                            {{ form_end(corporationFinderForm) }}
+
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+	
+	<div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="box border blue">
+                <div class="box-title">
+                    <h4>Summary</h4>
+                </div>
+                <div class="box-body big">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <b>{{CorporationObj.corporatename}}</b>
+                                </div>
+                                <div class="col-md-6">
+                                    <b>Corp File No. {{CorporationObj.filenumber}}</b>
+                                </div>
+                            </div>
+                            <div class="separator"></div>
+                        </div>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="page1">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p><b>ADMINISTRATIVE</b></p>
+                                            <p><b>Resp. Solicitor: </b>{{ CorporationObj.respsolicitor }}</p>
+                                            <p><b>Use: </b>{{ CorporationObj.usage }}</p>
+										</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="separator"></div>
+                            <div class="row">
+                                <div class="col-md-12">
+										<p><b>CORPORATE</b></p>
+									<div class="col-md-6">
+                                        <p><b>Jurisdiction: </b>{{ corporationArray.provinceName }}</p>
+										<p><b>Reg. No: </b>{{ CorporationObj.registrationnumber }}</p>
+									    <p><b>Seal: </b>{{ CorporationObj.seal }}</p>
+									</div>
+									<div class="col-md-6">
+										<p><b>Fiscal Year End: </b>{{ CorporationObj.fiscalyearend }}</p>
+										<p><b>Reg. Date: </b>{{ corporationArray.registrationDate }}</p>
+										<p><b>Location of Seal: </b>{{ CorporationObj.locationseal }}</p>
+									</div>
+								</div>
+                            </div>
+                            <div class="separator"></div>
+                                <div class="row">
+                                    <div class="col-md-12">
+									    <p><b>REGISTERED & RECORDS OFFICE</b></p>
+										<div class="col-md-6">
+											<p><b>Registered Office:</b></p>
+											<p>{{ RegisteredObj.officename }}</p>
+											<p>{{ RegisteredObj.address }}</p>
+											<p>{{ corporationArray.registeredProvince }}</p>
+											<p>{{ RegisteredObj.postalzip }}</p>
+										</div>
+										<div class="col-md-6">
+											<p><b>Records Office:</b></p>
+											<p>{{ RecordsofficeObj.officename }}</p>
+											<p>{{ RecordsofficeObj.address }}</p>
+											<p>{{ corporationArray.recordsProvince }}</p>
+											<p>{{ RecordsofficeObj.postalzip }}</p>	
+										</div>	
+									</div>
+                                </div>
+                            <div class="separator"></div>
+                                <div class="row">
+                                    <div class="col-md-12">
+										<p><b>EXTRA-PROVINCIAL JURISDICTION</b></p>
+										{% for jurisdiction in JurisdictionsObj %}
+										<p>{{ jurisdiction.provincestateid.description }}</p>
+										<p><b>Date Registered:</b></p>
+										<p>{{ jurisdiction.registereddate | date("m/d/Y", false) }}</p>
+										<p><b>Reg No:</b></p>
+										<p>{{ jurisdiction.registrationnumber }}</p>
+										{% endfor %}
+                                    </div>
+                                </div>
+                            <div class="separator"></div>
+                                <div class="row">
+                                    <div class="col-md-12">
+											<p><b>DIRECTORS, OFFICIERS</b></p>
+											{% for director in DirectorsObj %}
+										<div class="col-md-3">
+											<p>{{ director.directorid.directorname }}</p>
+											<p>{{ director.position }}</p>
+										</div>
+										<div class="col-md-3">
+											<p>{{ director.directorid.address }}</p>
+											<p>{{ director.directorid.city.city }}</p>
+											<p>{{ director.directorid.provincestateid.description }}</p>											
+											<p>{{ director.directorid.postalzip }}</p>
+										</div>
+											{% endfor %}
+								    </div>
+                                </div>
+                            <div class="separator"></div>
+							    <div class="row">
+                                    <div class="col-md-12">
+											<p><b>CAPITAL STRUCTURE</b></p>
+											<p>{{CorporationObj.capitalstructure}}</p>
+								    </div>
+                               </div>
+                            </div>
+                            <div class="separator"></div>
+                                <div class="row">
+                                    <div class="col-md-12">
+											<p><b>MEMBERSHIP</b></p>
+											{% for member in Memberships %}
+										<div class="col-md-2">
+											<p>{{ member.sharetypeid.sharetype }}</p>
+										</div>
+										<div class="col-md-2">
+											<p>{{ member.numberofshares }}</p>
+										</div>
+										<div class="col-md-2">
+											<p>{{ member.directorid.directorname }}</p>	
+										</div>
+											{% endfor %}
+									</div>
+                                </div>
+                            <div class="separator"></div>
+                                <div class="row">
+                                    <div class="col-md-12">
+										<p><b>NAME CHANGES</b></p>
+										<p>{{CorporationObj.namechanges}}</p>
+                                            
+                                    </div>
+								</div>
+			</div>
+		</div>           
+    </div>
+
 {% endblock %}

@@ -204,9 +204,9 @@ header {
 #left-menu a.current-account {
   display: block;
   font-size: 18px;
-  color: white;
+  color: black;
   padding: 10px;
-  background: #414141;
+  background: #d3d3d3;
   border-top: 1px solid #565656;
  /* min-height: 30px;*/
 }

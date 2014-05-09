@@ -17,14 +17,14 @@
     <field name="namechanges" type="string" column="nameChanges" length="255" nullable="true"/>
     <field name="corpstatus" type="boolean" column="corpStatus" nullable="true"/>
     <field name="dissolutiondate" type="date" column="dissolutionDate" nullable="true"/>
-    <many-to-one field="registeredofficeid" target-entity="Registeredoffices">
+    <many-to-one field="recordsofficeid" target-entity="Offices">
       <join-columns>
-        <join-column name="registeredOfficeID" referenced-column-name="registeredOfficeID"/>
+        <join-column name="recordsOfficeID" referenced-column-name="officeID"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="recordsofficeid" target-entity="Recordsoffices">
+    <many-to-one field="registeredofficeid" target-entity="Offices">
       <join-columns>
-        <join-column name="recordsOfficeID" referenced-column-name="recordOfficeID"/>
+        <join-column name="registeredOfficeID" referenced-column-name="officeID"/>
       </join-columns>
     </many-to-one>
     <many-to-one field="provincestateid" target-entity="Provincestate">

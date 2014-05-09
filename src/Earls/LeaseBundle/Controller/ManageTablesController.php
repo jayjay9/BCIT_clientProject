@@ -8,14 +8,15 @@
 
 namespace Earls\LeaseBundle\Controller;
 
+use Earls\LeaseBundle\Form\Type\LandlordsPropManagerType;
 use Earls\LeaseBundle\Form\Type\PropertyManagerType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Earls\LeaseBundle\Form\Type\LandlordsType;
 use Earls\LeaseBundle\Form\Type\BuildingTypesType;
+use Earls\LeaseBundle\Form\Type\StoreclassType;
 use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Earls\LeaseBundle\Entity\Landlords;
-use Earls\LeaseBundle\Entity\Propertymanagers;
+use Earls\LeaseBundle\Entity\Landlordspropertymanagers;
 use Earls\LeaseBundle\Entity\Storeclasses;
 use Earls\LeaseBundle\Entity\Buildingtypes;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -34,29 +35,19 @@ class ManageTablesController extends Controller {
     public function indexAction()
     {
 
-        $landlordlist = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Landlords')
+        $landlordAndPropManagerlist = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Landlordspropertymanagers')
             ->findAll();
 
-        $allLandlord = array();
-        $landlordObj = array();
+        $allLandlordAndPropManager = array();
 
-        foreach($landlordlist as $landlord){
-            $landlordObj = array('landlordid' => $landlord->getLandlordid(), 'landlordname' => $landlord->getLandlordname(), 'address'=> $landlord->getAddress());
-            array_push($allLandlord, $landlordObj);
+
+        foreach($landlordAndPropManagerlist as $landlordAndPropManager){
+            $landlordAndPropManagerObj = array('landlordpropertymanid' => $landlordAndPropManager->getLandlordpropertymanid(), 'name' => $landlordAndPropManager->getName(), 'address'=> $landlordAndPropManager->getAddress());
+            array_push($allLandlordAndPropManager, $landlordAndPropManagerObj);
         }
 
-        $propertymanagerlist = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Propertymanagers')
-            ->findAll();
 
-        $allPropertymanager = array();
-        $propertyManagerObj = array();
-
-        foreach($propertymanagerlist as $propertymanager){
-            $propertyManagerObj = array('propertymanagerid' => $propertymanager->getPropertymanagerid(), 'propertymanagername' => $propertymanager->getPropertymanagername(), 'address'=> $propertymanager->getAddress());
-            array_push($allPropertymanager, $propertyManagerObj);
-        }
 
         $storeclasseslist = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Storeclasses')
@@ -85,8 +76,7 @@ class ManageTablesController extends Controller {
 
         return $this->render('EarlsLeaseBundle:ManageTables:index.html.twig',
             array(
-                'allLandlord' => $allLandlord,
-                'allPropertymanager' => $allPropertymanager,
+                'allLandlordAndPropManager' => $allLandlordAndPropManager,
                 'allStoreclasses' => $allStoreclasses,
                 'allBuildingtypes' => $allBuildingtypes
             )
@@ -95,41 +85,41 @@ class ManageTablesController extends Controller {
     }
 
     /**
- * @Route("/getLandlord/{id}", name="_manage_tables_landlord_get_id")
+ * @Route("/getLandlordPM/{id}", name="_manage_tables_landlord_get_id")
  * @Template()
  */
 
-    public function getLandlordAction($id)
+    public function getLandlordPMAction($id)
     {
-        $landlord = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Landlords')
+        $landlordAndPropManager = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Landlordspropertymanagers')
             ->find($id);
 
-        $form = $this->createForm(new LandlordsType(), $landlord, array(
-        'action' => $this->generateUrl('_manage_tables_landlord_update_id', array('id' => $id))
+        $form = $this->createForm(new LandlordsPropManagerType(), $landlordAndPropManager, array(
+        'action' => $this->generateUrl('_manage_tables_landlordPM_update_id', array('id' => $id))
         ));
 
-        return $this->render('EarlsLeaseBundle:ManageTables:landlords.html.twig',
+        return $this->render('EarlsLeaseBundle:ManageTables:landlordsPM.html.twig',
             array(
-                'landlordForm' => $form->createView()
+                'landlordPMForm' => $form->createView()
             )
         );
 
     }
 
     /**
-     * @Route("/updateLandlord/{id}", name="_manage_tables_landlord_update_id")
+     * @Route("/updateLandlordPM/{id}", name="_manage_tables_landlordPM_update_id")
      * @Template()
      */
-    public function updateLandlordAction($id)
+    public function updateLandlordPMAction($id)
     {
 
         $request = $this->getRequest();
 
         $em = $this->getDoctrine()->getManager();
-        $landlord = $em->getRepository('EarlsLeaseBundle:Landlords')->find($id);
+        $landlordAndPropManager = $em->getRepository('EarlsLeaseBundle:Landlordspropertymanagers')->find($id);
 
-        $form = $this->createForm(new LandlordsType(), $landlord);
+        $form = $this->createForm(new LandlordsPropManagerType(), $landlordAndPropManager);
 
         if ($request->isMethod('POST')) {
             $form->submit($request);
@@ -139,64 +129,13 @@ class ManageTablesController extends Controller {
             }
         }
 
-       return $this->render('EarlsLeaseBundle:ManageTables:landlords.html.twig',
+       return $this->render('landlordsPM.html.twig',
            array(
-               'landlordForm' => $form->createView()
+               'landlordPMForm' => $form->createView()
            )
        );
     }
 
-    /**
-     * @Route("/getPropertymanager/{id}", name="_manage_tables_propertyManager_get_id")
-     * @Template()
-     */
-
-    public function getPropertymanagerAction($id)
-    {
-
-        $propertymanager = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Propertymanagers')
-            ->find($id);
-
-        $form = $this->createForm(new PropertyManagerType(), $propertymanager, array(
-            'action' => $this->generateUrl('_manage_tables_propertyManager_update_id', array('id' => $id))
-        ));
-
-        return $this->render('EarlsLeaseBundle:ManageTables:propertymanagers.html.twig',
-            array(
-                'propertyManagerForm' => $form->createView()
-            )
-        );
-
-    }
-
-    /**
-     * @Route("/updatePropertymanager/{id}", name="_manage_tables_propertyManager_update_id")
-     * @Template()
-     */
-    public function updatePropertymanagerAction($id)
-    {
-        $request = $this->getRequest();
-
-        $em = $this->getDoctrine()->getManager();
-        $propertymanager = $em->getRepository('EarlsLeaseBundle:Propertymanagers')->find($id);
-
-        $form = $this->createForm(new PropertyManagerType(), $propertymanager);
-
-        if ($request->isMethod('POST')) {
-            $form->submit($request);
-            if ($form->isValid()) {
-                $em->flush();
-                return $this->redirect($this->generateUrl('_manage_tables').'#propertymanager');
-            }
-        }
-
-        return $this->render('EarlsLeaseBundle:ManageTables:propertymanagers.html.twig',
-            array(
-                'propertyManagerForm' => $form->createView()
-            )
-        );
-    }
 
     /**
      * @Route("/getBuildingtype/{id}", name="_manage_tables_buildingTypes_get_id")
@@ -251,11 +190,63 @@ class ManageTablesController extends Controller {
     }
 
     /**
-     * @Route("/LandlordDelete/{id}", name="_manage_tables_landlord_delete_id")
+     * @Route("/getstoreclass/{id}", name="_manage_tables_storeclasses_get_id")
      * @Template()
      */
 
-    public function landlordDeleteAction($id)
+    public function getStoreclassAction($id)
+    {
+
+        $storeclass = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Storeclasses')
+            ->find($id);
+
+        $form = $this->createForm(new StoreclassType(), $storeclass, array(
+            'action' => $this->generateUrl('_manage_tables_storeclasses_update_id', array('id' => $id))
+        ));
+
+        return $this->render('EarlsLeaseBundle:ManageTables:editstoreClasses.html.twig',
+            array(
+                'storeclassForm' => $form->createView()
+            )
+        );
+
+    }
+
+    /**
+     * @Route("/updatestoreclass/{id}", name="_manage_tables_storeclasses_update_id")
+     * @Template()
+     */
+    public function updateStoreclassAction($id)
+    {
+        $request = $this->getRequest();
+
+        $em = $this->getDoctrine()->getManager();
+        $storeclass = $em->getRepository('EarlsLeaseBundle:Storeclasses')->find($id);
+
+        $form = $this->createForm(new StoreclassType(), $storeclass);
+
+        if ($request->isMethod('POST')) {
+            $form->submit($request);
+            if ($form->isValid()) {
+                $em->flush();
+                return $this->redirect($this->generateUrl('_manage_tables').'#storeclass');
+            }
+        }
+
+        return $this->render('EarlsLeaseBundle:ManageTables:editstoreClasses.html.twig',
+            array(
+                'storeclassForm' => $form->createView()
+            )
+        );
+    }
+
+    /**
+     * @Route("/LandlordPMDelete/{id}", name="_manage_tables_landlord_delete_id")
+     * @Template()
+     */
+
+    public function landlordPMDeleteAction($id)
     {
 
         $restaurantlist = $this->getDoctrine()
@@ -264,44 +255,18 @@ class ManageTablesController extends Controller {
 
         foreach($restaurantlist as $restaurant){
             $landlordObj = $restaurant->getLandlordid();
+            $propertyManObj = $restaurant->getPropertymanagerid();
             if(isset($landlordObj)){
-                $landlordid =  $landlordObj->getLandlordid();
+                $landlordid =  $landlordObj->getLandlordpropertymanid();
                 if($landlordid==$id){
                     $em = $this->getDoctrine()->getManager();
                     $restaurant->setLandlordid(Null);
                     $em->flush();
                 }
             }
-        }
-
-        $em = $this->getDoctrine()->getManager();
-        $landlord = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Landlords')
-            ->find($id);
-
-        $em->remove($landlord);
-        $em->flush();
-
-        return $this->redirect($this->generateUrl('_manage_tables'));
-    }
-
-
-    /**
-     * @Route("/PropertyManagerDelete/{id}", name="_manage_tables_propertyManager_delete_id")
-     * @Template()
-     */
-
-    public function propertyManagerDeleteAction($id)
-    {
-        $restaurantlist = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Restaurants')
-            ->findAll();
-
-        foreach($restaurantlist as $restaurant){
-            $propertymanObj = $restaurant->getPropertymanagerid();
-            if(isset($propertymanObj)){
-                $propertymanid =  $propertymanObj->getPropertymanagerid();
-                if($propertymanid==$id){
+            if(isset($propertyManObj)){
+                $propertyManid =  $propertyManObj->getLandlordpropertymanid();
+                if($propertyManid==$id){
                     $em = $this->getDoctrine()->getManager();
                     $restaurant->setPropertymanagerid(Null);
                     $em->flush();
@@ -310,15 +275,14 @@ class ManageTablesController extends Controller {
         }
 
         $em = $this->getDoctrine()->getManager();
-        $propertymanager = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Propertymanagers')
+        $landlordPropertyMan = $this->getDoctrine()
+            ->getRepository('EarlsLeaseBundle:Landlordspropertymanagers')
             ->find($id);
 
-        $em->remove($propertymanager);
+        $em->remove($landlordPropertyMan);
         $em->flush();
 
-        return $this->redirect($this->generateUrl('_manage_tables').'#propertymanager');
-
+        return $this->redirect($this->generateUrl('_manage_tables'));
     }
 
     /**
@@ -393,17 +357,17 @@ class ManageTablesController extends Controller {
     }
 
     /**
-     * @Route("/LandlordAdd", name="_manage_tables_landlord_add")
+     * @Route("/LandlordPMAdd", name="_manage_tables_landlord_add")
      * @Template()
      */
 
-    public function landlordAddAction()
+    public function landlordPMAddAction()
     {
 
         $em = $this->getDoctrine()->getEntityManager();
-        $landlord = new Landlords();
+        $landlordPropManager = new Landlordspropertymanagers();
 
-        $form = $this->createForm(new LandlordsType(), $landlord, array(
+        $form = $this->createForm(new LandlordsPropManagerType(), $landlordPropManager, array(
             'action' => $this->generateUrl('_manage_tables_landlord_add'))
         );
 
@@ -412,53 +376,17 @@ class ManageTablesController extends Controller {
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $landlordObj = $form->getData();
+            $landlordPropManagerObj = $form->getData();
 
-            $em->persist($landlordObj);
+            $em->persist($landlordPropManagerObj);
             $em->flush();
 
             return $this->redirect($this->generateUrl('_manage_tables'));
         }
 
-        return $this->render('EarlsLeaseBundle:ManageTables:addLandlord.html.twig',
+        return $this->render('EarlsLeaseBundle:ManageTables:addLandlordPM.html.twig',
             array(
-                'landlordForm' => $form->createView()
-            )
-        );
-
-    }
-
-    /**
-     * @Route("/PropertyManagerAdd", name="_manage_tables_propertyManager_add")
-     * @Template()
-     */
-
-    public function propertyManagerAddAction()
-    {
-
-        $em = $this->getDoctrine()->getEntityManager();
-        $propertymanager = new Propertymanagers();
-
-        $form = $this->createForm(new PropertyManagerType(), $propertymanager, array(
-                'action' => $this->generateUrl('_manage_tables_propertyManager_add'))
-        );
-
-        $request = $this->getRequest();
-
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $propertymanagerObj = $form->getData();
-
-            $em->persist($propertymanagerObj);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('_manage_tables').'#propertymanager');
-        }
-
-        return $this->render('EarlsLeaseBundle:ManageTables:addPropertymanager.html.twig',
-            array(
-                'propertyManagerForm' => $form->createView()
+                'landlordPMForm' => $form->createView()
             )
         );
 

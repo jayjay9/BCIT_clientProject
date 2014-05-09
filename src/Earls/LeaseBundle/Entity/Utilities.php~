@@ -36,16 +36,6 @@ class Utilities
     private $utilityid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Utilitytypes
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Utilitytypes")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="utilityTypeID", referencedColumnName="utilityTypeID")
-     * })
-     */
-    private $utilitytypeid;
-
-    /**
      * @var \Earls\LeaseBundle\Entity\Billingowners
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Billingowners")
@@ -54,6 +44,16 @@ class Utilities
      * })
      */
     private $billingby;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Utilitytypes
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Utilitytypes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="utilityTypeID", referencedColumnName="utilityTypeID")
+     * })
+     */
+    private $utilitytypeid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Restaurants

@@ -42,16 +42,6 @@ class Rentandmaintenances
     private $roofrepair;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Restaurants
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID")
-     * })
-     */
-    private $restaurantid;
-
-    /**
      * @var \Earls\LeaseBundle\Entity\Owners
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Owners")
@@ -70,6 +60,16 @@ class Rentandmaintenances
      * })
      */
     private $hvacrepair;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Restaurants
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID")
+     * })
+     */
+    private $restaurantid;
 
 
 }

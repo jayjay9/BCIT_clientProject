@@ -199,16 +199,6 @@ class Leases
      */
     private $restaurantid;
 
-    /**
-     * @var \Earls\LeaseBundle\Entity\Leasereportsinfo
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Leasereportsinfo")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="leaseReportInfoID", referencedColumnName="leaseReportInfoID")
-     * })
-     */
-    private $leasereportinfoid;
-
 
 
     /**
@@ -794,28 +784,5 @@ class Leases
     public function getRestaurantid()
     {
         return $this->restaurantid;
-    }
-
-    /**
-     * Set leasereportinfoid
-     *
-     * @param \Earls\LeaseBundle\Entity\Leasereportsinfo $leasereportinfoid
-     * @return Leases
-     */
-    public function setLeasereportinfoid(\Earls\LeaseBundle\Entity\Leasereportsinfo $leasereportinfoid = null)
-    {
-        $this->leasereportinfoid = $leasereportinfoid;
-    
-        return $this;
-    }
-
-    /**
-     * Get leasereportinfoid
-     *
-     * @return \Earls\LeaseBundle\Entity\Leasereportsinfo 
-     */
-    public function getLeasereportinfoid()
-    {
-        return $this->leasereportinfoid;
     }
 }

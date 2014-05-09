@@ -2,6 +2,8 @@
 
 namespace Earls\LeaseBundle\Controller;
 
+use Earls\LeaseBundle\Entity\Landlordspropertymanagers;
+use Earls\LeaseBundle\Entity\Northamericancities;
 use Earls\LeaseBundle\Entity\Rentandmaintenances;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -17,8 +19,6 @@ use Earls\LeaseBundle\Form\Type\RestaurantFinderType;
 use Earls\LeaseBundle\Entity\Leases;
 use Earls\LeaseBundle\Entity\Leasereportsinfo;
 use Earls\LeaseBundle\Entity\Reportperiodtypes;
-use Earls\LeaseBundle\Entity\Landlords;
-use Earls\LeaseBundle\Entity\Propertymanagers;
 use Earls\LeaseBundle\Entity\Liquorlicenses;
 use Earls\LeaseBundle\Entity\Buildingtypes;
 use Earls\LeaseBundle\Entity\Storeclasses;
@@ -123,11 +123,11 @@ class SummaryController extends Controller
         $landlordlink = $RestaurantObj->getLandlordid();
 
         $LandlordObj = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Landlords')
-            ->findoneby(array('landlordid' => $landlordlink));
+            ->getRepository('EarlsLeaseBundle:Landlordspropertymanagers')
+            ->findoneby(array('landlordpropertymanid' => $landlordlink));
 
         if(empty($LandlordObj)){
-            $LandlordObj = new Landlords();
+            $LandlordObj = new Landlordspropertymanagers();
         }
 
         $provincestateid = $LandlordObj->getProvincestateid();
@@ -142,11 +142,11 @@ class SummaryController extends Controller
         $propertymanagerlink = $RestaurantObj->getPropertymanagerid();
 
         $PropertymanagerObj = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Propertymanagers')
-            ->findoneby(array('propertymanagerid' => $propertymanagerlink));
+            ->getRepository('EarlsLeaseBundle:Landlordspropertymanagers')
+            ->findoneby(array('landlordpropertymanid' => $propertymanagerlink));
 
         if(empty($PropertymanagerObj)){
-            $PropertymanagerObj = new Propertymanagers();
+            $PropertymanagerObj = new Landlordspropertymanagers();
         }
 
         $provincestateid = $PropertymanagerObj->getProvincestateid();
@@ -162,6 +162,10 @@ class SummaryController extends Controller
             ->getRepository('EarlsLeaseBundle:Northamericancities')
             ->findOneBy(array('northamericancityid' => $cityid));
 
+        if(empty($citiesObj)){
+            $citiesObj = new Northamericancities();
+        }
+
         $propertyCity = $citiesObj ->getCity();
 
         $provinceState = array(
@@ -172,11 +176,9 @@ class SummaryController extends Controller
 
         /**** LIQUOR LICENSE *****/
 
-        $liquorlicenselink = $RestaurantObj->getLiquorlicenseid();
-
         $LiquorlicenseObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Liquorlicenses')
-            ->findOneby(array('liquorlicenseid' => $liquorlicenselink));
+            ->findOneby(array('restaurantid' => $id));
 
         if(empty($LiquorlicenseObj)){
             $LiquorlicenseObj = new Liquorlicenses();
@@ -493,30 +495,34 @@ class SummaryController extends Controller
 
 
 
-        $landlordid = $restaurantObj->getLandlordid()->getLandlordid();
+        $landlordid = $restaurantObj->getLandlordid()->getLandlordpropertymanid();
 
         $landlordObj = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Landlords')
+            ->getRepository('EarlsLeaseBundle:Landlordspropertymanagers')
             ->find($landlordid);
 
-        $landlordname=$landlordObj->getLandlordname();
+        $landlordname=$landlordObj->getName();
         $landlordaddress = $landlordObj->getAddress();
         $landattention = $landlordObj->getAttention();
         $landphone = $landlordObj->getPhone();
         $landfax = $landlordObj->getFax();
 
-        $propertymanagerid = $restaurantObj->getPropertymanagerid()->getPropertymanagerid();
+        $propertymanagerid = $restaurantObj->getPropertymanagerid()->getLandlordpropertymanid();
 
         $propertymanagerObj = $this->getDoctrine()
-            ->getRepository('EarlsLeaseBundle:Propertymanagers')
+            ->getRepository('EarlsLeaseBundle:Landlordspropertymanagers')
             ->find($propertymanagerid);
 
-        $propertycompanyname = $propertymanagerObj->getPropertymanagername();
+        $propertycompanyname = $propertymanagerObj->getName();
         $propertyaddress = $propertymanagerObj->getAddress();
         $cityid = $propertymanagerObj->getCity();
         $citiesObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Northamericancities')
             ->findOneBy(array('northamericancityid' => $cityid));
+
+        if(empty($citiesObj)){
+            $citiesObj = new Northamericancities();
+        }
 
         $propertycity = $citiesObj ->getCity();
 
@@ -524,6 +530,10 @@ class SummaryController extends Controller
         $provinceStateObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Provincestate')
             ->findOneBy(array('provincestateid' => $provinceStateid));
+        if(empty($provinceStateObj)){
+            $provinceStateObj = new Provincestate();
+        }
+
         $propertyprovince = $provinceStateObj ->getDescription();
 
         $propertypostalcode = $propertymanagerObj->getPostalzip();

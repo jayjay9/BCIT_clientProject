@@ -1,0 +1,101 @@
+<?php
+
+namespace Earls\CorporateBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Areas
+ *
+ * @ORM\Table(name="areas")
+ * @ORM\Entity
+ */
+class Areas
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="entry", type="integer", nullable=true)
+     */
+    private $entry;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="bar", type="integer", nullable=true)
+     */
+    private $bar;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="lounge", type="integer", nullable=true)
+     */
+    private $lounge;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="dining", type="integer", nullable=true)
+     */
+    private $dining;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="washrooms", type="integer", nullable=true)
+     */
+    private $washrooms;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="boh", type="integer", nullable=true)
+     */
+    private $boh;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="patio", type="integer", nullable=true)
+     */
+    private $patio;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="totalarea", type="integer", nullable=true)
+     */
+    private $totalarea;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="areaID", type="smallint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $areaid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Restaurants
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Restaurants")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID")
+     * })
+     */
+    private $restaurantid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Areatypes
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Areatypes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="areatypeID", referencedColumnName="areaTypeID")
+     * })
+     */
+    private $areatypeid;
+
+
+}

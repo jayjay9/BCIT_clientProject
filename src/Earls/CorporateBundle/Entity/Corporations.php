@@ -113,24 +113,24 @@ class Corporations
     private $corporateid;
 
     /**
-     * @var \Earls\CorporateBundle\Entity\Registeredoffices
+     * @var \Earls\CorporateBundle\Entity\Offices
      *
-     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Registeredoffices")
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Offices")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="registeredOfficeID", referencedColumnName="registeredOfficeID")
-     * })
-     */
-    private $registeredofficeid;
-
-    /**
-     * @var \Earls\CorporateBundle\Entity\Recordsoffices
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Recordsoffices")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="recordsOfficeID", referencedColumnName="recordOfficeID")
+     *   @ORM\JoinColumn(name="recordsOfficeID", referencedColumnName="officeID")
      * })
      */
     private $recordsofficeid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Offices
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Offices")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="registeredOfficeID", referencedColumnName="officeID")
+     * })
+     */
+    private $registeredofficeid;
 
     /**
      * @var \Earls\CorporateBundle\Entity\Provincestate
@@ -454,35 +454,12 @@ class Corporations
     }
 
     /**
-     * Set registeredofficeid
-     *
-     * @param \Earls\CorporateBundle\Entity\Registeredoffices $registeredofficeid
-     * @return Corporations
-     */
-    public function setRegisteredofficeid(\Earls\CorporateBundle\Entity\Registeredoffices $registeredofficeid = null)
-    {
-        $this->registeredofficeid = $registeredofficeid;
-    
-        return $this;
-    }
-
-    /**
-     * Get registeredofficeid
-     *
-     * @return \Earls\CorporateBundle\Entity\Registeredoffices 
-     */
-    public function getRegisteredofficeid()
-    {
-        return $this->registeredofficeid;
-    }
-
-    /**
      * Set recordsofficeid
      *
-     * @param \Earls\CorporateBundle\Entity\Recordsoffices $recordsofficeid
+     * @param \Earls\CorporateBundle\Entity\Offices $recordsofficeid
      * @return Corporations
      */
-    public function setRecordsofficeid(\Earls\CorporateBundle\Entity\Recordsoffices $recordsofficeid = null)
+    public function setRecordsofficeid(\Earls\CorporateBundle\Entity\Offices $recordsofficeid = null)
     {
         $this->recordsofficeid = $recordsofficeid;
     
@@ -492,11 +469,34 @@ class Corporations
     /**
      * Get recordsofficeid
      *
-     * @return \Earls\CorporateBundle\Entity\Recordsoffices 
+     * @return \Earls\CorporateBundle\Entity\Offices 
      */
     public function getRecordsofficeid()
     {
         return $this->recordsofficeid;
+    }
+
+    /**
+     * Set registeredofficeid
+     *
+     * @param \Earls\CorporateBundle\Entity\Offices $registeredofficeid
+     * @return Corporations
+     */
+    public function setRegisteredofficeid(\Earls\CorporateBundle\Entity\Offices $registeredofficeid = null)
+    {
+        $this->registeredofficeid = $registeredofficeid;
+    
+        return $this;
+    }
+
+    /**
+     * Get registeredofficeid
+     *
+     * @return \Earls\CorporateBundle\Entity\Offices 
+     */
+    public function getRegisteredofficeid()
+    {
+        return $this->registeredofficeid;
     }
 
     /**

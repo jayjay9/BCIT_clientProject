@@ -36,16 +36,6 @@ class Utilities
     private $utilityid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Utilitytypes
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Utilitytypes")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="utilityTypeID", referencedColumnName="utilityTypeID")
-     * })
-     */
-    private $utilitytypeid;
-
-    /**
      * @var \Earls\LeaseBundle\Entity\Billingowners
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Billingowners")
@@ -54,6 +44,16 @@ class Utilities
      * })
      */
     private $billingby;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Utilitytypes
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Utilitytypes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="utilityTypeID", referencedColumnName="utilityTypeID")
+     * })
+     */
+    private $utilitytypeid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Restaurants
@@ -124,29 +124,6 @@ class Utilities
     }
 
     /**
-     * Set utilitytypeid
-     *
-     * @param \Earls\LeaseBundle\Entity\Utilitytypes $utilitytypeid
-     * @return Utilities
-     */
-    public function setUtilitytypeid(\Earls\LeaseBundle\Entity\Utilitytypes $utilitytypeid = null)
-    {
-        $this->utilitytypeid = $utilitytypeid;
-    
-        return $this;
-    }
-
-    /**
-     * Get utilitytypeid
-     *
-     * @return \Earls\LeaseBundle\Entity\Utilitytypes 
-     */
-    public function getUtilitytypeid()
-    {
-        return $this->utilitytypeid;
-    }
-
-    /**
      * Set billingby
      *
      * @param \Earls\LeaseBundle\Entity\Billingowners $billingby
@@ -167,6 +144,29 @@ class Utilities
     public function getBillingby()
     {
         return $this->billingby;
+    }
+
+    /**
+     * Set utilitytypeid
+     *
+     * @param \Earls\LeaseBundle\Entity\Utilitytypes $utilitytypeid
+     * @return Utilities
+     */
+    public function setUtilitytypeid(\Earls\LeaseBundle\Entity\Utilitytypes $utilitytypeid = null)
+    {
+        $this->utilitytypeid = $utilitytypeid;
+    
+        return $this;
+    }
+
+    /**
+     * Get utilitytypeid
+     *
+     * @return \Earls\LeaseBundle\Entity\Utilitytypes 
+     */
+    public function getUtilitytypeid()
+    {
+        return $this->utilitytypeid;
     }
 
     /**

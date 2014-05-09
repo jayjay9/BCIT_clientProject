@@ -30,11 +30,11 @@ class CorporateManageTablesController extends Controller
      * @Template()
      */
     public function indexAction()
-    {   
-        
+    {
+
         // get the director objects
 
-    	$directorlist = $this->getDoctrine()
+        $directorlist = $this->getDoctrine()
             ->getRepository('EarlsCorporateBundle:Directors')
             ->findAll();
 
@@ -51,11 +51,11 @@ class CorporateManageTablesController extends Controller
             $provincestateObj = $director->getProvincestateid();
 
             if (!empty($northamericancityObj)){
-            $directorcity = $northamericancityObj->getCity();
+                $directorcity = $northamericancityObj->getCity();
             }
 
             if (!empty($provincestateObj)){
-            $directorprovincestate = $provincestateObj->getDescription();
+                $directorprovincestate = $provincestateObj->getDescription();
             }
 
             // Place everything into allDirectors array to be used by the view
@@ -78,13 +78,13 @@ class CorporateManageTablesController extends Controller
 
             $northamericancityObj = $office->getCity();
             $provincestateObj = $office->getProvincestateid();
-            
+
             if (!empty($northamericancityObj)){
-            $officecity = $northamericancityObj->getCity();
+                $officecity = $northamericancityObj->getCity();
             }
 
             if (!empty($provincestateObj)){
-            $officeprovincestate = $provincestateObj->getDescription();
+                $officeprovincestate = $provincestateObj->getDescription();
             }
 
             $officeObj = array('officeid' => $office->getOfficeid(), 'officename' => $office->getOfficename(), 'address' => $office->getAddress(), 'city' => $officecity, 'provincestate' => $officeprovincestate);
@@ -108,7 +108,7 @@ class CorporateManageTablesController extends Controller
         // Render the page with all the tab arrays
 
         return $this->render('EarlsCorporateBundle:CorporateManageTables:index.html.twig',
-        array(
+            array(
                 'allDirectors' => $allDirectors,
                 'allOffices' => $allOffices,
                 'allSharetypes' => $allSharetypes
@@ -123,7 +123,7 @@ class CorporateManageTablesController extends Controller
     ///////////////////////////////////////////////////////////
 
     /**
-     * @Route("/DirectorAdd", name="_manage_corporate_tables_director_add")
+     * @Route("/directoradd", name="_manage_corporate_tables_director_add")
      * @Template()
      */
 
@@ -134,7 +134,7 @@ class CorporateManageTablesController extends Controller
         $director = new Directors();
 
         $form = $this->createForm(new DirectorsType(), $director, array(
-            'action' => $this->generateUrl('_manage_corporate_tables_director_add'))
+                'action' => $this->generateUrl('_manage_corporate_tables_director_add'))
         );
 
         $request = $this->getRequest();
@@ -159,9 +159,9 @@ class CorporateManageTablesController extends Controller
     }
 
     /**
-    * @Route("/getDirector/{id}", name="_manage_corporate_tables_director_get_id")
-    * @Template()
-    */
+     * @Route("/getdirector/{id}", name="_manage_corporate_tables_director_get_id")
+     * @Template()
+     */
 
     public function getDirectorAction($id)
     {
@@ -170,7 +170,7 @@ class CorporateManageTablesController extends Controller
             ->find($id);
 
         $form = $this->createForm(new DirectorsType(), $director, array(
-        'action' => $this->generateUrl('_manage_corporate_tables_director_update_id', array('id' => $id))
+            'action' => $this->generateUrl('_manage_corporate_tables_director_update_id', array('id' => $id))
         ));
 
         return $this->render('EarlsCorporateBundle:CorporateManageTables:director.html.twig',
@@ -182,7 +182,7 @@ class CorporateManageTablesController extends Controller
     }
 
     /**
-     * @Route("/updateDirector/{id}", name="_manage_corporate_tables_director_update_id")
+     * @Route("/updatedirector/{id}", name="_manage_corporate_tables_director_update_id")
      * @Template()
      */
     public function updateDirectorAction($id)
@@ -203,16 +203,16 @@ class CorporateManageTablesController extends Controller
             }
         }
 
-       return $this->render('EarlsCorporateBundle:CorporateManageTables:director.html.twig',
-           array(
-               'directorForm' => $form->createView()
-           )
-       );
+        return $this->render('EarlsCorporateBundle:CorporateManageTables:director.html.twig',
+            array(
+                'directorForm' => $form->createView()
+            )
+        );
     }
 
 
     /**
-     * @Route("/DirectorDelete/{id}", name="_manage_corporate_tables_director_delete_id")
+     * @Route("/directordelete/{id}", name="_manage_corporate_tables_director_delete_id")
      * @Template()
      */
 
@@ -255,7 +255,7 @@ class CorporateManageTablesController extends Controller
     ///////////////////////////////////////////////////////////
 
     /**
-     * @Route("/OfficeAdd", name="_manage_corporate_tables_office_add")
+     * @Route("/officeadd", name="_manage_corporate_tables_office_add")
      * @Template()
      */
 
@@ -266,7 +266,7 @@ class CorporateManageTablesController extends Controller
         $office = new Offices();
 
         $form = $this->createForm(new OfficesType(), $office, array(
-            'action' => $this->generateUrl('_manage_corporate_tables_office_add'))
+                'action' => $this->generateUrl('_manage_corporate_tables_office_add'))
         );
 
         $request = $this->getRequest();
@@ -279,7 +279,7 @@ class CorporateManageTablesController extends Controller
             $em->persist($officeObj);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('_corporate_manage_tables'));
+            return $this->redirect($this->generateUrl('_corporate_manage_tables').'#office');
         }
 
         return $this->render('EarlsCorporateBundle:CorporateManageTables:addOffice.html.twig',
@@ -291,9 +291,9 @@ class CorporateManageTablesController extends Controller
     }
 
     /**
-    * @Route("/getOffice/{id}", name="_manage_corporate_tables_office_get_id")
-    * @Template()
-    */
+     * @Route("/getoffice/{id}", name="_manage_corporate_tables_office_get_id")
+     * @Template()
+     */
 
     public function getOfficeAction($id)
     {
@@ -302,7 +302,7 @@ class CorporateManageTablesController extends Controller
             ->find($id);
 
         $form = $this->createForm(new OfficesType(), $office, array(
-        'action' => $this->generateUrl('_manage_corporate_tables_office_update_id', array('id' => $id))
+            'action' => $this->generateUrl('_manage_corporate_tables_office_update_id', array('id' => $id))
         ));
 
         return $this->render('EarlsCorporateBundle:CorporateManageTables:office.html.twig',
@@ -314,7 +314,7 @@ class CorporateManageTablesController extends Controller
     }
 
     /**
-     * @Route("/updateOffice/{id}", name="_manage_corporate_tables_office_update_id")
+     * @Route("/updateoffice/{id}", name="_manage_corporate_tables_office_update_id")
      * @Template()
      */
     public function updateOfficeAction($id)
@@ -331,61 +331,25 @@ class CorporateManageTablesController extends Controller
             $form->submit($request);
             if ($form->isValid()) {
                 $em->flush();
-                return $this->redirect($this->generateUrl('_corporate_manage_tables'));
+                return $this->redirect($this->generateUrl('_corporate_manage_tables').'#office');
             }
         }
 
-       return $this->render('EarlsCorporateBundle:CorporateManageTables:office.html.twig',
-           array(
-               'officeForm' => $form->createView()
-           )
-       );
+        return $this->render('EarlsCorporateBundle:CorporateManageTables:office.html.twig',
+            array(
+                'officeForm' => $form->createView()
+            )
+        );
     }
 
 
     /**
-     * @Route("/OfficeDelete/{id}", name="_manage_corporate_tables_office_delete_id")
+     * @Route("/officedelete/{id}", name="_manage_corporate_tables_office_delete_id")
      * @Template()
      */
 
     public function officeDeleteAction($id)
     {
-
-        // delete Office info in Recordsoffices table
-        $recordsofficelist = $this->getDoctrine()
-            ->getRepository('EarlsCorporateBundle:Recordsoffices')
-            ->findAll();
-
-        foreach($recordsofficelist as $recordsoffice){
-            $recordsofficeObj = $recordsoffice->getOfficeid();
-            if(isset($recordsofficeObj)){
-                $recordsofficeid =  $recordsofficeObj->getOfficeid();
-                if($recordsofficeid==$id){
-                    $em = $this->getDoctrine()->getManager();
-                    $recordsoffice->setOfficeid(Null);
-                    $em->flush();
-                }
-            }
-        }
-
-        // delete Office info in Registeredoffices table
-        $registeredofficelist = $this->getDoctrine()
-            ->getRepository('EarlsCorporateBundle:Registeredoffices')
-            ->findAll();
-
-        foreach($registeredofficelist as $registeredoffice){
-            $registeredofficeObj = $registeredoffice->getOfficeid();
-            if(isset($registeredofficeObj)){
-                $registeredofficeid =  $registeredofficeObj->getOfficeid();
-                if($registeredofficeid==$id){
-                    $em = $this->getDoctrine()->getManager();
-                    $registeredoffice->setOfficeid(Null);
-                    $em->flush();
-                }
-            }
-        }
-
-
         // delete Office in Offices table
         $em = $this->getDoctrine()->getManager();
         $office = $this->getDoctrine()
@@ -395,7 +359,7 @@ class CorporateManageTablesController extends Controller
         $em->remove($office);
         $em->flush();
 
-        return $this->redirect($this->generateUrl('_corporate_manage_tables'));
+        return $this->redirect($this->generateUrl('_corporate_manage_tables').'#office');
     }
 
     /////////////////////////////////////////////////////////////
@@ -416,7 +380,7 @@ class CorporateManageTablesController extends Controller
         $sharetype = new Sharetypes();
 
         $form = $this->createForm(new SharetypesType(), $sharetype, array(
-            'action' => $this->generateUrl('_manage_corporate_tables_sharetype_add'))
+                'action' => $this->generateUrl('_manage_corporate_tables_sharetype_add').'#sharetype')
         );
 
         $request = $this->getRequest();
@@ -441,7 +405,59 @@ class CorporateManageTablesController extends Controller
     }
 
     /**
-     * @Route("/SharetypeDelete/{id}", name="_manage_corporate_tables_sharetype_delete_id")
+     * @Route("/getsharetype/{id}", name="_manage_corporate_tables_sharetype_get_id")
+     * @Template()
+     */
+
+    public function getSharetypeAction($id)
+    {
+        $sharetype = $this->getDoctrine()
+            ->getRepository('EarlsCorporateBundle:Sharetypes')
+            ->find($id);
+
+        $form = $this->createForm(new SharetypesType(), $sharetype, array(
+            'action' => $this->generateUrl('_manage_corporate_tables_sharetype_update_id', array('id' => $id))
+        ));
+
+        return $this->render('EarlsCorporateBundle:CorporateManageTables:sharetype.html.twig',
+            array(
+                'sharetypeForm' => $form->createView()
+            )
+        );
+
+    }
+
+    /**
+     * @Route("/updatesharetype/{id}", name="_manage_corporate_tables_sharetype_update_id")
+     * @Template()
+     */
+    public function updateSharetypeAction($id)
+    {
+
+        $request = $this->getRequest();
+
+        $em = $this->getDoctrine()->getManager();
+        $sharetype = $em->getRepository('EarlsCorporateBundle:Sharetypes')->find($id);
+
+        $form = $this->createForm(new SharetypesType(), $sharetype);
+
+        if ($request->isMethod('POST')) {
+            $form->submit($request);
+            if ($form->isValid()) {
+                $em->flush();
+                return $this->redirect($this->generateUrl('_corporate_manage_tables').'#sharetype');
+            }
+        }
+
+        return $this->render('EarlsCorporateBundle:CorporateManageTables:sharetypes.html.twig',
+            array(
+                'sharetypeForm' => $form->createView()
+            )
+        );
+    }
+
+    /**
+     * @Route("/sharetypedelete/{id}", name="_manage_corporate_tables_sharetype_delete_id")
      * @Template()
      */
 
@@ -474,7 +490,7 @@ class CorporateManageTablesController extends Controller
         $em->remove($sharetype);
         $em->flush();
 
-        return $this->redirect($this->generateUrl('_corporate_manage_tables'));
+        return $this->redirect($this->generateUrl('_corporate_manage_tables').'#sharetype');
     }
 }
 

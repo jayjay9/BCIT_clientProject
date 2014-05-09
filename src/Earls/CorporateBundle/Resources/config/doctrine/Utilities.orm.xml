@@ -6,14 +6,14 @@
     </id>
     <field name="ismetered" type="boolean" column="isMetered" nullable="true"/>
     <field name="iscam" type="boolean" column="isCAM" nullable="true"/>
-    <many-to-one field="utilitytypeid" target-entity="Utilitytypes">
-      <join-columns>
-        <join-column name="utilityTypeID" referenced-column-name="utilityTypeID"/>
-      </join-columns>
-    </many-to-one>
     <many-to-one field="billingby" target-entity="Billingowners">
       <join-columns>
         <join-column name="billingBy" referenced-column-name="billingOwnerID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="utilitytypeid" target-entity="Utilitytypes">
+      <join-columns>
+        <join-column name="utilityTypeID" referenced-column-name="utilityTypeID"/>
       </join-columns>
     </many-to-one>
     <many-to-one field="restaurantid" target-entity="Restaurants">

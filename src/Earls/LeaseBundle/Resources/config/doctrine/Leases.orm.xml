@@ -33,10 +33,5 @@
         <join-column name="restaurantID" referenced-column-name="restaurantID"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="leasereportinfoid" target-entity="Leasereportsinfo">
-      <join-columns>
-        <join-column name="leaseReportInfoID" referenced-column-name="leaseReportInfoID"/>
-      </join-columns>
-    </many-to-one>
   </entity>
 </doctrine-mapping>

@@ -28,11 +28,6 @@
     <field name="timestamp" type="string" column="timeStamp" length="45" nullable="true"/>
     <field name="areaupperfloor" type="float" column="areaUpperFloor" nullable="true"/>
     <field name="showinlease" type="boolean" column="showInLease" nullable="true"/>
-    <many-to-one field="leasereportinfoid" target-entity="Leasereportsinfo">
-      <join-columns>
-        <join-column name="leaseReportInfoID" referenced-column-name="leaseReportInfoID"/>
-      </join-columns>
-    </many-to-one>
     <many-to-one field="restaurantid" target-entity="Restaurants">
       <join-columns>
         <join-column name="restaurantID" referenced-column-name="restaurantID"/>

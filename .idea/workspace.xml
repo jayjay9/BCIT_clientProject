@@ -2,7 +2,142 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a7a6150-0dcb-41f1-a63f-812e63589da4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/views/SummaryCompany/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/views/SummaryCompany/index.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Earls/CorporateBundle/Controller/AddCorporationInformationController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/StoreclassType.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/editstoreClasses.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/views/CorporateManageTables/sharetype.html.twig" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Entity/Corporatedirectors.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Entity/Corporations.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Entity/Directors.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Entity/Jurisdictions.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Entity/Memberships.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Entity/Northamericancities.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Entity/Offices.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Entity/Provincestate.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Entity/Recordsoffices.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Entity/Regions.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Entity/Registeredoffices.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Entity/Restaurants.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Entity/Sharetypes.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Areas.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Areatypes.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Billingowners.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Buildingtypes.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Constructiontypes.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Corporatedirectors.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Corporations.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Directors.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/FosUser.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Jurisdictions.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Landlords.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Leasecriticaltasks.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Leasereportsinfo.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Leases.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Licenses.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Liquorlicenses.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Memberships.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Northamericancities.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Offices.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Owners.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Propertymanagers.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Provincestate.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Recordsoffices.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Regions.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Registeredoffices.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Renewals.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Rentandmaintenances.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Reportperiodtypes.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Restaurants.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Riskinfo.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Sharetypes.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Storeclasses.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Utilities.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Utilitytypes.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Areas.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Areatypes.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Billingowners.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Buildingtypes.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Constructiontypes.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Corporatedirectors.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Corporations.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Directors.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Jurisdictions.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Landlords.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Leasecriticaltasks.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Leasereportsinfo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Leases.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Licenses.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Liquorlicenses.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Memberships.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Northamericancities.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Offices.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Owners.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Propertymanagers.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Provincestate.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Recordsoffices.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Regions.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Registeredoffices.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Renewals.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Rentandmaintenances.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Reportperiodtypes.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Restaurants.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Riskinfo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Sharetypes.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Storeclasses.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Utilities.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Utilitytypes.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/PropertyManagerType.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Areas.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Areatypes.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Billingowners.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Buildingtypes.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Constructiontypes.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Corporatedirectors.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Corporations.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Directors.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Jurisdictions.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Landlords.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Leasecriticaltasks.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Leasereportsinfo.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Leases.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Licenses.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Liquorlicenses.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Memberships.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Northamericancities.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Offices.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Owners.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Propertymanagers.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Provincestate.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Recordsoffices.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Regions.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Registeredoffices.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Renewals.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Rentandmaintenances.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Reportperiodtypes.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Restaurants.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Riskinfo.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Sharetypes.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Storeclasses.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Utilities.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Utilitytypes.orm.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/addPropertymanager.html.twig" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/propertymanagers.html.twig" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/LandlordsType.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/LandlordsPropManagerType.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/addLandlord.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/addLandlordPM.html.twig" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/landlords.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/landlordsPM.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/Templates/Reports/LeaseSummary.docx" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/Templates/Reports/LeaseSummary.docx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Controller/CorporateManageTablesController.php" afterPath="$PROJECT_DIR$/src/Earls/CorporateBundle/Controller/CorporateManageTablesController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Controller/CorporateSummaryController.php" afterPath="$PROJECT_DIR$/src/Earls/CorporateBundle/Controller/CorporateSummaryController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/ManageTablesController.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/ManageTablesController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RestaurantsType.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RestaurantsType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/StoreInformationType.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/StoreInformationType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/SummaryController.php" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/SummaryController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/views/CorporateManageTables/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/views/CorporateManageTables/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Summary/index.html.twig" afterPath="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Summary/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="EarlsLeaseWebApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,204 +159,131 @@
     <favorites_list name="EarlsLeaseWebApp" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.55391526">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="SummaryController.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/SummaryController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="681" column="56" selection-start="23298" selection-end="23299" vertical-scroll-proportion="39.76" vertical-offset="12203" max-vertical-offset="14760">
-                  <folding>
-                    <element signature="e#48#97#0" expanded="true" />
-                    <element signature="e#1702#1719#0" expanded="true" />
-                    <element signature="e#1958#1988#1" expanded="true" />
-                    <element signature="e#2624#2654#1" expanded="true" />
-                    <element signature="e#4187#4215#1" expanded="true" />
-                    <element signature="e#4791#4826#1" expanded="true" />
-                    <element signature="e#5376#5414#1" expanded="true" />
-                    <element signature="e#5919#5952#1" expanded="true" />
-                    <element signature="e#6468#6495#1" expanded="true" />
-                    <element signature="e#7040#7067#1" expanded="true" />
-                    <element signature="e#7895#7933#1" expanded="true" />
-                    <element signature="e#9278#9306#1" expanded="true" />
-                    <element signature="e#9751#9779#1" expanded="true" />
-                    <element signature="e#10225#10253#1" expanded="true" />
-                    <element signature="e#10870#10895#1" expanded="true" />
-                    <element signature="e#12101#12136#1" expanded="true" />
-                    <element signature="e#13008#13045#1" expanded="true" />
-                    <element signature="e#13373#13400#1" expanded="true" />
-                    <element signature="e#13883#13900#0" expanded="true" />
-                    <element signature="e#15395#15425#1" expanded="true" />
-                    <element signature="e#16402#16430#1" expanded="true" />
-                    <element signature="e#16895#16930#1" expanded="true" />
-                    <element signature="e#17233#17271#1" expanded="true" />
-                    <element signature="e#17536#17568#1" expanded="true" />
-                    <element signature="e#18229#18262#1" expanded="true" />
-                    <element signature="e#18846#18873#1" expanded="true" />
-                    <element signature="e#19924#19949#1" expanded="true" />
-                    <element signature="e#20565#20592#1" expanded="true" />
-                    <element signature="e#21448#21486#1" expanded="true" />
-                    <element signature="e#22596#22624#1" expanded="true" />
-                    <element signature="e#23396#23424#1" expanded="true" />
-                    <element signature="e#24317#24345#1" expanded="true" />
-                    <element signature="e#26027#26062#1" expanded="true" />
-                    <element signature="e#27038#27065#1" expanded="true" />
-                    <element signature="e#27930#27967#1" expanded="true" />
-                    <element signature="e#36573#36590#0" expanded="true" />
-                    <marker date="1399488300000" expanded="true" signature="1512:1556" placeholder="SELECT c FRO..EarlsLeaseBundle..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Summary/index.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="35" column="174" selection-start="1925" selection-end="1925" vertical-scroll-proportion="-10.5" vertical-offset="0" max-vertical-offset="6420">
-                  <folding>
-                    <element signature="e#12#46#0" expanded="false" />
-                    <element signature="e#1590#1611#0" expanded="false" />
-                    <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="layout.html.twig" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/layout.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="193" column="13" selection-start="8966" selection-end="9012" vertical-scroll-proportion="-20.125" vertical-offset="2412" max-vertical-offset="3135">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LeasesByExpiry/index.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="51" column="16" selection-start="2490" selection-end="2869" vertical-scroll-proportion="-17.291666" vertical-offset="350" max-vertical-offset="1050">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LicenseByExpiry/index.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="54" column="12" selection-start="2590" selection-end="3085" vertical-scroll-proportion="-16.333334" vertical-offset="418" max-vertical-offset="1110">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.html.twig" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/views/SummaryCompany/index.html.twig">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="48" column="0" selection-start="2153" selection-end="2153" vertical-scroll-proportion="0.62232417" vertical-offset="313" max-vertical-offset="1035">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Landlords.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Landlords.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="237" column="6" selection-start="4158" selection-end="4158" vertical-scroll-proportion="-8.125" vertical-offset="3360" max-vertical-offset="4290">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="script.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/js/script.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="1198" column="16" selection-start="44625" selection-end="45011" vertical-scroll-proportion="0.0" vertical-offset="17625" max-vertical-offset="51210">
-                  <folding>
-                    <marker date="1399569749000" expanded="false" signature="25489:25526" placeholder="..." />
-                    <marker date="1399569749000" expanded="false" signature="116117:116130" placeholder="..." />
-                    <marker date="1399569749000" expanded="false" signature="116342:116354" placeholder="..." />
-                    <marker date="1399569749000" expanded="false" signature="116404:116417" placeholder="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="script.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/web/bundles/earlslease/js/script.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="1197" column="12" selection-start="44596" selection-end="44596" vertical-scroll-proportion="0.0" vertical-offset="17580" max-vertical-offset="51210">
-                  <folding>
-                    <marker date="1399569755000" expanded="false" signature="25489:25526" placeholder="..." />
-                    <marker date="1399569755000" expanded="false" signature="116117:116130" placeholder="..." />
-                    <marker date="1399569755000" expanded="false" signature="116342:116354" placeholder="..." />
-                    <marker date="1399569755000" expanded="false" signature="116404:116417" placeholder="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="SummaryController.php" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/SummaryController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="973" column="5" selection-start="36441" selection-end="36477" vertical-scroll-proportion="0.78479195" vertical-offset="13628" max-vertical-offset="14340">
-                  <folding>
-                    <element signature="e#1702#1719#0" expanded="true" />
-                    <element signature="e#1958#1988#1" expanded="true" />
-                    <element signature="e#2624#2654#1" expanded="true" />
-                    <element signature="e#4187#4215#1" expanded="true" />
-                    <element signature="e#4791#4826#1" expanded="true" />
-                    <element signature="e#5376#5414#1" expanded="true" />
-                    <element signature="e#5919#5952#1" expanded="true" />
-                    <element signature="e#6468#6495#1" expanded="true" />
-                    <element signature="e#7040#7067#1" expanded="true" />
-                    <element signature="e#7895#7933#1" expanded="true" />
-                    <element signature="e#9278#9306#1" expanded="true" />
-                    <element signature="e#9751#9779#1" expanded="true" />
-                    <element signature="e#10225#10253#1" expanded="true" />
-                    <element signature="e#10870#10895#1" expanded="true" />
-                    <element signature="e#12101#12136#1" expanded="true" />
-                    <element signature="e#13008#13045#1" expanded="true" />
-                    <element signature="e#13373#13400#1" expanded="true" />
-                    <element signature="e#13883#13900#0" expanded="true" />
-                    <element signature="e#15395#15425#1" expanded="true" />
-                    <element signature="e#16402#16430#1" expanded="true" />
-                    <element signature="e#16895#16930#1" expanded="true" />
-                    <element signature="e#17233#17271#1" expanded="true" />
-                    <element signature="e#17536#17568#1" expanded="true" />
-                    <element signature="e#18229#18262#1" expanded="true" />
-                    <element signature="e#18846#18873#1" expanded="true" />
-                    <element signature="e#19924#19949#1" expanded="true" />
-                    <element signature="e#20565#20592#1" expanded="true" />
-                    <element signature="e#21448#21486#1" expanded="true" />
-                    <element signature="e#22596#22624#1" expanded="true" />
-                    <element signature="e#23396#23424#1" expanded="true" />
-                    <element signature="e#24317#24345#1" expanded="true" />
-                    <element signature="e#26027#26062#1" expanded="true" />
-                    <element signature="e#27038#27065#1" expanded="true" />
-                    <element signature="e#27930#27967#1" expanded="true" />
-                    <element signature="e#36573#36590#0" expanded="true" />
-                    <marker date="1399488300000" expanded="true" signature="1512:1556" placeholder="SELECT c FRO..EarlsLeaseBundle..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Renewals.php" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Renewals.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="68.0" vertical-offset="1632" max-vertical-offset="2445">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="CorporateManageTablesController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Earls/CorporateBundle/Controller/CorporateManageTablesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="351" column="5" selection-start="10796" selection-end="10796" vertical-scroll-proportion="0.24545455" vertical-offset="4875" max-vertical-offset="7275">
+              <folding>
+                <element signature="e#1146#1178#1" expanded="true" />
+                <element signature="e#2342#2372#1" expanded="true" />
+                <element signature="e#3342#3375#1" expanded="true" />
+                <element signature="e#3790#3850#0" expanded="true" />
+                <element signature="e#4608#4647#1" expanded="true" />
+                <element signature="e#4943#4969#1" expanded="true" />
+                <element signature="e#5013#5079#0" expanded="true" />
+                <element signature="e#5425#5457#1" expanded="true" />
+                <element signature="e#5601#5646#0" expanded="true" />
+                <element signature="e#5710#5773#0" expanded="true" />
+                <element signature="e#6189#6221#1" expanded="true" />
+                <element signature="e#6507#6533#1" expanded="true" />
+                <element signature="e#6591#6654#0" expanded="true" />
+                <element signature="e#7069#7103#1" expanded="true" />
+                <element signature="e#7731#7763#1" expanded="true" />
+                <element signature="e#7896#7922#1" expanded="true" />
+                <element signature="e#8499#8536#1" expanded="true" />
+                <element signature="e#8828#8854#1" expanded="true" />
+                <element signature="e#8908#8972#0" expanded="true" />
+                <element signature="e#9308#9338#1" expanded="true" />
+                <element signature="e#9478#9521#0" expanded="true" />
+                <element signature="e#9585#9646#0" expanded="true" />
+                <element signature="e#10052#10082#1" expanded="true" />
+                <element signature="e#10364#10390#1" expanded="true" />
+                <element signature="e#10458#10519#0" expanded="true" />
+                <element signature="e#10956#10986#1" expanded="true" />
+                <element signature="e#11117#11143#1" expanded="true" />
+                <element signature="e#11730#11770#1" expanded="true" />
+                <element signature="e#12081#12107#1" expanded="true" />
+                <element signature="e#12151#12218#0" expanded="true" />
+                <element signature="e#12569#12602#1" expanded="true" />
+                <element signature="e#12748#12794#0" expanded="true" />
+                <element signature="e#12858#12922#0" expanded="true" />
+                <element signature="e#13343#13376#1" expanded="true" />
+                <element signature="e#13664#13690#1" expanded="true" />
+                <element signature="e#13761#13826#0" expanded="true" />
+                <element signature="e#14246#14280#1" expanded="true" />
+                <element signature="e#14921#14954#1" expanded="true" />
+                <element signature="e#15088#15114#1" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ManageTablesController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/ManageTablesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="420" column="87" selection-start="13193" selection-end="13209" vertical-scroll-proportion="-83.75" vertical-offset="4215" max-vertical-offset="7050">
+              <folding>
+                <element signature="e#131#188#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CorporationFinderType.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Earls/CorporateBundle/Form/Type/CorporationFinderType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="2" selection-start="608" selection-end="608" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="450">
+              <folding>
+                <element signature="e#50#90#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SharetypesType.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Earls/CorporateBundle/Form/Type/SharetypesType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="0" selection-start="924" selection-end="924" vertical-scroll-proportion="-23.125" vertical-offset="0" max-vertical-offset="645">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/views/CorporateManageTables/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="47" selection-start="918" selection-end="927" vertical-scroll-proportion="-5.625" vertical-offset="195" max-vertical-offset="3285">
+              <folding>
+                <element signature="e#12#46#0" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="e#1619#1656#0" expanded="true" />
+                <element signature="e#3671#3711#0" expanded="true" />
+                <element signature="e#4133#4176#0" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="e#5844#5879#0" expanded="true" />
+                <element signature="e#7870#7908#0" expanded="true" />
+                <element signature="e#8320#8361#0" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="e#10055#10093#0" expanded="true" />
+                <element signature="e#11623#11664#0" expanded="true" />
+                <element signature="e#12091#12135#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="155" column="70" selection-start="10849" selection-end="10849" vertical-scroll-proportion="-14.791667" vertical-offset="1970" max-vertical-offset="2940">
+              <folding>
+                <element signature="e#12#46#0" expanded="false" />
+                <element signature="e#1520#1547#0" expanded="false" />
+                <element signature="e#2921#2951#0" expanded="false" />
+                <element signature="e#3341#3374#0" expanded="false" />
+                <element signature="e#4724#4756#0" expanded="false" />
+                <element signature="e#6229#6264#0" expanded="false" />
+                <element signature="e#6704#6742#0" expanded="false" />
+                <element signature="e#8278#8309#0" expanded="false" />
+                <element signature="e#9698#9732#0" expanded="false" />
+                <element signature="e#10156#10193#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -243,7 +305,6 @@
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Default/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/UtilitiesType.php" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/AddStoreInformationController.php" />
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/addStore.html.twig" />
         <option value="$PROJECT_DIR$/app/cache/dev/translations/catalogue.en.php" />
@@ -252,28 +313,36 @@
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Corporations.php" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Corporations.orm.xml" />
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RestaurantsType.php" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Model/StoreInformationModel.php" />
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/StoreInformationType.php" />
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LeaseInformation/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/SummaryController.php" />
-        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Summary/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/js/script.js" />
         <option value="$PROJECT_DIR$/web/bundles/earlslease/js/script.js" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LeasesByExpiry/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LicenseByExpiry/index.html.twig" />
         <option value="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/views/SummaryCompany/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/LandlordsPropManagerType.php" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/landlordsPM.html.twig" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/addLandlord.html.twig" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/addLandlordPM.html.twig" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/StoreInformationType.php" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RestaurantsType.php" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Summary/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/SummaryController.php" />
+        <option value="$PROJECT_DIR$/src/Earls/CorporateBundle/Controller/CorporateSummaryController.php" />
+        <option value="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/views/CorporateManageTables/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/ManageTablesController.php" />
+        <option value="$PROJECT_DIR$/src/Earls/CorporateBundle/Controller/CorporateManageTablesController.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="lamppPHP" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-148" />
-    <option name="y" value="-878" />
-    <option name="width" value="1600" />
-    <option name="height" value="878" />
+    <option name="y" value="22" />
+    <option name="width" value="1280" />
+    <option name="height" value="728" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -562,7 +631,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Summary" />
+              <option name="myItemId" value="ManageTables" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -589,284 +658,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="StoreInformation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EarlsLeaseWebApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EarlsLeaseWebApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Earls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LeaseBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LicenseByExpiry" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EarlsLeaseWebApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EarlsLeaseWebApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Earls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LeaseBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LeasesByExpiry" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EarlsLeaseWebApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EarlsLeaseWebApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Earls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LeaseBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EarlsLeaseWebApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EarlsLeaseWebApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Earls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LeaseBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EarlsLeaseWebApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EarlsLeaseWebApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Earls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LeaseBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EarlsLeaseWebApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EarlsLeaseWebApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Earls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LeaseBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Form" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EarlsLeaseWebApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EarlsLeaseWebApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Earls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LeaseBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Form" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Type" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EarlsLeaseWebApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EarlsLeaseWebApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Earls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LeaseBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Form" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EarlsLeaseWebApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="EarlsLeaseWebApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Earls" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LeaseBundle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -896,6 +687,302 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Earls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CorporateBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Earls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CorporateBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Earls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CorporateBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Default" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Earls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CorporateBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CorporateSummary" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Earls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CorporateBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CorporateManageTables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Earls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CorporateBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CorporateInformation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Earls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CorporateBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Earls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CorporateBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Form" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Type" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Earls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CorporateBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Form" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="EarlsLeaseWebApp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Earls" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CorporateBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -917,7 +1004,10 @@
       <recent name="$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/views/CorporateManageTables" />
+      <recent name="$PROJECT_DIR$/src/Earls/CorporateBundle/Controller" />
       <recent name="$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type" />
+      <recent name="$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables" />
     </key>
   </component>
   <component name="RunManager">
@@ -963,11 +1053,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-148" y="-878" width="1600" height="878" extended-state="6" />
+    <frame x="0" y="22" width="1280" height="728" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32288402" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32875606" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Symfony2" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -977,12 +1068,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16623877" sideWeight="0.5743671" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27948305" sideWeight="0.5743671" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32385466" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1029,21 +1119,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LicenseByExpiry/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="61" selection-start="2658" selection-end="2658" vertical-scroll-proportion="0.0" vertical-offset="855" max-vertical-offset="1020" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LeasesByExpiry/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="16" selection-start="2369" selection-end="2389" vertical-scroll-proportion="0.0" vertical-offset="750" max-vertical-offset="945" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LicenseByExpiry/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="2692" selection-end="3028" vertical-scroll-proportion="0.0" vertical-offset="449" max-vertical-offset="1170" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LeasesByExpiry/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="61" column="17" selection-start="2636" selection-end="2636" vertical-scroll-proportion="0.0" vertical-offset="915" max-vertical-offset="1155" />
@@ -1072,11 +1147,6 @@
     <entry file="file://$PROJECT_DIR$/app/Resources/TwigBundle/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1713" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="221" column="14" selection-start="14584" selection-end="14584" vertical-scroll-proportion="-69.166664" vertical-offset="1655" max-vertical-offset="3420" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/addStore.html.twig">
@@ -1129,45 +1199,11 @@
         <state line="18" column="3" selection-start="543" selection-end="543" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Provincestate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="28" selection-start="513" selection-end="529" vertical-scroll-proportion="0.14402173" vertical-offset="314" max-vertical-offset="1050">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Northamericancities.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.24456522" vertical-offset="180" max-vertical-offset="1050">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/CorporateBundle/Entity/Restaurants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="164" column="56" selection-start="3348" selection-end="3348" vertical-scroll-proportion="0.080789946" vertical-offset="2415" max-vertical-offset="16485" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/css/cloud-admin.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4610" column="33" selection-start="93190" selection-end="93201" vertical-scroll-proportion="-0.060240965" vertical-offset="69195" max-vertical-offset="133305">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Corporations.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="367" column="26" selection-start="7137" selection-end="7137" vertical-scroll-proportion="0.0" vertical-offset="5145" max-vertical-offset="7935" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/config/doctrine/Corporations.orm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/CorporateBundle/Entity/Corporations.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="3" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="7935" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/bundles/earlslease/css/cloud-admin.css">
@@ -1182,60 +1218,16 @@
         <state line="169" column="18" selection-start="13900" selection-end="13908" vertical-scroll-proportion="0.6142857" vertical-offset="2105" max-vertical-offset="2805" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/config/doctrine/Corporations.orm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="33" selection-start="1358" selection-end="1374" vertical-scroll-proportion="0.31163436" vertical-offset="0" max-vertical-offset="722" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Restaurants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="414" column="32" selection-start="9220" selection-end="9220" vertical-scroll-proportion="7.8584557" vertical-offset="1935" max-vertical-offset="16485">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/LiquorlicensesType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="6" selection-start="208" selection-end="208" vertical-scroll-proportion="0.16157989" vertical-offset="0" max-vertical-offset="750" />
+        <state line="8" column="6" selection-start="208" selection-end="208" vertical-scroll-proportion="0.16157989" vertical-offset="0" max-vertical-offset="750">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Model/StoreInformationModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="38" selection-start="2892" selection-end="2892" vertical-scroll-proportion="2.6185286" vertical-offset="43" max-vertical-offset="2100" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RestaurantsType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="36" selection-start="3752" selection-end="3752" vertical-scroll-proportion="0.28610355" vertical-offset="1185" max-vertical-offset="2055" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/StoreInformationType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="44" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.4482289" vertical-offset="1" max-vertical-offset="735" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="0" selection-start="4770" selection-end="4811" vertical-scroll-proportion="-13.75" vertical-offset="1605" max-vertical-offset="11880">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Propertymanagers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="230" column="40" selection-start="4225" selection-end="4245" vertical-scroll-proportion="0.32768363" vertical-offset="3218" max-vertical-offset="4290">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="313" column="0" selection-start="11673" selection-end="11673" vertical-scroll-proportion="4.247175" vertical-offset="1283" max-vertical-offset="5745" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Riskinfo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2985">
+        <state line="142" column="38" selection-start="2892" selection-end="2892" vertical-scroll-proportion="2.6185286" vertical-offset="43" max-vertical-offset="2100">
           <folding />
         </state>
       </provider>
@@ -1247,103 +1239,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Renewals.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="68.0" vertical-offset="1632" max-vertical-offset="2445">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="193" column="13" selection-start="8966" selection-end="9012" vertical-scroll-proportion="-20.125" vertical-offset="2412" max-vertical-offset="3135">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Summary/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="174" selection-start="1925" selection-end="1925" vertical-scroll-proportion="-10.5" vertical-offset="0" max-vertical-offset="6420">
-          <folding>
-            <element signature="e#12#46#0" expanded="false" />
-            <element signature="e#1590#1611#0" expanded="false" />
-            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/SummaryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="681" column="56" selection-start="23298" selection-end="23299" vertical-scroll-proportion="39.76" vertical-offset="12203" max-vertical-offset="14760">
-          <folding>
-            <element signature="e#48#97#0" expanded="true" />
-            <element signature="e#1702#1719#0" expanded="true" />
-            <element signature="e#1958#1988#1" expanded="true" />
-            <element signature="e#2624#2654#1" expanded="true" />
-            <element signature="e#4187#4215#1" expanded="true" />
-            <element signature="e#4791#4826#1" expanded="true" />
-            <element signature="e#5376#5414#1" expanded="true" />
-            <element signature="e#5919#5952#1" expanded="true" />
-            <element signature="e#6468#6495#1" expanded="true" />
-            <element signature="e#7040#7067#1" expanded="true" />
-            <element signature="e#7895#7933#1" expanded="true" />
-            <element signature="e#9278#9306#1" expanded="true" />
-            <element signature="e#9751#9779#1" expanded="true" />
-            <element signature="e#10225#10253#1" expanded="true" />
-            <element signature="e#10870#10895#1" expanded="true" />
-            <element signature="e#12101#12136#1" expanded="true" />
-            <element signature="e#13008#13045#1" expanded="true" />
-            <element signature="e#13373#13400#1" expanded="true" />
-            <element signature="e#13883#13900#0" expanded="true" />
-            <element signature="e#15395#15425#1" expanded="true" />
-            <element signature="e#16402#16430#1" expanded="true" />
-            <element signature="e#16895#16930#1" expanded="true" />
-            <element signature="e#17233#17271#1" expanded="true" />
-            <element signature="e#17536#17568#1" expanded="true" />
-            <element signature="e#18229#18262#1" expanded="true" />
-            <element signature="e#18846#18873#1" expanded="true" />
-            <element signature="e#19924#19949#1" expanded="true" />
-            <element signature="e#20565#20592#1" expanded="true" />
-            <element signature="e#21448#21486#1" expanded="true" />
-            <element signature="e#22596#22624#1" expanded="true" />
-            <element signature="e#23396#23424#1" expanded="true" />
-            <element signature="e#24317#24345#1" expanded="true" />
-            <element signature="e#26027#26062#1" expanded="true" />
-            <element signature="e#27038#27065#1" expanded="true" />
-            <element signature="e#27930#27967#1" expanded="true" />
-            <element signature="e#36573#36590#0" expanded="true" />
-            <marker date="1399488300000" expanded="true" signature="1512:1556" placeholder="SELECT c FRO..EarlsLeaseBundle..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/bundles/earlslease/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1197" column="12" selection-start="44596" selection-end="44596" vertical-scroll-proportion="0.0" vertical-offset="17580" max-vertical-offset="51210">
-          <folding>
-            <marker date="1399569755000" expanded="false" signature="25489:25526" placeholder="..." />
-            <marker date="1399569755000" expanded="false" signature="116117:116130" placeholder="..." />
-            <marker date="1399569755000" expanded="false" signature="116342:116354" placeholder="..." />
-            <marker date="1399569755000" expanded="false" signature="116404:116417" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1198" column="16" selection-start="44625" selection-end="45011" vertical-scroll-proportion="0.0" vertical-offset="17625" max-vertical-offset="51210">
-          <folding>
-            <marker date="1399569749000" expanded="false" signature="25489:25526" placeholder="..." />
-            <marker date="1399569749000" expanded="false" signature="116117:116130" placeholder="..." />
-            <marker date="1399569749000" expanded="false" signature="116342:116354" placeholder="..." />
-            <marker date="1399569749000" expanded="false" signature="116404:116417" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LicenseByExpiry/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="12" selection-start="2590" selection-end="3085" vertical-scroll-proportion="-16.333334" vertical-offset="418" max-vertical-offset="1110">
           <folding />
         </state>
       </provider>
@@ -1355,17 +1253,336 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Landlords.php">
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/LicenseByExpiry/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="237" column="6" selection-start="4158" selection-end="4158" vertical-scroll-proportion="-8.125" vertical-offset="3360" max-vertical-offset="4290">
+        <state line="54" column="12" selection-start="2590" selection-end="3085" vertical-scroll-proportion="-16.333334" vertical-offset="418" max-vertical-offset="1110">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/public/js/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1198" column="16" selection-start="44625" selection-end="45011" vertical-scroll-proportion="0.0" vertical-offset="17625" max-vertical-offset="51210">
+          <folding>
+            <marker date="1399569749000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1399569749000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1399569749000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1399569749000" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/earlslease/js/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1197" column="12" selection-start="44596" selection-end="44596" vertical-scroll-proportion="0.0" vertical-offset="17580" max-vertical-offset="51210">
+          <folding>
+            <marker date="1399569755000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1399569755000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1399569755000" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1399569755000" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/views/SummaryCompany/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="0" selection-start="2153" selection-end="2153" vertical-scroll-proportion="0.62232417" vertical-offset="313" max-vertical-offset="1035">
+        <state line="47" column="38" selection-start="2151" selection-end="2151" vertical-scroll-proportion="-16.333334" vertical-offset="313" max-vertical-offset="1035">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/addLandlordPM.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="30" selection-start="1023" selection-end="1023" vertical-scroll-proportion="0.30363637" vertical-offset="118" max-vertical-offset="1500">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/landlordsPM.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="54" selection-start="615" selection-end="615" vertical-scroll-proportion="0.35454544" vertical-offset="0" max-vertical-offset="1500">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Restaurants.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="495.0" vertical-offset="11880" max-vertical-offset="14505">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/LandlordsPropManagerType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="30" selection-start="244" selection-end="268" vertical-scroll-proportion="-0.0" vertical-offset="105" max-vertical-offset="885">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/addstoreClasses.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="587">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/StoreInformationType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="52" selection-start="968" selection-end="968" vertical-scroll-proportion="-12.5" vertical-offset="0" max-vertical-offset="675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/StoreInformation/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="78" selection-start="4151" selection-end="4151" vertical-scroll-proportion="0.21818182" vertical-offset="1560" max-vertical-offset="11775">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Form/Type/RestaurantsType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="93" column="29" selection-start="3562" selection-end="3572" vertical-scroll-proportion="0.80106574" vertical-offset="899" max-vertical-offset="2055">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/StoreInformationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="44" selection-start="175" selection-end="175" vertical-scroll-proportion="0.15706806" vertical-offset="0" max-vertical-offset="5790">
+          <folding>
+            <element signature="e#1565#1592#0" expanded="true" />
+            <element signature="e#1846#1876#1" expanded="true" />
+            <element signature="e#2389#2416#1" expanded="true" />
+            <element signature="e#2703#2736#1" expanded="true" />
+            <element signature="e#3082#3109#1" expanded="true" />
+            <element signature="e#3394#3432#1" expanded="true" />
+            <element signature="e#3741#3772#1" expanded="true" />
+            <element signature="e#3873#3904#1" expanded="true" />
+            <element signature="e#4005#4036#1" expanded="true" />
+            <element signature="e#4136#4164#1" expanded="true" />
+            <element signature="e#4559#4587#1" expanded="true" />
+            <element signature="e#4982#5010#1" expanded="true" />
+            <element signature="e#5881#5908#0" expanded="true" />
+            <element signature="e#7105#7131#0" expanded="true" />
+            <element signature="e#7856#7886#1" expanded="true" />
+            <element signature="e#8061#8088#1" expanded="true" />
+            <element signature="e#8257#8290#1" expanded="true" />
+            <element signature="e#8514#8541#1" expanded="true" />
+            <element signature="e#8738#8776#1" expanded="true" />
+            <element signature="e#9030#9061#1" expanded="true" />
+            <element signature="e#9148#9176#1" expanded="true" />
+            <element signature="e#9472#9503#1" expanded="true" />
+            <element signature="e#9590#9618#1" expanded="true" />
+            <element signature="e#9914#9945#1" expanded="true" />
+            <element signature="e#10032#10060#1" expanded="true" />
+            <element signature="e#10566#10593#0" expanded="true" />
+            <marker date="1399669818000" expanded="true" signature="-1:-1" placeholder="SELECT c FRO..EarlsLeaseBundle..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/SummaryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="535" column="8" selection-start="17953" selection-end="17953" vertical-scroll-proportion="0.6" vertical-offset="7695" max-vertical-offset="14910">
+          <folding>
+            <element signature="e#48#103#0" expanded="true" />
+            <element signature="e#1977#2007#1" expanded="true" />
+            <element signature="e#2643#2673#1" expanded="true" />
+            <element signature="e#4206#4250#1" expanded="true" />
+            <element signature="e#4853#4897#1" expanded="true" />
+            <element signature="e#5460#5498#1" expanded="true" />
+            <element signature="e#6029#6062#1" expanded="true" />
+            <element signature="e#6560#6587#1" expanded="true" />
+            <element signature="e#7132#7159#1" expanded="true" />
+            <element signature="e#7987#8025#1" expanded="true" />
+            <element signature="e#9370#9398#1" expanded="true" />
+            <element signature="e#9843#9871#1" expanded="true" />
+            <element signature="e#10317#10345#1" expanded="true" />
+            <element signature="e#10962#10987#1" expanded="true" />
+            <element signature="e#12193#12228#1" expanded="true" />
+            <element signature="e#13100#13137#1" expanded="true" />
+            <element signature="e#13465#13492#1" expanded="true" />
+            <element signature="e#15487#15517#1" expanded="true" />
+            <element signature="e#16505#16549#1" expanded="true" />
+            <element signature="e#17010#17054#1" expanded="true" />
+            <element signature="e#17342#17380#1" expanded="true" />
+            <element signature="e#17739#17771#1" expanded="true" />
+            <element signature="e#18534#18567#1" expanded="true" />
+            <element signature="e#19151#19178#1" expanded="true" />
+            <element signature="e#20229#20254#1" expanded="true" />
+            <element signature="e#20870#20897#1" expanded="true" />
+            <element signature="e#21753#21791#1" expanded="true" />
+            <element signature="e#22901#22929#1" expanded="true" />
+            <element signature="e#23701#23729#1" expanded="true" />
+            <element signature="e#24622#24650#1" expanded="true" />
+            <element signature="e#26332#26367#1" expanded="true" />
+            <element signature="e#27343#27370#1" expanded="true" />
+            <element signature="e#28235#28272#1" expanded="true" />
+            <marker date="1399672004000" expanded="true" signature="-1:-1" placeholder="SELECT c FRO..EarlsLeaseBundle..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Landlordspropertymanagers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="230" column="44" selection-start="4154" selection-end="4178" vertical-scroll-proportion="0.21818182" vertical-offset="3330" max-vertical-offset="4290">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Liquorlicenses.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="25" selection-start="1107" selection-end="1120" vertical-scroll-proportion="0.46075085" vertical-offset="510" max-vertical-offset="2445">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Entity/Northamericancities.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.26791808" vertical-offset="157" max-vertical-offset="1050">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/Summary/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="69" selection-start="4367" selection-end="4367" vertical-scroll-proportion="-8.005236" vertical-offset="5847" max-vertical-offset="6420">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/CorporateBundle/Controller/CorporateSummaryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="79" selection-start="2951" selection-end="2951" vertical-scroll-proportion="0.7329843" vertical-offset="510" max-vertical-offset="1950">
+          <folding>
+            <marker date="1399672129000" expanded="true" signature="-1:-1" placeholder="SELECT c FRO..EarlsCorporateBundle..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/CorporateBundle/Entity/Corporations.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-12.356021" vertical-offset="7080" max-vertical-offset="7935">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/CorporateBundle/Form/Type/CorporationFinderType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="2" selection-start="608" selection-end="608" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="450">
+          <folding>
+            <element signature="e#50#90#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/editstoreClasses.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="587">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Resources/views/ManageTables/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="155" column="70" selection-start="10849" selection-end="10849" vertical-scroll-proportion="-14.791667" vertical-offset="1970" max-vertical-offset="2940">
+          <folding>
+            <element signature="e#12#46#0" expanded="false" />
+            <element signature="e#1520#1547#0" expanded="false" />
+            <element signature="e#2921#2951#0" expanded="false" />
+            <element signature="e#3341#3374#0" expanded="false" />
+            <element signature="e#4724#4756#0" expanded="false" />
+            <element signature="e#6229#6264#0" expanded="false" />
+            <element signature="e#6704#6742#0" expanded="false" />
+            <element signature="e#8278#8309#0" expanded="false" />
+            <element signature="e#9698#9732#0" expanded="false" />
+            <element signature="e#10156#10193#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/LeaseBundle/Controller/ManageTablesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="420" column="87" selection-start="13193" selection-end="13209" vertical-scroll-proportion="-83.75" vertical-offset="4215" max-vertical-offset="7050">
+          <folding>
+            <element signature="e#131#188#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/CorporateBundle/Resources/views/CorporateManageTables/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="47" selection-start="918" selection-end="927" vertical-scroll-proportion="-5.625" vertical-offset="195" max-vertical-offset="3285">
+          <folding>
+            <element signature="e#12#46#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="e#1619#1656#0" expanded="true" />
+            <element signature="e#3671#3711#0" expanded="true" />
+            <element signature="e#4133#4176#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="e#5844#5879#0" expanded="true" />
+            <element signature="e#7870#7908#0" expanded="true" />
+            <element signature="e#8320#8361#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="e#10055#10093#0" expanded="true" />
+            <element signature="e#11623#11664#0" expanded="true" />
+            <element signature="e#12091#12135#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/CorporateBundle/Form/Type/SharetypesType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="0" selection-start="924" selection-end="924" vertical-scroll-proportion="-23.125" vertical-offset="0" max-vertical-offset="645">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Earls/CorporateBundle/Controller/CorporateManageTablesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="351" column="5" selection-start="10796" selection-end="10796" vertical-scroll-proportion="0.24545455" vertical-offset="4875" max-vertical-offset="7275">
+          <folding>
+            <element signature="e#1146#1178#1" expanded="true" />
+            <element signature="e#2342#2372#1" expanded="true" />
+            <element signature="e#3342#3375#1" expanded="true" />
+            <element signature="e#3790#3850#0" expanded="true" />
+            <element signature="e#4608#4647#1" expanded="true" />
+            <element signature="e#4943#4969#1" expanded="true" />
+            <element signature="e#5013#5079#0" expanded="true" />
+            <element signature="e#5425#5457#1" expanded="true" />
+            <element signature="e#5601#5646#0" expanded="true" />
+            <element signature="e#5710#5773#0" expanded="true" />
+            <element signature="e#6189#6221#1" expanded="true" />
+            <element signature="e#6507#6533#1" expanded="true" />
+            <element signature="e#6591#6654#0" expanded="true" />
+            <element signature="e#7069#7103#1" expanded="true" />
+            <element signature="e#7731#7763#1" expanded="true" />
+            <element signature="e#7896#7922#1" expanded="true" />
+            <element signature="e#8499#8536#1" expanded="true" />
+            <element signature="e#8828#8854#1" expanded="true" />
+            <element signature="e#8908#8972#0" expanded="true" />
+            <element signature="e#9308#9338#1" expanded="true" />
+            <element signature="e#9478#9521#0" expanded="true" />
+            <element signature="e#9585#9646#0" expanded="true" />
+            <element signature="e#10052#10082#1" expanded="true" />
+            <element signature="e#10364#10390#1" expanded="true" />
+            <element signature="e#10458#10519#0" expanded="true" />
+            <element signature="e#10956#10986#1" expanded="true" />
+            <element signature="e#11117#11143#1" expanded="true" />
+            <element signature="e#11730#11770#1" expanded="true" />
+            <element signature="e#12081#12107#1" expanded="true" />
+            <element signature="e#12151#12218#0" expanded="true" />
+            <element signature="e#12569#12602#1" expanded="true" />
+            <element signature="e#12748#12794#0" expanded="true" />
+            <element signature="e#12858#12922#0" expanded="true" />
+            <element signature="e#13343#13376#1" expanded="true" />
+            <element signature="e#13664#13690#1" expanded="true" />
+            <element signature="e#13761#13826#0" expanded="true" />
+            <element signature="e#14246#14280#1" expanded="true" />
+            <element signature="e#14921#14954#1" expanded="true" />
+            <element signature="e#15088#15114#1" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -29,16 +29,6 @@ class Memberships
     private $membershipid;
 
     /**
-     * @var \Earls\CorporateBundle\Entity\Sharetypes
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Sharetypes")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="shareTypeID", referencedColumnName="shareTypeID")
-     * })
-     */
-    private $sharetypeid;
-
-    /**
      * @var \Earls\CorporateBundle\Entity\Directors
      *
      * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Directors")
@@ -47,6 +37,16 @@ class Memberships
      * })
      */
     private $directorid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Sharetypes
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Sharetypes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="shareTypeID", referencedColumnName="shareTypeID")
+     * })
+     */
+    private $sharetypeid;
 
     /**
      * @var \Earls\CorporateBundle\Entity\Corporations
@@ -94,29 +94,6 @@ class Memberships
     }
 
     /**
-     * Set sharetypeid
-     *
-     * @param \Earls\CorporateBundle\Entity\Sharetypes $sharetypeid
-     * @return Memberships
-     */
-    public function setSharetypeid(\Earls\CorporateBundle\Entity\Sharetypes $sharetypeid = null)
-    {
-        $this->sharetypeid = $sharetypeid;
-    
-        return $this;
-    }
-
-    /**
-     * Get sharetypeid
-     *
-     * @return \Earls\CorporateBundle\Entity\Sharetypes 
-     */
-    public function getSharetypeid()
-    {
-        return $this->sharetypeid;
-    }
-
-    /**
      * Set directorid
      *
      * @param \Earls\CorporateBundle\Entity\Directors $directorid
@@ -137,6 +114,29 @@ class Memberships
     public function getDirectorid()
     {
         return $this->directorid;
+    }
+
+    /**
+     * Set sharetypeid
+     *
+     * @param \Earls\CorporateBundle\Entity\Sharetypes $sharetypeid
+     * @return Memberships
+     */
+    public function setSharetypeid(\Earls\CorporateBundle\Entity\Sharetypes $sharetypeid = null)
+    {
+        $this->sharetypeid = $sharetypeid;
+    
+        return $this;
+    }
+
+    /**
+     * Get sharetypeid
+     *
+     * @return \Earls\CorporateBundle\Entity\Sharetypes 
+     */
+    public function getSharetypeid()
+    {
+        return $this->sharetypeid;
     }
 
     /**

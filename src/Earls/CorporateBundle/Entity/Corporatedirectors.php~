@@ -29,16 +29,6 @@ class Corporatedirectors
     private $corporatedirectorid;
 
     /**
-     * @var \Earls\CorporateBundle\Entity\Corporations
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Corporations")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="corporateID", referencedColumnName="corporateID")
-     * })
-     */
-    private $corporateid;
-
-    /**
      * @var \Earls\CorporateBundle\Entity\Directors
      *
      * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Directors")
@@ -47,6 +37,16 @@ class Corporatedirectors
      * })
      */
     private $directorid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Corporations
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Corporations")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="corporateID", referencedColumnName="corporateID")
+     * })
+     */
+    private $corporateid;
 
 
 }

@@ -1,0 +1,56 @@
+<?php
+
+namespace Earls\CorporateBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Liquorlicenses
+ *
+ * @ORM\Table(name="liquorlicenses")
+ * @ORM\Entity
+ */
+class Liquorlicenses
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="businessLicense", type="string", length=45, nullable=true)
+     */
+    private $businesslicense;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="liquorLicense", type="string", length=45, nullable=true)
+     */
+    private $liquorlicense;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="licenseDate", type="date", nullable=true)
+     */
+    private $licensedate;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="liquorLicenseID", type="smallint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $liquorlicenseid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Restaurants
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Restaurants")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID")
+     * })
+     */
+    private $restaurantid;
+
+
+}

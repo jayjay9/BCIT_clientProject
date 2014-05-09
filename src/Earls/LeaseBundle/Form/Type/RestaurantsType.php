@@ -57,11 +57,11 @@ class RestaurantsType extends AbstractType
 
 
             ->add('propertymanagerid', 'entity', array(
-                'class' => 'EarlsLeaseBundle:Propertymanagers',
-                'property' => 'propertymanagername',
+                'class' => 'EarlsLeaseBundle:Landlordspropertymanagers',
+                'property' => 'name',
                 'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')
-                ->orderBy('u.propertymanagername', 'ASC');
+                ->orderBy('u.name', 'ASC');
                 },
             ))
 
@@ -92,11 +92,11 @@ class RestaurantsType extends AbstractType
                 },
             ))
             ->add('landlordid', 'entity', array(
-                'class' => 'EarlsLeaseBundle:Landlords',
-                'property' => 'landlordname',
+                'class' => 'EarlsLeaseBundle:Landlordspropertymanagers',
+                'property' => 'name',
                 'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')
-                ->orderBy('u.landlordname', 'ASC');
+                ->orderBy('u.name', 'ASC');
                 },
             ))
 /*            ->add('licenseid', 'entity', array(

@@ -5,7 +5,6 @@ namespace Earls\LeaseBundle\Controller;
 use Doctrine\Tests\Common\Annotations\Null;
 use Earls\LeaseBundle\Entity\Licenses;
 use Earls\LeaseBundle\Entity\Liquorlicenses;
-use Earls\LeaseBundle\Entity\Propertymanagers;
 use Earls\LeaseBundle\Entity\Rentandmaintenances;
 use Earls\LeaseBundle\Entity\Riskinfo;
 use Earls\LeaseBundle\Entity\Utilities;
@@ -291,31 +290,8 @@ class StoreInformationController extends Controller
 
             if ($form->isValid()) {
 
-                $sameAsLandlord = $storeInfoObj->getPropertyManager();
-
-                if($sameAsLandlord == 1){
-                    $landlordName = $storeInfoObj->getRestaurantinfo()->getLandlordid()->getLandlordname();
-                    $landlordAddress = $storeInfoObj->getRestaurantinfo()->getLandlordid()->getAddress();
-                    $landlordProvinceStateID = $storeInfoObj->getRestaurantinfo()->getLandlordid()->getProvincestateid();
-                    $landlordCity = $storeInfoObj->getRestaurantinfo()->getLandlordid()->getCity();
-
-                    $propertyManagerObj = new Propertymanagers();
-
-                    $propertyManagerObj->setPropertymanagername($landlordName);
-                    $propertyManagerObj->setAddress($landlordAddress);
-                    $propertyManagerObj->setProvincestateid($landlordProvinceStateID);
-                    $propertyManagerObj->setCity($landlordCity);
-
-                    $em = $this->getDoctrine()->getManager();
-                    $em->persist($propertyManagerObj);
-                    $em->flush();
-
-                    print_r($propertyManagerObj->getPropertymanagerid());
-
-                }
-
-//                $em->flush();
-//                return $this->redirect($this->generateUrl('_storeinformation_display', array('id' => $id)));
+                $em->flush();
+                return $this->redirect($this->generateUrl('_storeinformation_display', array('id' => $id)));
 
             } else {
 

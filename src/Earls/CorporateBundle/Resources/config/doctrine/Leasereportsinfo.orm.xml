@@ -8,14 +8,14 @@
     <field name="duedate" type="date" column="dueDate" nullable="true"/>
     <field name="isaudit" type="boolean" column="isAudit" nullable="true"/>
     <field name="iscertified" type="boolean" column="isCertified" nullable="true"/>
-    <many-to-one field="reporttypeid" target-entity="Reportperiodtypes">
-      <join-columns>
-        <join-column name="reportTypeID" referenced-column-name="reportTypeID"/>
-      </join-columns>
-    </many-to-one>
     <many-to-one field="leaseid" target-entity="Leases">
       <join-columns>
         <join-column name="leaseID" referenced-column-name="leaseID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="reporttypeid" target-entity="Reportperiodtypes">
+      <join-columns>
+        <join-column name="reportTypeID" referenced-column-name="reportTypeID"/>
       </join-columns>
     </many-to-one>
   </entity>

@@ -78,9 +78,9 @@ class Corporations
     /**
      * @var string
      *
-     * @ORM\Column(name="capitalStructrue", type="string", length=255, nullable=true)
+     * @ORM\Column(name="capitalStructure", type="string", length=255, nullable=true)
      */
-    private $capitalstructrue;
+    private $capitalstructure;
 
     /**
      * @var string
@@ -113,24 +113,24 @@ class Corporations
     private $corporateid;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Registeredoffices
+     * @var \Earls\LeaseBundle\Entity\Offices
      *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Registeredoffices")
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Offices")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="registeredOfficeID", referencedColumnName="registeredOfficeID")
-     * })
-     */
-    private $registeredofficeid;
-
-    /**
-     * @var \Earls\LeaseBundle\Entity\Recordsoffices
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Recordsoffices")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="recordsOfficeID", referencedColumnName="recordOfficeID")
+     *   @ORM\JoinColumn(name="recordsOfficeID", referencedColumnName="officeID")
      * })
      */
     private $recordsofficeid;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Offices
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Offices")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="registeredOfficeID", referencedColumnName="officeID")
+     * })
+     */
+    private $registeredofficeid;
 
     /**
      * @var \Earls\LeaseBundle\Entity\Provincestate

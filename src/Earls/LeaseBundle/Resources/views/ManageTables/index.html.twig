@@ -18,19 +18,18 @@
         <div class="box border blue">
             <div class="box-body big">
                 <ul class="nav nav-tabs" id="myTab">
-                    <li><a href="#landlord" data-toggle="tab">Landlord</a></li>
-                    <li><a href="#propertymanager" data-toggle="tab">Property Manager</a></li>
+                    <li><a href="#landlordPM" data-toggle="tab">Landlord and Property Manager</a></li>
                     <li><a href="#buildingtypes" data-toggle="tab">Building Types</a></li>
                     <li><a href="#storeclasses" data-toggle="tab">Store Classes</a></li>
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane fade in active" id="landlord">
+                    <div class="tab-pane fade in active" id="landlordPM">
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2">
                         <div class="box border" style="margin-top: 30px;">
                             <div class="box-title">
-                                <h4>Landlords Table</h4>
-                                <a data-toggle="modal" class="btn btn-small btn-success" href="{{ path('_manage_tables_landlord_add') }}" data-target="#landlordModalAdd">
+                                <h4>Landlords and Property Manager Table</h4>
+                                <a data-toggle="modal" class="btn btn-small btn-success" href="{{ path('_manage_tables_landlord_add') }}" data-target="#landlordPMModalAdd">
                                     <i class="fa fa-plus"></i> ADD
                                 </a>
                             </div>
@@ -39,28 +38,28 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Landlord Name</th>
-                                            <th>Landlord Address</th>
+                                            <th>Name</th>
+                                            <th>Address</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    {% for landlord in allLandlord %}
+                                    {% for landlordPM in allLandlordAndPropManager %}
                                     <tr>
                                         <td>{{ loop.index }}</td>
-                                        <td> {{ landlord.landlordname }}</td>
-                                        <td>{{ landlord.address }}</td>
-                                        <td><a data-toggle="modal" class="btn btn-small btn-warning" href="{{ path('_manage_tables_landlord_get_id', {'id': landlord.landlordid }) }}" data-target="#landlordModal{{ landlord.landlordid }}">
+                                        <td> {{ landlordPM.name }}</td>
+                                        <td>{{ landlordPM.address }}</td>
+                                        <td><a data-toggle="modal" class="btn btn-small btn-warning" href="{{ path('_manage_tables_landlord_get_id', {'id': landlordPM.landlordpropertymanid }) }}" data-target="#landlordPMModal{{ landlordPM.landlordpropertymanid }}">
                                                 <i class="fa fa-edit"></i> Edit
                                             </a>
                                         </td>
-                                        <td><a class="btn btn-small btn-danger" href="{{ path('_manage_tables_landlord_delete_id', {'id': landlord.landlordid }) }}">
+                                        <td><a class="btn btn-small btn-danger" href="{{ path('_manage_tables_landlord_delete_id', {'id': landlordPM.landlordpropertymanid }) }}">
                                                 <i class="fa fa-times-circle"></i> Delete
                                             </a>
                                         </td>
                                     </tr>
-                                        <div class="modal fade in" id="landlordModal{{ landlord.landlordid }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                                        <div class="modal fade in" id="landlordPMModal{{ landlordPM.landlordpropertymanid }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
                                         </div><!-- /.modal -->
                                     {% endfor %}
                                     </tbody>
@@ -69,52 +68,6 @@
                         </div>
                                 </div>
                             </div>
-                    </div>
-                    <div class="tab-pane fade" id="propertymanager">
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2">
-                                <div class="box border" style="margin-top: 30px;">
-                                    <div class="box-title">
-                                        <h4>Property Manager Table</h4>
-                                        <a data-toggle="modal" class="btn btn-small btn-success" href="{{ path('_manage_tables_propertyManager_add') }}" data-target="#propertyManagerModalAdd">
-                                            <i class="fa fa-plus"></i> ADD
-                                        </a>
-                                    </div>
-                                    <div class="box-body">
-                                        <table id="datatablePropertyManager" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered table-hover">
-                                            <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Property Manager Name</th>
-                                                <th>Property Manager Address</th>
-                                                <th>Edit</th>
-                                                <th>Delete</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            {% for propertymanager in allPropertymanager %}
-                                                <tr>
-                                                    <td>{{ loop.index }}</td>
-                                                    <td> {{ propertymanager.propertymanagername }}</td>
-                                                    <td>{{ propertymanager.address }}</td>
-                                                    <td> <a data-toggle="modal" class="btn btn-small btn-warning" href="{{ path('_manage_tables_propertyManager_get_id', {'id': propertymanager.propertymanagerid }) }}" data-target="#propertymanagerModal{{ propertymanager.propertymanagerid }}">
-                                                            <i class="fa fa-edit"></i> Edit
-                                                        </a>
-                                                    </td>
-                                                    <td><a class="btn btn-small btn-danger" href="{{ path('_manage_tables_propertyManager_delete_id', {'id': propertymanager.propertymanagerid }) }}">
-                                                            <i class="fa fa-times-circle"></i> Delete</a></td>
-                                                    <!-- Modal -->
-                                                    <div class="modal fade" id="propertymanagerModal{{ propertymanager.propertymanagerid }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-
-                                                    </div><!-- /.modal -->
-                                                </tr>
-                                            {% endfor %}
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="tab-pane fade" id="buildingtypes">
                         <div class="row">
@@ -188,11 +141,19 @@
                                                 <tr>
                                                     <td>{{ loop.index }}</td>
                                                     <td> {{ storeclasses.storeclass }}</td>
+                                                    <td>
+                                                        <a data-toggle="modal" class="btn btn-small btn-warning" href="{{ path('_manage_tables_storeclasses_get_id', {'id': storeclasses.storeclassid }) }}" data-target="#storeclassModal{{ storeclasses.storeclassid }}">
+                                                            <i class="fa fa-edit"></i> Edit
+                                                        </a>
+                                                    </td>
                                                     <td><a class="btn btn-small btn-danger" href="{{ path('_manage_tables_storeClasses_delete_id', {'id': storeclasses.storeclassid }) }}">
                                                             <i class="fa fa-times-circle"></i> Delete
                                                         </a>
                                                     </td>
                                                 </tr>
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="storeclassModal{{ storeclasses.storeclassid }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                                                </div><!-- /.modal -->
                                             {% endfor %}
                                             </tbody>
                                         </table>
@@ -204,9 +165,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade in" id="landlordModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-        </div><!-- /.modal -->
-        <div class="modal fade in" id="propertyManagerModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+        <div class="modal fade in" id="landlordPMModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
         </div><!-- /.modal -->
         <div class="modal fade in" id="storeClassModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
         </div><!-- /.modal -->

@@ -14,11 +14,6 @@
         <join-column name="roofRepair" referenced-column-name="ownerID"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="restaurantid" target-entity="Restaurants">
-      <join-columns>
-        <join-column name="restaurantID" referenced-column-name="restaurantID"/>
-      </join-columns>
-    </many-to-one>
     <many-to-one field="hvacreplace" target-entity="Owners">
       <join-columns>
         <join-column name="hvacReplace" referenced-column-name="ownerID"/>
@@ -27,6 +22,11 @@
     <many-to-one field="hvacrepair" target-entity="Owners">
       <join-columns>
         <join-column name="hvacRepair" referenced-column-name="ownerID"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="restaurantid" target-entity="Restaurants">
+      <join-columns>
+        <join-column name="restaurantID" referenced-column-name="restaurantID"/>
       </join-columns>
     </many-to-one>
   </entity>

@@ -29,16 +29,6 @@ class Memberships
     private $membershipid;
 
     /**
-     * @var \Earls\CorporateBundle\Entity\Sharetypes
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Sharetypes")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="shareTypeID", referencedColumnName="shareTypeID")
-     * })
-     */
-    private $sharetypeid;
-
-    /**
      * @var \Earls\CorporateBundle\Entity\Directors
      *
      * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Directors")
@@ -47,6 +37,16 @@ class Memberships
      * })
      */
     private $directorid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Sharetypes
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Sharetypes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="shareTypeID", referencedColumnName="shareTypeID")
+     * })
+     */
+    private $sharetypeid;
 
     /**
      * @var \Earls\CorporateBundle\Entity\Corporations

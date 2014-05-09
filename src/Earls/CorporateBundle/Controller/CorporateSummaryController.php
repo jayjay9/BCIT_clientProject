@@ -73,7 +73,7 @@ class CorporateSummaryController extends Controller{
 		$registrationDate = $corporationObj->getRegistrationdate()->format('Y-m-d');
 		
 		/****REGISTERED OFFICE***/
-		$registeredofficeId = $corporationObj->getRegisteredofficeid()->getOfficeid()->getOfficeid();
+		$registeredofficeId = $corporationObj->getRegisteredofficeid()->getOfficeid();
 		
 		$registeredOfficesObj = $this->getDoctrine()
             ->getRepository('EarlsCorporateBundle:Offices')
@@ -82,7 +82,7 @@ class CorporateSummaryController extends Controller{
 		$registeredProvinceName = $registeredOfficesObj->getProvincestateid()->getDescription();
 		
 		/*****RECORD OFFICE****/
-		$recordsofficeId = $corporationObj->getRecordsofficeid()->getOfficeid()->getOfficeid();
+		$recordsofficeId = $corporationObj->getRecordsofficeid()->getOfficeid();
 		
 		$recordsOfficeObj = $this->getDoctrine()
             ->getRepository('EarlsCorporateBundle:Offices')

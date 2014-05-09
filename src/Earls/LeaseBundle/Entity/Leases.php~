@@ -199,15 +199,5 @@ class Leases
      */
     private $restaurantid;
 
-    /**
-     * @var \Earls\LeaseBundle\Entity\Leasereportsinfo
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Leasereportsinfo")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="leaseReportInfoID", referencedColumnName="leaseReportInfoID")
-     * })
-     */
-    private $leasereportinfoid;
-
 
 }

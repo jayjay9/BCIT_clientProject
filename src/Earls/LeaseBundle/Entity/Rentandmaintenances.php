@@ -42,16 +42,6 @@ class Rentandmaintenances
     private $roofrepair;
 
     /**
-     * @var \Earls\LeaseBundle\Entity\Restaurants
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID")
-     * })
-     */
-    private $restaurantid;
-
-    /**
      * @var \Earls\LeaseBundle\Entity\Owners
      *
      * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Owners")
@@ -70,6 +60,16 @@ class Rentandmaintenances
      * })
      */
     private $hvacrepair;
+
+    /**
+     * @var \Earls\LeaseBundle\Entity\Restaurants
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\LeaseBundle\Entity\Restaurants")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="restaurantID", referencedColumnName="restaurantID")
+     * })
+     */
+    private $restaurantid;
 
 
 
@@ -130,29 +130,6 @@ class Rentandmaintenances
     }
 
     /**
-     * Set restaurantid
-     *
-     * @param \Earls\LeaseBundle\Entity\Restaurants $restaurantid
-     * @return Rentandmaintenances
-     */
-    public function setRestaurantid(\Earls\LeaseBundle\Entity\Restaurants $restaurantid = null)
-    {
-        $this->restaurantid = $restaurantid;
-    
-        return $this;
-    }
-
-    /**
-     * Get restaurantid
-     *
-     * @return \Earls\LeaseBundle\Entity\Restaurants 
-     */
-    public function getRestaurantid()
-    {
-        return $this->restaurantid;
-    }
-
-    /**
      * Set hvacreplace
      *
      * @param \Earls\LeaseBundle\Entity\Owners $hvacreplace
@@ -196,5 +173,28 @@ class Rentandmaintenances
     public function getHvacrepair()
     {
         return $this->hvacrepair;
+    }
+
+    /**
+     * Set restaurantid
+     *
+     * @param \Earls\LeaseBundle\Entity\Restaurants $restaurantid
+     * @return Rentandmaintenances
+     */
+    public function setRestaurantid(\Earls\LeaseBundle\Entity\Restaurants $restaurantid = null)
+    {
+        $this->restaurantid = $restaurantid;
+    
+        return $this;
+    }
+
+    /**
+     * Get restaurantid
+     *
+     * @return \Earls\LeaseBundle\Entity\Restaurants 
+     */
+    public function getRestaurantid()
+    {
+        return $this->restaurantid;
     }
 }

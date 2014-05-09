@@ -29,16 +29,6 @@ class Corporatedirectors
     private $corporatedirectorid;
 
     /**
-     * @var \Earls\CorporateBundle\Entity\Corporations
-     *
-     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Corporations")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="corporateID", referencedColumnName="corporateID")
-     * })
-     */
-    private $corporateid;
-
-    /**
      * @var \Earls\CorporateBundle\Entity\Directors
      *
      * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Directors")
@@ -47,6 +37,16 @@ class Corporatedirectors
      * })
      */
     private $directorid;
+
+    /**
+     * @var \Earls\CorporateBundle\Entity\Corporations
+     *
+     * @ORM\ManyToOne(targetEntity="Earls\CorporateBundle\Entity\Corporations")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="corporateID", referencedColumnName="corporateID")
+     * })
+     */
+    private $corporateid;
 
 
 
@@ -84,29 +84,6 @@ class Corporatedirectors
     }
 
     /**
-     * Set corporateid
-     *
-     * @param \Earls\CorporateBundle\Entity\Corporations $corporateid
-     * @return Corporatedirectors
-     */
-    public function setCorporateid(\Earls\CorporateBundle\Entity\Corporations $corporateid = null)
-    {
-        $this->corporateid = $corporateid;
-    
-        return $this;
-    }
-
-    /**
-     * Get corporateid
-     *
-     * @return \Earls\CorporateBundle\Entity\Corporations 
-     */
-    public function getCorporateid()
-    {
-        return $this->corporateid;
-    }
-
-    /**
      * Set directorid
      *
      * @param \Earls\CorporateBundle\Entity\Directors $directorid
@@ -127,5 +104,28 @@ class Corporatedirectors
     public function getDirectorid()
     {
         return $this->directorid;
+    }
+
+    /**
+     * Set corporateid
+     *
+     * @param \Earls\CorporateBundle\Entity\Corporations $corporateid
+     * @return Corporatedirectors
+     */
+    public function setCorporateid(\Earls\CorporateBundle\Entity\Corporations $corporateid = null)
+    {
+        $this->corporateid = $corporateid;
+    
+        return $this;
+    }
+
+    /**
+     * Get corporateid
+     *
+     * @return \Earls\CorporateBundle\Entity\Corporations 
+     */
+    public function getCorporateid()
+    {
+        return $this->corporateid;
     }
 }

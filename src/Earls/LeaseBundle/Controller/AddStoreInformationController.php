@@ -247,8 +247,8 @@ class AddStoreInformationController extends Controller {
 
              return $this->redirect($this->generateUrl('_storeinformation'));
         }else{
-            print_r('is not Valid');
-            print_r($form->getErrorsAsString());
+           // print_r('is not Valid');
+           // print_r($form->getErrorsAsString());
         }
 
         return $this->render('EarlsLeaseBundle:StoreInformation:addStore.html.twig',

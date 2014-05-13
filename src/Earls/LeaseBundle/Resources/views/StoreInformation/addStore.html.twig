@@ -43,14 +43,8 @@
         <div class="progress-bar progress-bar-warning"></div>
     </div>
     <div class="tab-content">
-    <div class="alert alert-danger display-none">
-        <a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>
-        Your form has errors. Please correct them to proceed.
-    </div>
-    <div class="alert alert-success display-none">
-        <a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>
-        Your form validation is successful!
-    </div>
+    <div id="warning"></div>
+
 
     <!-- ******************************* STORE INFORMATION ************************ -->
 
@@ -76,6 +70,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.storefilenumber, {
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.storefilenumber) }}
 
                     </div>
                 </div>
@@ -88,6 +83,7 @@
                         'label_attr': {'class': 'control-label'},
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.storenickname) }}
 
                     </div>
                 </div>
@@ -100,6 +96,7 @@
                         'label_attr': {'class': 'control-label'},
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.landlordid) }}
 
                     </div>
                 </div>
@@ -111,6 +108,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.propertymanagerid, {
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.propertymanagerid) }}
 
                     </div>
                 </div>
@@ -123,6 +121,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.corporateid, {
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.corporateid) }}
 
                     </div>
                 </div>
@@ -134,6 +133,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.tenant, {
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.tenant) }}
 
                     </div>
                 </div>
@@ -145,6 +145,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.address, {
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.address) }}
 
                     </div>
                 </div>
@@ -156,6 +157,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.city, {
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.city) }}
 
                     </div>
                 </div>
@@ -167,6 +169,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.provincestateid, {
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.provincestateid) }}
 
                     </div>
                 </div>
@@ -178,6 +181,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.postalzip, {
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.postalzip) }}
 
                     </div>
                 </div>
@@ -200,6 +204,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.openingdate, {
                         'attr': {'class': 'form-control', 'form':'wizForm'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.openingdate) }}
 
                     </div>
                 </div>
@@ -211,6 +216,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.legaldescription, {
                         'attr': {'class': 'form-control', 'form':'wizForm'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.legaldescription) }}
 
                     </div>
                 </div>
@@ -222,6 +228,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.royaltyfee, {
                         'attr': {'class': 'form-control', 'form':'wizForm'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.royaltyfee) }}
 
                     </div>
                 </div>
@@ -233,6 +240,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.advertisingfee, {
                         'attr': {'class': 'form-control', 'form':'wizForm'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.advertisingfee) }}
 
                     </div>
                 </div>
@@ -244,6 +252,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.regionalmngtfee, {
                         'attr': {'class': 'form-control', 'form':'wizForm'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.regionalmngtfee) }}
 
                     </div>
                 </div>
@@ -255,6 +264,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.comments, {
                         'attr': {'class': 'form-control', 'form':'wizForm'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.comments) }}
 
                     </div>
                 </div>
@@ -266,6 +276,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.restaurantstate, {
                         'attr': {'class': 'checkbox', 'form':'wizForm'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.restaurantstate) }}
 
                     </div>
                 </div>
@@ -277,6 +288,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.closedate, {
                         'attr': {'form':'wizForm'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.closedate) }}
 
                     </div>
                 </div>
@@ -303,6 +315,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.departmentnumber, {
                         'attr': {'class': 'form-control', 'form':'wizForm'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.departmentnumber) }}
 
                     </div>
                 </div>
@@ -314,6 +327,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.buildingtype, {
                         'attr': {'class': 'form-control', 'form':'wizForm'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.buildingtype) }}
 
                     </div>
                 </div>
@@ -325,6 +339,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.storeclassid, {
                         'attr': {'class': 'form-control', 'form':'wizForm'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.storeclassid) }}
 
                     </div>
                 </div>
@@ -336,6 +351,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.liquorlicense.liquorlicense, {
                         'attr': {'class': 'form-control', 'form':'wizForm'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.liquorlicense.liquorlicense) }}
 
                     </div>
                 </div>
@@ -347,6 +363,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.liquorlicense.businesslicense, {
                         'attr': {'class': 'form-control', 'form':'wizForm'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.liquorlicense.businesslicense) }}
 
                     </div>
                 </div>
@@ -358,6 +375,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.yearbuilt, {
                         'attr': {'class': 'form-control', 'form':'wizForm'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.yearbuilt) }}
 
                     </div>
                 </div>
@@ -398,6 +416,7 @@
                                 {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.diningroomseating, {
                                 'attr': {'class': 'form-control', 'form':'wizForm'}
                                 }) }}
+                                {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.diningroomseating) }}
 
                             </div>
                             <div class="col-lg-6">
@@ -405,6 +424,7 @@
                                 {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.diningroomtable, {
                                 'attr': {'class': 'form-control', 'form':'wizForm'}
                                 }) }}
+                                {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.diningroomtable) }}
 
                             </div>
                         </div>
@@ -420,6 +440,7 @@
                                 {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.loungeseating, {
                                 'attr': {'class': 'form-control', 'form':'wizForm'}
                                 }) }}
+                                {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.loungeseating) }}
 
                             </div>
                             <div class="col-lg-6">
@@ -427,6 +448,7 @@
                                 {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.loungetable, {
                                 'attr': {'class': 'form-control', 'form':'wizForm'}
                                 }) }}
+                                {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.loungetable) }}
 
                             </div>
                         </div>
@@ -442,6 +464,7 @@
                                 {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.patioseating, {
                                 'attr': {'class': 'form-control', 'form':'wizForm'}
                                 }) }}
+                                {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.patioseating) }}
 
                             </div>
                             <div class="col-lg-6">
@@ -449,6 +472,7 @@
                                 {{ form_widget(addStoreForm.storeInfoForm.restaurantInfo.patiotable, {
                                 'attr': {'class': 'form-control', 'form':'wizForm'}
                                 }) }}
+                                {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.patiotable) }}
 
                             </div>
                         </div>
@@ -472,6 +496,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.licenseinfo.startdate, {
                         'attr': {'form':'wizForm'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.licenseinfo.startdate) }}
 
                     </div>
                 </div>
@@ -483,6 +508,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.licenseinfo.expirarydate, {
                         'attr': {'form':'wizForm'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.licenseinfo.expirarydate) }}
 
                     </div>
                 </div>
@@ -494,6 +520,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.licenseinfo.licenseagreement, {
                         'attr': {'form':'wizForm'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.licenseinfo.licenseagreement) }}
 
                     </div>
                 </div>
@@ -505,6 +532,7 @@
                         {{ form_widget(addStoreForm.storeInfoForm.licenseinfo.comments, {
                         'attr': {'class': 'form-control', 'form':'wizForm'}
                         }) }}
+                        {{ form_errors(addStoreForm.storeInfoForm.licenseinfo.comments) }}
 
                     </div>
                 </div>
@@ -744,6 +772,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'class': 'form-control'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.leasetype) }}
 
                         </div>
                     </div>
@@ -756,6 +785,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'form':'wizForm'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.leasedate) }}
 
                         </div>
                     </div>
@@ -768,6 +798,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'class': 'form-control'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.term) }}
 
                         </div>
                     </div>
@@ -780,6 +811,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'form':'wizForm'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.commencementdate) }}
 
                         </div>
                     </div>
@@ -792,6 +824,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'form':'wizForm'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.expirydate) }}
 
                         </div>
                     </div>
@@ -804,6 +837,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'class': 'form-control'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.optiontime) }}
 
                         </div>
                     </div>
@@ -815,6 +849,7 @@
                             {{ form_widget(addStoreForm.leaseInfoForm.leaseinfo.showinlease, {'label': 'Show in Lease Rpt',
                             'label_attr': {'class': 'control-label'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.showinlease) }}
 
                         </div>
                     </div>
@@ -836,6 +871,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'class': 'form-control'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.exclusiveuse) }}
 
                         </div>
                     </div>
@@ -848,6 +884,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'class': 'form-control'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.tiallowance) }}
 
                         </div>
                     </div>
@@ -860,6 +897,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'class': 'form-control'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.radiusclause) }}
 
                         </div>
                     </div>
@@ -872,6 +910,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'class': 'form-control'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.indemnifier) }}
 
                         </div>
                     </div>
@@ -884,6 +923,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'class': 'form-control'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.indemnityperiod) }}
 
                         </div>
                     </div>
@@ -896,6 +936,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'form':'wizForm','class': 'form-control' }
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.indemnityexpiry) }}
 
                         </div>
                     </div>
@@ -908,6 +949,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'class': 'form-control'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.otherdescription) }}
 
                         </div>
                     </div>
@@ -931,6 +973,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'class': 'form-control'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.areamain) }}
 
                         </div>
                     </div>
@@ -943,6 +986,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'class': 'form-control'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.areaupperfloor) }}
 
                         </div>
                     </div>
@@ -955,6 +999,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'class': 'form-control'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.areamezzanine) }}
 
                         </div>
                     </div>
@@ -967,6 +1012,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'class': 'form-control'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.areapatio) }}
 
                         </div>
                     </div>
@@ -979,6 +1025,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'class': 'form-control'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.areaother) }}
 
                         </div>
                     </div>
@@ -991,6 +1038,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'class': 'form-control'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.surveyeddescription) }}
 
                         </div>
                     </div>
@@ -1012,6 +1060,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'class': 'form-control'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leasereportinfo.reporttypeid) }}
 
                         </div>
                     </div>
@@ -1023,6 +1072,7 @@
                             {{ form_widget(addStoreForm.leaseInfoForm.leasereportinfo.iscertifiedsales, {'label': 'Certified Sales',
                             'label_attr': {'class': 'control-label'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leasereportinfo.iscertifiedsales) }}
 
                         </div>
                     </div>
@@ -1034,6 +1084,7 @@
                             {{ form_widget(addStoreForm.leaseInfoForm.leasereportinfo.duedate, {'label': 'Due Date',
                             'label_attr': {'class': 'control-label'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leasereportinfo.duedate) }}
 
                         </div>
                     </div>
@@ -1045,6 +1096,7 @@
                             {{ form_widget(addStoreForm.leaseInfoForm.leasereportinfo.isaudit, {'label': 'Is Audit',
                             'label_attr': {'class': 'control-label'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leasereportinfo.isaudit) }}
 
                         </div>
                     </div>
@@ -1056,6 +1108,7 @@
                             {{ form_widget(addStoreForm.leaseInfoForm.leasereportinfo.iscertified, {'label': 'Is Certified',
                             'label_attr': {'class': 'control-label'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leasereportinfo.iscertified) }}
 
                         </div>
                     </div>
@@ -1079,6 +1132,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'class': 'form-control'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.renewalterms) }}
 
                         </div>
                     </div>
@@ -1091,6 +1145,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'form':'wizForm'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.renewaloptiondate) }}
 
                         </div>
                     </div>
@@ -1103,6 +1158,7 @@
                             'label_attr': {'class': 'control-label'},
                             'attr': {'class': 'form-control'}
                             }) }}
+                            {{ form_errors(addStoreForm.leaseInfoForm.leaseinfo.renewalcomments) }}
 
                         </div>
                     </div>
@@ -1142,6 +1198,7 @@
                                         'label_attr': {'class': 'control-label'},
                                         'attr': {'class': 'form-control'}
                                         }) }}
+                                        {{ form_errors(renewalField.term) }}
                                     </div>
                                     <div class="col-lg-3">
                                         {{ form_widget(renewalField.exercised, {'label': '',
@@ -1194,12 +1251,14 @@
                                         'label_attr': {'class': 'control-label'},
                                         'attr': {'form':'wizForm'}
                                         }) }}
+                                        {{ form_errors(criticalField.ctdate) }}
                                     </div>
                                     <div class="col-lg-3">
                                         {{ form_widget(criticalField.ctclause, {'label': '',
                                         'label_attr': {'class': 'control-label'},
                                         'attr': {'class': 'form-control'}
                                         }) }}
+                                        {{ form_errors(criticalField.ctclause) }}
                                     </div>
                                     <div class="col-lg-3">
                                         {{ form_widget(criticalField.ctdescription, {'label': '',
@@ -1245,42 +1304,49 @@
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area1.entry) }}
                             </td>
                             <td>
                                 {{ form_widget(addStoreForm.manageAreaForm.area1.bar, {'label': 'Bar',
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area1.bar) }}
                             </td>
                             <td>
                                 {{ form_widget(addStoreForm.manageAreaForm.area1.lounge, {'label': 'Lounge',
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area1.lounge) }}
                             </td>
                             <td>
                                 {{ form_widget(addStoreForm.manageAreaForm.area1.dining, {'label': 'Dining',
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area1.dining) }}
                             </td>
                             <td>
                                 {{ form_widget(addStoreForm.manageAreaForm.area1.washrooms, {'label': 'Washrooms',
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area1.washrooms) }}
                             </td>
                             <td>
                                 {{ form_widget(addStoreForm.manageAreaForm.area1.boh, {'label': 'BOH',
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area1.boh) }}
                             </td>
                             <td>
                                 {{ form_widget(addStoreForm.manageAreaForm.area1.patio, {'label': 'Patio',
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area1.patio) }}
                             </td>
                         </tr>
                         </tbody>
@@ -1319,42 +1385,49 @@
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area2.entry) }}
                             </td>
                             <td>
                                 {{ form_widget(addStoreForm.manageAreaForm.area2.bar, {'label': 'Bar',
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area2.bar) }}
                             </td>
                             <td>
                                 {{ form_widget(addStoreForm.manageAreaForm.area2.lounge, {'label': 'Lounge',
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area2.lounge) }}
                             </td>
                             <td>
                                 {{ form_widget(addStoreForm.manageAreaForm.area2.dining, {'label': 'Dining',
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area2.dining) }}
                             </td>
                             <td>
                                 {{ form_widget(addStoreForm.manageAreaForm.area2.washrooms, {'label': 'Washrooms',
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area2.washrooms) }}
                             </td>
                             <td>
                                 {{ form_widget(addStoreForm.manageAreaForm.area2.boh, {'label': 'BOH',
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area2.boh) }}
                             </td>
                             <td>
                                 {{ form_widget(addStoreForm.manageAreaForm.area2.patio, {'label': 'Patio',
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area2.patio) }}
                             </td>
                         </tr>
                         </tbody>
@@ -1393,42 +1466,49 @@
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area3.entry) }}
                             </td>
                             <td>
                                 {{ form_widget(addStoreForm.manageAreaForm.area3.bar, {'label': 'Bar',
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area3.bar) }}
                             </td>
                             <td>
                                 {{ form_widget(addStoreForm.manageAreaForm.area3.lounge, {'label': 'Lounge',
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area3.lounge) }}
                             </td>
                             <td>
                                 {{ form_widget(addStoreForm.manageAreaForm.area3.dining, {'label': 'Dining',
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area3.dining) }}
                             </td>
                             <td>
                                 {{ form_widget(addStoreForm.manageAreaForm.area3.washrooms, {'label': 'Washrooms',
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area3.washrooms) }}
                             </td>
                             <td>
                                 {{ form_widget(addStoreForm.manageAreaForm.area3.boh, {'label': 'BOH',
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area3.boh) }}
                             </td>
                             <td>
                                 {{ form_widget(addStoreForm.manageAreaForm.area3.patio, {'label': 'Patio',
                                 'label_attr': {'class': 'sr-only'},
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(addStoreForm.manageAreaForm.area3.patio) }}
                             </td>
                         </tr>
                         </tbody>
@@ -1486,8 +1566,15 @@
 
 
     <script src="{{ asset('bundles/earlslease/js/bootstrap-wizard/form-wizard.min.js') }}"></script>
+
     <script>
+     var $addWarning = $('<div class="alert alert-danger"><a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>Your form has errors. Please correct them to proceed.</div>');
         jQuery(document).ready(function(){
+            $('span.help-inline').parent().addClass('has-error');
+        $('span.help-inline').css('color','red');
+        if ($('span.help-inline').length) {
+                    $('div#warning').append($addWarning);
+                }
             App.setPage("wizards_validations");
             App.init();
             FormWizard.init();

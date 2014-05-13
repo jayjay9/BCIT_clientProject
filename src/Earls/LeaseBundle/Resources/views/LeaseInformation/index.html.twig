@@ -17,8 +17,8 @@
     <div class="col-md-12">
         <div class="box border blue">
             <div class="box-body big">
-                <h3 class="form-title">{{ leaseInfoForm.restaurantName.vars.value }}<b></b></h3>
-                <a class="btn btn-small btn-success" href="{{ path('_addLease_id', {'id': leaseInfoForm.restaurantid.vars.value} )}}">
+                <h3 class="form-title">{{ restaurantName }}<b></b></h3>
+                <a class="btn btn-small btn-success" href="{{ path('_addLease_id', {'id': restaurantId} )}}">
                     <i class="fa fa-plus"></i> Add a Lease
                 </a>
             </div>
@@ -26,6 +26,7 @@
     </div>
 </div>
 
+<div id="warning"></div>
 
 <ul class="nav nav-tabs">
 {% for leaseInfoForm in leaseInfoForm.leaseinfo %}
@@ -63,6 +64,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'class': 'form-control'}
                                     }) }}
+                                     {{ form_errors(leaseInfoForm.leaseinfo.leasetype) }}
 
                                 </div>
                             </div>
@@ -74,6 +76,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'form':'leaseInfoForm'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.leasedate) }}
 
                                 </div>
                             </div>
@@ -85,6 +88,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'class': 'form-control'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.term) }}
 
                                 </div>
                             </div>
@@ -96,6 +100,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'form':'leaseInfoForm'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.commencementdate) }}
 
                                 </div>
                             </div>
@@ -107,6 +112,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'form':'leaseInfoForm'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.expirydate) }}
 
                                 </div>
                             </div>
@@ -118,6 +124,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'class': 'form-control'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.optiontime) }}
 
                                 </div>
                             </div>
@@ -128,6 +135,7 @@
                                     {{ form_widget(leaseInfoForm.leaseinfo.showinlease, {'label': 'Show in Lease Rpt',
                                     'label_attr': {'class': 'control-label'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.showinlease) }}
 
                                 </div>
                             </div>
@@ -148,6 +156,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'class': 'form-control'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.exclusiveuse) }}
 
                                 </div>
                             </div>
@@ -159,6 +168,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'class': 'form-control'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.tiallowance) }}
 
                                 </div>
                             </div>
@@ -170,6 +180,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'class': 'form-control'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.radiusclause) }}
 
                                 </div>
                             </div>
@@ -181,6 +192,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'class': 'form-control'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.indemnifier) }}
 
                                 </div>
                             </div>
@@ -192,6 +204,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'class': 'form-control'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.indemnityperiod) }}
 
                                 </div>
                             </div>
@@ -203,6 +216,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'form':'leaseInfoForm','class': 'form-control' }
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.indemnityexpiry) }}
 
                                 </div>
                             </div>
@@ -214,6 +228,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'class': 'form-control'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.otherdescription) }}
 
                                 </div>
                             </div>
@@ -236,6 +251,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'class': 'form-control'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.areamain) }}
 
                                 </div>
                             </div>
@@ -247,6 +263,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'class': 'form-control'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.areaupperfloor) }}
 
                                 </div>
                             </div>
@@ -258,6 +275,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'class': 'form-control'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.areamezzanine) }}
 
                                 </div>
                             </div>
@@ -269,6 +287,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'class': 'form-control'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.areapatio) }}
 
                                 </div>
                             </div>
@@ -280,6 +299,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'class': 'form-control'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.areaother) }}
 
                                 </div>
                             </div>
@@ -291,6 +311,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'class': 'form-control'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.surveyeddescription) }}
 
                                 </div>
                             </div>
@@ -331,6 +352,7 @@
                                     {{ form_widget(leaseInfoForm.leasereportinfo.duedate, {'label': 'Due Date',
                                     'label_attr': {'class': 'control-label'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leasereportinfo.duedate) }}
 
                                 </div>
                             </div>
@@ -373,6 +395,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'class': 'form-control'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.renewalterms) }}
 
                                 </div>
                             </div>
@@ -384,6 +407,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'form':'leaseInfoForm'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.renewaloptiondate) }}
 
                                 </div>
                             </div>
@@ -395,6 +419,7 @@
                                     'label_attr': {'class': 'control-label'},
                                     'attr': {'class': 'form-control'}
                                     }) }}
+                                    {{ form_errors(leaseInfoForm.leaseinfo.renewalcomments) }}
 
                                 </div>
                             </div>
@@ -431,6 +456,7 @@
                                                     'label_attr': {'class': 'control-label'},
                                                     'attr': {'class': 'form-control'}
                                                     }) }}
+                                                    {{ form_errors(renewalField.term) }}
                                                 </div>
                                                 <div class="col-lg-2">
                                                     {{ form_widget(renewalField.exercised, {'label': '',
@@ -480,12 +506,14 @@
                                                 'label_attr': {'class': 'control-label'},
                                                 'attr': {'form':'leaseInfoForm'}
                                                 }) }}
+                                                {{ form_errors(criticalField.ctdate) }}
                                             </div>
                                             <div class="col-lg-3">
                                                 {{ form_widget(criticalField.ctclause, {'label': '',
                                                 'label_attr': {'class': 'control-label'},
                                                 'attr': {'class': 'form-control'}
                                                 }) }}
+                                                {{ form_errors(criticalField.ctclause) }}
                                             </div>
                                             <div class="col-lg-4">
                                                 {{ form_widget(criticalField.ctdescription, {'label': '',
@@ -519,20 +547,6 @@
 
     {{ form_end(leaseInfoForm, {'render_rest': false}) }}
 
-
-{% for leaseInfoForm in leaseInfoForm.leaseinfo %}
-<!-- Modal -->
-<div class="modal fade" id="renewalModal{{ leaseInfoForm.leaseid.vars.value }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-
-</div><!-- /.modal -->
-{% endfor %}
-{% for leaseInfoForm in leaseInfoForm.leaseinfo %}
-    <!-- Modal -->
-    <div class="modal fade" id="tasksModal{{ leaseInfoForm.leaseid.vars.value }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-
-    </div><!-- /.modal -->
-{% endfor %}
-
 {% endblock %}
 
 {% block javascript %}
@@ -543,6 +557,7 @@
         alert($active.id.toSource());
     }
 
+     var $addWarning = $('<div class="alert alert-danger"><a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>Your form has errors. Please correct them to proceed.</div>');
 
     var $collectionRenewal;
     var $collectionTask;
@@ -554,6 +569,11 @@
     var $newTaskLink = $('<div id="leaseTask"></div>').append($addTaskLink);
 
     jQuery(document).ready(function() {
+        $('span.help-inline').parent().addClass('has-error');
+        $('span.help-inline').css('color','red');
+        if ($('span.help-inline').length) {
+                    $('div#warning').append($addWarning);
+                }
         // Get the ul that holds the collection of renewals/task
         $collectionRenewal = $('div#renewal-fields-list');
         $collectionTask = $('div#task-fields-list');

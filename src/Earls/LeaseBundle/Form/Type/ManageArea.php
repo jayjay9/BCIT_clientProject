@@ -13,13 +13,13 @@ class ManageArea extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('entry')
-            ->add('bar', 'text')
-            ->add('lounge')
-            ->add('dining')
-            ->add('washrooms')
-            ->add('boh')
-            ->add('patio')
+            ->add('entry', 'number', array('invalid_message' => 'Enter a number', 'required' => false))
+            ->add('bar', 'number', array('invalid_message' => 'Enter a number', 'required' => false))
+            ->add('lounge', 'number', array('invalid_message' => 'Enter a number', 'required' => false))
+            ->add('dining', 'number', array('invalid_message' => 'Enter a number', 'required' => false))
+            ->add('washrooms', 'number', array('invalid_message' => 'Enter a number', 'required' => false))
+            ->add('boh', 'number', array('invalid_message' => 'Enter a number', 'required' => false))
+            ->add('patio', 'number', array('invalid_message' => 'Enter a number', 'required' => false))
             //->add('totalarea')
         ;
     }

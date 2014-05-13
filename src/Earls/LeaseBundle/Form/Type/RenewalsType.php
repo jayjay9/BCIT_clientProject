@@ -18,7 +18,7 @@ class RenewalsType extends AbstractType{
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('term')
+            ->add('term', 'text', array('required'=> true))
             ->add('exercised')
             ->add('showinleasereport');
     }

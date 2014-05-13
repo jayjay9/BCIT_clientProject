@@ -21,7 +21,7 @@ class LeaseReportInfoType extends AbstractType {
     {
         $builder
             ->add('iscertifiedsales')
-            ->add('duedate')
+            ->add('duedate', 'date',array('invalid_message' => 'Enter a valid date','required'=> true))
             ->add('isaudit')
             ->add('iscertified')
             ->add('reporttypeid', 'entity', array(

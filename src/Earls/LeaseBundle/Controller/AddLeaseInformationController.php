@@ -75,6 +75,9 @@ class AddLeaseInformationController extends Controller {
         $restaurant = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Restaurants')
             ->find($id);
+            
+        $restaurantNickname = $restaurant->getStorenickname();
+        $storearray = array('restaurantNickname' => $restaurantNickname);
 
         $form = $this->createForm(new LeasesInfoType(), new LeasesModel());
 
@@ -110,8 +113,15 @@ class AddLeaseInformationController extends Controller {
 
             return $this->redirect($this->generateUrl('_leaseinformation', array('id' => $id)));
         }else{
-            print_r($form->getErrorsAsString());
+            //print_r($form->getErrorsAsString());
         }
+
+        return $this->render('EarlsLeaseBundle:LeaseInformation:addLease.html.twig',
+            array(
+                'leaseInfoForm' => $form->createView(),
+                'restaurantInfo' => $storearray
+            )
+        );
 
     }
 } 

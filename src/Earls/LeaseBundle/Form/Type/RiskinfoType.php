@@ -16,8 +16,8 @@ class RiskinfoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('rentabatement', 'text')
-            ->add('exteriormaintenance', 'text')
+            ->add('rentabatement', 'text',array('required'=> false))
+            ->add('exteriormaintenance', 'text',array('required'=> false))
             ->add('constructionid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Constructiontypes',
                 'property' => 'constructiontype',

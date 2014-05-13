@@ -282,6 +282,21 @@ class StoreInformationController extends Controller
         if (isset($utilitiesObj3))
             $storeInfoObj->setUtilities3($utilitiesObj3);
 
+        $selectedRestaurant = new RestaurantFinder();
+        $selectedRestaurant->setRestaurant($restaurant);
+        $formRequested = $this->createForm(new RestaurantFinderType(), $selectedRestaurant);
+
+        $request = $this->getRequest();
+        $formRequested->handleRequest($request);
+
+
+        if ($formRequested->isValid()) {
+            $restaurantObjRequested = $formRequested->getData()->getRestaurant();
+            $restaurantID = $restaurantObjRequested->getRestaurantid();
+
+            return $this->redirect($this->generateUrl('_storeinformation_display', array('id' => $restaurantID)));
+        }
+
         $form = $this->createForm(new StoreInformationType(), $storeInfoObj);
 
 
@@ -289,25 +304,16 @@ class StoreInformationController extends Controller
             $form->submit($request);
 
             if ($form->isValid()) {
-
                 $em->flush();
                 return $this->redirect($this->generateUrl('_storeinformation_display', array('id' => $id)));
-
-            } else {
-
-                print_r('is not Valid');
-                print_r($form->getErrorsAsString());
-
-            }
+            } 
         } else {
-
             print_r($request->getMethod());
-
         }
 
 
         return $this->render('EarlsLeaseBundle:StoreInformation:index.html.twig',
-            array('form' => $form->createView())
+            array('storeFinderForm' => $formRequested->createView(),'storeInfoForm' => $form->createView())
         );
 
     }

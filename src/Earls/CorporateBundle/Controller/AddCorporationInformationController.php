@@ -29,44 +29,52 @@ class AddCorporationInformationController extends Controller {
        $director = new Directors();
        $membership = new Memberships();
 
-       $corpinfomodel = new CorporationInformationModel();
-       $corpinfomodel->setRestaurantinfo($corporation);
-       $corpinfomodel->setLiquorlicense($office);
-       $corpinfomodel->setLicenseinfo($jurisdiction);
-       $corpinfomodel->setRiskinfo($director);
-       $corpinfomodel->setRentandmaintenance($membership);
+       $corpinfomodel = new CorpInfoModel();
+       $corpinfomodel->setCorporationInfo($corporation);
+       $corpinfomodel->setOfficeInfo($office);
+       $corpinfomodel->setJurisdictionInfo($jurisdiction);
+       $corpinfomodel->setDirectorInfo($director);
+       $corpinfomodel->setMembershipInfo($membership);
 
 
-       $form = $this->createForm(new StoreCollectionType, $addStoreModel, array(
-           'action' => $this->generateUrl('_addStoredata')
+       $form = $this->createForm(new CorpInfoType, $corpinfomodel, array(
+           'action' => $this->generateUrl('_addcorpdata')
        ));
 
-        return $this->render('EarlsLeaseBundle:StoreInformation:addStore.html.twig',
+        return $this->render('EarlsCorporateBundle:CorporateInformation:addCorporation.html.twig',
             array(
-                'addStoreForm' => $form->createView()
+                'addCorporationForm' => $form->createView()
             )
         );
 
     }
 
     /**
-     * @Route("/addStoredata", name="_addStoredata")
+     * @Route("/addcorporationdata", name="_addcorporationdata")
      * @Template()
      */
     public function addStoredataAction(){
 
         $em = $this->getDoctrine()->getEntityManager();
-        $form = $this->createForm(new StoreCollectionType(), new StoreCollectionModel());
+        $form = $this->createForm(new CorpInfoTypeType(), new CorpInfoModel());
 
         $request = $this->getRequest();
         $form->handleRequest($request);
 
         if($form->isValid()){
 
-            $storeinfo = $form->getData()->getStoreInfoForm();
-                $licenseinfo = $storeinfo->getLicenseinfo();
-                    $em->persist($licenseinfo);
-                    $em->flush();
+            $corporationinfo = $form->getData()->getCorporationInfo();
+                
+                
+
+                //do at end
+                $em->persist($corporationinfo);
+                $em->flush();
+
+
+
+
+
 
                 $restaurant = $storeinfo->getRestaurantinfo();
                 $restaurant->setLicenseid($licenseinfo);
@@ -174,15 +182,15 @@ class AddCorporationInformationController extends Controller {
                     $em->persist($area3);
                     $em->flush();
 
-             return $this->redirect($this->generateUrl('_storeinformation'));
+             return $this->redirect($this->generateUrl('_corporateinformation'));
         }else{
             print_r('is not Valid');
             print_r($form->getErrorsAsString());
         }
 
-        return $this->render('EarlsLeaseBundle:StoreInformation:addStore.html.twig',
+        return $this->render('EarlsCorporateBundle:CorporateInformation:addCorporation.html.twig',
             array(
-                'addStoreForm' => $form->createView()
+                'addCorporationForm' => $form->createView()
             )
         );
 

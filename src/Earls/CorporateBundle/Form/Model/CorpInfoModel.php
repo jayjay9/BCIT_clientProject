@@ -10,8 +10,6 @@ use Earls\CorporateBundle\Entity\Memberships;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-//use Earls\LeaseBundle\Form\Model\LandlordSectionModel;
-
 
 class CorpInfoModel {
 

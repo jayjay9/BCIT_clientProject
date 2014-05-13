@@ -2,13 +2,16 @@
 
 namespace Earls\CorporateBundle\Form\Type;
 
+use Earls\CorporateBundle\Entity\Directors;
+use Earls\CorporateBundle\Entity\Corporatedirectors;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
 
 
-class MembershipsType extends AbstractType
+class CorpdirectorsType extends AbstractType
 {
      /**
      * @param FormBuilderInterface $builder

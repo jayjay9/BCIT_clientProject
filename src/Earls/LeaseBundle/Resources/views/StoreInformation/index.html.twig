@@ -113,9 +113,8 @@
 
                     <div class="col-sm-9">
 
-                        {{ form_widget(storeInfoForm.restaurantInfo.landlordid, {'label': 'Landlord',
-                        'label_attr': {'class': 'control-label'},
-                        'attr': {'class': 'form-control'}
+                        {{ form_widget(storeInfoForm.restaurantInfo.landlordid, {
+                        'id' : 'ms6', 'attr': {'class': 'form-control'}
                         }) }}
                         {{ form_errors(storeInfoForm.restaurantInfo.landlordid) }}
 
@@ -128,7 +127,7 @@
                     <div class="col-sm-9">
 
                         {{ form_widget(storeInfoForm.restaurantInfo.propertymanagerid, {
-                            'attr': {'class': 'form-control'}
+                           'id' : 'ms7', 'attr': {'class': 'form-control'}
                         }) }}
                         {{ form_errors(storeInfoForm.restaurantInfo.propertymanagerid) }}
 
@@ -177,7 +176,7 @@
                     <div class="col-sm-9">
 
                         {{ form_widget(storeInfoForm.restaurantInfo.city, {
-                        'id' : 'ms6', 'attr': {'class': 'form-control'}
+                        'id' : 'ms8', 'attr': {'class': 'form-control'}
                         }) }}
                         {{ form_errors(storeInfoForm.restaurantInfo.city) }}
 
@@ -189,7 +188,7 @@
                     <div class="col-sm-9">
 
                         {{ form_widget(storeInfoForm.restaurantInfo.provincestateid, {
-                            'id' : 'ms7', 'attr': {'class': 'form-control'}
+                            'id' : 'ms9', 'attr': {'class': 'form-control'}
                         }) }}
                         {{ form_errors(storeInfoForm.restaurantInfo.provincestateid) }}
 
@@ -813,6 +812,7 @@
                 if ($('span.help-inline').length) {
                     $('div#warning').append($addWarning);
                 }
+                $('#restaurantFinder_restaurant').focus();
                 App.setPage("elements");  //Set current page
                 App.init(); //Initialise plugins and elements
             });

@@ -21,3 +21,8 @@ _corporate_manage_tables:
     resource:   "@EarlsCorporateBundle/Controller/CorporateManageTablesController.php"
     type:       annotation
     prefix:     /corporatemanagetables
+
+_addcorporation:
+   resource: "@EarlsCorporateBundle/Controller/AddCorporationInformationController.php"
+   type:     annotation
+   prefix:   /addcorporation

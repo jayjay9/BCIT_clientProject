@@ -17,59 +17,49 @@ class RestaurantsType extends AbstractType
     {
         $builder
 
-            ->add('storefilenumber', 'text')
-            ->add('tenant', 'text')
-            ->add('storenickname', 'text')
-            ->add('address', 'textarea')
-            ->add('postalzip', 'text')
-            ->add('openingdate', 'text')
-            ->add('legaldescription', 'text')
-            ->add('diningroomseating', 'text')
-            ->add('loungeseating', 'text')
-            ->add('patioseating', 'text')
-            ->add('diningroomtable', 'text')
-            ->add('loungetable', 'text')
-            ->add('patiotable', 'text')
-            ->add('departmentnumber', 'text')
+            ->add('storefilenumber', 'number', array('invalid_message' => 'Enter a number', 'required' => true))
+            ->add('tenant', 'text', array('required'=> true))
+            ->add('storenickname', 'text', array('required'=> true))
+            ->add('address', 'textarea', array('required'=> true))
+            ->add('postalzip', 'text', array('required'=> true))
+            ->add('openingdate', 'text' , array('required'=> false))
+            ->add('legaldescription', 'text', array('required'=> false))
+            ->add('diningroomseating', 'number', array('invalid_message' => 'Enter a number','required'=> false))
+            ->add('loungeseating', 'number', array('invalid_message' => 'Enter a number','required'=> false))
+            ->add('patioseating', 'number', array('invalid_message' => 'Enter a number','required'=> false))
+            ->add('diningroomtable', 'number', array('invalid_message' => 'Enter a number','required'=> false))
+            ->add('loungetable', 'number', array('invalid_message' => 'Enter a number','required'=> false))
+            ->add('patiotable', 'number', array('invalid_message' => 'Enter a number','required'=> false))
+            ->add('departmentnumber', 'number', array('invalid_message' => 'Enter a number','required'=> false))
             ->add('restaurantstate')
-            ->add('closedate', 'date')
-            ->add('royaltyfee', 'text')
-            ->add('advertisingfee', 'text')
-            ->add('regionalmngtfee', 'text')
-            ->add('yearbuilt', 'text')
-            ->add('comments', 'textarea')
-//            ->add('liquorlicenseid', new LiquorlicensesType())
-//            ->add('rentandmaintenanceid', new RentandmaintenancesType())
-            /*->add('regionid', 'entity', array(
-                'class' => 'EarlsLeaseBundle:Regions',
-                'property' => 'region'
-            ))*/
-//            ->add('riskid', new RiskinfoType())
+            ->add('closedate','date',array('invalid_message' => 'Enter a valid date','required'=> false))
+            ->add('royaltyfee', 'text',array('required'=> false))
+            ->add('advertisingfee', 'text',array('required'=> false))
+            ->add('regionalmngtfee', 'text',array('required'=> false))
+            ->add('yearbuilt', 'text',array('required'=> false))
+            ->add('comments', 'textarea',array('required'=> false))
             ->add('storeclassid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Storeclasses',
                 'property' => 'storeclass',
+                'invalid_message' => 'Enter a valid Store Class',
                 'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.storeclass', 'ASC');
                 },
             ))
-//            ->add('utilityid')
-
-
             ->add('propertymanagerid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Landlordspropertymanagers',
                 'property' => 'name',
+                'invalid_message' => 'Enter a valid Property Manager',
                 'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.name', 'ASC');
                 },
             ))
-
-
-
             ->add('city', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Northamericancities',
                 'property' => 'city',
+                'invalid_message' => 'Enter a valid City',
                 'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.city', 'ASC');
@@ -78,6 +68,7 @@ class RestaurantsType extends AbstractType
             ->add('corporateid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Corporations',
                 'property' => 'corporatename',
+                'invalid_message' => 'Enter a valid Corporate File',
                 'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.corporatename', 'ASC');
@@ -86,6 +77,7 @@ class RestaurantsType extends AbstractType
             ->add('buildingtype', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Buildingtypes',
                 'property' => 'buildingtype',
+                'invalid_message' => 'Enter a valid Building Type',
                 'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.buildingtype', 'ASC');
@@ -94,18 +86,16 @@ class RestaurantsType extends AbstractType
             ->add('landlordid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Landlordspropertymanagers',
                 'property' => 'name',
+                'invalid_message' => 'Enter a valid Landlord',
                 'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.name', 'ASC');
                 },
             ))
-/*            ->add('licenseid', 'entity', array(
-                'class' => 'EarlsLeaseBundle:Licenses',
-                'property' => 'propertymanagername'
-            ))*/
             ->add('provincestateid', 'entity', array(
                 'class' => 'EarlsLeaseBundle:Provincestate',
                 'property' => 'description',
+                'invalid_message' => 'Enter a valid Province State',
                 'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.description', 'ASC');

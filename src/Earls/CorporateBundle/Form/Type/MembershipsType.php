@@ -1,40 +1,33 @@
 <?php
 
-namespace Earls\LeaseBundle\Form\Type;
+namespace Earls\CorporateBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
 
-class RiskinfoType extends AbstractType
+
+class MembershipsType extends AbstractType
 {
-        /**
+     /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('rentabatement', 'text',array('required'=> false))
-            ->add('exteriormaintenance', 'text',array('required'=> false))
-            ->add('constructionid', 'entity', array(
-                'class' => 'EarlsLeaseBundle:Constructiontypes',
-                'property' => 'constructiontype',
+            ->add('numberofshares')
+            ->add('sharetype', 'entity', array('class' => 'EarlsCorporateBundle:Sharetypes', 'property' => 'shareType',
                 'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')
-                ->orderBy('u.constructiontype', 'ASC');
-                },
-            ))
-            ->add('insuredby', 'entity', array(
-                'class' => 'EarlsLeaseBundle:Owners',
-                'property' => 'ownertype',
+                ->orderBy('u.shareType', 'ASC');
+                },))
+            ->add('director', 'entity', array('class' => 'EarlsCorporateBundle:Directors', 'property' => 'directorName',
                 'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')
-                ->orderBy('u.ownertype', 'ASC');
-                },
-            ))
-            //->add('restaurantid')
+                ->orderBy('u.directorName', 'ASC');
+                },))
         ;
     }
     
@@ -44,7 +37,7 @@ class RiskinfoType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Earls\LeaseBundle\Entity\Riskinfo'
+            'data_class' => 'Earls\CorporateBundle\Entity\Memberships'
         ));
     }
 
@@ -53,6 +46,6 @@ class RiskinfoType extends AbstractType
      */
     public function getName()
     {
-        return 'earls_leasebundle_riskinfo';
+        return 'earls_corporatebundle_Memberships';
     }
 }

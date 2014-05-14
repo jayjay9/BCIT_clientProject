@@ -19,9 +19,9 @@ class LeaseCriticalTasksType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('ctdate')
-            ->add('ctclause')
-            ->add('ctdescription');
+            ->add('ctdate', 'date',array('invalid_message' => 'Enter a valid date','required'=> true))
+            ->add('ctclause', 'number', array('precision' => 2,'invalid_message' => 'Enter a number', 'required' => true))
+            ->add('ctdescription','text', array('required'=> true));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

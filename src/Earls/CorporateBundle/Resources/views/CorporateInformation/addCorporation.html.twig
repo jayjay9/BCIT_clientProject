@@ -1,0 +1,54 @@
+{% extends "EarlsLeaseBundle::layout.html.twig" %}
+{% block body %}
+ 
+
+    {{ form_start(corporateForm, {'attr': {'id': 'addCorporateForm', 'role': 'form',
+                    'class': 'form-horizontal'} }) }}
+
+    <div class="row">
+    <div class="col-md-6">
+        <div class="box border blue">
+            <div class="box-title">
+                <h4>Corporation Info</h4>
+            </div>
+            <div class="box-body big">
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Resp. Solicitor</label>
+
+                    <div class="col-sm-9">
+
+                        {{ form_widget(addCorporateForm.corporateForm.CorporationInfo.respsolicitor, {
+                        'attr': {'class': 'form-control'}
+                        }) }}
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    {{ form_end(corporateForm) }}
+
+{% endblock %}
+{% block javascript %}
+    <script src="{{ asset('bundles/earlslease/js/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('bundles/earlslease/js/uniform/jquery.uniform.min.js') }}"></script>
+    <script src="{{ asset('bundles/earlslease/js/bootstrap-wizard/jquery.bootstrap.wizard.min.js') }}"></script>
+    <script src="{{ asset('bundles/earlslease/js/jquery-validate/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('bundles/earlslease/js/jquery-validate/additional-methods.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/earlslease/js/bootbox/bootbox.min.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('bundles/earlslease/js/jQuery-Cookie/jquery.cookie.min.js') }}"></script>
+
+
+    <script src="{{ asset('bundles/earlslease/js/bootstrap-wizard/form-wizard.min.js') }}"></script>
+    <script>
+        jQuery(document).ready(function(){
+            App.setPage("wizards_validations");
+            App.init();
+            FormWizard.init();
+        });
+    </script>
+{% endblock %}

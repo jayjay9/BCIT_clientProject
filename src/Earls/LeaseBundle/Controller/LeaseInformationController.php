@@ -114,8 +114,6 @@ class LeaseInformationController extends Controller{
         $request = $this->getRequest();
         $leasecollection = new LeaseCollectionModel();
         $leasecollection->setLeaseInfo($formarray);
-        $leasecollection->setrestaurantName($restaurantName);
-        $leasecollection->setrestaurantid($id);
         $collectionform = $this->createForm(new LeaseCollectionType(), $leasecollection);
 
         $leaseInfoArray = array();
@@ -158,14 +156,16 @@ class LeaseInformationController extends Controller{
                 $em->flush();
                 return $this->redirect($this->generateUrl('_leaseinformation', array('id' => $id)));
             }else{
-                print_r($collectionform->getErrorsAsString());
+                //print_r($collectionform->getErrorsAsString());
             }
         }
 
         return $this->render('EarlsLeaseBundle:LeaseInformation:index.html.twig',
             array(
                 'leaseInfoForm' => $collectionform->createView(),
-                'leaseCount' => $countLease
+                'leaseCount' => $countLease,
+                'restaurantId' => $id,
+                'restaurantName' => $restaurantName
                 )
             );
     }

@@ -62,6 +62,7 @@
 
     <div class="separator"></div>
 
+    <div id="warning"></div>
     <!-- FORMS -->
 
     {{ form_start(storeInfoForm, {
@@ -90,6 +91,7 @@
                         {{ form_widget(storeInfoForm.restaurantInfo.storefilenumber, {
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.storefilenumber) }}
 
                     </div>
                 </div>
@@ -102,6 +104,7 @@
                         'label_attr': {'class': 'control-label'},
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.storenickname) }}
 
                     </div>
                 </div>
@@ -114,6 +117,7 @@
                         'label_attr': {'class': 'control-label'},
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.landlordid) }}
 
                     </div>
                 </div>
@@ -126,6 +130,7 @@
                         {{ form_widget(storeInfoForm.restaurantInfo.propertymanagerid, {
                             'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.propertymanagerid) }}
 
                     </div>
                 </div>
@@ -138,6 +143,7 @@
                         {{ form_widget(storeInfoForm.restaurantInfo.corporateid, {
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.corporateid) }}
 
                     </div>
                 </div>
@@ -149,6 +155,7 @@
                         {{ form_widget(storeInfoForm.restaurantInfo.tenant, {
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.tenant) }}
 
                     </div>
                 </div>
@@ -160,6 +167,7 @@
                         {{ form_widget(storeInfoForm.restaurantInfo.address, {
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.address) }}
 
                     </div>
                 </div>
@@ -171,6 +179,7 @@
                         {{ form_widget(storeInfoForm.restaurantInfo.city, {
                         'id' : 'ms6', 'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.city) }}
 
                     </div>
                 </div>
@@ -182,6 +191,7 @@
                         {{ form_widget(storeInfoForm.restaurantInfo.provincestateid, {
                             'id' : 'ms7', 'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.provincestateid) }}
 
                     </div>
                 </div>
@@ -193,6 +203,7 @@
                         {{ form_widget(storeInfoForm.restaurantInfo.postalzip, {
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.postalzip) }}
 
                     </div>
                 </div>
@@ -215,6 +226,7 @@
                         {{ form_widget(storeInfoForm.restaurantInfo.openingdate, {
                         'attr': {'class': 'form-control', 'form':'storeinfo'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.openingdate) }}
 
                     </div>
                 </div>
@@ -226,6 +238,7 @@
                         {{ form_widget(storeInfoForm.restaurantInfo.legaldescription, {
                         'attr': {'class': 'form-control', 'form':'storeinfo'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.legaldescription) }}
 
                     </div>
                 </div>
@@ -237,6 +250,7 @@
                         {{ form_widget(storeInfoForm.restaurantInfo.royaltyfee, {
                         'attr': {'class': 'form-control', 'form':'storeinfo'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.royaltyfee) }}
 
                     </div>
                 </div>
@@ -248,6 +262,7 @@
                         {{ form_widget(storeInfoForm.restaurantInfo.advertisingfee, {
                         'attr': {'class': 'form-control', 'form':'storeinfo'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.advertisingfee) }}
 
                     </div>
                 </div>
@@ -259,6 +274,7 @@
                         {{ form_widget(storeInfoForm.restaurantInfo.regionalmngtfee, {
                         'attr': {'class': 'form-control', 'form':'storeinfo'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.regionalmngtfee) }}
 
                     </div>
                 </div>
@@ -270,6 +286,7 @@
                         {{ form_widget(storeInfoForm.restaurantInfo.comments, {
                         'attr': {'class': 'form-control', 'form':'storeinfo'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.comments) }}
 
                     </div>
                 </div>
@@ -292,6 +309,7 @@
                         {{ form_widget(storeInfoForm.restaurantInfo.closedate, {
                         'attr': {'form':'storeinfo'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.closedate) }}
 
                     </div>
                 </div>
@@ -318,6 +336,7 @@
                         {{ form_widget(storeInfoForm.restaurantInfo.departmentnumber, {
                         'attr': {'class': 'form-control', 'form':'storeinfo'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.departmentnumber) }}
 
                     </div>
                 </div>
@@ -329,6 +348,7 @@
                         {{ form_widget(storeInfoForm.restaurantInfo.buildingtype, {
                         'attr': {'class': 'form-control', 'form':'storeinfo'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.buildingtype) }}
 
                     </div>
                 </div>
@@ -340,6 +360,7 @@
                         {{ form_widget(storeInfoForm.restaurantInfo.storeclassid, {
                         'attr': {'class': 'form-control', 'form':'storeinfo'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.storeclassid) }}
 
                     </div>
                 </div>
@@ -373,6 +394,7 @@
                         {{ form_widget(storeInfoForm.restaurantInfo.yearbuilt, {
                         'attr': {'class': 'form-control', 'form':'storeinfo'}
                         }) }}
+                        {{ form_errors(storeInfoForm.restaurantInfo.yearbuilt) }}
 
                     </div>
                 </div>
@@ -413,6 +435,7 @@
                                 {{ form_widget(storeInfoForm.restaurantInfo.diningroomseating, {
                                 'attr': {'class': 'form-control', 'form':'storeinfo'}
                                 }) }}
+                                {{ form_errors(storeInfoForm.restaurantInfo.diningroomseating) }}
 
                             </div>
                             <div class="col-lg-6">
@@ -420,6 +443,7 @@
                                 {{ form_widget(storeInfoForm.restaurantInfo.diningroomtable, {
                                 'attr': {'class': 'form-control', 'form':'storeinfo'}
                                 }) }}
+                                {{ form_errors(storeInfoForm.restaurantInfo.diningroomtable) }}
 
                             </div>
                         </div>
@@ -435,6 +459,7 @@
                                 {{ form_widget(storeInfoForm.restaurantInfo.loungeseating, {
                                 'attr': {'class': 'form-control', 'form':'storeinfo'}
                                 }) }}
+                                {{ form_errors(storeInfoForm.restaurantInfo.loungeseating) }}
 
                             </div>
                             <div class="col-lg-6">
@@ -442,6 +467,7 @@
                                 {{ form_widget(storeInfoForm.restaurantInfo.loungetable, {
                                 'attr': {'class': 'form-control', 'form':'storeinfo'}
                                 }) }}
+                                {{ form_errors(storeInfoForm.restaurantInfo.loungetable) }}
 
                             </div>
                         </div>
@@ -457,6 +483,7 @@
                                 {{ form_widget(storeInfoForm.restaurantInfo.patioseating, {
                                 'attr': {'class': 'form-control', 'form':'storeinfo'}
                                 }) }}
+                                {{ form_errors(storeInfoForm.restaurantInfo.patioseating) }}
 
                             </div>
                             <div class="col-lg-6">
@@ -464,6 +491,8 @@
                                 {{ form_widget(storeInfoForm.restaurantInfo.patiotable, {
                                 'attr': {'class': 'form-control', 'form':'storeinfo'}
                                 }) }}
+                                {{ form_errors(storeInfoForm.restaurantInfo.patiotable) }}
+
 
                             </div>
                         </div>
@@ -504,6 +533,7 @@
                         {{ form_widget(storeInfoForm.licenseinfo.startdate, {
                         'attr': {'form':'storeinfo'}
                         }) }}
+                        {{ form_errors(storeInfoForm.licenseinfo.startdate) }}
 
                     </div>
                 </div>
@@ -515,6 +545,7 @@
                         {{ form_widget(storeInfoForm.licenseinfo.expirarydate, {
                         'attr': {'form':'storeinfo'}
                         }) }}
+                        {{ form_errors(storeInfoForm.licenseinfo.expirarydate) }}
 
                     </div>
                 </div>
@@ -537,6 +568,7 @@
                         {{ form_widget(storeInfoForm.licenseinfo.comments, {
                         'attr': {'class': 'form-control', 'form':'storeinfo'}
                         }) }}
+                        {{ form_errors(storeInfoForm.licenseinfo.comments) }}
 
                     </div>
                 </div>
@@ -591,6 +623,7 @@
                                 'form': 'storeinfo'
                                 }
                                 }) }}
+                                {{ form_errors(storeInfoForm.riskinfo.rentabatement) }}
 
                             </td>
                             <td>
@@ -600,6 +633,7 @@
                                 'form': 'storeinfo'
                                 }
                                 }) }}
+                                {{ form_errors(storeInfoForm.riskinfo.exteriormaintenance) }}
 
                             </td>
                         </tbody>
@@ -772,7 +806,13 @@
 {% endblock %}
 {% block javascript %}
     <script>
+     var $addWarning = $('<div class="alert alert-danger"><a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>Your form has errors. Please correct them to proceed.</div>');
             jQuery(document).ready(function() {
+                $('span.help-inline').parent().addClass('has-error');
+                $('span.help-inline').css('color','red');
+                if ($('span.help-inline').length) {
+                    $('div#warning').append($addWarning);
+                }
                 App.setPage("elements");  //Set current page
                 App.init(); //Initialise plugins and elements
             });

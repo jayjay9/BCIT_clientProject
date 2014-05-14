@@ -23,8 +23,6 @@ class LeaseCollectionType extends AbstractType{
                 'type' => new LeasesInfoType(),
                 'allow_add' => true,
             ))
-            ->add('restaurantName', 'hidden')
-            ->add('restaurantid', 'hidden')
             ->add('save', 'submit')
             ->getForm();
     }

@@ -18,15 +18,15 @@ class MembershipsType extends AbstractType
     {
         $builder
             ->add('numberofshares')
-            ->add('sharetype', 'entity', array('class' => 'EarlsCorporateBundle:Sharetypes', 'property' => 'shareType',
+            ->add('sharetypeid', 'entity', array('class' => 'EarlsCorporateBundle:Sharetypes', 'property' => 'sharetype',
                 'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')
-                ->orderBy('u.shareType', 'ASC');
+                ->orderBy('u.sharetype', 'ASC');
                 },))
-            ->add('director', 'entity', array('class' => 'EarlsCorporateBundle:Directors', 'property' => 'directorName',
+            ->add('directorid', 'entity', array('class' => 'EarlsCorporateBundle:Directors', 'property' => 'directorname',
                 'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')
-                ->orderBy('u.directorName', 'ASC');
+                ->orderBy('u.directorname', 'ASC');
                 },))
         ;
     }

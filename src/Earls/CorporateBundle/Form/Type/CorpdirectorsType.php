@@ -2,13 +2,11 @@
 
 namespace Earls\CorporateBundle\Form\Type;
 
-use Earls\CorporateBundle\Entity\Directors;
-use Earls\CorporateBundle\Entity\Corporatedirectors;
-
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
+
 
 
 class CorpdirectorsType extends AbstractType
@@ -21,10 +19,10 @@ class CorpdirectorsType extends AbstractType
     {
         $builder
             ->add('position')
-            ->add('director', 'entity', array('class' => 'EarlsCorporateBundle:Directors', 'property' => 'directorName',
+            ->add('directorid', 'entity', array('class' => 'EarlsCorporateBundle:Directors', 'property' => 'directorname',
                 'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')
-                ->orderBy('u.directorName', 'ASC');
+                ->orderBy('u.directorname', 'ASC');
                 },))
         ;
     }

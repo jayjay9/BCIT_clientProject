@@ -6,7 +6,7 @@ namespace Earls\CorporateBundle\Controller;
 use Earls\CorporateBundle\Entity\Corporations;
 use Earls\CorporateBundle\Entity\Offices;
 use Earls\CorporateBundle\Entity\Jurisdictions;
-use Earls\CorporateBundle\Entity\Directors;
+use Earls\CorporateBundle\Entity\Corporatedirectors;
 use Earls\CorporateBundle\Entity\Memberships;
 
 // import models and types
@@ -29,20 +29,49 @@ class AddCorporationInformationController extends Controller {
        $corporation = new Corporations();
        $office = new Offices();
        $jurisdiction = new Jurisdictions();
-       $director = new Directors();
+       $corpdirector = new Corporatedirectors();
        $membership = new Memberships();
 
        $corpinfomodel = new CorpInfoModel();
        $corpinfomodel->setCorporationInfo($corporation);
        $corpinfomodel->setOfficeInfo($office);
        $corpinfomodel->setJurisdictionInfo($jurisdiction);
-       $corpinfomodel->setDirectorInfo($director);
+       $corpinfomodel->setCorpdirectorInfo($corpdirector);
        $corpinfomodel->setMembershipInfo($membership);
 
 
        $form = $this->createForm(new CorpInfoType, $corpinfomodel, array(
-           'action' => $this->generateUrl('_addCorporation')
+           'action' => $this->generateUrl('_addCorporationdata')
        ));
+
+        return $this->render('EarlsCorporateBundle:CorporateInformation:addCorporation.html.twig',
+            array(
+                'corporateForm' => $form->createView()
+            )
+        );
+
+    }
+
+    /**
+     * @Route("/addCorporationdata", name="_addCorporationdata")
+     * @Template()
+     */
+    public function addCorporationdataAction(){
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $form = $this->createForm(new CorpInfoType());
+
+        $request = $this->getRequest();
+        $form->handleRequest($request);
+
+        if($form->isValid()){
+
+             return $this->redirect($this->generateUrl('_corporateinformation'));
+        
+        }else{
+            print_r('is not Valid');
+            print_r($form->getErrorsAsString());
+        }
 
         return $this->render('EarlsCorporateBundle:CorporateInformation:addCorporation.html.twig',
             array(

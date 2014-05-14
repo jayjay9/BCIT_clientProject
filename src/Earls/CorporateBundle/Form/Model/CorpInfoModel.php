@@ -5,7 +5,7 @@ namespace Earls\CorporateBundle\Form\Model;
 use Earls\CorporateBundle\Entity\Corporations;
 use Earls\CorporateBundle\Entity\Offices;
 use Earls\CorporateBundle\Entity\Jurisdictions;
-use Earls\CorporateBundle\Entity\Directors;
+use Earls\CorporateBundle\Entity\Corporatedirectors;
 use Earls\CorporateBundle\Entity\Memberships;
 
 use Symfony\Component\Validator\Constraints as Assert;
@@ -17,7 +17,7 @@ class CorpInfoModel {
     protected $corporationinfo;
     protected $officeinfo;
     protected $jurisdictioninfo;
-    protected $directorinfo;
+    protected $corpdirectorinfo;
     protected $membershipinfo;
 
     public function setCorporationId($corporationId)
@@ -60,14 +60,14 @@ class CorpInfoModel {
         return $this->jurisdictioninfo;
     }
 
-    public function setDirectorInfo(Directors $directorinfo)
+    public function setCorpdirectorInfo(Corporatedirectors $corpdirectorinfo)
     {
-        $this->directorinfo = $directorinfo;
+        $this->corpdirectorinfo = $corpdirectorinfo;
     }
 
-    public function getDirectorInfo()
+    public function getCorpdirectorInfo()
     {
-        return $this->directorinfo;
+        return $this->corpdirectorinfo;
     }
 
     public function setMembershipInfo(Memberships $membershipinfo)

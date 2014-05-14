@@ -21,7 +21,7 @@ class CorpInfoType extends AbstractType
             ->add('corporationinfo', new CorporationsType())
             ->add('officeInfo', new OfficesType())
             ->add('jurisdictioninfo', new JurisdictionsType())
-            ->add('directorinfo', new CorpdirectorsType())
+            ->add('corpdirectorinfo', new CorpdirectorsType())
             ->add('membershipinfo', new MembershipsType())
             ->add('corporationId', 'hidden')
             ->add('Update', 'submit')

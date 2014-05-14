@@ -27,14 +27,14 @@ class AddCorporationInformationController extends Controller {
      */
     public function indexAction(){
        $corporation = new Corporations();
-       $office = new Offices();
+       //$office = new Offices();
        $jurisdiction = new Jurisdictions();
        $corpdirector = new Corporatedirectors();
        $membership = new Memberships();
 
        $corpinfomodel = new CorpInfoModel();
        $corpinfomodel->setCorporationInfo($corporation);
-       $corpinfomodel->setOfficeInfo($office);
+       //$corpinfomodel->setOfficeInfo($office);
        $corpinfomodel->setJurisdictionInfo($jurisdiction);
        $corpinfomodel->setCorpdirectorInfo($corpdirector);
        $corpinfomodel->setMembershipInfo($membership);

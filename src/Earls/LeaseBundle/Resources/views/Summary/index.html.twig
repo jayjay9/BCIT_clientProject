@@ -31,11 +31,8 @@
                             </div>
                             {{ form_widget(storeFinderForm.Go, {'attr': {'class': 'btn btn-info'} }) }}
                             <button class="btn btn-small btn-pink" type="button" onclick="javascript:window.location.href='{{ path('_summary_createreport', {'id': restaurantarray.restaurantid}) }}'">Export to Word Document</button>
-
                             {{ form_end(storeFinderForm) }}
-                            <form method="get" action="http://localhost/SymfonyProjects/EarlsLeaseWebApp/src/Earls/LeaseBundle/Controller/Templates/Reports/LeaseSummary.docx">
-                                <button type="submit">Download</button>
-                            </form>
+
                         </div>
 
                     </div>

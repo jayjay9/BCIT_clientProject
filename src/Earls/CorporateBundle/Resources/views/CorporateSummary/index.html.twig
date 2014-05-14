@@ -30,6 +30,7 @@
                                 }) }}
                             </div>
                             {{ form_widget(corporationFinderForm.Go, {'attr': {'class': 'btn btn-info'} }) }}
+                            <button class="btn btn-small btn-pink" type="button" onclick="javascript:window.location.href='{{ path('_summary_createreport', {'id': corporationArray.corporationid}) }}'">Export to Word Document</button>
                             {{ form_end(corporationFinderForm) }}
 
                         </div>
@@ -98,14 +99,14 @@
 											<p><b>Registered Office:</b></p>
 											<p>{{ RegisteredObj.officename }}</p>
 											<p>{{ RegisteredObj.address }}</p>
-											<p>{{ corporationArray.registeredProvince }}</p>
+											<p>{{ corporationArray.registeredProvince }}, {{ corporationArray.registeredCity }}</p>
 											<p>{{ RegisteredObj.postalzip }}</p>
 										</div>
 										<div class="col-md-6">
 											<p><b>Records Office:</b></p>
 											<p>{{ RecordsofficeObj.officename }}</p>
 											<p>{{ RecordsofficeObj.address }}</p>
-											<p>{{ corporationArray.recordsProvince }}</p>
+											<p>{{ corporationArray.recordsProvince }}, {{ corporationArray.recordsCity }}</p>
 											<p>{{ RecordsofficeObj.postalzip }}</p>	
 										</div>	
 									</div>

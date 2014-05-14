@@ -425,6 +425,7 @@ class SummaryController extends Controller
             array_push($RenewalObj, $Renewal);
         }
 
+
         /**********   /MORRIS   ************/
 
         if ($formRequested->isValid()) {
@@ -469,6 +470,8 @@ class SummaryController extends Controller
      * @Template()
      */
     function createReportAction($id){
+
+
 
         $restaurantObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Restaurants')
@@ -851,7 +854,7 @@ class SummaryController extends Controller
         $PHPWord = new \PHPWord();
 
         $templatePath = __DIR__.'/Templates/rptLeaseSummary.docx';
-        print_r($templatePath);
+//        print_r($templatePath);
         $document = $PHPWord->loadTemplate($templatePath);
 
 
@@ -977,6 +980,18 @@ class SummaryController extends Controller
 //save the document
         $outputFilePath = __DIR__.'/Templates/Reports/LeaseSummary.docx';
         $document->save($outputFilePath);
+
+        header("Content-Description: File Transfer");
+        header("Content-Type: application/octet-stream");
+        header("Content-Disposition: attachment; filename=LeaseSummary.docx");
+        header("Content-Transfer-Encoding: binary");
+        header("Expires: 0");
+        header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+        header("Pragma: public");
+        header('Content-Length: ' . filesize($outputFilePath));
+//        ob_clean();
+        flush();
+        readfile($outputFilePath);
 
         return $this->redirect($this->generateUrl('_summary_get_id', array('id' => $id)));
 

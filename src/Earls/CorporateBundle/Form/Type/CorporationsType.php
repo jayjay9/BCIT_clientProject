@@ -22,6 +22,7 @@ class CorporationsType extends AbstractType
             ->add('respsolicitor')
             ->add('usage')
             ->add('fiscalyearend')
+            ->add('registrationnumber')
             ->add('registrationdate')
             ->add('seal')
             ->add('locationseal')
@@ -29,12 +30,22 @@ class CorporationsType extends AbstractType
             ->add('namechanges')
             ->add('corpstatus')
             ->add('dissolutiondate')
+            ->add('recordsofficeid', 'entity', array('class' => 'EarlsCorporateBundle:Offices','property' => 'officename', 
+                'query_builder' => function(EntityRepository $er) {
+                return $er->createQueryBuilder('u')
+                ->orderBy('u.officename', 'ASC');
+                },))
+            ->add('registeredofficeid', 'entity', array('class' => 'EarlsCorporateBundle:Offices','property' => 'officename', 
+                'query_builder' => function(EntityRepository $er) {
+                return $er->createQueryBuilder('u')
+                ->orderBy('u.officename', 'ASC');
+                },))
             ->add('provincestateid', 'entity', array('class' => 'EarlsCorporateBundle:Provincestate', 'property' => 'description',
                 'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')
                 ->orderBy('u.description', 'ASC');
                 },))
-        ;
+            ;
     }
     
     /**

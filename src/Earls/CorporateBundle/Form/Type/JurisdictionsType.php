@@ -17,8 +17,8 @@ class JurisdictionsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('registereddate')
-            ->add('registrationnumber')
+            ->add('registereddate', 'date',array('invalid_message' => 'Enter a valid date','required'=> true))
+            ->add('registrationnumber', 'text', array('required'=> true))
             ->add('provincestateid', 'entity', array('class' => 'EarlsCorporateBundle:Provincestate', 'property' => 'description',
                 'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')

@@ -13,22 +13,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class CorpInfoModel {
 
-    protected $corporationId;
     protected $corporationinfo;
-    protected $officeinfo;
     protected $jurisdictioninfo;
     protected $corpdirectorinfo;
     protected $membershipinfo;
-
-    public function setCorporationId($corporationId)
-    {
-        $this->corporationId = $corporationId;
-    }
-
-    public function getCorporationId()
-    {
-        return $this->corporationId;
-    }
 
     public function setCorporationInfo(Corporations $corporationinfo)
     {
@@ -40,19 +28,9 @@ class CorpInfoModel {
         return $this->corporationinfo;
     }
 
-    public function setOfficeInfo(Offices $officeinfo)
+    public function setJurisdictionInfo($jurisdictioninfo)
     {
-        $this->officeinfo = $officeinfo;
-    }
-
-    public function getOfficeInfo()
-    {
-        return $this->officeinfo;
-    }
-
-    public function setJurisdictionInfo(Jurisdictions $jurisdictioninfo)
-    {
-        $this->jursidictioninfo = $jurisdictioninfo;
+        $this->jurisdictioninfo = $jurisdictioninfo;
     }
 
     public function getJurisdictionInfo()
@@ -60,7 +38,7 @@ class CorpInfoModel {
         return $this->jurisdictioninfo;
     }
 
-    public function setCorpdirectorInfo(Corporatedirectors $corpdirectorinfo)
+    public function setCorpdirectorInfo($corpdirectorinfo)
     {
         $this->corpdirectorinfo = $corpdirectorinfo;
     }
@@ -70,7 +48,7 @@ class CorpInfoModel {
         return $this->corpdirectorinfo;
     }
 
-    public function setMembershipInfo(Memberships $membershipinfo)
+    public function setMembershipInfo($membershipinfo)
     {
         $this->membershipinfo = $membershipinfo;
     }

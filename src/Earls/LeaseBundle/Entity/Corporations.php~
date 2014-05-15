@@ -36,9 +36,9 @@ class Corporations
     /**
      * @var string
      *
-     * @ORM\Column(name="usage", type="string", length=255, nullable=true)
+     * @ORM\Column(name="corporateusage", type="string", length=255, nullable=true)
      */
-    private $usage;
+    private $corporateusage;
 
     /**
      * @var string

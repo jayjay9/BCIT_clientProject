@@ -18,7 +18,7 @@ class CorpdirectorsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('position')
+            ->add('position', 'text', array('required'=> true))
             ->add('directorid', 'entity', array('class' => 'EarlsCorporateBundle:Directors', 'property' => 'directorname',
                 'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')

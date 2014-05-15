@@ -1,5 +1,583 @@
+
 {% extends "EarlsLeaseBundle::layout.html.twig" %}
 {% block body %}
-<p>
-corporate information page </p>
+    {% set version = constant('Symfony\\Component\\HttpKernel\\Kernel::MAJOR_VERSION') ~ '.' ~ constant('Symfony\\Component\\HttpKernel\\Kernel::MINOR_VERSION') %}
+
+    <!-- CONTENT HEADER -->
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-header">
+                <div class="clearfix">
+                    <h3 class="content-title pull-left">Corporate Information</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /CONTENT HEADER -->
+    <!-- RESTAURANT FINDER FORM -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box border blue">
+                        <div class="box-body big">
+                            <h3 class="form-title">Find Corporation By Name</h3>
+
+                            {{ form_start(corpFinderForm, {'attr': {'role': 'form', 'class': 'form-inline'} }) }}
+
+                            {{ form_errors(corpFinderForm) }}
+                            <div class="form-group">
+                                {{ form_row(corpFinderForm.corporation, {'label': 'Nick Name',
+                                'label_attr': {'class': 'sr-only'},
+                                'attr': {'class': 'form-control'}
+                                }) }}
+                            </div>
+                            {{ form_widget(corpFinderForm.Go, {'attr': {'class': 'btn btn-info'} }) }}
+
+                            <button class="btn btn-small btn-success" type="button"
+                                    onclick="javascript:window.location.href='{{ path('_addcorporation') }}'">
+                                <i class="fa fa-plus"></i>
+                                Add a Corporation
+                            </button>
+
+                            {{ form_end(corpFinderForm) }}
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /RESTAURANT FINDER FORM -->
+
+    <div class="separator"></div>
+        <div id="warning"></div>
+ <!-- FORMS -->
+
+    {{ form_start(corpInfoForm, {
+    'attr': {
+    'role': 'form',
+    'class': 'form-horizontal',
+    'id':'corpinfo'
+    }
+    }) }}
+
+
+        <!-- ********** CORP INFO TABLE *********** -->
+    <div class="row">
+    <div class="col-md-12">
+        <div class="box border blue">
+            <div class="box-title">
+                <h4>Corporation Info</h4>
+            </div>
+            <div class="box-body big">
+                {{ form_errors(corpInfoForm) }}
+                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Corporation File No.</label>
+                    <div class="col-sm-9">
+                        {{ form_widget(corpInfoForm.corporationinfo.filenumber, {
+                        'attr': {'class': 'form-control'}
+                        }) }}
+                         {{ form_errors(corpInfoForm.corporationinfo.filenumber) }}
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Corporation Name</label>
+                    <div class="col-sm-9">
+                        {{ form_widget(corpInfoForm.corporationinfo.corporatename, {'label': 'Corporation Name',
+                        'label_attr': {'class': 'control-label'},
+                        'attr': {'class': 'form-control'}
+                        }) }}
+                        {{ form_errors(corpInfoForm.corporationinfo.corporatename) }}
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Resp. Solicitor:</label>
+                    <div class="col-sm-9">
+                        {{ form_widget(corpInfoForm.corporationinfo.respsolicitor, {'label': 'Resp Solicitor',
+                        'label_attr': {'class': 'control-label'},
+                        'attr': {'class': 'form-control'}
+                        }) }}
+                        {{ form_errors(corpInfoForm.corporationinfo.respsolicitor) }}
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Use:</label>
+                    <div class="col-sm-9">
+                        {{ form_widget(corpInfoForm.corporationinfo.corporateusage, {
+                        'attr': {'class': 'form-control'}
+                        }) }}
+                        {{ form_errors(corpInfoForm.corporationinfo.corporateusage) }}
+                    </div>
+                </div>
+                                
+                
+                    <table style="width: 100%">
+						<tr>
+						
+						<td style="height: 61px">
+											
+							<div class="form-group">
+		                    <label class="col-sm-3 control-label">Jurisdiction:</label>
+		                    <div class="col-sm-9">
+		                        {{ form_widget(corpInfoForm.corporationinfo.provincestateid, {
+		                        'attr': {'class': 'form-control'}
+		                        }) }}
+                                {{ form_errors(corpInfoForm.corporationinfo.provincestateid) }}
+		                    </div> 
+		                    </div>
+		                    
+		                </td>
+
+						<td style="height: 61px">	
+										
+							<div class="form-group">
+		                    <label class="col-sm-4 control-label">Fiscal Year End:</label>
+		                    <div class="col-sm-8">
+		                        {{ form_widget(corpInfoForm.corporationinfo.fiscalyearend, {
+		                        'attr': {'class': 'form-control'}
+		                        }) }}
+                                {{ form_errors(corpInfoForm.corporationinfo.fiscalyearend) }}
+		                    </div>
+		                	</div>
+		                
+						</td>
+						
+						</tr>
+						<tr>
+						
+						<td>  
+							<div class="form-group">
+		                    <label class="col-sm-3 control-label">Reg. No:</label>
+		                    <div class="col-sm-9">
+		                        {{ form_widget(corpInfoForm.corporationinfo.registrationnumber, {
+		                        'attr': {'class': 'form-control'}
+		                        }) }}
+                                {{ form_errors(corpInfoForm.corporationinfo.registrationnumber) }}
+		                    </div>
+		                	</div>
+            
+               			</td>
+
+						<td>
+							<div class="form-group">
+		                    <label class="col-sm-4 control-label">Reg. Date:</label>
+		                    <div class="col-sm-5">
+		                        {{ form_widget(corpInfoForm.corporationinfo.registrationdate, {
+		                        'attr': {'form': 'corpinfo'}
+		                        }) }}
+                                {{ form_errors(corpInfoForm.corporationinfo.registrationdate) }}
+		                    </div>
+		                	</div>
+
+						</td>
+						
+						</tr>
+						<tr>
+						<td>
+							<div class="form-group">
+		                    <label class="col-sm-3 control-label">Seal:</label>
+		                    <div class="col-sm-9">
+		                        {{ form_widget(corpInfoForm.corporationinfo.seal, {
+		                        'attr': {'class': 'checkbox', 'form':'coprinfo'}
+		                        }) }}
+                                {{ form_errors(corpInfoForm.corporationinfo.seal) }}
+		                    </div>
+		                	</div>
+
+						</td>
+
+						<td>
+						
+							<div class="form-group">
+		                    <label class="col-sm-4 control-label">Location Of Seal:</label>
+		                    <div class="col-sm-8">
+		                        {{ form_widget(corpInfoForm.corporationinfo.locationseal, {
+		                        'attr': {'class': 'form-control'}
+		                        }) }}
+                                {{ form_errors(corpInfoForm.corporationinfo.locationseal) }}
+		                    </div>
+		                	</div>
+
+						</td>
+						
+						</tr>
+					</table>
+   
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Capital Structure:</label>
+                    <div class="col-sm-9">
+                        {{ form_widget(corpInfoForm.corporationinfo.capitalstructure, {
+                        'attr': {'class': 'form-control'}
+                        }) }}
+                        {{ form_errors(corpInfoForm.corporationinfo.capitalstructure) }}
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Name Changes:</label>
+                    <div class="col-sm-9">
+                        {{ form_widget(corpInfoForm.corporationinfo.namechanges, {
+                        'attr': {'class': 'form-control'}
+                        }) }}
+                        {{ form_errors(corpInfoForm.corporationinfo.namechanges) }}
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Active?</label>
+                    <div class="col-sm-9">
+                        {{ form_widget(corpInfoForm.corporationinfo.corpstatus, {
+                        'attr': {'class': 'checkbox', 'form':'corpinfo'}
+                        }) }}
+                        {{ form_errors(corpInfoForm.corporationinfo.corpstatus) }}
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Dissolution Date:</label>
+                    <div class="col-sm-9">
+                        {{ form_widget(corpInfoForm.corporationinfo.dissolutiondate, {
+                        'attr': {'form':'corpinfo'}
+                        }) }}
+                        {{ form_errors(corpInfoForm.corporationinfo.dissolutiondate) }}
+                    </div>
+                </div>	
+            </div>
+        </div>
+    </div>
+    
+	<!-- ********** OFFICE TABLE *********** -->
+    
+        <div class="col-md-12">
+	        <div class="box border blue">
+	            <div class="box-title">
+	                <h4>Offices</h4>
+	            </div>
+	            <div class="box-body big">
+	            	<div class="row">
+	            	<div class="col-md-6">
+	            		<div class="form-group">
+			                    <label class="col-sm-3 control-label"> Registered Office:</label>
+			                    <div class="col-sm-9">
+			                        {{ form_widget(corpInfoForm.corporationinfo.registeredofficeid, {
+			                        'attr': {'class': 'form-control'}
+			                        }) }}
+                                    {{ form_errors(corpInfoForm.corporationinfo.registeredofficeid) }}
+			                    </div>
+			            </div>
+	            	</div>
+	            	<div class="col-md-6">
+	            		<div class="form-group">
+			                    <label class="col-sm-3 control-label"> Records Office:</label>
+			                    <div class="col-sm-9">
+			                        {{ form_widget(corpInfoForm.corporationinfo.recordsofficeid, {
+			                        'attr': {'class': 'form-control'}
+			                        }) }}
+                                    {{ form_errors(corpInfoForm.corporationinfo.recordsofficeid) }}
+			                    </div>
+			            </div>
+	            	</div>
+	            	</div>
+	            </div>
+	        </div>
+        </div>
+        
+        
+        <!-- ********** JURISDICTION TABLE *********** -->
+        
+        <div class="col-md-12">
+        	<div class="box border purple">
+        		<div class="box-title">
+        			<h4>Extra-Provincial Jurisdictions</h4>
+        		</div>
+        		<div class="box-body big">
+        			<div class="form-group">
+        				<div class="col-sm-12">
+        					<div class="row">
+        						<div class="col-lg-6">
+        							<label>Jurisdiction</label>
+        						</div>
+        						<div class="col-lg-2">
+        							<label>Date Registered</label>
+        						</div>
+        						<div class="col-lg-2">
+        							<label>Registration No.</label>
+        						</div>
+        					</div>
+        				</div>
+        			</div>
+        			<div class="form-group">
+        				<div class="col-sm-12">
+        					<div id="jurisdiction-fields-list" data-prototype="{% filter escape %}{% include 'EarlsCorporateBundle:CorporateInformation:jurisdictions.html.twig' with {'jurisdictionform': corpInfoForm.jurisdictioninfo.vars.prototype} %}{% endfilter %}">
+        					{% for jurisdiction in corpInfoForm.jurisdictioninfo %}
+        					<div class="newJurisdictionForm">
+        						<div class="col-lg-6">
+        							{{ form_widget(jurisdiction.provincestateid, {
+        							'attr': {'class': 'form-control'}
+        						}) }}
+                                {{ form_errors(jurisdiction.provincestateid) }}
+        					</div>
+        					<div class="col-lg-2">
+        						{{ form_widget(jurisdiction.registereddate, {
+        						'attr': {'form':'form-control'}
+        					}) }}
+                            {{ form_errors(jurisdiction.registereddate) }}
+        				</div>
+        				<div class="col-lg-2">
+        					{{ form_widget(jurisdiction.registrationnumber, {
+        					'attr': {'class': 'form-control'}
+        				}) }}
+                        {{ form_errors(jurisdiction.registrationnumber) }}
+        				</div>
+        				</div>
+        				{% endfor %}
+        				</div>
+        			</div>
+        		</div>
+    		</div>
+		</div>
+	</div>
+
+
+        <!-- ********** DIRECTORS TABLE *********** -->
+        
+        <div class="col-md-12">
+	        <div class="box border green">
+	            <div class="box-title">
+	                <h4>Directors</h4>
+	            </div>
+	            <div class="box-body big">
+	            	<div class="form-group">
+        				<div class="col-sm-12">
+        					<div class="row">
+        						<div class="col-lg-4">
+        							<label>Director</label>
+        						</div>
+        						<div class="col-lg-6">
+        							<label>Position</label>
+        						</div>
+        					</div>
+        				</div>
+        			</div>
+        			<div class="form-group">
+        				<div class="col-sm-12">
+        					<div id="director-fields-list" data-prototype="{% filter escape %}{% include 'EarlsCorporateBundle:CorporateInformation:directors.html.twig' with {'directorform': corpInfoForm.corpdirectorinfo.vars.prototype} %}{% endfilter %}">
+	        					{% for corpdirectorname in corpInfoForm.corpdirectorinfo %}
+	        						<div class="newDirectorForm">
+				        					<div class="col-lg-4">
+				        						{{ form_widget(corpdirectorname.directorid, {
+				        							'attr': {'class': 'form-control'}
+				        						}) }}
+                                                {{ form_errors(corpdirectorname.directorid) }}
+				        					</div>
+				        					<div class="col-lg-6">
+				        						{{ form_widget(corpdirectorname.position, {
+				        						'attr': {'class':'form-control'}
+				        						}) }}
+                                                {{ form_errors(corpdirectorname.position) }}
+				        				</div>
+	        						</div>
+	        					{% endfor %}
+        					</div>
+        				</div>
+        			</div>
+	            </div>
+	        </div>
+        </div>
+        
+        
+		 <!-- ********** MEMBERSHIPS TABLE *********** -->
+
+        <div class="col-md-12">
+            <div class="box border orange">
+                <div class="box-title">
+                    <h4>Membership</h4>
+                </div>
+                
+                <div class="box-body big">
+                	<div class="form-group">
+        				<div class="col-sm-12">
+        					<div class="row">
+        						<div class="col-lg-6">
+        							<label>Share Type</label>
+        						</div>
+        						<div class="col-lg-2">
+        							<label>No. of Shares</label>
+        						</div>
+        						<div class="col-lg-2">
+        							<label>Shareholder</label>
+        						</div>
+        					</div>
+        				</div>
+        			</div>
+        			<div class="form-group">
+        				<div class="col-sm-12">
+        					<div id="membership-fields-list" data-prototype="{% filter escape %}{% include 'EarlsCorporateBundle:CorporateInformation:memberships.html.twig' with {'membershipform': corpInfoForm.membershipinfo.vars.prototype} %}{% endfilter %}">
+        					{% for corpmembershipname in corpInfoForm.membershipinfo %}
+        					<div class="newMembershipForm">
+        						<div class="col-lg-6">
+        							{{ form_widget(corpmembershipname.sharetypeid, {
+        							'attr': {'class': 'form-control'}
+        						}) }}
+                                {{ form_errors(corpmembershipname.sharetypeid) }}
+        					</div>
+        					<div class="col-lg-2">
+        						{{ form_widget(corpmembershipname.numberofshares, {
+        						'attr': {'class':'form-control'}
+        					}) }}
+                            {{ form_errors(corpmembershipname.numberofshares) }}
+        				</div>
+        				<div class="col-lg-2">
+        					{{ form_widget(corpmembershipname.directorid, {
+        					'attr': {'class': 'form-control'}
+        				}) }}
+                        {{ form_errors(corpmembershipname.directorid) }}
+        				</div>
+        				</div>
+        				{% endfor %}
+        				</div>
+        			</div>
+        		</div>
+			</div>
+		</div>
+    
+    </div>   
+         
+	</div>   
+	
+	<div class="row">
+        {{ form_widget(corpInfoForm.update, {
+        'attr': {'class': 'btn btn-lg btn-primary',
+        'form': 'corpinfo'}
+        }) }}
+    </div>
+
+    {{ form_widget(corpInfoForm._token) }}
+
+    {{ form_end(corpInfoForm, {'render_rest': false}) }}
+
+
+{% endblock %}
+
+{% block javascript %}
+<script>
+    var $collectionJursidiction;
+    var $collectionDirector;
+	var $collectionMembership;
+
+    var $addJurisdictionLink = $('<a href="#" class="btn btn-small btn-success add_tag_link"><i class="fa fa-plus"></i> Add Jurisdiction </a>');
+    var $addDirectorLink = $('<a href="#" class="btn btn-small btn-success add_tag_link"><i class="fa fa-plus"></i> Add Director </a>');
+    var $addMembershipLink = $('<a href="#" class="btn btn-small btn-success add_tag_link"><i class="fa fa-plus"></i> Add Membership </a>');
+    var $newJurisdictionLink = $('<div id="corpJurisdiction"></div>').append($addJurisdictionLink);
+    var $newDirectorLink = $('<div id="corpDirector"></div>').append($addDirectorLink);
+    var $newMembershipLink = $('<div id="corpMembership"></div>').append($addMembershipLink);
+
+     var $addWarning = $('<div class="alert alert-danger"><a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>Your form has errors. Please correct them to proceed.</div>');
+
+    jQuery(document).ready(function() {
+        $('span.help-inline').parent().addClass('has-error');
+        $('span.help-inline').css('color','red');
+        if ($('span.help-inline').length) {
+                    $('div#warning').append($addWarning);
+                }
+        // Get the ul that holds the collection of renewals/task
+        $collectionJurisdiction = $('div#jurisdiction-fields-list');
+        $collectionDirector = $('div#director-fields-list');
+        $collectionMembership = $('div#membership-fields-list');
+
+        // add the "add a tag" anchor and li to the tags ul
+        $collectionJurisdiction.append($newJurisdictionLink);
+        $collectionDirector.append($newDirectorLink);
+        $collectionMembership.append($newMembershipLink);
+
+        // add a delete link to all of the existing tag form li elements
+        $collectionJurisdiction.find('.newJurisdictionForm').each(function() {
+            addFormDeleteLink($(this));
+        });
+        $collectionDirector.find('.newDirectorForm').each(function() {
+            addFormDeleteLink($(this));
+        });
+        $collectionMembership.find('.newMembershipForm').each(function() {
+            addFormDeleteLink($(this));
+        });
+
+        // count the current form inputs we have (e.g. 2), use that as the new
+        // index when inserting a new item (e.g. 2)
+        $collectionJurisdiction.data('index', $collectionJurisdiction.find(':text').length);
+        $collectionDirector.data('index', $collectionDirector.find(':text').length);
+		$collectionMembership.data('index', $collectionMembership.find(':input').length);
+
+
+        $addJurisdictionLink.on('click', function(e) {
+            // prevent the link from creating a "#" on the URL
+            e.preventDefault();
+
+            // add a new tag form (see next code block)
+            addJurisdictionForm($collectionJurisdiction, $newJurisdictionLink);
+        });
+         $addDirectorLink.on('click', function(e) {
+            // prevent the link from creating a "#" on the URL
+            e.preventDefault();
+
+            // add a new tag form (see next code block)
+            addDirectorForm($collectionDirector, $newDirectorLink);
+        });
+          $addMembershipLink.on('click', function(e) {
+            // prevent the link from creating a "#" on the URL
+            e.preventDefault();
+
+            // add a new tag form (see next code block)
+            addMembershipForm($collectionMembership, $newMembershipLink);
+        });
+
+    });
+
+	function addJurisdictionForm($collectionJurisdiction, $newJurisdictionLink) {
+        var prototype = $collectionJurisdiction.data('prototype');
+        var index = $collectionJurisdiction.data('index');
+        var newForm = prototype.replace(/__name__/g, index);
+        $collectionJurisdiction.data('index', index + 1);
+        var $newFormLi = $('<div id="newJurisdictionForm"></div>').append(newForm);
+        $newJurisdictionLink.before($newFormLi);
+        addFormDeleteLink($newFormLi);
+    }
+    function addDirectorForm($collectionDirector, $newDirectorLink) {
+        var prototype = $collectionDirector.data('prototype');
+        var index = $collectionDirector.data('index');
+        var newForm = prototype.replace(/__name__/g, index);
+        $collectionDirector.data('index', index + 1);
+        var $newFormLi = $('<div id="newDirectorForm"></div>').append(newForm);
+        $newDirectorLink.before($newFormLi);
+        addFormDeleteLink($newFormLi);
+    }
+    function addMembershipForm($collectionMembership, $newMembershipLink) {
+        var prototype = $collectionMembership.data('prototype');
+        var index = $collectionMembership.data('index');
+        var newForm = prototype.replace(/__name__/g, index);
+        $collectionMembership.data('index', index + 1);
+        var $newFormLi = $('<div id="newMembershipForm"></div>').append(newForm);
+        $newMembershipLink.before($newFormLi);
+        addFormDeleteLink($newFormLi);
+    }
+
+    function addFormDeleteLink($jurisdictionForm) {
+    var $removeJurisdiction = $('<a href="#" class="btn btn-small btn-danger" style="color:white;"><i class="fa fa-times"></i> DELETE</a><div class="separator"></div>');
+    $jurisdictionForm.append($removeJurisdiction);
+    $removeJurisdiction.on('click', function(e) {
+        e.preventDefault();
+        $jurisdictionForm.remove();
+    });
+    }
+
+</script>
 {% endblock %}

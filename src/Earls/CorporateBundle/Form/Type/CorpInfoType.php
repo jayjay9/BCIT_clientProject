@@ -19,12 +19,16 @@ class CorpInfoType extends AbstractType
     {
         $builder
             ->add('corporationinfo', new CorporationsType())
-            //->add('officeInfo', new OfficesType())
-            ->add('jurisdictioninfo', new JurisdictionsType())
-            ->add('corpdirectorinfo', new CorpdirectorsType())
-            ->add('membershipinfo', new MembershipsType())
-            ->add('corporationId', 'hidden')
-            ->add('Add', 'submit')
+            ->add('jurisdictioninfo', 'collection', array(
+                'type' => new JurisdictionsType(),
+                'allow_add' => true,))
+            ->add('corpdirectorinfo', 'collection', array(
+                'type' => new CorpdirectorsType(),
+                'allow_add' => true, ))                
+            ->add('membershipinfo', 'collection', array(
+                'type' => new MembershipsType(),
+                'allow_add' => true, ))
+            ->add('update', 'submit')
             ->getForm()
         ;
     }

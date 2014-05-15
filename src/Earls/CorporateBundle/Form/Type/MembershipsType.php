@@ -17,7 +17,7 @@ class MembershipsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('numberofshares')
+            ->add('numberofshares','number', array('invalid_message' => 'Enter a number','required'=> true))
             ->add('sharetypeid', 'entity', array('class' => 'EarlsCorporateBundle:Sharetypes', 'property' => 'sharetype',
                 'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('u')

@@ -7,7 +7,7 @@
     <field name="corporatename" type="string" column="corporateName" length="45" nullable="true"/>
     <field name="filenumber" type="integer" column="fileNumber" nullable="true"/>
     <field name="respsolicitor" type="string" column="respSolicitor" length="255" nullable="true"/>
-    <field name="usage" type="string" column="usage" length="255" nullable="true"/>
+    <field name="corporateusage" type="string" column="corporateUsage" length="255" nullable="true"/>
     <field name="fiscalyearend" type="string" column="fiscalYearEnd" length="255" nullable="true"/>
     <field name="registrationnumber" type="string" column="registrationNumber" length="255" nullable="true"/>
     <field name="registrationdate" type="date" column="registrationDate" nullable="true"/>

@@ -36,9 +36,9 @@ class Corporations
     /**
      * @var string
      *
-     * @ORM\Column(name="usage", type="string", length=255, nullable=true)
+     * @ORM\Column(name="corporateusage", type="string", length=255, nullable=true)
      */
-    private $usage;
+    private $corporateusage;
 
     /**
      * @var string
@@ -214,26 +214,26 @@ class Corporations
     }
 
     /**
-     * Set usage
+     * Set corporateusage
      *
-     * @param string $usage
+     * @param string $corporateusage
      * @return Corporations
      */
-    public function setUsage($usage)
+    public function setCorporateusage($corporateusage)
     {
-        $this->usage = $usage;
+        $this->corporateusage = $corporateusage;
     
         return $this;
     }
 
     /**
-     * Get usage
+     * Get corporateusage
      *
      * @return string 
      */
-    public function getUsage()
+    public function getCorporateusage()
     {
-        return $this->usage;
+        return $this->corporateusage;
     }
 
     /**

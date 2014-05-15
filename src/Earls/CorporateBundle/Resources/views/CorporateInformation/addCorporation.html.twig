@@ -5,22 +5,33 @@
     {{ form_start(corporateForm, {'attr': {'id': 'addcorporateForm', 'role': 'form',
                     'class': 'form-horizontal'} }) }}
 
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="page-header">
+                <div class="clearfix">
+                    <h3 class="content-title pull-left">ADD A CORPORATION</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="warning"></div>
     
     <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <div class="box border blue">
             <div class="box-title">
                 <h4>Corporation Info</h4>
             </div>
-            <div class="box-body big">
-                {{ form_errors(corporateForm) }}
-                
+            <div class="box-body big">                
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Corporation File No.</label>
                     <div class="col-sm-9">
                         {{ form_widget(corporateForm.corporationinfo.filenumber, {
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(corporateForm.corporationinfo.filenumber) }}
                     </div>
                 </div>
                 
@@ -31,6 +42,7 @@
                         'label_attr': {'class': 'control-label'},
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(corporateForm.corporationinfo.corporatename) }}
                     </div>
                 </div>
                 
@@ -41,15 +53,17 @@
                         'label_attr': {'class': 'control-label'},
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(corporateForm.corporationinfo.respsolicitor) }}
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Use:</label>
                     <div class="col-sm-9">
-                        {{ form_widget(corporateForm.corporationinfo.usage, {
+                        {{ form_widget(corporateForm.corporationinfo.corporateusage, {
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(corporateForm.corporationinfo.respsolicitor) }}
                     </div>
                 </div>
                                 
@@ -65,6 +79,7 @@
                                 {{ form_widget(corporateForm.corporationinfo.provincestateid, {
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(corporateForm.corporationinfo.provincestateid) }}
                             </div> 
                             </div>
                             
@@ -78,6 +93,7 @@
                                 {{ form_widget(corporateForm.corporationinfo.fiscalyearend, {
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(corporateForm.corporationinfo.fiscalyearend) }}
                             </div>
                             </div>
                         
@@ -93,6 +109,7 @@
                                 {{ form_widget(corporateForm.corporationinfo.registrationnumber, {
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(corporateForm.corporationinfo.registrationnumber) }}
                             </div>
                             </div>
             
@@ -105,6 +122,7 @@
                                 {{ form_widget(corporateForm.corporationinfo.registrationdate, {
                                 'attr': {'form': 'corpinfo'}
                                 }) }}
+                                {{ form_errors(corporateForm.corporationinfo.registrationdate) }}
                             </div>
                             </div>
 
@@ -119,6 +137,7 @@
                                 {{ form_widget(corporateForm.corporationinfo.seal, {
                                 'attr': {'class': 'checkbox', 'form':'corpinfo'}
                                 }) }}
+                                {{ form_errors(corporateForm.corporationinfo.seal) }}
                             </div>
                             </div>
 
@@ -132,6 +151,7 @@
                                 {{ form_widget(corporateForm.corporationinfo.locationseal, {
                                 'attr': {'class': 'form-control'}
                                 }) }}
+                                {{ form_errors(corporateForm.corporationinfo.locationseal) }}
                             </div>
                             </div>
 
@@ -146,6 +166,7 @@
                         {{ form_widget(corporateForm.corporationinfo.capitalstructure, {
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(corporateForm.corporationinfo.capitalstructure) }}
                     </div>
                 </div>
                 
@@ -155,6 +176,7 @@
                         {{ form_widget(corporateForm.corporationinfo.namechanges, {
                         'attr': {'class': 'form-control'}
                         }) }}
+                        {{ form_errors(corporateForm.corporationinfo.namechanges) }}
                     </div>
                 </div>
                 
@@ -164,6 +186,7 @@
                         {{ form_widget(corporateForm.corporationinfo.corpstatus, {
                         'attr': {'class': 'checkbox', 'form':'corpinfo'}
                         }) }}
+                        {{ form_errors(corporateForm.corporationinfo.corpstatus) }}
                     </div>
                 </div>
                 
@@ -173,6 +196,7 @@
                         {{ form_widget(corporateForm.corporationinfo.dissolutiondate, {
                         'attr': {'form':'corpinfo'}
                         }) }}
+                        {{ form_errors(corporateForm.corporationinfo.dissolutiondate) }}
                     </div>
                 </div>  
             </div>
@@ -181,243 +205,316 @@
     
     <!-- ********** OFFICE TABLE *********** -->
     
-        <div class="col-md-6">
-        <div class="box border blue">
-            <div class="box-title">
-                <h4>Offices</h4>
-            </div>
-            <div class="box-body big">
-            
-                <table style="width: 100%">
-                    <tr>
-                        <td><b>Registered</b></td>
-                    </tr>
-                    <tr>
-                    
-                        <td>
-                            <div class="form-group">
-                            <label class="col-sm-3 control-label">Office:</label>
-                            <div class="col-sm-9">
-                                {{ form_widget(corporateForm.corporationinfo.registeredofficeid, {
-                                'attr': {'class': 'form-control'}
-                                }) }}
-                            </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                    
-                        <td><b>Records</b></td>
-                        
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="form-group">
-                            <label class="col-sm-3 control-label">Office:</label>
-                            <div class="col-sm-9">
-                                {{ form_widget(corporateForm.corporationinfo.recordsofficeid, {
-                                'attr': {'class': 'form-control'}
-                                }) }}
-                            </div>
-                            </div>
-                            </td>
-                    </tr>
-                </table>
-            
+        <div class="col-md-12">
+            <div class="box border blue">
+                <div class="box-title">
+                    <h4>Offices</h4>
+                </div>
+                <div class="box-body big">
+                    <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                                <label class="col-sm-3 control-label"> Registered Office:</label>
+                                <div class="col-sm-9">
+                                    {{ form_widget(corporateForm.corporationinfo.registeredofficeid, {
+                                    'attr': {'class': 'form-control'}
+                                    }) }}
+                                    {{ form_errors(corporateForm.corporationinfo.registeredofficeid) }}
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                                <label class="col-sm-3 control-label"> Records Office:</label>
+                                <div class="col-sm-9">
+                                    {{ form_widget(corporateForm.corporationinfo.recordsofficeid, {
+                                    'attr': {'class': 'form-control'}
+                                    }) }}
+                                    {{ form_errors(corporateForm.corporationinfo.recordsofficeid) }}
+                                </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
-        
         
         <!-- ********** JURISDICTION TABLE *********** -->
         
-        <div class="col-md-6">
-        <div class="box border purple">
-            <div class="box-title">
-                <h4>Jurisdictions</h4>
-            </div>
-            <div class="box-body big">
-            
-                <div class="form-group">
-                <label class="col-sm-8 control-label">Extra-Provincial Jurisdictions</label>
+        <div class="col-md-12">
+            <div class="box border purple">
+                <div class="box-title">
+                    <h4>Extra-Provincial Jurisdictions</h4>
                 </div>
-
-                <table style="width: 100%">
-                    <tr>
-                        <td>
-                            <div class="form-group">
-                            <label class="col-sm-9 control-label">Jurisdiction:</label>
-                            <div class="col-sm-10">
-                                {{ form_widget(corporateForm.jurisdictioninfo.provincestateid, {
-                                'attr': {'class': 'form-control'}
+                <div class="box-body big">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label>Jurisdiction</label>
+                                </div>
+                                <div class="col-lg-2">
+                                    <label>Date Registered</label>
+                                </div>
+                                <div class="col-lg-2">
+                                    <label>Registration No.</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div id="jurisdiction-fields-list" data-prototype="{% filter escape %}{% include 'EarlsCorporateBundle:CorporateInformation:jurisdictions.html.twig' with {'jurisdictionform': corporateForm.jurisdictioninfo.vars.prototype} %}{% endfilter %}">
+                            {% for jurisdiction in corporateForm.jurisdictioninfo %}
+                            <div class="newJurisdictionForm">
+                                <div class="col-lg-6">
+                                    {{ form_widget(jurisdiction.provincestateid, {
+                                    'attr': {'class': 'form-control'}
                                 }) }}
-                            </div> 
+                                {{ form_errors(jurisdiction.provincestateid) }}
                             </div>
-
-                        </td>
-                        <td>
-                            <div class="form-group">
-                            <label class="col-sm-9 control-label">Date Registered:</label>
-                            <div class="col-sm-10">
-                                {{ form_widget(corporateForm.jurisdictioninfo.registereddate, {
-                                'attr': {'class': 'form-control'}
-                                }) }}
-                            </div> 
-                            </div>
-                            
-                        </td>
-                        
-                        <td>
-                            <div class="form-group">
-                            <label class="col-sm-9 control-label">Registration No:</label>
-                            <div class="col-sm-10">
-                                {{ form_widget(corporateForm.jurisdictioninfo.registrationnumber, {
-                                'attr': {'class': 'form-control'}
-                                }) }}
-                            </div> 
-                            </div>
-
-                        </td>   
-                    </tr>
-                    
-                    <tr>
-                        <td>
-                            <div class="form-group">
-                            <div class="col-sm-10">
-                                {{ form_widget(corporateForm.corporationinfo.provincestateid, {
-                                'attr': {'class': 'form-control'}
-                                }) }}
-                            </div> 
-                            </div>
-                        </td>
-                        
-                        <td>
-                            <div class="form-group">
-                            <div class="col-sm-10">
-                                {{ form_widget(corporateForm.corporationinfo.registrationdate, {
-                                'attr': {'form':'corpinfo'}
-                                }) }}
-                            </div>
-                            </div>
-                        </td>
-                        
-                        <td>
-                            <div class="form-group">
-                            <div class="col-sm-10">
-                                {{ form_widget(corporateForm.corporationinfo.registrationnumber, {
-                                'attr': {'class': 'form-control'}
-                                }) }}
-                            </div>
-                            </div>
-                        </td>
-                        
-                    </tr>
-
-                </table>
-            
+                            <div class="col-lg-2">
+                                {{ form_widget(jurisdiction.registereddate, {
+                                'attr': {'form':'form-control'}
+                            }) }}
+                            {{ form_errors(jurisdiction.registereddate) }}
+                        </div>
+                        <div class="col-lg-2">
+                            {{ form_widget(jurisdiction.registrationnumber, {
+                            'attr': {'class': 'form-control'}
+                        }) }}
+                        {{ form_errors(jurisdiction.registrationnumber) }}
+                        </div>
+                        </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
+    </div>
 
 
         <!-- ********** DIRECTORS TABLE *********** -->
         
-        <div class="col-md-6">
-        <div class="box border green">
-            <div class="box-title">
-                <h4>Directors</h4>
-            </div>
-            <div class="box-body big">
-            
-                <table style="width: 100%">
-                    <tr>
-                        <td>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Director:</label>
-                                <div class="col-sm-9">
-                                    {{ form_widget(corporateForm.corpdirectorinfo.directorid, {
-                                    'attr': {'class': 'form-control'}
-                                    }) }}
+        <div class="col-md-12">
+            <div class="box border green">
+                <div class="box-title">
+                    <h4>Directors</h4>
+                </div>
+                <div class="box-body big">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <label>Director</label>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label>Position</label>
                                 </div>
                             </div>
-                        </td>               
-
-                            <td>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Position:</label>
-                                    <div class="col-sm-9">
-                                        {{ form_widget(corporateForm.corpdirectorinfo.position, {
-                                        'attr': {'class': 'form-control'}
-                                        }) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div id="director-fields-list" data-prototype="{% filter escape %}{% include 'EarlsCorporateBundle:CorporateInformation:directors.html.twig' with {'directorform': corporateForm.corpdirectorinfo.vars.prototype} %}{% endfilter %}">
+                                {% for corpdirectorname in corporateForm.corpdirectorinfo %}
+                                    <div class="newDirectorForm">
+                                            <div class="col-lg-4">
+                                                {{ form_widget(corpdirectorname.directorid, {
+                                                    'attr': {'class': 'form-control'}
+                                                }) }}
+                                                {{ form_errors(corpdirectorname.directorid) }}
+                                            </div>
+                                            <div class="col-lg-6">
+                                                {{ form_widget(corpdirectorname.position, {
+                                                'attr': {'class':'form-control'}
+                                                }) }}
+                                                {{ form_errors(corpdirectorname.position) }}
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                    </tr>
-                    
-                </table>
-            
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
-
+        
+        
          <!-- ********** MEMBERSHIPS TABLE *********** -->
 
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="box border orange">
                 <div class="box-title">
                     <h4>Membership</h4>
                 </div>
                 
                 <div class="box-body big">
-            
-                <table style="width: 100%">
-                    <tr>
-                        <td>Sharetype:</td>
-                        <td>No Of Shares:</td>
-                        <td>Shareholders</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            {{ form_widget(corporateForm.membershipinfo.sharetypeid, {
-                                'attr': {'class': 'form-control'}
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label>Share Type</label>
+                                </div>
+                                <div class="col-lg-2">
+                                    <label>No. of Shares</label>
+                                </div>
+                                <div class="col-lg-2">
+                                    <label>Shareholder</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div id="membership-fields-list" data-prototype="{% filter escape %}{% include 'EarlsCorporateBundle:CorporateInformation:memberships.html.twig' with {'membershipform': corporateForm.membershipinfo.vars.prototype} %}{% endfilter %}">
+                            {% for corpmembershipname in corporateForm.membershipinfo %}
+                            <div class="newMembershipForm">
+                                <div class="col-lg-6">
+                                    {{ form_widget(corpmembershipname.sharetypeid, {
+                                    'attr': {'class': 'form-control'}
+                                }) }}
+                                {{ form_errors(corpmembershipname.sharetypeid) }}
+                            </div>
+                            <div class="col-lg-2">
+                                {{ form_widget(corpmembershipname.numberofshares, {
+                                'attr': {'class':'form-control'}
                             }) }}
-                               
-                        </td>
-                        <td>
-                            {{ form_widget(corporateForm.membershipinfo.numberofshares, {
-                                'attr': {'class': 'form-control'}
-                            }) }}
-                        </td>
-                        <td>
-                            {{ form_widget(corporateForm.membershipinfo.directorid, {
-                                'attr': {'class': 'form-control'}
-                            }) }}
-                        </td>
-                    </tr>
-                </table>
+                            {{ form_errors(corpmembershipname.numberofshares) }}
+                        </div>
+                        <div class="col-lg-2">
+                            {{ form_widget(corpmembershipname.directorid, {
+                            'attr': {'class': 'form-control'}
+                        }) }}
+                        {{ form_errors(corpmembershipname.directorid) }}
+                        </div>
+                        </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    
+    </div> 
 
-    {{ form_end(corporateForm) }}
+            {{ form_widget(corporateForm._token) }}
+
+    {{ form_end(corporateForm, {'render_rest': false}) }}
+     <button type="submit" class="btn btn-primary" form="addcorporateForm">Add Corporation</button>
 
 {% endblock %}
+
 {% block javascript %}
-    <script src="{{ asset('bundles/earlslease/js/select2/select2.min.js') }}"></script>
-    <script src="{{ asset('bundles/earlslease/js/uniform/jquery.uniform.min.js') }}"></script>
-    <script src="{{ asset('bundles/earlslease/js/bootstrap-wizard/jquery.bootstrap.wizard.min.js') }}"></script>
-    <script src="{{ asset('bundles/earlslease/js/jquery-validate/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('bundles/earlslease/js/jquery-validate/additional-methods.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/earlslease/js/bootbox/bootbox.min.js') }}"></script>
+<script>
+    var $collectionJursidiction;
+    var $collectionDirector;
+    var $collectionMembership;
 
-    <script type="text/javascript" src="{{ asset('bundles/earlslease/js/jQuery-Cookie/jquery.cookie.min.js') }}"></script>
+    var $addJurisdictionLink = $('<a href="#" class="btn btn-small btn-success add_tag_link"><i class="fa fa-plus"></i> Add Jurisdiction </a>');
+    var $addDirectorLink = $('<a href="#" class="btn btn-small btn-success add_tag_link"><i class="fa fa-plus"></i> Add Director </a>');
+    var $addMembershipLink = $('<a href="#" class="btn btn-small btn-success add_tag_link"><i class="fa fa-plus"></i> Add Membership </a>');
+    var $newJurisdictionLink = $('<div id="corpJurisdiction"></div>').append($addJurisdictionLink);
+    var $newDirectorLink = $('<div id="corpDirector"></div>').append($addDirectorLink);
+    var $newMembershipLink = $('<div id="corpMembership"></div>').append($addMembershipLink);
 
+     var $addWarning = $('<div class="alert alert-danger"><a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>Your form has errors. Please correct them to proceed.</div>');
 
-    <script src="{{ asset('bundles/earlslease/js/bootstrap-wizard/form-wizard.min.js') }}"></script>
-    <script>
-        jQuery(document).ready(function(){
-            App.setPage("wizards_validations");
-            App.init();
-            FormWizard.init();
+    jQuery(document).ready(function() {
+        $('span.help-inline').parent().addClass('has-error');
+        $('span.help-inline').css('color','red');
+        if ($('span.help-inline').length) {
+                    $('div#warning').append($addWarning);
+                }
+        // Get the ul that holds the collection of renewals/task
+        $collectionJurisdiction = $('div#jurisdiction-fields-list');
+        $collectionDirector = $('div#director-fields-list');
+        $collectionMembership = $('div#membership-fields-list');
+
+        // add the "add a tag" anchor and li to the tags ul
+        $collectionJurisdiction.append($newJurisdictionLink);
+        $collectionDirector.append($newDirectorLink);
+        $collectionMembership.append($newMembershipLink);
+
+        // add a delete link to all of the existing tag form li elements
+        $collectionJurisdiction.find('.newJurisdictionForm').each(function() {
+            addFormDeleteLink($(this));
         });
-    </script>
+        $collectionDirector.find('.newDirectorForm').each(function() {
+            addFormDeleteLink($(this));
+        });
+        $collectionMembership.find('.newMembershipForm').each(function() {
+            addFormDeleteLink($(this));
+        });
+
+        // count the current form inputs we have (e.g. 2), use that as the new
+        // index when inserting a new item (e.g. 2)
+        $collectionJurisdiction.data('index', $collectionJurisdiction.find(':text').length);
+        $collectionDirector.data('index', $collectionDirector.find(':text').length);
+        $collectionMembership.data('index', $collectionMembership.find(':input').length);
+
+
+        $addJurisdictionLink.on('click', function(e) {
+            // prevent the link from creating a "#" on the URL
+            e.preventDefault();
+
+            // add a new tag form (see next code block)
+            addJurisdictionForm($collectionJurisdiction, $newJurisdictionLink);
+        });
+         $addDirectorLink.on('click', function(e) {
+            // prevent the link from creating a "#" on the URL
+            e.preventDefault();
+
+            // add a new tag form (see next code block)
+            addDirectorForm($collectionDirector, $newDirectorLink);
+        });
+          $addMembershipLink.on('click', function(e) {
+            // prevent the link from creating a "#" on the URL
+            e.preventDefault();
+
+            // add a new tag form (see next code block)
+            addMembershipForm($collectionMembership, $newMembershipLink);
+        });
+
+    });
+
+    function addJurisdictionForm($collectionJurisdiction, $newJurisdictionLink) {
+        var prototype = $collectionJurisdiction.data('prototype');
+        var index = $collectionJurisdiction.data('index');
+        var newForm = prototype.replace(/__name__/g, index);
+        $collectionJurisdiction.data('index', index + 1);
+        var $newFormLi = $('<div id="newJurisdictionForm"></div>').append(newForm);
+        $newJurisdictionLink.before($newFormLi);
+        addFormDeleteLink($newFormLi);
+    }
+    function addDirectorForm($collectionDirector, $newDirectorLink) {
+        var prototype = $collectionDirector.data('prototype');
+        var index = $collectionDirector.data('index');
+        var newForm = prototype.replace(/__name__/g, index);
+        $collectionDirector.data('index', index + 1);
+        var $newFormLi = $('<div id="newDirectorForm"></div>').append(newForm);
+        $newDirectorLink.before($newFormLi);
+        addFormDeleteLink($newFormLi);
+    }
+    function addMembershipForm($collectionMembership, $newMembershipLink) {
+        var prototype = $collectionMembership.data('prototype');
+        var index = $collectionMembership.data('index');
+        var newForm = prototype.replace(/__name__/g, index);
+        $collectionMembership.data('index', index + 1);
+        var $newFormLi = $('<div id="newMembershipForm"></div>').append(newForm);
+        $newMembershipLink.before($newFormLi);
+        addFormDeleteLink($newFormLi);
+    }
+
+    function addFormDeleteLink($jurisdictionForm) {
+    var $removeJurisdiction = $('<a href="#" class="btn btn-small btn-danger" style="color:white;"><i class="fa fa-times"></i> DELETE</a><div class="separator"></div>');
+    $jurisdictionForm.append($removeJurisdiction);
+    $removeJurisdiction.on('click', function(e) {
+        e.preventDefault();
+        $jurisdictionForm.remove();
+    });
+    }
+
+</script>
 {% endblock %}

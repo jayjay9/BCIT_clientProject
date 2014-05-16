@@ -304,6 +304,10 @@ class StoreInformationController extends Controller
             $form->submit($request);
 
             if ($form->isValid()) {
+                $corporateName = $storeInfoObj->getRestaurantinfo()->getCorporateid()->getCorporatename();
+                $em->flush();
+                $restaurant = $em->getRepository('EarlsLeaseBundle:Restaurants')->find($id);
+                $restaurant->setTenant($corporateName);
                 $em->flush();
                 return $this->redirect($this->generateUrl('_storeinformation_display', array('id' => $id)));
             } 

@@ -18,7 +18,7 @@ class RestaurantsType extends AbstractType
         $builder
 
             ->add('storefilenumber', 'number', array('invalid_message' => 'Enter a number', 'required' => true))
-            ->add('tenant', 'text', array('required'=> true))
+            //->add('tenant', 'text', array('required'=> true))
             ->add('storenickname', 'text', array('required'=> true))
             ->add('address', 'textarea', array('required'=> true))
             ->add('postalzip', 'text', array('required'=> true))

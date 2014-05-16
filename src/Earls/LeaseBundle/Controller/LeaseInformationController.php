@@ -69,27 +69,9 @@ class LeaseInformationController extends Controller{
             ->getRepository('EarlsLeaseBundle:Leasecriticaltasks')
             ->findBy(array('leaseid' => $leaseId));
 
-            if(empty($leasecriticaltaskObj)) {
-                $leasecriticaltaskObj = new Leasecriticaltasks();
-                $this->addLeaseCriticalTaskEntry($leasecriticaltaskObj, $leaseinfoObj);
-                $temparray = array();
-                array_push($temparray, $leasecriticaltaskObj);
-                $leasecriticaltaskObj = array();
-                $leasecriticaltaskObj = $temparray;
-            }
-
             $renewalObj = $this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Renewals')
             ->findBy(array('leaseid' => $leaseId));
-
-            if(empty($renewalObj)) {
-                $renewalObj = new Renewals();
-                $this->addRenewalEntry($renewalObj, $leaseinfoObj);
-                $temparray = array();
-                array_push($temparray, $renewalObj);
-                $renewalObj = array();
-                $renewalObj = $temparray;
-            }
 
             $model = new LeasesModel();
 

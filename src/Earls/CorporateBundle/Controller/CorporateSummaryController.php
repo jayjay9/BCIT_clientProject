@@ -151,7 +151,7 @@ class CorporateSummaryController extends Controller{
 
 
     /**
-     * @Route("export/{id}", name="_summary_createreport")
+     * @Route("export/{id}", name="_summary_corporate_createreport")
      * @Template()
      */
     function createReportAction($id){

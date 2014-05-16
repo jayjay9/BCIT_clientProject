@@ -114,7 +114,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Corporate File</label>
+                    <label class="col-sm-3 control-label">Tenant</label>
 
                     <div class="col-sm-9">
 
@@ -125,7 +125,7 @@
 
                     </div>
                 </div>
-                <div class="form-group">
+                {#<div class="form-group">
                     <label class="col-sm-3 control-label">Tenant</label>
 
                     <div class="col-sm-9">
@@ -136,7 +136,7 @@
                         {{ form_errors(addStoreForm.storeInfoForm.restaurantInfo.tenant) }}
 
                     </div>
-                </div>
+                </div>#}
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Address</label>
 
@@ -1162,115 +1162,109 @@
 
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Renewal Rate</label>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Renewal Rate</label>
+                                <div class="col-sm-9">
+                                    <div class="row">
+                                        <div class="col-lg-6">
 
-                        <div class="col-sm-9">
-                            <div class="row">
-                                <div class="col-lg-6">
+                                            <label>Term</label>
 
-                                    <label>Term</label>
+                                        </div>
+                                        <div class="col-lg-2">
 
-                                </div>
-                                <div class="col-lg-3">
+                                            <label>Exercised</label>
 
-                                    <label>Exercised</label>
+                                        </div>
+                                        <div class="col-lg-2">
 
-                                </div>
-                                <div class="col-lg-3">
+                                            <label>Show?</label>
 
-                                    <label>Show?</label>
-
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label"></label>
-
-                        <div class="col-sm-9">
-
-                            {% for renewalField in addStoreForm.leaseInfoForm.renewals %}
-
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        {{ form_widget(renewalField.term, {'label': '',
-                                        'label_attr': {'class': 'control-label'},
-                                        'attr': {'class': 'form-control'}
-                                        }) }}
-                                        {{ form_errors(renewalField.term) }}
+                            <div class="form-group">
+                                    <label class="col-sm-3 control-label"></label>
+                                    <div class="col-sm-9">
+                                        <div id="renewal-fields-list" data-prototype="{% filter escape %}{% include 'EarlsLeaseBundle:LeaseInformation:renewals.html.twig' with {'renewalform': addStoreForm.leaseInfoForm.renewals.vars.prototype} %}{% endfilter %}">
+                                        {% for renewalField in addStoreForm.leaseInfoForm.renewals %}
+                                            <div class="newRenewalForm">
+                                                <div class="col-lg-6">
+                                                    {{ form_widget(renewalField.term, {'label': '',
+                                                    'label_attr': {'class': 'control-label'},
+                                                    'attr': {'class': 'form-control'}
+                                                    }) }}
+                                                    {{ form_errors(renewalField.term) }}
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    {{ form_widget(renewalField.exercised, {'label': '',
+                                                    'label_attr': {'class': 'control-label'}
+                                                    }) }}
+                                                </div>
+                                                <div class="col-lg-2">
+                                                    {{ form_widget(renewalField.showinleasereport, {'label': '',
+                                                    'label_attr': {'class': 'control-label'}
+                                                    }) }}
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                        </div>
                                     </div>
-                                    <div class="col-lg-3">
-                                        {{ form_widget(renewalField.exercised, {'label': '',
-                                        'label_attr': {'class': 'control-label'}
-                                        }) }}
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Critical Issues</label>
+                                <div class="col-sm-9">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+
+                                            <label>Date</label>
+
+                                        </div>
+                                        <div class="col-lg-3">
+
+                                            <label>Clause</label>
+
+                                        </div>
+                                        <div class="col-lg-4">
+
+                                            <label>Description</label>
+
+                                        </div>
                                     </div>
-                                    <div class="col-lg-3">
-                                        {{ form_widget(renewalField.showinleasereport, {'label': '',
-                                        'label_attr': {'class': 'control-label'}
-                                        }) }}
-                                    </div>
-                                </div>
-                                <div class="separator"></div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Critical Issues</label>
-
-                        <div class="col-sm-9">
-                            <div class="row">
-                                <div class="col-lg-6">
-
-                                    <label>Date</label>
-
-                                </div>
-                                <div class="col-lg-3">
-
-                                    <label>Clause</label>
-
-                                </div>
-                                <div class="col-lg-3">
-
-                                    <label>Description</label>
-
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label"></label>
-
-                        <div class="col-sm-9">
-
-                            {% for criticalField in addStoreForm.leaseInfoForm.leasecriticaltasks %}
-
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        {{ form_widget(criticalField.ctdate, {'label': '',
-                                        'label_attr': {'class': 'control-label'},
-                                        'attr': {'form':'wizForm'}
-                                        }) }}
-                                        {{ form_errors(criticalField.ctdate) }}
-                                    </div>
-                                    <div class="col-lg-3">
-                                        {{ form_widget(criticalField.ctclause, {'label': '',
-                                        'label_attr': {'class': 'control-label'},
-                                        'attr': {'class': 'form-control'}
-                                        }) }}
-                                        {{ form_errors(criticalField.ctclause) }}
-                                    </div>
-                                    <div class="col-lg-3">
-                                        {{ form_widget(criticalField.ctdescription, {'label': '',
-                                        'label_attr': {'class': 'control-label'},
-                                        'attr': {'class': 'form-control'}
-                                        }) }}
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label"></label>
+                                <div class="col-sm-9">
+                                    <div id="task-fields-list" data-prototype="{% filter escape %}{% include 'EarlsLeaseBundle:LeaseInformation:tasks.html.twig' with {'taskForm': addStoreForm.leaseInfoForm.leasecriticaltasks.vars.prototype} %}{% endfilter %}">
+                                    {% for criticalField in addStoreForm.leaseInfoForm.leasecriticaltasks %}
+                                        <div class="newTaskForm">
+                                            <div class="col-lg-3">
+                                                {{ form_widget(criticalField.ctdate, {'label': '',
+                                                'label_attr': {'class': 'control-label'},
+                                                'attr': {'form':'leaseInfoForm'}
+                                                }) }}
+                                                {{ form_errors(criticalField.ctdate) }}
+                                            </div>
+                                            <div class="col-lg-3">
+                                                {{ form_widget(criticalField.ctclause, {'label': '',
+                                                'label_attr': {'class': 'control-label'},
+                                                'attr': {'class': 'form-control'}
+                                                }) }}
+                                                {{ form_errors(criticalField.ctclause) }}
+                                            </div>
+                                            <div class="col-lg-4">
+                                                {{ form_widget(criticalField.ctdescription, {'label': '',
+                                                'label_attr': {'class': 'control-label'},
+                                                'attr': {'class': 'form-control'}
+                                                }) }}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
                                     </div>
                                 </div>
-                                <div class="separator"></div>
-                            {% endfor %}
-                        </div>
-                    </div>
+                            </div>
                 </div>
             </div>
         </div>
@@ -1569,15 +1563,135 @@
 
     <script>
      var $addWarning = $('<div class="alert alert-danger"><a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>Your form has errors. Please correct them to proceed.</div>');
+    var $collectionRenewal;
+    var $collectionTask;
+
+    // setup an "add a tag" link
+    var $addRenewalLink = $('<a href="#" class="btn btn-small btn-success add_tag_link"><i class="fa fa-plus"></i> Add Renewal Rate </a>');
+    var $addTaskLink = $('<a href="#" class="btn btn-small btn-success add_tag_link"><i class="fa fa-plus"></i> Add Critical Task </a>');
+    var $newRenewalLink = $('<div id="leaseRenewal"></div>').append($addRenewalLink);
+    var $newTaskLink = $('<div id="leaseTask"></div>').append($addTaskLink);
+
         jQuery(document).ready(function(){
             $('span.help-inline').parent().addClass('has-error');
         $('span.help-inline').css('color','red');
         if ($('span.help-inline').length) {
                     $('div#warning').append($addWarning);
-                }
-            App.setPage("wizards_validations");
-            App.init();
-            FormWizard.init();
+        }
+
+        App.setPage("wizards_validations");
+        App.init();
+        FormWizard.init();
+
+                // Get the ul that holds the collection of renewals/task
+        $collectionRenewal = $('div#renewal-fields-list');
+        $collectionTask = $('div#task-fields-list');
+
+        // add the "add a tag" anchor and li to the tags ul
+        $collectionRenewal.append($newRenewalLink);
+        $collectionTask.append($newTaskLink);
+
+        // add a delete link to all of the existing tag form li elements
+        $collectionRenewal.find('.newRenewalForm').each(function() {
+            addRenewalFormDeleteLink($(this));
         });
-    </script>
+        $collectionTask.find('.newTaskForm').each(function() {
+            addTaskFormDeleteLink($(this));
+        });
+
+        // count the current form inputs we have (e.g. 2), use that as the new
+        // index when inserting a new item (e.g. 2)
+        $collectionRenewal.data('index', $collectionRenewal.find(':text').length);
+        $collectionTask.data('index', $collectionTask.find(':text').length);
+
+        $addRenewalLink.on('click', function(e) {
+            // prevent the link from creating a "#" on the URL
+            e.preventDefault();
+
+            // add a new tag form (see next code block)
+            addRenewalForm($collectionRenewal, $newRenewalLink);
+        });
+
+        $addTaskLink.on('click', function(e) {
+            // prevent the link from creating a "#" on the URL
+            e.preventDefault();
+
+            // add a new tag form (see next code block)
+            addTaskForm($collectionTask, $newTaskLink);
+        });
+
+    });
+
+    function addRenewalForm($collectionRenewal, $newRenewalLink) {
+        // Get the data-prototype explained earlier
+        var prototype = $collectionRenewal.data('prototype');
+
+        // get the new index
+        var index = $collectionRenewal.data('index');
+
+        // Replace '__name__' in the prototype's HTML to
+        // instead be a number based on how many items we have
+        var newForm = prototype.replace(/__name__/g, index);
+
+        // increase the index with one for the next item
+        $collectionRenewal.data('index', index + 1);
+
+        // Display the form in the page in an li, before the "Add a tag" link li
+        var $newFormLi = $('<div id="newRenewalForm"></div>').append(newForm);
+        //$newFormLi.append($('<div class="separator"></div>'));
+        $newRenewalLink.before($newFormLi);
+        addRenewalFormDeleteLink($newFormLi);
+    }
+
+        function addTaskForm($collectionTask, $newTaskLink) {
+        // Get the data-prototype explained earlier
+        var prototype = $collectionTask.data('prototype');
+
+        // get the new index
+        var index = $collectionTask.data('index');
+
+        // Replace '__name__' in the prototype's HTML to
+        // instead be a number based on how many items we have
+        var newForm = prototype.replace(/__name__/g, index);
+
+        // increase the index with one for the next item
+        $collectionTask.data('index', index + 1);
+
+        // Display the form in the page in an li, before the "Add a tag" link li
+        var $newFormLi = $('<div id="newTaskForm"></div>').append(newForm);
+        //$newFormLi.append($('<div class="separator"></div>'));
+        $newTaskLink.before($newFormLi);
+        addTaskFormDeleteLink($newFormLi);
+    }
+
+    function addRenewalFormDeleteLink($renewalForm) {
+    var $removeRenewal = $('<a href="#" class="btn btn-small btn-danger" style="color:white;"><i class="fa fa-times"></i> DELETE</a><div class="separator"></div>');
+
+    $renewalForm.append($removeRenewal);
+
+    $removeRenewal.on('click', function(e) {
+        // prevent the link from creating a "#" on the URL
+        e.preventDefault();
+
+        // remove the li for the tag form
+        $renewalForm.remove();
+    });
+    }
+
+    function addTaskFormDeleteLink($taskForm) {
+    var $removeTask = $('<a href="#" class="btn btn-small btn-danger" style="color:white;"><i class="fa fa-times"></i> DELETE</a><div class="separator"></div>');
+    //var $deleteDiv = $('<div id="deleteRenewal"></div>').append($removeFormA);
+    $taskForm.append($removeTask);
+
+    //$('deleteRenewal').append($removeFormA);
+
+    $removeTask.on('click', function(e) {
+        // prevent the link from creating a "#" on the URL
+        e.preventDefault();
+
+        // remove the li for the tag form
+        $taskForm.remove();
+    });
+    }
+</script>
 {% endblock %}

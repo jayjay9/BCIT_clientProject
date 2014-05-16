@@ -80,19 +80,9 @@ class AddStoreInformationController extends Controller {
        $leaseinfo = new Leases();
        $leasereportinfo = new Leasereportsinfo();
 
-       $leasecriticaltasksObj = array();
-       $leasecriticaltasks= new Leasecriticaltasks();
-       array_push($leasecriticaltasksObj, $leasecriticaltasks);
-
-       $renewalsObj = array();
-       $renewals = new Renewals();
-      array_push($renewalsObj, $renewals);
-
        $leaseinfomodel = new LeasesModel();
        $leaseinfomodel->setLeaseinfo($leaseinfo);
        $leaseinfomodel->setLeasereportinfo($leasereportinfo);
-       $leaseinfomodel->setLeasecriticaltasks($leasecriticaltasksObj);
-       $leaseinfomodel->setRenewals($renewalsObj);
 
        $area1 = new Areas();
        $area2 = new Areas();

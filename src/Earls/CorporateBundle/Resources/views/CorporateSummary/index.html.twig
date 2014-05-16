@@ -30,7 +30,7 @@
                                 }) }}
                             </div>
                             {{ form_widget(corporationFinderForm.Go, {'attr': {'class': 'btn btn-info'} }) }}
-                            <button class="btn btn-small btn-pink" type="button" onclick="javascript:window.location.href='{{ path('_summary_createreport', {'id': corporationArray.corporationid}) }}'">Export to Word Document</button>
+                            <button class="btn btn-small btn-pink" type="button" onclick="javascript:window.location.href='{{ path('_summary_corporate_createreport', {'id': corporationArray.corporationid}) }}'">Export to Word Document</button>
                             {{ form_end(corporationFinderForm) }}
 
                         </div>

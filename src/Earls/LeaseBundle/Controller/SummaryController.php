@@ -405,13 +405,28 @@ class SummaryController extends Controller
         /**** CRITICAL TASK *****/
         $LeasecriticaltaskObj = array();
 
-        $LeasecriticaltaskObj =$this->getDoctrine()
+        $LeasecriticaltaskArray =$this->getDoctrine()
             ->getRepository('EarlsLeaseBundle:Leasecriticaltasks')
             ->findby(array('leaseid' => $linklease));
 
-        if(empty($LeasecriticaltaskObj)){
+        if(empty($LeasecriticaltaskArray)){
             $CriticalTask = new Leasecriticaltasks();
             array_push($LeasecriticaltaskObj, $CriticalTask);
+        }else{
+            foreach ($LeasecriticaltaskArray as $task){
+                if($task->getCtdate() != null){
+                    $taskDate = $task->getCtdate()->format('F d, Y');
+                }else{
+                    $taskDate = null;
+                }
+                $taskObj = array(
+                    'ctdate' => $taskDate,
+                    'ctclause' => $task->getCtclause(),
+                    'ctdescription' => $task->getCtdescription()
+                );
+
+                array_push($LeasecriticaltaskObj, $taskObj);
+            }
         }
 
         $RenewalObj = array();
@@ -783,7 +798,12 @@ class SummaryController extends Controller
         else
             $reportingperiod = "";
         $certsales = $leasereportsObj->getIscertifiedsales();
-        $duedate = $leasereportsObj->getDuedate();
+        $duedateObj = $leasereportsObj->getDuedate();
+        if(empty($duedateObj)){
+            $duedate = "";
+        }else{
+             $duedate = $duedateObj->format('F d, Y');
+        }
         $audit = $leasereportsObj->getIsaudit();
         $certified = $leasereportsObj->getIscertified();
 
@@ -829,7 +849,12 @@ class SummaryController extends Controller
         $crdate="";
 
         foreach($criticalissues as $criticalObj){
-            $criticaldate = $criticalObj->getCtdate();
+
+            if($criticalObj->getCtdate() != null){
+                $criticaldate = $criticalObj->getCtdate()->format('F d, Y');
+            }else{
+                $criticaldate = null;
+            }
 
             $crdate = $crdate.$criticaldate.'\n';
         }

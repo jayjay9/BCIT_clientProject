@@ -130,14 +130,14 @@
 											<p><b>DIRECTORS, OFFICIERS</b></p>
 											{% for director in DirectorsObj %}
 										<div class="col-md-3">
-											<p>{{ director.directorid.directorname }}</p>
-											<p>{{ director.position }}</p>
+											<p>{{ director.directorName }}</p>
+											<p>{{ director.directorPosition }}</p>
 										</div>
 										<div class="col-md-3">
-											<p>{{ director.directorid.address }}</p>
-											<p>{{ director.directorid.city.city }}</p>
-											<p>{{ director.directorid.provincestateid.description }}</p>											
-											<p>{{ director.directorid.postalzip }}</p>
+											<p>{{ director.directorAddress }}</p>
+											<p>{{ director.directorCity }}</p>
+											<p>{{ director.directorPropState }}</p>											
+											<p>{{ director.directorZipCode }}</p>
 										</div>
 											{% endfor %}
 								    </div>

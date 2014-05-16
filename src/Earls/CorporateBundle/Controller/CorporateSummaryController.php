@@ -100,10 +100,45 @@ class CorporateSummaryController extends Controller{
 			
 		
 		/***Directors***/
-		
+		$directorArray = array();
 		$directorsObj = $this->getDoctrine()
             ->getRepository('EarlsCorporateBundle:Corporatedirectors')
 			->findBy( array('corporateid' => $id));
+
+        foreach($directorsObj as $director){
+            $directorid      = $director->getDirectorid()->getDirectorid();
+            $directorsObj = $this->getDoctrine()
+                ->getRepository('EarlsCorporateBundle:Directors')
+                ->find($directorid);
+
+            $directorName       = $directorsObj->getDirectorname();
+            $directorPosition   = $director->getPosition();
+            $directorAddress    = $directorsObj->getAddress();
+            $directorCityObj       = $directorsObj->getCity();
+            if(empty($directorCity)){
+                $directorCity = "";
+            }else{
+                $directorCity = $directorCityObj->getCity();
+            }
+            $directorPropState  = $directorsObj->getProvincestateid();
+            if(empty($directorPropState)){
+                $directorProvince = "";
+            }else{
+                $directorProvince = $directorCityObj->getDescription();
+            }
+            $directorZipCode    = $directorsObj->getPostalzip();
+
+            $directorObj = array(
+                    'directorName' => $directorName,
+                    'directorPosition' => $directorPosition,
+                    'directorAddress' => $directorAddress,
+                    'directorCity' => $directorCity,
+                    'directorPropState' => $directorProvince,
+                    'directorZipCode' => $directorZipCode 
+                );
+
+            array_push($directorArray, $directorObj);
+        }
 			
 		 /***Memberships***/	
 		$membershipsObj = $this->getDoctrine()
@@ -142,7 +177,7 @@ class CorporateSummaryController extends Controller{
 				'RegisteredObj' => $registeredOfficesObj,
 				'RecordsofficeObj' => $recordsOfficeObj,
 				'JurisdictionsObj' => $jurisdictionsObj,
-				'DirectorsObj' => $directorsObj,
+				'DirectorsObj' => $directorArray,
 				'Memberships' => $membershipsObj
 				)
 		);
@@ -166,7 +201,7 @@ class CorporateSummaryController extends Controller{
 
 
         $respSolicitor      = $corporationObj->getRespsolicitor();
-        $usage              = $corporationObj->getUsage();
+        $usage              = $corporationObj->getCorporateusage();
 
 
 
@@ -247,8 +282,18 @@ class CorporateSummaryController extends Controller{
             $directorName       = $director->getDirectorid()->getDirectorname();
             $directorPosition   = $director->getPosition();
             $directorAddress    = $director->getDirectorid()->getAddress();
-            $directorCity       = $director->getDirectorid()->getCity()->getCity();
-            $directorPropState  = $director->getDirectorid()->getProvincestateid()->getDescription();
+            $directorCityObj       = $director->getDirectorid()->getCity();
+            if(empty($directorCityObj)){
+                $directorCity = "";
+            }else{
+                $directorCity = $directorCityObj->getCity();
+            }
+            $directorPropStateObj  = $director->getDirectorid()->getProvincestateid();
+            if(empty($directorPropStateObj)){
+                $directorPropState = "";
+            }else{
+                $directorPropState = $directorPropStateObj->getDescription();
+            }
             $directorZipCode    = $director->getDirectorid()->getPostalzip();
         }
 

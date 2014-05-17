@@ -66,35 +66,53 @@
                         <div class="tab-pane fade in active" id="page1">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <p><b>ADMINISTRATIVE</b></p>
-                                            <p><b>Resp. Solicitor: </b>{{ CorporationObj.respsolicitor }}</p>
-                                            <p><b>Use: </b>{{ CorporationObj.corporateusage }}</p>
+                                    <div class="col-md-12" style="background-color: #CCCCCC;">
+                                     <p style="font-size: 16px;"><b>ADMINISTRATIVE</b></p>
+                                     </div>
+                                        <div class="col-md-3">
+                                            <p><b>Resp. Solicitor: </b></p>
+                                            <p><b>Use: </b></p>
 										</div>
-                                    </div>
+                                        <div class="col-md-9">
+                                            <p>{{ CorporationObj.respsolicitor }}</p>
+                                            <p>{{ CorporationObj.corporateusage }}</p>
+                                        </div>
                                 </div>
                             </div>
                             <div class="separator"></div>
                             <div class="row">
                                 <div class="col-md-12">
-										<p><b>CORPORATE</b></p>
-									<div class="col-md-6">
-                                        <p><b>Jurisdiction: </b>{{ corporationArray.provinceName }}</p>
-										<p><b>Reg. No: </b>{{ CorporationObj.registrationnumber }}</p>
-									    <p><b>Seal: </b>{{ CorporationObj.seal }}</p>
+									<div class="col-md-12" style="background-color: #CCCCCC;">
+                                     <p style="font-size: 16px;"><b>CORPORATE</b></p>
+                                     </div>
+									<div class="col-md-2">
+                                        <p><b>Jurisdiction: </b></p>
+										<p><b>Reg. No: </b></p>
+									    <p><b>Seal: </b></p>
 									</div>
-									<div class="col-md-6">
-										<p><b>Fiscal Year End: </b>{{ CorporationObj.fiscalyearend }}</p>
-										<p><b>Reg. Date: </b>{{ corporationArray.registrationDate }}</p>
-										<p><b>Location of Seal: </b>{{ CorporationObj.locationseal }}</p>
+                                    <div class="col-md-3">
+                                        <p>{{ corporationArray.provinceName }}</p>
+                                        <p>{{ CorporationObj.registrationnumber }}</p>
+                                        <p>{{ CorporationObj.seal }}</p>
+                                    </div>
+									<div class="col-md-3">
+										<p><b>Fiscal Year End: </b></p>
+										<p><b>Reg. Date: </b></p>
+										<p><b>Location of Seal: </b></p>
 									</div>
+                                    <div class="col-md-3">
+                                        <p>{{ CorporationObj.fiscalyearend }}</p>
+                                        <p>{{ corporationArray.registrationDate }}</p>
+                                        <p>{{ CorporationObj.locationseal }}</p>
+                                    </div>
 								</div>
                             </div>
                             <div class="separator"></div>
                                 <div class="row">
                                     <div class="col-md-12">
-									    <p><b>REGISTERED & RECORDS OFFICE</b></p>
+									<div class="col-md-12" style="background-color: #CCCCCC;">
+                                     <p style="font-size: 16px;"><b>REGISTERED AND RECORDS OFFICE</b></p>
+                                     </div>
 										<div class="col-md-6">
 											<p><b>Registered Office:</b></p>
 											<p>{{ RegisteredObj.officename }}</p>
@@ -114,65 +132,101 @@
                             <div class="separator"></div>
                                 <div class="row">
                                     <div class="col-md-12">
-										<p><b>EXTRA-PROVINCIAL JURISDICTION</b></p>
-										{% for jurisdiction in JurisdictionsObj %}
-										<p>{{ jurisdiction.provincestateid.description }}</p>
-										<p><b>Date Registered:</b></p>
-										<p>{{ jurisdiction.registereddate | date("m/d/Y", false) }}</p>
-										<p><b>Reg No:</b></p>
-										<p>{{ jurisdiction.registrationnumber }}</p>
+                                    <div class="col-md-12" style="background-color: #CCCCCC;">
+                                     <p style="font-size: 16px;"><b>EXTRA-PROVINCIAL JURISDICTION</b></p>
+                                     </div>
+                                        {% for jurisdiction in JurisdictionsObj %}
+                                            <div class="col-md-12">
+                                            <div class="row">
+                                            <div class="col-md-1">
+                                            </div>
+                                            <div class="col-md-3">
+                                            <p>{{ jurisdiction.provincestateid.description }}</p>
+                                            </div>
+                                            <div class="col-md-4">
+                                            <p><b>Date Registered: </b> {{ jurisdiction.registereddate | date("m/d/Y", false) }}</p>
+                                            </div>
+                                            <div class="col-md-4">
+                                            <p><b>Reg No: </b>{{ jurisdiction.registrationnumber }}</p>       
+                                            </div>
+                                            </div>
+                                            </div>
 										{% endfor %}
                                     </div>
                                 </div>
                             <div class="separator"></div>
                                 <div class="row">
                                     <div class="col-md-12">
-											<p><b>DIRECTORS, OFFICIERS</b></p>
-											{% for director in DirectorsObj %}
-										<div class="col-md-3">
-											<p>{{ director.directorName }}</p>
-											<p>{{ director.directorPosition }}</p>
-										</div>
-										<div class="col-md-3">
-											<p>{{ director.directorAddress }}</p>
-											<p>{{ director.directorCity }}</p>
-											<p>{{ director.directorPropState }}</p>											
-											<p>{{ director.directorZipCode }}</p>
-										</div>
-											{% endfor %}
+                                    <div class="col-md-12" style="background-color: #CCCCCC;">
+                                     <p style="font-size: 16px;"><b>DIRECTORS, OFFICERS</b></p>
+                                     </div>
+                                        {% for director in DirectorsObj %}
+                                        <div class="row">
+                                        <div class="col-md-1">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p><b>{{ director.directorName }}</b></p>
+                                            <p>{{ director.directorPosition }}</p>
+                                            <p><br></p>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <p>{{ director.directorAddress }} {{ director.directorCity }}, {{ director.directorPropState }}</p>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p>{{ director.directorZipCode }}</p>
+                                        </div>
+                                        </div>
+										{% endfor %}
 								    </div>
                                 </div>
                             <div class="separator"></div>
 							    <div class="row">
                                     <div class="col-md-12">
-											<p><b>CAPITAL STRUCTURE</b></p>
-											<p>{{CorporationObj.capitalstructure}}</p>
+                                    
+                                        <div class="col-md-12" style="background-color: #CCCCCC;">
+                                            <p style="font-size: 16px;"><b>CAPITAL STRUCTURE </b> </p>
+                                        </div>
+
+                                        <div class="col-md-12 offset col-md-2">
+                                            <p>{{CorporationObj.capitalstructure}}</p>
+                                        </div>
+
 								    </div>
                                </div>
                             </div>
                             <div class="separator"></div>
                                 <div class="row">
                                     <div class="col-md-12">
-											<p><b>MEMBERSHIP</b></p>
-											{% for member in Memberships %}
-										<div class="col-md-2">
-											<p>{{ member.sharetypeid.sharetype }}</p>
-										</div>
-										<div class="col-md-2">
-											<p>{{ member.numberofshares }}</p>
-										</div>
-										<div class="col-md-2">
-											<p>{{ member.directorid.directorname }}</p>	
-										</div>
+                                    <div class="col-md-12" style="background-color: #CCCCCC;">
+                                            <p style="font-size: 16px;"><b>MEMBERSHIPS</b> </p>
+                                        </div>
+                                        {% for member in Memberships %}
+                                        <div class="row">
+                                            <div class="col-md-1">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <p>{{ member.sharetypeid.sharetype }}</p>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <p>{{ member.numberofshares }}</p>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <p>{{ member.directorid.directorname }}</p> 
+                                            </div>
+                                        </div>
 											{% endfor %}
 									</div>
                                 </div>
                             <div class="separator"></div>
                                 <div class="row">
                                     <div class="col-md-12">
-										<p><b>NAME CHANGES</b></p>
-										<p>{{CorporationObj.namechanges}}</p>
-                                            
+                                    <div class="col-md-12" style="background-color: #CCCCCC;">
+                                            <p style="font-size: 16px;"><b>NAME CHANGES </b> </p>
+                                        </div>
+
+                                        <div class="col-md-12 offset col-md-2">
+                                            <p>{{CorporationObj.namechanges}}</p>
+                                        </div>                                            
                                     </div>
 								</div>
 			</div>

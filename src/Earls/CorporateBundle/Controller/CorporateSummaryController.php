@@ -114,8 +114,8 @@ class CorporateSummaryController extends Controller{
             $directorName       = $directorsObj->getDirectorname();
             $directorPosition   = $director->getPosition();
             $directorAddress    = $directorsObj->getAddress();
-            $directorCityObj       = $directorsObj->getCity();
-            if(empty($directorCity)){
+            $directorCityObj    = $directorsObj->getCity();
+            if(empty($directorCityObj)){
                 $directorCity = "";
             }else{
                 $directorCity = $directorCityObj->getCity();
@@ -124,7 +124,7 @@ class CorporateSummaryController extends Controller{
             if(empty($directorPropState)){
                 $directorProvince = "";
             }else{
-                $directorProvince = $directorCityObj->getDescription();
+                $directorProvince = $directorPropState->getProvincestateid();
             }
             $directorZipCode    = $directorsObj->getPostalzip();
 
@@ -197,7 +197,7 @@ class CorporateSummaryController extends Controller{
 
         //Corporate name
         $corporationName    = $corporationObj->getCorporatename();
-        $corporateFileNo    = $corporationObj->getFilenumber();
+        $corporateFileNumber    = $corporationObj->getFilenumber();
 
 
         $respSolicitor      = $corporationObj->getRespsolicitor();
@@ -254,15 +254,26 @@ class CorporateSummaryController extends Controller{
 
         $jurisdictionPropState = "";
         $jurisdictionRegistrationNo = "";
+        $alljurisdictionName ="";;
+        $alljurisdictionDate ="";
+        $alljurisdictionNumber ="";
         foreach($jurisdictionsObj as $jurisdiction){
             $jurisdictionPropState      = $jurisdiction->getProvincestateid()->getDescription();
             $jurisdictionRegisteredDate = $jurisdiction->getRegistereddate();
+
+            if(empty($jurisdictionRegisteredDate)){
+                $jurisdictionRegisteredDateFormatted = "";
+            }else{
+                $jurisdictionRegisteredDateFormatted = $jurisdictionRegisteredDate->format('F d, Y');
+            }
+
             $jurisdictionRegistrationNo = $jurisdiction->getRegistrationnumber();
-        }
-        if(empty($jurisdictionRegisteredDate)){
-            $jurisdictionRegisteredDateFormatted = "";
-        }else{
-            $jurisdictionRegisteredDateFormatted = $jurisdictionRegisteredDate->format('F d, Y');
+
+            $alljurisdictionName = '<w:tab/>'.$alljurisdictionName.$jurisdictionPropState.'<w:br/>';
+
+            $alljurisdictionDate = '<w:tab/>'.$alljurisdictionDate."Date Registered: ".$jurisdictionRegisteredDateFormatted.'<w:br/>';
+
+            $alljurisdictionNumber = '<w:tab/>'.$alljurisdictionNumber."Reg No.: " . $jurisdictionRegistrationNo.'<w:br/>';
         }
 
 
@@ -278,6 +289,8 @@ class CorporateSummaryController extends Controller{
         $directorCity       = "";
         $directorPropState  = "";
         $directorZipCode    = "";
+        $allDirectorName ="";
+        $allDirectorAddress ="";
         foreach($directorsObj as $director){
             $directorName       = $director->getDirectorid()->getDirectorname();
             $directorPosition   = $director->getPosition();
@@ -295,6 +308,10 @@ class CorporateSummaryController extends Controller{
                 $directorPropState = $directorPropStateObj->getDescription();
             }
             $directorZipCode    = $director->getDirectorid()->getPostalzip();
+
+            $allDirectorName = '<w:tab/>'.$allDirectorName.$directorName.'<w:br/>'.$directorPosition.'<w:br/>'.'<w:br/>';
+            $allDirectorAddress = '<w:tab/>'.$allDirectorAddress.$directorAddress." ".$directorCity.", ".$directorPropState." ".$directorZipCode.'<w:br/>'.'<w:br/>'.'<w:br/>';
+
         }
 
 
@@ -309,14 +326,25 @@ class CorporateSummaryController extends Controller{
         $membershipShareType    = "";
         $membershipDirector     = "";
         $membershipNoOfShares   = "";
+        $allmembershipShareType ="";;
+        $allmembershipDirector ="";
+        $allmembershipNoOfShares ="";
         foreach($membershipsObj as $membership){
             $membershipShareType    = $membership->getSharetypeid()->getSharetype();
             $membershipDirector     = $membership->getDirectorid()->getDirectorname();
             $membershipNoOfShares   = $membership->getNumberofshares();
+
+            $allmembershipShareType = '<w:tab/>'.$allmembershipShareType.$membershipShareType.'<w:br/>';
+
+            $allmembershipDirector = '<w:tab/>'.$allmembershipDirector.$membershipDirector.'<w:br/>';
+
+            $allmembershipNoOfShares = '<w:tab/>'.$allmembershipNoOfShares.$membershipNoOfShares.'<w:br/>';
         }
 
         /*** Name Changes ***/
         $nameChanges = $corporationObj->getNamechanges();
+
+        //print_r($allmembershipDirector);
 
         /****
          *  Write into a word file using a template
@@ -330,7 +358,7 @@ class CorporateSummaryController extends Controller{
 
 
         $document->setValue($trimmedValue['Value1'], $corporationName);
-        $document->setValue($trimmedValue['Value2'], $corporateFileNo);
+        $document->setValue($trimmedValue['Value2'], $corporateFileNumber);
 
 
         $document->setValue($trimmedValue['Value3'], $respSolicitor);
@@ -359,25 +387,25 @@ class CorporateSummaryController extends Controller{
         $document->setValue($trimmedValue['Value20'], $recordsOfficeZipCode);
 
 
-        $document->setValue($trimmedValue['Value21'], $jurisdictionPropState);
-        $document->setValue($trimmedValue['Value22'], $jurisdictionRegisteredDateFormatted);
-        $document->setValue($trimmedValue['Value23'], $jurisdictionRegistrationNo);
+        $document->setValue($trimmedValue['Value21'], $alljurisdictionName);
+        $document->setValue($trimmedValue['Value22'], $alljurisdictionDate);
+        $document->setValue($trimmedValue['Value23'], $alljurisdictionNumber);
 
 
-        $document->setValue($trimmedValue['Value24'], $directorName);
-        $document->setValue($trimmedValue['Value25'], $directorPosition);
-        $document->setValue($trimmedValue['Value26'], $directorAddress);
-        $document->setValue($trimmedValue['Value27'], $directorCity);
-        $document->setValue($trimmedValue['Value28'], $directorPropState);
-        $document->setValue($trimmedValue['Value29'], $directorZipCode);
+        $document->setValue($trimmedValue['Value24'], $allDirectorName);
+        $document->setValue($trimmedValue['Value25'], $allDirectorAddress);
+        //$document->setValue($trimmedValue['Value26'], $directorAddress);
+       // $document->setValue($trimmedValue['Value27'], $directorCity);
+        //$document->setValue($trimmedValue['Value28'], $directorPropState);
+       // $document->setValue($trimmedValue['Value29'], $directorZipCode);
 
 
         $document->setValue($trimmedValue['Value30'], $capitalStructure);
 
 
-        $document->setValue($trimmedValue['Value31'], $membershipShareType);
-        $document->setValue($trimmedValue['Value32'], $membershipDirector);
-        $document->setValue($trimmedValue['Value33'], $membershipNoOfShares);
+        $document->setValue($trimmedValue['Value31'], $allmembershipShareType);
+        $document->setValue($trimmedValue['Value32'], $allmembershipDirector);
+        $document->setValue($trimmedValue['Value33'], $allmembershipNoOfShares);
 
 
         $document->setValue($trimmedValue['Value34'], $nameChanges);

@@ -68,7 +68,9 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <p><b>LANDLORD</b></p>
+                                        <div class="col-md-12" style="background-color: #CCCCCC;">
+                                         <p style="font-size: 14px;"><b>LANDLORD</b></p>
+                                        </div>
                                             <p>{{ LandlordObj.name }}</p>
                                             <p>{{ LandlordObj.address }}</p>
                                             <p>{{ ProvinceState.provinceLandlord }}</p>
@@ -77,8 +79,10 @@
                                             <p><b>PHONE: </b>{{ LandlordObj.phone }}</p>
                                             <p><b>FAX:</b> {{ LandlordObj.fax }}</p>
                                         </div>
-                                        <div class="col-md-6">
-                                            <p><b>PROPERTY MANAGER</b></p>
+                                        <div class="col-md-6">                                
+                                        <div class="col-md-12" style="background-color: #CCCCCC;">
+                                 <p style="font-size: 14px;"><b>PROPERTY MANAGER</b></p>
+                                </div>
                                             <p>{{ PropertymanagerObj.name }}</p>
                                             <p>{{ PropertymanagerObj.address }}</p>
                                             <p>{{ ProvinceState.propertyCity }}, {{ ProvinceState.provinceProperty }}</p>
@@ -93,11 +97,9 @@
                             <div class="separator"></div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p><b>STORE INFO</b></p>
+                                <div class="col-md-12" style="background-color: #CCCCCC;">
+                                    <p style="font-size: 14px;"><b>STORE INFORMATION</b></p>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <p><b>TENANT:</b> {{ RestaurantObj.tenant }}</p>
@@ -123,7 +125,9 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <p><b>BUILDING INFO </b></p>
+                                        <div class="col-md-12" style="background-color: #CCCCCC;">
+                                         <p style="font-size: 14px;"><b>BUILDING INFORMATION</b></p>
+                                        </div>
                                             <p><b>Building Type: </b> {{ restaurant.buildingtype }}</p>
                                             <p><b>Store Class: </b> {{ restaurant.storeclass }}</p>
                                             <table style="text-align: center;" cellpadding="5">
@@ -155,7 +159,9 @@
                                             </table>
                                         </div>
                                         <div class="col-md-6">
-                                            <p><b>AREA BREAKDOWN </b></p>
+                                        <div class="col-md-12" style="background-color: #CCCCCC;">
+                                        <p style="font-size: 14px;"><b>AREA BREAKDOWN</b></p>
+                                        </div>
                                             <p><b>Square Feet: </b></p>
                                             <table cellpadding="5">
                                                 <tr>
@@ -190,14 +196,18 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <p><b>RISK INFO </b></p>
+                                        <div class="col-md-12" style="background-color: #CCCCCC;">
+                                        <p style="font-size: 14px;"><b>RISK INFORMATION</b></p>
+                                        </div>
                                             <p><b>Buidling Type: </b>{{ risk.constructiontypes }}</p>
                                             <p><b>Building Insured by:</b>{{ risk.insuredby }}</p>
                                             <p><b>Rent Abatement:</b>{{ RiskinfoObj.rentabatement }}</p>
                                             <p><b>Exterior Maintenance:</b>{{ RiskinfoObj.exteriormaintenance }}</p>
                                         </div>
                                         <div class="col-md-6">
-                                            <p><b>RENT AND MAINTENANCE</b></p>
+                                        <div class="col-md-12" style="background-color: #CCCCCC;">
+                                        <p style="font-size: 14px;"><b>RENT AND MAINTENANCE</b></p>
+                                        </div>
                                             <p><b>HVAC Repair: </b>{{ rentAndMaintenance.hvacRepair }}</p>
                                             <p><b>HVAC Replace: </b>{{ rentAndMaintenance.hvacReplace }}</p>
                                             <p><b>Roof Repair: </b> {{ rentAndMaintenance.roofRepair }}</p>
@@ -209,7 +219,9 @@
                             <div class="separator"></div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p><b>UTILITIES</b></p>
+                                    <div class="col-md-12" style="background-color: #CCCCCC;">
+                                        <p style="font-size: 14px;"><b>UTILITIES</b></p>
+                                        </div>
                                     <table cellpadding="8">
                                         <tr>
                                             <td>Utility Type:</td>
@@ -248,7 +260,9 @@
                         <div class="tab-pane fade" id="page2">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p><b>LEASE INFORMATION </b></p>
+                                    <div class="col-md-12" style="background-color: #CCCCCC;">
+                                        <p style="font-size: 14px;"><b>LEASE INFORMATION</b></p>
+                                    </div>
                                     <table cellpadding="10">
                                         <tr>
                                             <td>Lease Type:</td>
@@ -282,7 +296,9 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <p><b>RENEWAL INFORMATION</b></p>
+                                        <div class="col-md-12" style="background-color: #CCCCCC;">
+                                        <p style="font-size: 14px;"><b>RENEWAL INFORMATION</b></p>
+                                        </div>
                                             <table cellpadding="10">
                                                 <tr>
                                                     <td><b>Renewal Option Date:</b></td>
@@ -295,7 +311,9 @@
                                             </table>
                                         </div>
                                         <div class="col-md-6">
-                                            <p><b>RENEWAL RATE</b></p>
+                                        <div class="col-md-12" style="background-color: #CCCCCC;">
+                                        <p style="font-size: 14px;"><b>RENEWAL RATE</b></p>
+                                        </div>
                                             <table cellpadding="10">
                                                 {% for Renewal in RenewalObj %}
                                                         <tr>
@@ -317,7 +335,9 @@
                             <div class="separator"></div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p><b>REPORT INFORMATION</b></p>
+                                    <div class="col-md-12" style="background-color: #CCCCCC;">
+                                        <p style="font-size: 14px;"><b>REPORT INFORMATION</b></p>
+                                        </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <p><b>Reporting Period: </b> {{ LeaseReport.periodType }}</p>
@@ -334,7 +354,9 @@
                             <div class="separator"></div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p><b>SPECIAL TERMS AND CONDITION</b></p>
+                                        <div class="col-md-12" style="background-color: #CCCCCC;">
+                                        <p style="font-size: 14px;"><b>SPECIAL TERMS AND CONDITION</b></p>
+                                        </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <p><b>Exclusive Use: </b> {{ leaseObj.exclusiveuse }}</p>
@@ -358,7 +380,9 @@
                             <div class="separator"></div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <p><b>CRITICAL ISSUES </b></p>
+                                    <div class="col-md-12" style="background-color: #CCCCCC;">
+                                        <p style="font-size: 14px;"><b>CRITICAL ISSUES</b></p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
